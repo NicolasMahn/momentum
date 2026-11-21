@@ -2,7 +2,8 @@ name: Closed test
 
 # Every merge to `main` goes to Google Play's closed test by itself: the signed bundle is built
 # here, uploaded, and sent for Google's review. A merge that changes documents only builds the
-# same app again, so it is left out. Only the Markdown at the top counts as a document: the privacy
+# same app again, so it is left out, like one that changes only the agent skills or the script
+# tests. Markdown counts as a document only in the repository root and under docs/: the privacy
 # policy and the legal notice are Markdown too, and they ship inside the app.
 on:
   push:
