@@ -1,6 +1,6 @@
 # Datenschutzerklärung für Momentum
 
-Stand: 2026-11-15.
+Stand: 2026-11-21.
 
 Momentum ist eine Android-App von Nicolas Mahn, einem privaten Entwickler in Deutschland.
 Kontakt für Fragen zum Datenschutz: momentum@nicolas-mahn.de
@@ -26,7 +26,7 @@ Die Daten liegen im privaten Speicher der App. Andere Apps können ihn nicht les
 
 ## Wann eine Kopie die App verlässt
 
-**1. Sicherungen in einem Ordner deiner Wahl.** Unter Einstellungen, Sicherungen, kannst du einen lokalen Ordner auf deinem Handy wählen. Momentum legt dort Kopien aller Einträge und Einstellungen als `.momentum.json`-Dateien ab. Diese Dateien sind lesbarer Text und nicht verschlüsselt. Jeder Mensch und jede App mit Zugriff auf den Ordner kann sie lesen. Sie bleiben auf dem Handy, wenn du Momentum deinstallierst, und Momentum löscht ältere Sicherungen nie. Du kannst sie kopieren, verschieben oder löschen. Ohne gewählten Ordner gibt es solche Dateien nicht.
+**1. Sicherungen in einem Ordner deiner Wahl.** Unter Einstellungen, Sicherungen, kannst du einen lokalen Ordner auf deinem Handy wählen. Momentum legt dort Kopien aller Einträge und Einstellungen als `.momentum.json`-Dateien ab. Diese Dateien sind lesbarer Text und nicht verschlüsselt. Jeder Mensch und jede App mit Zugriff auf den Ordner kann sie lesen. Sie bleiben auf dem Handy, wenn du Momentum deinstallierst. Damit sie sich nicht ansammeln, entfernt Momentum Sicherungen, die es früher geschrieben hat. Es behält immer die zwei neuesten, die letzte von jedem der letzten 7 Tage mit einer Sicherung und die letzte aus jedem der letzten 3 Monate mit einer Sicherung. Tage und Monate zählen in UTC. Auch andere Sicherungsdateien können bleiben, zum Beispiel solche, die Momentum geschrieben hat, bevor es diese Regel gab, oder aus der Zeit vor einem Ordnerwechsel. Die aus der Zeit vor der Regel entfernt Momentum nach ihr nur, wenn du unter Einstellungen, Sicherungen, „Aufräumen“ bestätigst. Du kannst die Dateien kopieren, verschieben oder löschen. Ohne gewählten Ordner gibt es solche Dateien nicht.
 
 **2. Die Sicherung von Android und der Umzug auf ein neues Handy.** Android kann App-Daten in deinem Google-Konto sichern und auf ein neues Handy übertragen. Momentum macht dabei mit, wie die meisten Apps. Ist die Sicherung in den Einstellungen deines Handys eingeschaltet, kopiert Android die Einträge und Einstellungen von Momentum (derselbe Inhalt wie oben) in dein Google-Konto. Ab Android 12 lässt Momentum diese Kopie in der Cloud nur zu, wenn Android sie mit deiner Bildschirmsperre verschlüsseln kann. Bis Android 11 richtet sich die Kopie nach der Sicherungs-Einstellung deines Handys; Ende-zu-Ende-verschlüsselt ist sie erst ab Android 9 und nur, wenn du eine Bildschirmsperre eingerichtet hast. Diese Kopie liegt bei Google in deinem Konto, zu den Bedingungen von Google. Ich kann sie nicht sehen. Ausschalten kannst du das in den Einstellungen deines Handys unter System, Sicherung; löschen kannst du die Kopie in deinem Google-Konto.
 
