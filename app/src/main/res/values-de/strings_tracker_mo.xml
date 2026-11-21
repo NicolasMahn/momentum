@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mo_tracker_ache">Wartet noch: %1$s.</string>
+    <string name="mo_tracker_token_earned">Abgeschlossene Tage haben diese Marke für %1$s verdient. Sie deckt ein Versäumnis ab.</string>
+    <plurals name="mo_tracker_token_logged_days">
+        <item quantity="one">%d erfasster Tag letzte Woche hat sie verdient. Sie deckt ein Versäumnis ab.</item>
+        <item quantity="other">%d erfasste Tage letzte Woche haben sie verdient. Sie deckt ein Versäumnis ab.</item>
+    </plurals>
+    <plurals name="mo_tracker_token_kept_days">
+        <item quantity="one">%d abgeschlossener Tag hat sie verdient. Sie deckt ein Versäumnis ab.</item>
+        <item quantity="other">%d abgeschlossene Tage haben sie verdient. Sie deckt ein Versäumnis ab.</item>
+    </plurals>
+    <plurals name="mo_tracker_token_week_minutes">
+        <item quantity="one">%d erfasste Minute letzte Woche hat sie verdient. Sie deckt ein Versäumnis ab.</item>
+        <item quantity="other">%d erfasste Minuten letzte Woche haben sie verdient. Sie deckt ein Versäumnis ab.</item>
+    </plurals>
+    <plurals name="mo_tracker_minutes_remaining">
+        <item quantity="one">%1$s: Diese Woche fehlt noch %2$d Minute.</item>
+        <item quantity="other">%1$s: Diese Woche fehlen noch %2$d Minuten.</item>
+    </plurals>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_back">Zurück</string>
+    <string name="app_workout_saved">Training gespeichert</string>
+    <string name="app_workout_finished">Training beendet</string>
+
+    <string name="app_home_task_done">Heute erledigt</string>
+    <string name="app_home_task_parts_done">%1$d von %2$d heute erledigt</string>
+    <string name="app_home_task_optional">Heute offen, ein freier Tag würde es abdecken</string>
+    <string name="app_home_task_open">Heute noch offen</string>
+    <string name="app_home_task_kept">Heute geschafft</string>
+    <string name="app_home_task_rest">Heute Ruhetag</string>
+    <string name="app_home_task_covered">Ein Token deckt heute ab</string>
+
+    <string name="app_unreadable_records_message">Momentum konnte deine Einträge nicht lesen und zeigt oder ändert sie deshalb nicht. Sie sind unverändert gespeichert. Versuch es noch einmal oder stell eine Sicherung wieder her.</string>
+    <string name="app_unreadable_records_retry">Erneut versuchen</string>
+    <string name="app_open_failed_message">Momentum konnte deine Einträge nicht sicher öffnen. Deine Wiederherstellungsdateien wurden aufbewahrt. Gib bei Bedarf Speicher frei und versuch es dann noch einmal.</string>
+    <string name="app_open_failed_retry">Einträge erneut öffnen</string>
+</resources>

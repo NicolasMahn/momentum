@@ -1,0 +1,446 @@
+== several records of one day, two at the same time
+records [MeasurementRecord(dateKey=2026-10-08, timestampMillis=5, value=70.0), MeasurementRecord(dateKey=2026-10-08, timestampMillis=9, value=82.0), MeasurementRecord(dateKey=2026-10-08, timestampMillis=9, value=85.0), MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0), MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0)]
+draft 2026-10-05 en MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-05 de MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 en MeasurementDraft(dateKey=2026-10-06, valueText=78, initialValueText=78, originalLog=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0))
+draft 2026-10-06 de MeasurementDraft(dateKey=2026-10-06, valueText=78, initialValueText=78, originalLog=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0))
+draft 2026-10-07 en MeasurementDraft(dateKey=2026-10-07, valueText=80, initialValueText=80, originalLog=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0))
+draft 2026-10-07 de MeasurementDraft(dateKey=2026-10-07, valueText=80, initialValueText=80, originalLog=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0))
+draft 2026-10-08 en MeasurementDraft(dateKey=2026-10-08, valueText=82, initialValueText=82, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=9, value=82.0))
+draft 2026-10-08 de MeasurementDraft(dateKey=2026-10-08, valueText=82, initialValueText=82, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=9, value=82.0))
+draft 2026-10-09 en MeasurementDraft(dateKey=2026-10-09, valueText=82, initialValueText=82, originalLog=null)
+draft 2026-10-09 de MeasurementDraft(dateKey=2026-10-09, valueText=82, initialValueText=82, originalLog=null)
+draft 2026-10-12 en MeasurementDraft(dateKey=2026-10-12, valueText=82, initialValueText=82, originalLog=null)
+draft 2026-10-12 de MeasurementDraft(dateKey=2026-10-12, valueText=82, initialValueText=82, originalLog=null)
+window FourWeeks days=28 from=2026-09-12 to=2026-10-09 smoothed=true
+  day MeasurementHistoryDay(dateKey=2026-10-06, dayIndex=24, log=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0), trendValue=78.0)
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=25, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0), trendValue=78.18181818181819)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=9, value=82.0), trendValue=78.52892561983471)
+  day MeasurementHistoryDay(dateKey=2026-10-09, dayIndex=27, log=null, trendValue=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-06, dayIndex=24, value=78.0)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=25, value=78.18181818181819)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=78.52892561983471)
+  axis MeasurementChartAxis(minimum=77.4, maximum=82.6, guidesDescending=[82.0, 80.0, 78.0]) over 27 days
+  guides en [82, 80, 78] de [82, 80, 78]
+  point MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.8846153846153855)
+  point MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495)
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.8846153846153855), firstControl=MeasurementChartPoint(xFraction=0.9012345679012346, yFraction=0.8729603729603734), secondControl=MeasurementChartPoint(xFraction=0.9135802469135802, yFraction=0.866603093875821), end=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495), firstControl=MeasurementChartPoint(xFraction=0.9382716049382716, yFraction=0.832697605424878), secondControl=MeasurementChartPoint(xFraction=0.9506172839506173, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.7828989192625566), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566))
+  run estimated=false segments=3
+window ThreeMonths days=91 from=2026-07-11 to=2026-10-09 smoothed=true
+  day MeasurementHistoryDay(dateKey=2026-10-06, dayIndex=87, log=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0), trendValue=78.0)
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=88, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0), trendValue=78.18181818181819)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=89, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=9, value=82.0), trendValue=78.52892561983471)
+  day MeasurementHistoryDay(dateKey=2026-10-09, dayIndex=90, log=null, trendValue=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-06, dayIndex=87, value=78.0)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=88, value=78.18181818181819)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=89, value=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=90, value=78.52892561983471)
+  axis MeasurementChartAxis(minimum=77.4, maximum=82.6, guidesDescending=[82.0, 80.0, 78.0]) over 90 days
+  guides en [82, 80, 78] de [82, 80, 78]
+  point MeasurementChartPoint(xFraction=0.9666666666666667, yFraction=0.8846153846153855)
+  point MeasurementChartPoint(xFraction=0.9777777777777777, yFraction=0.8496503496503495)
+  point MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.7828989192625566)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9666666666666667, yFraction=0.8846153846153855), firstControl=MeasurementChartPoint(xFraction=0.9703703703703703, yFraction=0.8729603729603734), secondControl=MeasurementChartPoint(xFraction=0.9740740740740741, yFraction=0.8666030938758208), end=MeasurementChartPoint(xFraction=0.9777777777777777, yFraction=0.8496503496503495))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9777777777777777, yFraction=0.8496503496503495), firstControl=MeasurementChartPoint(xFraction=0.9814814814814815, yFraction=0.8326976054248779), secondControl=MeasurementChartPoint(xFraction=0.9851851851851852, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.7828989192625566))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.7828989192625566), firstControl=MeasurementChartPoint(xFraction=0.9925925925925926, yFraction=0.7828989192625566), secondControl=MeasurementChartPoint(xFraction=0.9962962962962963, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566))
+  run estimated=false segments=3
+window All days=28 from=2026-09-12 to=2026-10-09 smoothed=true
+  day MeasurementHistoryDay(dateKey=2026-10-06, dayIndex=24, log=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0), trendValue=78.0)
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=25, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0), trendValue=78.18181818181819)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=9, value=82.0), trendValue=78.52892561983471)
+  day MeasurementHistoryDay(dateKey=2026-10-09, dayIndex=27, log=null, trendValue=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-06, dayIndex=24, value=78.0)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=25, value=78.18181818181819)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=78.52892561983471)
+  axis MeasurementChartAxis(minimum=77.4, maximum=82.6, guidesDescending=[82.0, 80.0, 78.0]) over 27 days
+  guides en [82, 80, 78] de [82, 80, 78]
+  point MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.8846153846153855)
+  point MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495)
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.8846153846153855), firstControl=MeasurementChartPoint(xFraction=0.9012345679012346, yFraction=0.8729603729603734), secondControl=MeasurementChartPoint(xFraction=0.9135802469135802, yFraction=0.866603093875821), end=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495), firstControl=MeasurementChartPoint(xFraction=0.9382716049382716, yFraction=0.832697605424878), secondControl=MeasurementChartPoint(xFraction=0.9506172839506173, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.7828989192625566), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566))
+  run estimated=false segments=3
+
+== two identical records
+records [MeasurementRecord(dateKey=2026-10-08, timestampMillis=7, value=81.5), MeasurementRecord(dateKey=2026-10-08, timestampMillis=7, value=81.5)]
+draft 2026-10-05 en MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-05 de MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 en MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 de MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-07 en MeasurementDraft(dateKey=2026-10-07, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-07 de MeasurementDraft(dateKey=2026-10-07, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-08 en MeasurementDraft(dateKey=2026-10-08, valueText=81.5, initialValueText=81.5, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=7, value=81.5))
+draft 2026-10-08 de MeasurementDraft(dateKey=2026-10-08, valueText=81,5, initialValueText=81,5, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=7, value=81.5))
+draft 2026-10-09 en MeasurementDraft(dateKey=2026-10-09, valueText=81.5, initialValueText=81.5, originalLog=null)
+draft 2026-10-09 de MeasurementDraft(dateKey=2026-10-09, valueText=81,5, initialValueText=81,5, originalLog=null)
+draft 2026-10-12 en MeasurementDraft(dateKey=2026-10-12, valueText=81.5, initialValueText=81.5, originalLog=null)
+draft 2026-10-12 de MeasurementDraft(dateKey=2026-10-12, valueText=81,5, initialValueText=81,5, originalLog=null)
+window FourWeeks days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=7, value=81.5), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=81.5)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=81.5)
+  axis MeasurementChartAxis(minimum=81.0, maximum=82.0, guidesDescending=[81.5]) over 27 days
+  guides en [81.5] de [81,5]
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.5)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.5)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.5), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.5), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.5), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.5))
+  run estimated=false segments=1
+window ThreeMonths days=91 from=2026-07-11 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=89, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=7, value=81.5), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=89, value=81.5)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=90, value=81.5)
+  axis MeasurementChartAxis(minimum=81.0, maximum=82.0, guidesDescending=[81.5]) over 90 days
+  guides en [81.5] de [81,5]
+  point MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.5)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.5)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.5), firstControl=MeasurementChartPoint(xFraction=0.9925925925925926, yFraction=0.5), secondControl=MeasurementChartPoint(xFraction=0.9962962962962963, yFraction=0.5), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.5))
+  run estimated=false segments=1
+window All days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=7, value=81.5), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=81.5)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=81.5)
+  axis MeasurementChartAxis(minimum=81.0, maximum=82.0, guidesDescending=[81.5]) over 27 days
+  guides en [81.5] de [81,5]
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.5)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.5)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.5), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.5), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.5), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.5))
+  run estimated=false segments=1
+
+== a record without a time
+records [MeasurementRecord(dateKey=2026-10-08, timestampMillis=0, value=81.5), MeasurementRecord(dateKey=2026-10-08, timestampMillis=4, value=79.0), MeasurementRecord(dateKey=2026-10-07, timestampMillis=0, value=80.0)]
+draft 2026-10-05 en MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-05 de MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 en MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 de MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-07 en MeasurementDraft(dateKey=2026-10-07, valueText=80, initialValueText=80, originalLog=MeasurementRecord(dateKey=2026-10-07, timestampMillis=0, value=80.0))
+draft 2026-10-07 de MeasurementDraft(dateKey=2026-10-07, valueText=80, initialValueText=80, originalLog=MeasurementRecord(dateKey=2026-10-07, timestampMillis=0, value=80.0))
+draft 2026-10-08 en MeasurementDraft(dateKey=2026-10-08, valueText=79, initialValueText=79, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=4, value=79.0))
+draft 2026-10-08 de MeasurementDraft(dateKey=2026-10-08, valueText=79, initialValueText=79, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=4, value=79.0))
+draft 2026-10-09 en MeasurementDraft(dateKey=2026-10-09, valueText=79, initialValueText=79, originalLog=null)
+draft 2026-10-09 de MeasurementDraft(dateKey=2026-10-09, valueText=79, initialValueText=79, originalLog=null)
+draft 2026-10-12 en MeasurementDraft(dateKey=2026-10-12, valueText=79, initialValueText=79, originalLog=null)
+draft 2026-10-12 de MeasurementDraft(dateKey=2026-10-12, valueText=79, initialValueText=79, originalLog=null)
+window FourWeeks days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=25, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=0, value=80.0), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=4, value=79.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=25, value=80.0)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=79.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=79.0)
+  axis MeasurementChartAxis(minimum=78.5, maximum=80.5, guidesDescending=[80.0, 79.5, 79.0]) over 27 days
+  guides en [80, 79.5, 79] de [80, 79,5, 79]
+  point MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.25)
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.75)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.75)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.25), firstControl=MeasurementChartPoint(xFraction=0.9382716049382716, yFraction=0.41666666666666663), secondControl=MeasurementChartPoint(xFraction=0.9506172839506173, yFraction=0.75), end=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.75))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.75), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.75), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.75), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.75))
+  run estimated=false segments=2
+window ThreeMonths days=91 from=2026-07-11 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=88, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=0, value=80.0), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=89, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=4, value=79.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=88, value=80.0)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=89, value=79.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=90, value=79.0)
+  axis MeasurementChartAxis(minimum=78.5, maximum=80.5, guidesDescending=[80.0, 79.5, 79.0]) over 90 days
+  guides en [80, 79.5, 79] de [80, 79,5, 79]
+  point MeasurementChartPoint(xFraction=0.9777777777777777, yFraction=0.25)
+  point MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.75)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.75)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9777777777777777, yFraction=0.25), firstControl=MeasurementChartPoint(xFraction=0.9814814814814815, yFraction=0.41666666666666663), secondControl=MeasurementChartPoint(xFraction=0.9851851851851852, yFraction=0.75), end=MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.75))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.75), firstControl=MeasurementChartPoint(xFraction=0.9925925925925926, yFraction=0.75), secondControl=MeasurementChartPoint(xFraction=0.9962962962962963, yFraction=0.75), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.75))
+  run estimated=false segments=2
+window All days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=25, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=0, value=80.0), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=4, value=79.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=25, value=80.0)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=79.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=79.0)
+  axis MeasurementChartAxis(minimum=78.5, maximum=80.5, guidesDescending=[80.0, 79.5, 79.0]) over 27 days
+  guides en [80, 79.5, 79] de [80, 79,5, 79]
+  point MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.25)
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.75)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.75)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.25), firstControl=MeasurementChartPoint(xFraction=0.9382716049382716, yFraction=0.41666666666666663), secondControl=MeasurementChartPoint(xFraction=0.9506172839506173, yFraction=0.75), end=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.75))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.75), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.75), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.75), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.75))
+  run estimated=false segments=2
+
+== a value of zero and one below
+records [MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=0.0), MeasurementRecord(dateKey=2026-10-08, timestampMillis=2, value=81.0), MeasurementRecord(dateKey=2026-10-07, timestampMillis=1, value=-1.5), MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=80.0)]
+draft 2026-10-05 en MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-05 de MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 en MeasurementDraft(dateKey=2026-10-06, valueText=80, initialValueText=80, originalLog=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=80.0))
+draft 2026-10-06 de MeasurementDraft(dateKey=2026-10-06, valueText=80, initialValueText=80, originalLog=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=80.0))
+draft 2026-10-07 en MeasurementDraft(dateKey=2026-10-07, valueText=-1.5, initialValueText=-1.5, originalLog=MeasurementRecord(dateKey=2026-10-07, timestampMillis=1, value=-1.5))
+draft 2026-10-07 de MeasurementDraft(dateKey=2026-10-07, valueText=-1,5, initialValueText=-1,5, originalLog=MeasurementRecord(dateKey=2026-10-07, timestampMillis=1, value=-1.5))
+draft 2026-10-08 en MeasurementDraft(dateKey=2026-10-08, valueText=0, initialValueText=0, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=0.0))
+draft 2026-10-08 de MeasurementDraft(dateKey=2026-10-08, valueText=0, initialValueText=0, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=0.0))
+draft 2026-10-09 en MeasurementDraft(dateKey=2026-10-09, valueText=0, initialValueText=0, originalLog=null)
+draft 2026-10-09 de MeasurementDraft(dateKey=2026-10-09, valueText=0, initialValueText=0, originalLog=null)
+draft 2026-10-12 en MeasurementDraft(dateKey=2026-10-12, valueText=0, initialValueText=0, originalLog=null)
+draft 2026-10-12 de MeasurementDraft(dateKey=2026-10-12, valueText=0, initialValueText=0, originalLog=null)
+window FourWeeks days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-06, dayIndex=24, log=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=80.0), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=25, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=1, value=-1.5), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=0.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-06, dayIndex=24, value=80.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=80.0)
+  axis MeasurementChartAxis(minimum=-13.725, maximum=92.225, guidesDescending=[50.0, 0.0]) over 27 days
+  guides en [50, 0] de [50, 0]
+  point MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.11538461538461535)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.11538461538461535)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.11538461538461535), firstControl=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.11538461538461535), secondControl=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.11538461538461535), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.11538461538461535))
+  run estimated=false segments=1
+window ThreeMonths days=91 from=2026-07-11 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-06, dayIndex=87, log=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=80.0), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=88, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=1, value=-1.5), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=89, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=0.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-06, dayIndex=87, value=80.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=90, value=80.0)
+  axis MeasurementChartAxis(minimum=-13.725, maximum=92.225, guidesDescending=[50.0, 0.0]) over 90 days
+  guides en [50, 0] de [50, 0]
+  point MeasurementChartPoint(xFraction=0.9666666666666667, yFraction=0.11538461538461535)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.11538461538461535)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9666666666666667, yFraction=0.11538461538461535), firstControl=MeasurementChartPoint(xFraction=0.9777777777777777, yFraction=0.11538461538461535), secondControl=MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.11538461538461535), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.11538461538461535))
+  run estimated=false segments=1
+window All days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-06, dayIndex=24, log=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=80.0), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=25, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=1, value=-1.5), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=0.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-06, dayIndex=24, value=80.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=80.0)
+  axis MeasurementChartAxis(minimum=-13.725, maximum=92.225, guidesDescending=[50.0, 0.0]) over 27 days
+  guides en [50, 0] de [50, 0]
+  point MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.11538461538461535)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.11538461538461535)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.11538461538461535), firstControl=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.11538461538461535), secondControl=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.11538461538461535), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.11538461538461535))
+  run estimated=false segments=1
+
+== a date in the future
+records [MeasurementRecord(dateKey=2026-10-12, timestampMillis=6, value=90.0), MeasurementRecord(dateKey=2026-10-08, timestampMillis=1, value=80.0)]
+draft 2026-10-05 en MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-05 de MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 en MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 de MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-07 en MeasurementDraft(dateKey=2026-10-07, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-07 de MeasurementDraft(dateKey=2026-10-07, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-08 en MeasurementDraft(dateKey=2026-10-08, valueText=80, initialValueText=80, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=1, value=80.0))
+draft 2026-10-08 de MeasurementDraft(dateKey=2026-10-08, valueText=80, initialValueText=80, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=1, value=80.0))
+draft 2026-10-09 en MeasurementDraft(dateKey=2026-10-09, valueText=80, initialValueText=80, originalLog=null)
+draft 2026-10-09 de MeasurementDraft(dateKey=2026-10-09, valueText=80, initialValueText=80, originalLog=null)
+draft 2026-10-12 en MeasurementDraft(dateKey=2026-10-12, valueText=90, initialValueText=90, originalLog=MeasurementRecord(dateKey=2026-10-12, timestampMillis=6, value=90.0))
+draft 2026-10-12 de MeasurementDraft(dateKey=2026-10-12, valueText=90, initialValueText=90, originalLog=MeasurementRecord(dateKey=2026-10-12, timestampMillis=6, value=90.0))
+window FourWeeks days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=1, value=80.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=80.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=80.0)
+  axis MeasurementChartAxis(minimum=79.5, maximum=80.5, guidesDescending=[80.0]) over 27 days
+  guides en [80] de [80]
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.5)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.5)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.5), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.5), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.5), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.5))
+  run estimated=false segments=1
+window ThreeMonths days=91 from=2026-07-11 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=89, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=1, value=80.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=89, value=80.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=90, value=80.0)
+  axis MeasurementChartAxis(minimum=79.5, maximum=80.5, guidesDescending=[80.0]) over 90 days
+  guides en [80] de [80]
+  point MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.5)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.5)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.5), firstControl=MeasurementChartPoint(xFraction=0.9925925925925926, yFraction=0.5), secondControl=MeasurementChartPoint(xFraction=0.9962962962962963, yFraction=0.5), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.5))
+  run estimated=false segments=1
+window All days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=1, value=80.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=80.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=80.0)
+  axis MeasurementChartAxis(minimum=79.5, maximum=80.5, guidesDescending=[80.0]) over 27 days
+  guides en [80] de [80]
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.5)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.5)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.5), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.5), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.5), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.5))
+  run estimated=false segments=1
+
+== only a date in the future
+records [MeasurementRecord(dateKey=2026-10-12, timestampMillis=6, value=90.0)]
+draft 2026-10-05 en MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-05 de MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 en MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 de MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-07 en MeasurementDraft(dateKey=2026-10-07, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-07 de MeasurementDraft(dateKey=2026-10-07, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-08 en MeasurementDraft(dateKey=2026-10-08, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-08 de MeasurementDraft(dateKey=2026-10-08, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-09 en MeasurementDraft(dateKey=2026-10-09, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-09 de MeasurementDraft(dateKey=2026-10-09, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-12 en MeasurementDraft(dateKey=2026-10-12, valueText=90, initialValueText=90, originalLog=MeasurementRecord(dateKey=2026-10-12, timestampMillis=6, value=90.0))
+draft 2026-10-12 de MeasurementDraft(dateKey=2026-10-12, valueText=90, initialValueText=90, originalLog=MeasurementRecord(dateKey=2026-10-12, timestampMillis=6, value=90.0))
+window FourWeeks days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  axis MeasurementChartAxis(minimum=0.0, maximum=1.0, guidesDescending=[]) over 27 days
+  guides en [] de []
+window ThreeMonths days=91 from=2026-07-11 to=2026-10-09 smoothed=false
+  axis MeasurementChartAxis(minimum=0.0, maximum=1.0, guidesDescending=[]) over 90 days
+  guides en [] de []
+window All days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  axis MeasurementChartAxis(minimum=0.0, maximum=1.0, guidesDescending=[]) over 27 days
+  guides en [] de []
+
+== records stored out of date order
+records [MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0), MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=84.0), MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0), MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0)]
+draft 2026-10-05 en MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-05 de MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 en MeasurementDraft(dateKey=2026-10-06, valueText=78, initialValueText=78, originalLog=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0))
+draft 2026-10-06 de MeasurementDraft(dateKey=2026-10-06, valueText=78, initialValueText=78, originalLog=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0))
+draft 2026-10-07 en MeasurementDraft(dateKey=2026-10-07, valueText=80, initialValueText=80, originalLog=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0))
+draft 2026-10-07 de MeasurementDraft(dateKey=2026-10-07, valueText=80, initialValueText=80, originalLog=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0))
+draft 2026-10-08 en MeasurementDraft(dateKey=2026-10-08, valueText=82, initialValueText=82, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0))
+draft 2026-10-08 de MeasurementDraft(dateKey=2026-10-08, valueText=82, initialValueText=82, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0))
+draft 2026-10-09 en MeasurementDraft(dateKey=2026-10-09, valueText=82, initialValueText=82, originalLog=null)
+draft 2026-10-09 de MeasurementDraft(dateKey=2026-10-09, valueText=82, initialValueText=82, originalLog=null)
+draft 2026-10-12 en MeasurementDraft(dateKey=2026-10-12, valueText=82, initialValueText=82, originalLog=null)
+draft 2026-10-12 de MeasurementDraft(dateKey=2026-10-12, valueText=82, initialValueText=82, originalLog=null)
+window FourWeeks days=28 from=2026-09-12 to=2026-10-09 smoothed=true
+  day MeasurementHistoryDay(dateKey=2026-10-06, dayIndex=24, log=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0), trendValue=78.0)
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=25, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0), trendValue=78.18181818181819)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0), trendValue=78.52892561983471)
+  day MeasurementHistoryDay(dateKey=2026-10-09, dayIndex=27, log=null, trendValue=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-06, dayIndex=24, value=78.0)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=25, value=78.18181818181819)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=78.52892561983471)
+  axis MeasurementChartAxis(minimum=77.4, maximum=82.6, guidesDescending=[82.0, 80.0, 78.0]) over 27 days
+  guides en [82, 80, 78] de [82, 80, 78]
+  point MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.8846153846153855)
+  point MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495)
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.8846153846153855), firstControl=MeasurementChartPoint(xFraction=0.9012345679012346, yFraction=0.8729603729603734), secondControl=MeasurementChartPoint(xFraction=0.9135802469135802, yFraction=0.866603093875821), end=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495), firstControl=MeasurementChartPoint(xFraction=0.9382716049382716, yFraction=0.832697605424878), secondControl=MeasurementChartPoint(xFraction=0.9506172839506173, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.7828989192625566), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566))
+  run estimated=false segments=3
+window ThreeMonths days=91 from=2026-07-11 to=2026-10-09 smoothed=true
+  day MeasurementHistoryDay(dateKey=2026-10-06, dayIndex=87, log=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0), trendValue=78.0)
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=88, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0), trendValue=78.18181818181819)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=89, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0), trendValue=78.52892561983471)
+  day MeasurementHistoryDay(dateKey=2026-10-09, dayIndex=90, log=null, trendValue=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-06, dayIndex=87, value=78.0)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=88, value=78.18181818181819)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=89, value=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=90, value=78.52892561983471)
+  axis MeasurementChartAxis(minimum=77.4, maximum=82.6, guidesDescending=[82.0, 80.0, 78.0]) over 90 days
+  guides en [82, 80, 78] de [82, 80, 78]
+  point MeasurementChartPoint(xFraction=0.9666666666666667, yFraction=0.8846153846153855)
+  point MeasurementChartPoint(xFraction=0.9777777777777777, yFraction=0.8496503496503495)
+  point MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.7828989192625566)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9666666666666667, yFraction=0.8846153846153855), firstControl=MeasurementChartPoint(xFraction=0.9703703703703703, yFraction=0.8729603729603734), secondControl=MeasurementChartPoint(xFraction=0.9740740740740741, yFraction=0.8666030938758208), end=MeasurementChartPoint(xFraction=0.9777777777777777, yFraction=0.8496503496503495))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9777777777777777, yFraction=0.8496503496503495), firstControl=MeasurementChartPoint(xFraction=0.9814814814814815, yFraction=0.8326976054248779), secondControl=MeasurementChartPoint(xFraction=0.9851851851851852, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.7828989192625566))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.7828989192625566), firstControl=MeasurementChartPoint(xFraction=0.9925925925925926, yFraction=0.7828989192625566), secondControl=MeasurementChartPoint(xFraction=0.9962962962962963, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566))
+  run estimated=false segments=3
+window All days=28 from=2026-09-12 to=2026-10-09 smoothed=true
+  day MeasurementHistoryDay(dateKey=2026-10-06, dayIndex=24, log=MeasurementRecord(dateKey=2026-10-06, timestampMillis=1, value=78.0), trendValue=78.0)
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=25, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.0), trendValue=78.18181818181819)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0), trendValue=78.52892561983471)
+  day MeasurementHistoryDay(dateKey=2026-10-09, dayIndex=27, log=null, trendValue=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-06, dayIndex=24, value=78.0)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=25, value=78.18181818181819)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=78.52892561983471)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=78.52892561983471)
+  axis MeasurementChartAxis(minimum=77.4, maximum=82.6, guidesDescending=[82.0, 80.0, 78.0]) over 27 days
+  guides en [82, 80, 78] de [82, 80, 78]
+  point MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.8846153846153855)
+  point MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495)
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.8888888888888888, yFraction=0.8846153846153855), firstControl=MeasurementChartPoint(xFraction=0.9012345679012346, yFraction=0.8729603729603734), secondControl=MeasurementChartPoint(xFraction=0.9135802469135802, yFraction=0.866603093875821), end=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8496503496503495), firstControl=MeasurementChartPoint(xFraction=0.9382716049382716, yFraction=0.832697605424878), secondControl=MeasurementChartPoint(xFraction=0.9506172839506173, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.7828989192625566), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.7828989192625566), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.7828989192625566), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.7828989192625566))
+  run estimated=false segments=3
+
+== a damaged entry between good ones
+records [MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0), MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.5)]
+draft 2026-10-05 en MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-05 de MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 en MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 de MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-07 en MeasurementDraft(dateKey=2026-10-07, valueText=80.5, initialValueText=80.5, originalLog=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.5))
+draft 2026-10-07 de MeasurementDraft(dateKey=2026-10-07, valueText=80,5, initialValueText=80,5, originalLog=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.5))
+draft 2026-10-08 en MeasurementDraft(dateKey=2026-10-08, valueText=82, initialValueText=82, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0))
+draft 2026-10-08 de MeasurementDraft(dateKey=2026-10-08, valueText=82, initialValueText=82, originalLog=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0))
+draft 2026-10-09 en MeasurementDraft(dateKey=2026-10-09, valueText=82, initialValueText=82, originalLog=null)
+draft 2026-10-09 de MeasurementDraft(dateKey=2026-10-09, valueText=82, initialValueText=82, originalLog=null)
+draft 2026-10-12 en MeasurementDraft(dateKey=2026-10-12, valueText=82, initialValueText=82, originalLog=null)
+draft 2026-10-12 de MeasurementDraft(dateKey=2026-10-12, valueText=82, initialValueText=82, originalLog=null)
+window FourWeeks days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=25, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.5), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=25, value=80.5)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=82.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=82.0)
+  axis MeasurementChartAxis(minimum=80.0, maximum=82.5, guidesDescending=[82.0, 81.0]) over 27 days
+  guides en [82, 81] de [82, 81]
+  point MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8)
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.2)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.2)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8), firstControl=MeasurementChartPoint(xFraction=0.9382716049382716, yFraction=0.6000000000000001), secondControl=MeasurementChartPoint(xFraction=0.9506172839506173, yFraction=0.2), end=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.2))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.2), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.2), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.2), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.2))
+  run estimated=false segments=2
+window ThreeMonths days=91 from=2026-07-11 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=88, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.5), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=89, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=88, value=80.5)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=89, value=82.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=90, value=82.0)
+  axis MeasurementChartAxis(minimum=80.0, maximum=82.5, guidesDescending=[82.0, 81.0]) over 90 days
+  guides en [82, 81] de [82, 81]
+  point MeasurementChartPoint(xFraction=0.9777777777777777, yFraction=0.8)
+  point MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.2)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.2)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9777777777777777, yFraction=0.8), firstControl=MeasurementChartPoint(xFraction=0.9814814814814815, yFraction=0.6), secondControl=MeasurementChartPoint(xFraction=0.9851851851851852, yFraction=0.2), end=MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.2))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9888888888888889, yFraction=0.2), firstControl=MeasurementChartPoint(xFraction=0.9925925925925926, yFraction=0.2), secondControl=MeasurementChartPoint(xFraction=0.9962962962962963, yFraction=0.2), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.2))
+  run estimated=false segments=2
+window All days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  day MeasurementHistoryDay(dateKey=2026-10-07, dayIndex=25, log=MeasurementRecord(dateKey=2026-10-07, timestampMillis=2, value=80.5), trendValue=null)
+  day MeasurementHistoryDay(dateKey=2026-10-08, dayIndex=26, log=MeasurementRecord(dateKey=2026-10-08, timestampMillis=3, value=82.0), trendValue=null)
+  line MeasurementTrendPoint(dateKey=2026-10-07, dayIndex=25, value=80.5)
+  line MeasurementTrendPoint(dateKey=2026-10-08, dayIndex=26, value=82.0)
+  line MeasurementTrendPoint(dateKey=2026-10-09, dayIndex=27, value=82.0)
+  axis MeasurementChartAxis(minimum=80.0, maximum=82.5, guidesDescending=[82.0, 81.0]) over 27 days
+  guides en [82, 81] de [82, 81]
+  point MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8)
+  point MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.2)
+  point MeasurementChartPoint(xFraction=1.0, yFraction=0.2)
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9259259259259259, yFraction=0.8), firstControl=MeasurementChartPoint(xFraction=0.9382716049382716, yFraction=0.6000000000000001), secondControl=MeasurementChartPoint(xFraction=0.9506172839506173, yFraction=0.2), end=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.2))
+  curve MeasurementChartSegment(start=MeasurementChartPoint(xFraction=0.9629629629629629, yFraction=0.2), firstControl=MeasurementChartPoint(xFraction=0.9753086419753086, yFraction=0.2), secondControl=MeasurementChartPoint(xFraction=0.9876543209876543, yFraction=0.2), end=MeasurementChartPoint(xFraction=1.0, yFraction=0.2))
+  run estimated=false segments=2
+
+== no records
+records []
+draft 2026-10-05 en MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-05 de MeasurementDraft(dateKey=2026-10-05, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 en MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-06 de MeasurementDraft(dateKey=2026-10-06, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-07 en MeasurementDraft(dateKey=2026-10-07, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-07 de MeasurementDraft(dateKey=2026-10-07, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-08 en MeasurementDraft(dateKey=2026-10-08, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-08 de MeasurementDraft(dateKey=2026-10-08, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-09 en MeasurementDraft(dateKey=2026-10-09, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-09 de MeasurementDraft(dateKey=2026-10-09, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-12 en MeasurementDraft(dateKey=2026-10-12, valueText=, initialValueText=, originalLog=null)
+draft 2026-10-12 de MeasurementDraft(dateKey=2026-10-12, valueText=, initialValueText=, originalLog=null)
+window FourWeeks days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  axis MeasurementChartAxis(minimum=0.0, maximum=1.0, guidesDescending=[]) over 27 days
+  guides en [] de []
+window ThreeMonths days=91 from=2026-07-11 to=2026-10-09 smoothed=false
+  axis MeasurementChartAxis(minimum=0.0, maximum=1.0, guidesDescending=[]) over 90 days
+  guides en [] de []
+window All days=28 from=2026-09-12 to=2026-10-09 smoothed=false
+  axis MeasurementChartAxis(minimum=0.0, maximum=1.0, guidesDescending=[]) over 27 days
+  guides en [] de []

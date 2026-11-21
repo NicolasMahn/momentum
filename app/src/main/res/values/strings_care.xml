@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The words Care's configuration is first written with; after that they are its saved labels. -->
+<resources>
+    <string name="care_session_morning">Morning</string>
+    <string name="care_session_evening">Evening</string>
+    <string name="care_action_toothbrushing">Brush teeth</string>
+    <string name="care_action_hair_foam">Apply hair foam</string>
+    <string name="care_action_clean_between_teeth">Clean between teeth</string>
+</resources>

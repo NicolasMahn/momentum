@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <!-- A reading session turns on Do Not Disturb; the user grants this in system settings. -->
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WorkoutTracker">
+        <!--
+        A language change recomposes in place instead of recreating the activity, so unsaved drafts
+        and a running reading session stay on screen. The first app-language change after launch
+        also reports a screenLayout difference, so that has to be handled alongside the locale.
+        -->
+        <activity
+            android:name=".app.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.WorkoutTracker"
+            android:configChanges="locale|layoutDirection|screenLayout"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Keep explicit intents to the pre-refactor component working after app updates. -->
+        <activity-alias
+            android:name=".MainActivity"
+            android:exported="true"
+            android:targetActivity=".app.MainActivity" />
+
+        <receiver
+            android:name=".widget.MoWidgetProvider"
+            android:exported="true"
+            android:label="@string/mo_widget_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/mo_widget_info" />
+        </receiver>
+
+        <!-- Shares the statistics export with whatever app the person picks, read-only. -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.exports"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/export_paths" />
+        </provider>
+
+        <!-- The five's own alarm receivers, kept for one version so that alarms the build before
+             set still reach something that cancels them; see RetiredReminders.kt. -->
+        <receiver
+            android:name=".reminder.WeightReminderReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.WorkoutReminderReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.SupplementReminderReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.ReadingReminderReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.MorningCareReminderReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.EveningCareReminderReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.EatingReminderReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.MoCheckInReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.ChecklistReminderReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.MeasurementReplyReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.MarkAllDoneReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.SubstanceCheckInReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.SubstanceNoneTodayReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".reminder.ReminderRescheduleReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+                <action android:name="android.app.action.NEXT_ALARM_CLOCK_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Below API 33 AppCompat stores the app language itself; from 33 on Android owns it. -->
+        <service
+            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+            android:enabled="false"
+            android:exported="false">
+            <meta-data
+                android:name="autoStoreLocales"
+                android:value="true" />
+        </service>
+    </application>
+
+</manifest>

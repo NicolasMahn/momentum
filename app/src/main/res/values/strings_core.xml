@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Words owned by the shared components in core/ui, so every screen says them the same way. -->
+<resources>
+    <!-- Spoken state of a completion button. -->
+    <string name="core_completion_saving">Saving</string>
+    <string name="core_completion_completed">Completed</string>
+    <string name="core_completion_not_completed">Not completed</string>
+
+    <!-- %1$s: what the armed remove button removes, for example "Remove weight for Sat, Oct 3". -->
+    <string name="core_remove_confirm">Confirm: %1$s</string>
+
+    <!-- The question a day screen asks before Back or another day drops what was not saved. -->
+    <string name="core_discard_title">Discard changes?</string>
+    <string name="core_discard_message">Your changes aren\'t saved.</string>
+    <string name="core_discard_confirm">Discard</string>
+    <string name="core_discard_stay">Keep editing</string>
+
+    <string name="core_date_field_label">Date (YYYY-MM-DD)</string>
+    <string name="core_date_field_invalid">Use a valid YYYY-MM-DD date</string>
+
+    <!-- %1$s: the date, for example "Sat, Oct 3". -->
+    <string name="core_calendar_today">Today, %1$s</string>
+    <!-- A day declared away, in the words Settings uses for it. %1$s: the date, or "Today, …". -->
+    <string name="core_calendar_away">%1$s, on holiday</string>
+    <!-- The away days of a whole calendar. %1$s: dates and ranges joined with ", ". -->
+    <string name="core_calendar_away_days">On holiday: %1$s.</string>
+    <!-- Spoken for a day declared sick. %1$s: the date -->
+    <string name="core_calendar_sick">%1$s, sick</string>
+    <string name="core_calendar_covered">%1$s, %2$s</string>
+    <!-- Spoken under a calendar read as a whole. %1$s: the sick days or ranges -->
+    <string name="core_calendar_sick_days">Sick: %1$s.</string>
+    <!-- %1$s and %2$s: the first and last date, for example "Sat, Oct 3". -->
+    <string name="core_calendar_away_range">%1$s to %2$s</string>
+    <!-- A calendar day for TalkBack. %1$s: the date; %2$s: the feature's status for that day;
+         %3$s: what a tap does, for example "Select date". -->
+    <string name="core_calendar_day_description">%1$s: %2$s. %3$s.</string>
+
+    <!-- %1$s: the folded section's label, for example "More options". -->
+    <string name="core_disclosure_show">Show %1$s</string>
+    <string name="core_disclosure_hide">Hide %1$s</string>
+
+    <!-- A list inside a sentence, "a, b and c". %1$s: every item but the last, joined with ", "; %2$s: the last item. -->
+    <string name="core_list_and">%1$s and %2$s</string>
+    <!-- The arrows at the ends of every tab row, said by TalkBack. -->
+    <!-- The step of a row of − and + buttons, changed in place: the pencil that opens its field, the check that saves it, and what the field says when the store refused it. -->
+    <string name="core_step_edit">Change the step</string>
+    <string name="core_step_save">Save the step</string>
+    <string name="core_step_not_stored">Couldn\'t save. Try again.</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Supplements' item labels, written into its configuration once, in the app language of that moment. -->
+    <string name="supplements_multivitamin">Multivitamin</string>
+    <string name="supplements_creatine">Creatine</string>
+    <string name="supplements_vitamin_d">Vitamin D</string>
+</resources>

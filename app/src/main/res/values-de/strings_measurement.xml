@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+    The screen of a measurement a person made. Its name and its unit are shown as typed, so no
+    sentence bends a word around them: German cannot know the gender of what a person typed.
+    -->
+    <!-- What a measurement a person made is called where nothing names it, as Weight is called "Gewicht". -->
+    <string name="measurement_destination">Messwert</string>
+    <!-- %1$s: the measurement's name; %2$s: its unit. A measurement without a unit shows its name alone. -->
+    <string name="measurement_field_label_with_unit">%1$s in %2$s</string>
+    <!-- A value: %1$s is the number, %2$s the unit. A measurement without a unit shows the number alone. -->
+    <string name="measurement_value_with_unit">%1$s %2$s</string>
+    <string name="measurement_save">Speichern</string>
+    <string name="measurement_saved">Gespeichert</string>
+    <!-- %s: the date, for example "Sa., 3. Okt.". -->
+    <string name="measurement_remove">Eintrag für %s entfernen</string>
+    <!-- %1$s: the value; %2$s: when, for example "gestern". -->
+    <string name="measurement_previous">Zuvor: %1$s (%2$s)</string>
+    <!-- %3$s: the signed change since then, for example "+0,4 cm". -->
+    <string name="measurement_previous_with_change">Zuvor: %1$s (%2$s) · %3$s</string>
+    <string name="measurement_error_invalid">Gib eine Zahl über null ein.</string>
+    <!-- %s: the measurement's name. -->
+    <string name="measurement_error_changed_before_save">Dieser Eintrag wurde woanders geändert. Öffne %s neu, bevor du speicherst.</string>
+    <string name="measurement_error_save_failed">Der Eintrag konnte nicht gespeichert werden. Versuch es noch einmal.</string>
+    <string name="measurement_error_changed_before_delete">Dieser Eintrag wurde woanders geändert. Sieh ihn dir an, bevor du ihn löschst.</string>
+    <string name="measurement_error_delete_failed">Der Eintrag konnte nicht gelöscht werden. Versuch es noch einmal.</string>
+    <!-- %s: the measurement's name. It was deleted while its screen was open. -->
+    <string name="measurement_error_deleted">%s wurde gelöscht. Es wurde nichts geändert.</string>
+
+    <!-- The reminder of a measurement a person made, under its name as the title. Plain words: Mo does not speak for it. -->
+    <string name="measurement_reminder_open">Heute noch nicht erfasst</string>
+
+    <string name="measurement_none_logged">Nichts erfasst</string>
+    <!-- %s: the value. -->
+    <string name="measurement_trend">Trend %s</string>
+
+    <!--
+    The chart, spoken. %1$s: the measurement's name; %2$d: days shown; %3$s: latest value; %4$s: the
+    lowest record, a number alone; %5$s: the highest record, with the unit. A single day is named,
+    not counted.
+    -->
+    <plurals name="measurement_chart_empty">
+        <item quantity="one">Diagramm für %1$s ohne bekannten Wert am letzten Tag</item>
+        <item quantity="other">Diagramm für %1$s ohne bekannten Wert in den letzten %2$d Tagen</item>
+    </plurals>
+    <plurals name="measurement_chart_trend">
+        <item quantity="one">Trend für %1$s am letzten Tag, zuletzt %3$s</item>
+        <item quantity="other">Trend für %1$s in den letzten %2$d Tagen, zuletzt %3$s</item>
+    </plurals>
+    <plurals name="measurement_chart_value">
+        <item quantity="one">%1$s am letzten Tag, zuletzt %3$s</item>
+        <item quantity="other">%1$s in den letzten %2$d Tagen, zuletzt %3$s</item>
+    </plurals>
+    <plurals name="measurement_chart_trend_between">
+        <item quantity="one">Trend für %1$s am letzten Tag, zuletzt %3$s, Einträge zwischen %4$s und %5$s</item>
+        <item quantity="other">Trend für %1$s in den letzten %2$d Tagen, zuletzt %3$s, Einträge zwischen %4$s und %5$s</item>
+    </plurals>
+    <plurals name="measurement_chart_value_between">
+        <item quantity="one">%1$s am letzten Tag, zuletzt %3$s, Einträge zwischen %4$s und %5$s</item>
+        <item quantity="other">%1$s in den letzten %2$d Tagen, zuletzt %3$s, Einträge zwischen %4$s und %5$s</item>
+    </plurals>
+    <!-- %1$s: the selected date; %2$s: its value; %3$s: the trend on that day. -->
+    <string name="measurement_chart_selected_none">Ausgewählt %1$s: nichts erfasst</string>
+    <string name="measurement_chart_selected">Ausgewählt %1$s: %2$s</string>
+    <string name="measurement_chart_selected_with_trend">Ausgewählt %1$s: %2$s, Trend %3$s</string>
+
+    <!-- Statistics, under how far the trend moved. %1$s: the measurement's name; %2$s: where the trend stands now, with the unit. Weight says this in any unit but kilograms. -->
+    <string name="measurement_statistics_caption">Trend für %1$s · jetzt %2$s</string>
+    <!-- %s: the measurement's name. -->
+    <string name="measurement_statistics_caption_nothing">%s · noch nichts erfasst</string>
+
+    <!-- Settings: making a measurement, and the page of one a person made. This is the title of its setup. -->
+    <string name="measurement_settings_new">Neuer Messwert</string>
+    <!-- The name a new measurement starts with until one is typed. -->
+    <string name="measurement_new_label">Messwert</string>
+    <string name="measurement_setup_create">Messwert erstellen</string>
+    <!-- Leaving the setup before the measurement is created. -->
+    <string name="measurement_setup_discard_title">Neuen Messwert verwerfen?</string>
+    <string name="measurement_setup_discard_message">Nichts wird gespeichert, bis du ihn erstellst.</string>
+    <!-- The field for what is shown after the number, such as cm or %. It may stay empty. -->
+    <string name="measurement_settings_unit">Einheit (optional)</string>
+    <!-- Takes the unit field's label while what was typed cannot be a unit. %d: the most characters a unit may have. -->
+    <string name="measurement_settings_unit_invalid">Höchstens %d Zeichen, ohne Zeilenumbruch</string>
+    <!-- The field for what the − and + buttons on the measurement's screen add and take, a number such as 0.5. -->
+    <string name="measurement_settings_step">Schrittweite von − und +</string>
+    <!-- Takes the step field's label while what was typed is no step. %1$d: the largest step; %2$d: the most decimal places it may have. -->
+    <string name="measurement_settings_step_invalid">Über 0, bis %1$d, höchstens %2$d Nachkommastellen</string>
+    <!-- The part of a measurement's settings page and the step of its setup that hold its unit and its step, between Look and Reminders. -->
+    <string name="measurement_settings_unit_part">Einheit</string>
+    <string name="measurement_settings_still_by_week">Diese Tage zählen noch innerhalb einer Woche, Montag bis Sonntag. Ändere eine Zahl und speichere, dann zählen sie ab heute über Wochen hinweg.</string>
+    <!-- Under the unit and the step: what changing the unit does not do. -->
+    <string name="measurement_settings_unit_note">Die Einheit zu ändern rechnet nichts um: Die Zahlen bleiben, wie sie erfasst wurden.</string>
+    <!-- Above the choice of how many days a measurement's trend line follows. -->
+    <string name="measurement_settings_trend">Trendlinie</string>
+    <!-- One choice of the trend line's span. %d: the days. -->
+    <plurals name="measurement_settings_trend_days">
+        <item quantity="one">%d Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <!-- Under the trend line's choices. %d: the days chosen. -->
+    <plurals name="measurement_settings_trend_note">
+        <item quantity="one">Die Linie folgt etwa dem letzten %d Tag und ändert keinen erfassten Wert.</item>
+        <item quantity="other">Die Linie folgt etwa den letzten %d Tagen und ändert keinen erfassten Wert.</item>
+    </plurals>
+    <!-- The confirmation's title. %s: the measurement's name, as the user wrote it. -->
+    <string name="measurement_settings_delete_title">%s löschen?</string>
+    <string name="measurement_settings_delete_message_none">Die Einstellungen werden gelöscht. Das lässt sich nicht rückgängig machen.</string>
+    <!-- %d: how many days hold a record of this measurement. -->
+    <plurals name="measurement_settings_delete_message">
+        <item quantity="one">Die Einstellungen und %d erfasster Tag werden gelöscht. Das lässt sich nicht rückgängig machen.</item>
+        <item quantity="other">Die Einstellungen und %d erfasste Tage werden gelöscht. Das lässt sich nicht rückgängig machen.</item>
+    </plurals>
+    <string name="measurement_settings_delete_failed">Der Messwert konnte nicht gelöscht werden. Versuch es noch einmal.</string>
+    <!-- On the bar of a measurement's page or setup: what was asked is stored, but its reminder could not be scheduled and the change could not be taken back. "Alarm" is the phone's wake alarm in this app, so it is not said here. -->
+    <string name="measurement_settings_alarm_not_set">Gespeichert, aber die Erinnerung ließ sich nicht einrichten.</string>
+    <string name="measurement_range_four_weeks">4 W</string>
+    <string name="measurement_range_three_months">3 M</string>
+    <string name="measurement_range_all">Alle</string>
+    <string name="measurement_error_invalid_finite">Gib eine Zahl ein.</string>
+</resources>

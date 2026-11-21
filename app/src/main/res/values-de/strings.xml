@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mo_widget_description">Mo zeigt, wie es um deine Routinen und deinen Streak steht.</string>
+
+    <!-- Feature names: the screen titles, the Home tiles and every sentence that names a feature. -->
+    <string name="feature_activity">Aktivität</string>
+    <string name="feature_weight">Gewicht</string>
+    <string name="feature_supplements">Nahrungsergänzung</string>
+    <string name="feature_reading">Lesen</string>
+    <string name="feature_substances">Substanzen</string>
+    <string name="feature_care">Pflege</string>
+    <string name="feature_eating">Essen</string>
+    <string name="feature_statistics">Statistik</string>
+    <string name="destination_streak">Streak und Tokens</string>
+    <string name="destination_settings">Einstellungen</string>
+
+    <!-- Relative days, lower case for use inside a sentence. -->
+    <string name="date_today">heute</string>
+    <string name="date_yesterday">gestern</string>
+    <plurals name="date_days_ago">
+        <item quantity="one">vor %d Tag</item>
+        <item quantity="other">vor %d Tagen</item>
+    </plurals>
+
+    <!-- Calendar column headers: two letters, because one letter is ambiguous. -->
+    <string name="weekday_short_monday">Mo</string>
+    <string name="weekday_short_tuesday">Di</string>
+    <string name="weekday_short_wednesday">Mi</string>
+    <string name="weekday_short_thursday">Do</string>
+    <string name="weekday_short_friday">Fr</string>
+    <string name="weekday_short_saturday">Sa</string>
+    <string name="weekday_short_sunday">So</string>
+
+    <!-- Units: the number is already formatted for the locale. -->
+    <string name="unit_kg">%s kg</string>
+    <string name="unit_kilograms">%s Kilogramm</string>
+</resources>

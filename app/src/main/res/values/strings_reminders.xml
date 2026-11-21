@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Every reminder in Mo's voice. He is hurt, never angry (the fuming check-in is the playful
+exception), he never asks about a logged value, and as a Husk he no longer speaks, so his "out"
+lines speak about him in the third person. Each tone keeps four lines, rotated one per day.
+-->
+<resources>
+    <string name="reminder_channel_name">Reminders</string>
+    <string name="reminder_channel_description">Personal reminders from Momentum</string>
+
+    <!--
+    Action labels. Mo's lines name the buttons of his reminders by their labels: Start reading
+    (reading_start) and Mark all done (checklist_mark_all_done). A translation must use the same
+    words in the lines as on the buttons. His lines for Weight name none: its reply is Add weight
+    only while Weight is in kilograms, and Log it in any other unit.
+    -->
+    <!-- A measurement's reminder: the reply that logs its number, of every measurement but Weight in kilograms. -->
+    <string name="reminder_action_log">Log it</string>
+    <!-- A checklist's reminder whose "Mark all done" could not be saved. %1$s: that button's label, e.g. "Mark all done". -->
+    <string name="reminder_mark_all_done_failed">That wasn\'t saved. Tap %1$s again.</string>
+
+    <!-- The symptom Mo's figure shows for a neglected task, said before the line. -->
+    <string name="reminder_ache_weight_mild">My scale is lying unused.</string>
+    <string name="reminder_ache_weight_severe">My scale has gone cold under a cobweb.</string>
+    <string name="reminder_ache_activity_mild">My dumbbell is gathering dust.</string>
+    <string name="reminder_ache_activity_severe">My dumbbell is under a cobweb.</string>
+    <string name="reminder_ache_supplements_mild">My pill bottle fell over.</string>
+    <string name="reminder_ache_supplements_severe">My pill bottle has been tipped over all week.</string>
+    <string name="reminder_ache_reading_mild">My book is gathering dust.</string>
+    <string name="reminder_ache_reading_severe">My book has been shut under a cobweb.</string>
+    <string name="reminder_ache_care_mild">Two of my teeth have gone bad.</string>
+    <string name="reminder_ache_care_severe">One of my teeth fell out.</string>
+    <string name="reminder_ache_eating_mild">My bowl is empty.</string>
+    <string name="reminder_ache_eating_severe">My bowl has been empty all week.</string>
+
+    <!-- Weight -->
+    <string name="reminder_weight_title_warm">Mo wants today\'s weight</string>
+    <string name="reminder_weight_title_faint">Mo is waiting by the scale</string>
+    <string name="reminder_weight_title_out">Mo has gone out · Weight</string>
+    <string name="reminder_weight_warm_1">Step on the scale and put the number in. I don\'t mind what it says.</string>
+    <string name="reminder_weight_warm_2">A weigh-in makes my day complete. Hop on the scale and log it.</string>
+    <string name="reminder_weight_warm_3">Scale first, then put the number in. That\'s all I want today.</string>
+    <string name="reminder_weight_warm_4">I\'m waiting by the scale. Step on and write the number down for me.</string>
+    <string name="reminder_weight_faint_1">I\'m getting small. Step on the scale and log the number, whatever it is.</string>
+    <string name="reminder_weight_faint_2">One weigh-in would warm me. Step on, then log the number.</string>
+    <string name="reminder_weight_faint_3">Please step on the scale for me. Logging it is the part that counts.</string>
+    <string name="reminder_weight_faint_4">Stand on the scale once today and put the number in. That\'s enough.</string>
+    <string name="reminder_weight_out_1">One weight, logged now, rekindles him. Step on the scale.</string>
+    <string name="reminder_weight_out_2">Nothing has been weighed in a while. Step on the scale and log the number for him.</string>
+    <string name="reminder_weight_out_3">The scale lies cold beside him. Stand on it once and write the number down.</string>
+    <string name="reminder_weight_out_4">A single weigh-in, logged today, lights his spark again.</string>
+
+    <!-- Activity on a day with a planned activity. %1$s: the activity's name, e.g. "Gym". -->
+    <string name="reminder_activity_title_warm">Mo is ready for %1$s</string>
+    <string name="reminder_activity_title_faint">Mo is waiting for %1$s</string>
+    <string name="reminder_activity_title_out">Mo has gone out · %1$s</string>
+    <string name="reminder_activity_warm_1">%1$s is on today\'s plan. Do it, then log it so I can feel it.</string>
+    <string name="reminder_activity_warm_2">I\'m warmed up for %1$s. Go, and put it in when you\'re back.</string>
+    <string name="reminder_activity_warm_3">%1$s today. Even a short session counts once it is logged.</string>
+    <string name="reminder_activity_warm_4">Time for %1$s. Log it afterwards and I\'ll be bouncing.</string>
+    <string name="reminder_activity_faint_1">%1$s is still waiting. Do it and log it; that\'s what warms me.</string>
+    <string name="reminder_activity_faint_2">I\'m running low. %1$s today, even a short one, logged.</string>
+    <string name="reminder_activity_faint_3">%1$s is on the plan and I\'m getting small. Do it, then log it for me.</string>
+    <string name="reminder_activity_faint_4">Please do %1$s today and write it down. It lifts me right away.</string>
+    <string name="reminder_activity_out_1">%1$s was planned. Doing it and logging it rekindles him.</string>
+    <string name="reminder_activity_out_2">Nothing has been trained in a while. %1$s today, logged, lights his spark.</string>
+    <string name="reminder_activity_out_3">%1$s is still on the plan. One record is all it takes to bring him back.</string>
+    <string name="reminder_activity_out_4">One logged session of %1$s is enough to rekindle him.</string>
+    <!-- After the line, where the planned activity has a routine. %1$s: its routine day next in turn, e.g. "Day B". -->
+    <string name="reminder_activity_next_day">%1$s is next.</string>
+    <!-- Activity on a day planned as any activity: the lines name no session. -->
+    <string name="reminder_activity_plain_title_warm">Mo is ready to move</string>
+    <string name="reminder_activity_plain_title_faint">Mo is waiting for something active</string>
+    <string name="reminder_activity_plain_title_out">Mo has gone out · Activity</string>
+    <string name="reminder_activity_plain_warm_1">Something active is on today\'s plan. Do it, then log it so I can feel it.</string>
+    <string name="reminder_activity_plain_warm_2">I\'m warmed up for whatever you pick today. Go, and put it in when you\'re back.</string>
+    <string name="reminder_activity_plain_warm_3">An active day today. Even a short session counts once it is logged.</string>
+    <string name="reminder_activity_plain_warm_4">Time to move. Log it afterwards and I\'ll be bouncing.</string>
+    <string name="reminder_activity_plain_faint_1">Today is still waiting for something active. Do it and log it; that\'s what warms me.</string>
+    <string name="reminder_activity_plain_faint_2">I\'m running low. Something active today, even a short one, logged.</string>
+    <string name="reminder_activity_plain_faint_3">Nothing is logged yet today and I\'m getting small. Do something, then log it for me.</string>
+    <string name="reminder_activity_plain_faint_4">Please do something active today and write it down. It lifts me right away.</string>
+    <string name="reminder_activity_plain_out_1">An active day was planned. Doing it and logging it rekindles him.</string>
+    <string name="reminder_activity_plain_out_2">Nothing has been trained in a while. Something active today, logged, lights his spark.</string>
+    <string name="reminder_activity_plain_out_3">Today is still open. One record is all it takes to bring him back.</string>
+    <string name="reminder_activity_plain_out_4">One logged activity is enough to rekindle him.</string>
+
+    <!-- Supplements. %1$s: the supplements still open, Supplements' own three by the words below and any other as the user named it, joined as a list. -->
+    <string name="reminder_supplements_item_multivitamin">multivitamin</string>
+    <string name="reminder_supplements_item_creatine">creatine</string>
+    <string name="reminder_supplements_item_vitamin_d">vitamin D</string>
+    <string name="reminder_supplements_title_warm">Mo counted your supplements</string>
+    <string name="reminder_supplements_title_faint">Mo is waiting for your supplements</string>
+    <string name="reminder_supplements_title_out">Mo has gone out · Supplements</string>
+    <string name="reminder_supplements_warm_1">Still to take today: %1$s. Tap Mark all done once they\'re down.</string>
+    <string name="reminder_supplements_warm_2">Waiting for you: %1$s. Tap Mark all done when you\'ve had them.</string>
+    <string name="reminder_supplements_warm_3">I counted them out: %1$s. Then tap Mark all done and I\'m happy.</string>
+    <string name="reminder_supplements_warm_4">Set out for you: %1$s. Take them, then tell me with Mark all done.</string>
+    <string name="reminder_supplements_faint_1">I\'m fading. Still to take: %1$s. Then tap Mark all done.</string>
+    <string name="reminder_supplements_faint_2">The bottle is still full: %1$s. Take them and tap Mark all done.</string>
+    <string name="reminder_supplements_faint_3">These would warm me: %1$s. Tap Mark all done once they\'re down.</string>
+    <string name="reminder_supplements_faint_4">Please, today: %1$s. Then tap Mark all done for me.</string>
+    <string name="reminder_supplements_out_1">Still to take: %1$s. One tap on Mark all done after them rekindles him.</string>
+    <string name="reminder_supplements_out_2">Nothing has been logged here in a while. Still to take: %1$s. Then tap Mark all done for him.</string>
+    <string name="reminder_supplements_out_3">Still waiting: %1$s. Take them and tap Mark all done to light his spark.</string>
+    <string name="reminder_supplements_out_4">Still to take: %1$s. Take them and tap Mark all done to bring him back.</string>
+
+    <!-- Reading -->
+    <string name="reminder_reading_title_warm">Mo brought your book</string>
+    <string name="reminder_reading_title_faint">Mo is waiting for a few pages</string>
+    <string name="reminder_reading_title_out">Mo has gone out · Reading</string>
+    <string name="reminder_reading_warm_1">A few pages would make me glow. Tap Start reading and I\'ll read along.</string>
+    <string name="reminder_reading_warm_2">Your book is open on my lap. Tap Start reading and pick up where you left off.</string>
+    <string name="reminder_reading_warm_3">Even a few minutes count. Tap Start reading and I\'ll keep the time.</string>
+    <string name="reminder_reading_warm_4">Reading time. Tap Start reading and I\'ll keep the phone quiet.</string>
+    <string name="reminder_reading_faint_1">I\'m getting small. Tap Start reading and read a few pages with me.</string>
+    <string name="reminder_reading_faint_2">The book is closed beside me. Tap Start reading and open it for a little while.</string>
+    <string name="reminder_reading_faint_3">One short session would warm me. Tap Start reading, then just read.</string>
+    <string name="reminder_reading_faint_4">Please read a page or two today. Tap Start reading; that\'s enough.</string>
+    <string name="reminder_reading_out_1">A few pages, read with Start reading, rekindle him.</string>
+    <string name="reminder_reading_out_2">Nothing has been read in a while. Tap Start reading; one session today lights his spark.</string>
+    <string name="reminder_reading_out_3">Tap Start reading and read a little; that single session brings him back.</string>
+    <string name="reminder_reading_out_4">One session, begun with Start reading, is all it takes to rekindle him.</string>
+
+    <!--
+    Care. %1$s: what is still open, the actions below as a list, e.g. "brush teeth, apply hair foam
+    and clean between teeth".
+    -->
+    <string name="reminder_care_task_toothbrushing">brush teeth</string>
+    <string name="reminder_care_task_hair_foam">apply hair foam</string>
+    <string name="reminder_care_task_clean_between_teeth">clean between teeth</string>
+    <string name="reminder_care_title_warm_morning">Mo is up for morning care</string>
+    <string name="reminder_care_title_warm_evening">Mo is up for evening care</string>
+    <string name="reminder_care_title_faint_morning">Mo is waiting for morning care</string>
+    <string name="reminder_care_title_faint_evening">Mo is waiting for evening care</string>
+    <string name="reminder_care_title_out_morning">Mo has gone out · Morning care</string>
+    <string name="reminder_care_title_out_evening">Mo has gone out · Evening care</string>
+    <string name="reminder_care_warm_morning_1">Morning care: %1$s. Tap Mark all done when you\'re finished.</string>
+    <string name="reminder_care_warm_morning_2">Left this morning: %1$s. Tap Mark all done after.</string>
+    <string name="reminder_care_warm_morning_3">I like it clean in here: %1$s. Then tap Mark all done.</string>
+    <string name="reminder_care_warm_morning_4">Still open this morning: %1$s. One tap on Mark all done and we\'re set.</string>
+    <!-- The evening reminder opens the hour of getting ready for bed, so a warm Mo says so. -->
+    <string name="reminder_care_warm_evening_1">Time to get ready for bed: %1$s. Tap Mark all done when you\'re finished.</string>
+    <string name="reminder_care_warm_evening_2">Last thing before bed: %1$s. Tap Mark all done after.</string>
+    <string name="reminder_care_warm_evening_3">I\'m getting sleepy: %1$s. Tap Mark all done, and then bed for both of us.</string>
+    <string name="reminder_care_warm_evening_4">Still open before bed: %1$s. One tap on Mark all done and we can sleep.</string>
+    <string name="reminder_care_faint_morning_1">I\'m getting small. Still this morning, please: %1$s. Then tap Mark all done.</string>
+    <string name="reminder_care_faint_morning_2">Morning care would warm me: %1$s. Tap Mark all done after.</string>
+    <string name="reminder_care_faint_morning_3">Please don\'t skip this this morning: %1$s. Then tap Mark all done.</string>
+    <string name="reminder_care_faint_morning_4">Left this morning: %1$s. Doing it and tapping Mark all done lifts me.</string>
+    <string name="reminder_care_faint_evening_1">I\'m getting small. Still tonight, please: %1$s. Then tap Mark all done.</string>
+    <string name="reminder_care_faint_evening_2">Evening care would warm me: %1$s. Tap Mark all done after.</string>
+    <string name="reminder_care_faint_evening_3">Please don\'t skip this tonight: %1$s. Then tap Mark all done.</string>
+    <string name="reminder_care_faint_evening_4">Left tonight: %1$s. Doing it and tapping Mark all done lifts me.</string>
+    <string name="reminder_care_out_morning_1">Morning care is still open: %1$s. One tap on Mark all done rekindles him.</string>
+    <string name="reminder_care_out_morning_2">Nothing has been logged here in days. This morning: %1$s. Then tap Mark all done for him.</string>
+    <string name="reminder_care_out_morning_3">Still open this morning: %1$s. Do it, tap Mark all done, and his spark returns.</string>
+    <string name="reminder_care_out_morning_4">Still to do this morning: %1$s. Then one tap on Mark all done, and he comes back.</string>
+    <string name="reminder_care_out_evening_1">Evening care is still open: %1$s. One tap on Mark all done rekindles him.</string>
+    <string name="reminder_care_out_evening_2">Nothing has been logged here in days. Tonight: %1$s. Then tap Mark all done for him.</string>
+    <string name="reminder_care_out_evening_3">Still open tonight: %1$s. Do it, tap Mark all done, and his spark returns.</string>
+    <string name="reminder_care_out_evening_4">Still to do tonight: %1$s. Then one tap on Mark all done, and he comes back.</string>
+
+    <!-- Eating. The first warm line is the owner's own; it sets the register for the rest. -->
+    <string name="reminder_eating_title_warm">Mo is thinking about yesterday</string>
+    <string name="reminder_eating_title_faint">Mo\'s bowl is still empty</string>
+    <string name="reminder_eating_title_out">Mo has gone out · Yesterday\'s eating</string>
+    <string name="reminder_eating_warm_1">Mo was really hungry yesterday. What did he eat?</string>
+    <string name="reminder_eating_warm_2">Fill in yesterday\'s meals for me. Anything you ate counts.</string>
+    <string name="reminder_eating_warm_3">Yesterday is still blank in my bowl. Fill it in and tell me how it went.</string>
+    <string name="reminder_eating_warm_4">Look back at yesterday and log how you ate. No judging, just logging.</string>
+    <string name="reminder_eating_faint_1">I\'m getting small. Log yesterday\'s eating, however it was.</string>
+    <string name="reminder_eating_faint_2">Fill in how yesterday\'s eating went. Any answer warms me.</string>
+    <string name="reminder_eating_faint_3">Yesterday is still unrecorded. Write it down for me, good day or not.</string>
+    <string name="reminder_eating_faint_4">Please fill in yesterday\'s eating. Only the logging counts, never the food.</string>
+    <string name="reminder_eating_out_1">Yesterday\'s eating is still blank. Logging it rekindles him.</string>
+    <string name="reminder_eating_out_2">One reflection on yesterday brings him back. Write it down.</string>
+    <string name="reminder_eating_out_3">Nothing has been logged here in a while. Fill in yesterday and his spark returns.</string>
+    <string name="reminder_eating_out_4">Fill in how yesterday went. That single record lights him again.</string>
+
+    <!-- Mo's check-in -->
+    <string name="reminder_check_in_title_frozen">Mo is frozen</string>
+    <string name="reminder_check_in_title_out">Mo has gone out</string>
+    <string name="reminder_check_in_title_cold">Mo is getting cold</string>
+    <string name="reminder_check_in_title_warm">Mo is checking in</string>
+    <!--
+    The fuming nudge: playful, never cruel. %1$s: the time, e.g. "18:00" or "6 PM";
+    %2$s: the overdue tasks, e.g. "Reading, Care". Each line works for one task and for several.
+    -->
+    <string name="reminder_fuming_title_1">Mo is fuming</string>
+    <string name="reminder_fuming_text_1">It\'s already %1$s and you still haven\'t: %2$s. I\'m glowing red over here.</string>
+    <string name="reminder_fuming_title_2">Mo is heating up</string>
+    <string name="reminder_fuming_text_2">%1$s, and I\'m still waiting for: %2$s. Go now, before I boil over.</string>
+    <string name="reminder_fuming_title_3">Mo is seeing red</string>
+    <string name="reminder_fuming_text_3">Look at the clock: %1$s. Still not done: %2$s. Get going and I\'ll simmer down.</string>
+    <string name="reminder_fuming_title_4">Mo is boiling over</string>
+    <string name="reminder_fuming_text_4">It\'s %1$s! Overdue: %2$s. Off you go, and watch me cool down.</string>
+
+    <!-- Labels stay verbatim and stand alone after a colon in every language. -->
+    <string name="reminder_ache_checklist_mild">I keep thinking about this list: %1$s.</string>
+    <string name="reminder_ache_checklist_severe">This list has waited for days: %1$s.</string>
+    <string name="reminder_checklist_title_warm">Mo has your list ready · %1$s</string>
+    <string name="reminder_checklist_title_faint">Mo is waiting · %1$s</string>
+    <string name="reminder_checklist_title_out">Mo has gone out · %1$s</string>
+    <string name="reminder_checklist_warm_1">Still open: %1$s. Tick them off once they\'re done.</string>
+    <string name="reminder_checklist_warm_2">Waiting for you: %1$s. Tick each one when it\'s done.</string>
+    <string name="reminder_checklist_warm_3">Next on your list: %1$s. I\'ll cheer for every tick.</string>
+    <string name="reminder_checklist_warm_4">Still on the list: %1$s. Tick what\'s done, and I\'m happy.</string>
+    <string name="reminder_checklist_faint_1">I\'m fading. Still open: %1$s.</string>
+    <string name="reminder_checklist_faint_2">The list is still waiting: %1$s.</string>
+    <string name="reminder_checklist_faint_3">Every tick would warm me. Still open: %1$s.</string>
+    <string name="reminder_checklist_faint_4">Please look at your list today. Still open: %1$s.</string>
+    <string name="reminder_checklist_out_1">One tick rekindles him. Still open: %1$s.</string>
+    <string name="reminder_checklist_out_2">Nothing has been ticked here in a while. Still open: %1$s.</string>
+    <string name="reminder_checklist_out_3">Still open: %1$s. A tick lights his spark.</string>
+    <string name="reminder_checklist_out_4">Tick what\'s done to bring him back. Still open: %1$s.</string>
+</resources>

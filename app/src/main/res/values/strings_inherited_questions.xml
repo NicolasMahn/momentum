@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="eating_quality_question">How would you rate the overall quality of what you ate?</string>
+    <string name="eating_quality_help_description">Explain eating quality choices</string>
+    <string name="eating_amount_question">Compared with your usual day, how much did you eat?</string>
+
+    <!-- Quality levels, from worst to best. The stored values keep their old names; these are the labels. -->
+    <string name="eating_quality_poor">Very poor</string>
+    <string name="eating_quality_fair">Poor</string>
+    <string name="eating_quality_good">Fair</string>
+    <string name="eating_quality_very_good">Good</string>
+    <string name="eating_quality_excellent">Excellent</string>
+
+    <!-- What each quality level means, shown in the help dialog after the level's label. -->
+    <string name="eating_quality_poor_description">Mostly sweets or snack foods instead of meals.</string>
+    <string name="eating_quality_fair_description">Mostly bread, pasta or similar staples, with little plant protein or fruit/veg.</string>
+    <string name="eating_quality_good_description">Some balanced meals, but substantial gaps elsewhere in the day.</string>
+    <string name="eating_quality_very_good_description">Most meals combined plant protein, staples and fruit or vegetables.</string>
+    <string name="eating_quality_excellent_description">A well-rounded day including wholegrains, plant protein, produce, nuts/seeds and calcium-rich choices.</string>
+    <string name="eating_quality_guide_footer">Reflect on the whole day; one treat does not decide a level, and portions and nutrient needs are not measured.</string>
+    <string name="eating_help_close">Close</string>
+    <string name="eating_help_dge">DGE guidance</string>
+    <string name="eating_help_nhs">NHS guide</string>
+
+    <string name="eating_amount_much_less">Much less</string>
+    <string name="eating_amount_a_little_less">A little less</string>
+    <string name="eating_amount_about_the_same">About the same</string>
+    <string name="eating_amount_a_little_more">A little more</string>
+    <string name="eating_amount_much_more">Much more</string>
+
+
+</resources>

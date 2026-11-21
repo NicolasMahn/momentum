@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_language_title">Language</string>
+    <string name="settings_language_system">System language</string>
+
+    <string name="settings_ok">OK</string>
+    <string name="settings_cancel">Cancel</string>
+    <string name="settings_allow">Allow</string>
+    <string name="settings_error_reminders">Couldn\'t apply reminder settings</string>
+    <string name="settings_error_features">Couldn\'t apply feature settings</string>
+    <string name="settings_error_open_notifications">Couldn\'t open notification settings</string>
+    <string name="settings_error_notifications_off">Notifications are off</string>
+    <string name="settings_error_precise_timing_off">Precise timing is off</string>
+    <string name="settings_error_open_precise_timing">Couldn\'t open precise timing settings</string>
+    <!-- The bar of a view's page when its settings could not be stored. -->
+    <string name="settings_error_view">Couldn\'t save. Try again.</string>
+    <!-- Save on the page of a view that runs on no checklist, such as Weight. -->
+    <string name="settings_feature_save">Save</string>
+    <!-- On the page of a built-in view, such as Weight, whose Delete is disabled: why, and what to do instead. The switch is on the view's row in the Settings list. -->
+    <!-- On a view's page after Save, while a field such as "New item" still holds text that was typed and not added: the page stays open for it instead of returning to the list. -->
+    <string name="settings_typed_text_pending">Add or clear what you typed.</string>
+
+    <!-- The one button under the views in the Settings list, and the title of the page it opens, which asks what kind of thing to track. -->
+    <string name="settings_new">Track something new</string>
+    <!-- On that page, under a kind's name: what it is, in one line. -->
+    <string name="settings_new_checklist_description">Such as medication, brushing your teeth or stretching.</string>
+    <string name="settings_new_measurement_description">Such as your weight.</string>
+    <string name="settings_new_questions_description">Multiple-choice questions to answer each day.</string>
+    <string name="settings_new_time_description">Such as reading, meditating or practising an instrument.</string>
+
+    <string name="settings_reminders_title">Reminders</string>
+    <string name="settings_allow_notifications">Allow notifications</string>
+    <string name="settings_allow_notifications_note">Needs notifications. Without this no reminder can reach you.</string>
+    <string name="settings_precise_timing">Precise timing</string>
+    <string name="settings_precise_timing_note">Needs precise timing. Reminders may arrive late or not at all.</string>
+    <!-- Spoken for a time button. %1$s: what the time belongs to, e.g. "Workout reminder"; %2$s: a time of day, e.g. "19:30" -->
+    <string name="settings_time_at">%1$s at %2$s</string>
+    <!-- %1$s: feature name, e.g. "Reading" -->
+    <string name="settings_show_feature_on_home">Show %1$s on Home</string>
+    <!-- %1$s: feature name, e.g. "Reading" -->
+    <string name="settings_turn_feature_on">Turn %1$s on to use this reminder</string>
+    <string name="settings_needs_precise_timing">Needs precise timing</string>
+    <string name="settings_needs_notifications">Needs notifications</string>
+    <!-- Sends a reminder now, as it would arrive at its time, so it can be tried out. -->
+    <string name="settings_send_test">Send a test</string>
+    <string name="settings_error_test">Couldn\'t send the test</string>
+
+    <string name="settings_reminder_mo">Mo\'s nudges</string>
+    <string name="settings_reminder_mo_feature">Mo</string>
+    <string name="settings_reminder_workout">Workout reminder</string>
+    <string name="settings_reminder_weight">Weight reminder</string>
+    <string name="settings_reminder_reading">Reading reminder</string>
+    <string name="settings_reminder_eating">Eating reminder</string>
+
+    <!-- %1$s: a time of day, e.g. "19:30" -->
+    <string name="settings_timing_every_day">Every day at %1$s</string>
+    <!-- %1$s: the days a reminder comes on by their short names, e.g. "Mon, Wed, Fri"; %2$s: a time of day, e.g. "18:00" -->
+    <string name="settings_timing_on_days">%1$s at %2$s</string>
+    <!-- %1$s: the nudge times, e.g. "10:00, 14:00, 18:00" -->
+    <string name="settings_timing_mo">%1$s · only while something is overdue</string>
+    <!-- %1$d: minutes after the alarm; %2$s: the time used without an alarm, e.g. "08:05" -->
+    <string name="settings_timing_after_alarm">%1$d min after the next alarm · %2$s fallback</string>
+    <!-- A reminder set some minutes before sleep, the bedtime set on the Sleep page or 8 h before the next alarm. %1$d: the minutes, %2$s: the latest time, %3$s: the time without an alarm. -->
+    <string name="settings_timing_before_sleep">%1$d min before sleep, %2$s at the latest · %3$s fallback</string>
+
+    <string name="settings_holidays_title">Holidays</string>
+    <string name="settings_holidays_note">On holiday, weight pauses and activity asks for fewer days.</string>
+    <string name="settings_holiday_add">Add holiday</string>
+    <string name="settings_holiday_error">Couldn\'t save holidays</string>
+    <!-- How many holiday or sick days a year holds. %1$d: the days; %2$d: the year -->
+    <plurals name="settings_days_in_year">
+        <item quantity="one">%1$d day in %2$d</item>
+        <item quantity="other">%1$d days in %2$d</item>
+    </plurals>
+    <!-- %1$s: the holiday, e.g. "2026-10-12 – 2026-10-18" -->
+    <string name="settings_holiday_remove">Remove holiday %1$s</string>
+    <!-- Dates stay ISO 8601. %1$s: first day; %2$s: last day -->
+    <string name="settings_holiday_range">%1$s – %2$s</string>
+    <plurals name="settings_holiday_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <!-- Under the calendar until days are chosen. -->
+    <string name="settings_days_off_hint">Tap the first and last day</string>
+    <string name="settings_holiday_previous_month">Previous month</string>
+    <string name="settings_holiday_next_month">Next month</string>
+    <!-- Spoken for a planned day. %1$s: the full date -->
+    <string name="settings_holiday_day_planned">%1$s, holiday</string>
+
+    <string name="settings_sick_title">Sick days</string>
+    <string name="settings_sick_note">A sick day asks nothing: the streak holds, and no token or freeze is spent. Your records stay as they are.</string>
+    <string name="settings_sick_add">I was sick</string>
+    <string name="settings_sick_error">Couldn\'t save sick days</string>
+    <!-- %1$s: the sick days, e.g. "2026-10-12 – 2026-10-14" -->
+    <string name="settings_sick_remove">Remove sick days %1$s</string>
+    <!-- Spoken for a day declared sick. %1$s: the full date -->
+    <string name="settings_sick_day_declared">%1$s, sick</string>
+
+    <string name="settings_sleep_title">Sleep</string>
+    <!-- One line under Sleep in the Settings list, for a day without a phone alarm. %1$s: the wake time, %2$s: the bedtime, such as 07:00 and 23:00. -->
+    <string name="settings_sleep_summary">Wake %1$s · Sleep %2$s</string>
+    <string name="settings_sleep_note">These two times are what “after waking” and “before sleep” mean for every reminder, and when Mo gets sleepy.</string>
+    <string name="settings_sleep_wake">Wake time</string>
+    <string name="settings_sleep_wake_note">Your phone\'s next alarm, or this time on a day with no alarm set.</string>
+    <string name="settings_sleep_bedtime">Bedtime</string>
+    <string name="settings_sleep_bedtime_automatic">8 hours before waking</string>
+    <string name="settings_sleep_bedtime_fixed">At a fixed time</string>
+
+    <string name="settings_backups_title">Backups</string>
+    <!-- One line under Backups in the Settings list. -->
+    <string name="settings_backups_summary_setup">Not set up yet</string>
+    <string name="settings_backups_summary_delayed">Taking longer than usual</string>
+    <string name="settings_backups_summary_failed">Needs attention</string>
+    <string name="settings_backups_summary_verified">Up to date</string>
+    <!-- One line under Reminders in the Settings list: how many reminders will arrive. -->
+    <plurals name="settings_reminders_summary_on">
+        <item quantity="one">%d on</item>
+        <item quantity="other">%d on</item>
+    </plurals>
+    <string name="settings_reminders_summary_none">All off</string>
+    <!-- %1$s: when the last backup was verified, an ISO 8601 instant -->
+    <string name="settings_backup_last_verified">Last verified backup: %1$s</string>
+    <string name="settings_backup_none_verified">No verified backup yet.</string>
+    <string name="settings_backup_needs_setup">Choose a folder to protect your records.</string>
+    <!-- %1$s: what went wrong, a whole sentence -->
+    <string name="settings_backup_needs_attention">Backup needs attention: %1$s</string>
+    <string name="settings_backup_write_failed">Backup failed. Latest changes are only on this installation. Check folder access and retry.</string>
+    <string name="settings_backup_backing_up">Backing up…</string>
+    <string name="settings_backup_delayed">Backup is taking longer than usual. Latest changes are not backed up yet.</string>
+    <string name="settings_backup_verified">Latest saved changes are backed up.</string>
+    <string name="settings_backup_working">Working…</string>
+    <string name="settings_backup_restore_failed">Couldn\'t restore the backup. Try again.</string>
+    <string name="settings_backup_folder_failed">Couldn\'t use this folder. Check that Momentum can write to it and try again.</string>
+    <string name="settings_backup_unreadable">Couldn\'t restore this file. It isn\'t a backup this version of Momentum can read, or it is damaged. Nothing was changed.</string>
+    <string name="settings_backup_not_local_folder">Choose a local folder on this phone</string>
+    <string name="settings_backup_no_folder">Choose a backup folder first</string>
+    <string name="settings_backup_change_folder">Change backup folder</string>
+    <string name="settings_backup_choose_folder">Choose backup folder</string>
+    <string name="settings_backup_now">Back up now</string>
+    <string name="settings_backup_restore">Restore a .momentum.json backup</string>
+    <string name="settings_backup_explanation">Save readable copies of all records and settings in a folder you choose. Anyone with access to these files can read them. A local folder survives app uninstall, but not loss of the phone. Keep another copy off the phone for that.</string>
+    <!-- Which backups Momentum keeps in the folder; it removes only files it wrote itself. -->
+    <string name="settings_backup_kept">Momentum keeps the two newest backups, the last one from each of the latest 7 days with a backup, and the last one from each of the latest 3 months. Its older backups are removed.</string>
+    <!-- Backups written by a version that never removed any. %1$d: how many lie in the folder. -->
+    <plurals name="settings_backup_old_found">
+        <item quantity="one">This folder also holds %1$d backup from an earlier version of Momentum.</item>
+        <item quantity="other">This folder also holds %1$d backups from an earlier version of Momentum.</item>
+    </plurals>
+    <string name="settings_backup_tidy">Tidy up</string>
+    <!-- %1$d: how many of the earlier version's backups would be removed. -->
+    <plurals name="settings_backup_tidy_title">
+        <item quantity="one">Remove %1$d old backup?</item>
+        <item quantity="other">Remove %1$d old backups?</item>
+    </plurals>
+    <!-- Under the question how many to remove. %1$d: how many of the earlier version's backups stay. -->
+    <plurals name="settings_backup_tidy_message">
+        <item quantity="one">%1$d other stays, by the same rule as Momentum\'s own. This includes old backups of another Momentum app in this folder. It cannot be undone.</item>
+        <item quantity="other">%1$d others stay, by the same rule as Momentum\'s own. This includes old backups of another Momentum app in this folder. It cannot be undone.</item>
+    </plurals>
+    <string name="settings_backup_tidy_confirm">Remove</string>
+    <string name="settings_backup_tidy_failed">Couldn\'t remove every old backup. Try again.</string>
+    <string name="settings_backup_restore_title">Replace all records and settings?</string>
+    <string name="settings_backup_restore_message">This backup has been checked. Restoring replaces every current record and app setting with the backup contents. The app will reload after restoration.</string>
+    <string name="settings_backup_restore_confirm">Replace and restore</string>
+    <string name="settings_backup_restoring">Restoring your records…</string>
+    <string name="settings_backup_warning_setup">Set up backups to protect records against uninstall.</string>
+    <string name="settings_backup_warning_delayed">Backup is taking longer than usual. Open Settings to check.</string>
+    <string name="settings_backup_warning_failed">Backup failed. Open Settings to retry.</string>
+    <!-- The steps a week earns tokens by, one row each, read from the first up, on a time view's Streak part and on Activity's. The line says how the rows add up. -->
+    <string name="settings_steps">Tokens a week</string>
+    <string name="settings_steps_note">A week earns the tokens of every step it reaches.</string>
+    <!-- A row's stepper value: what reaching the step adds to the week. %d: tokens. -->
+    <string name="settings_step_tokens_added">+%d</string>
+    <!-- Spoken for the stepper of a further step, which shows no label, by its number, counting the first step as 1. -->
+    <string name="settings_step_tokens_at">Tokens at step %d</string>
+    <!-- Spoken by the remove button of a further step. %d: the step's number, counting the first step as 1. -->
+    <string name="settings_remove_step">Remove step %d</string>
+    <string name="settings_add_step">Add a step</string>
+    <!-- Tokens inside a sentence that says what a week earns, such as "… earn a token." %d: the tokens, which pick the plural. -->
+    <plurals name="settings_tokens">
+        <item quantity="one">a token</item>
+        <item quantity="other">%d tokens</item>
+    </plurals>
+    <!-- The first start: a welcome, then Settings' own parts as numbered steps. -->
+    <string name="settings_first_start_welcome">You choose what matters to you. Mo helps you keep at it.</string>
+    <string name="settings_first_start_begin">Let’s get started</string>
+    <!-- The first step: what is tracked, Settings' views and its way to add one. -->
+    <string name="settings_first_start_track">Track</string>
+    <string name="settings_first_start_done">Done</string>
+    <!-- Under Activity and Substances in the first start's Track step: examples, as each kind to make has. -->
+    <string name="settings_activity_description">Workouts and sports, such as the gym, running or climbing.</string>
+    <string name="settings_substances_description">Alcohol, weed, nicotine or caffeine.</string>
+    <string name="settings_new_schedule_description">Items you tick at several times of the day, such as morning and evening.</string>
+</resources>

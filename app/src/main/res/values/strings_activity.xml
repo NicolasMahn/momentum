@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- %1$s: the gym's name; %2$s: the day's, for example "Gym · Day A". -->
+    <string name="activity_gym_session_title">%1$s · %2$s</string>
+    <!-- The tile that offers every further activity and a field for a new name. -->
+    <string name="activity_choice_other">Other</string>
+
+    <!-- %d: minutes. -->
+    <string name="activity_duration_minutes">%d min</string>
+    <plurals name="activity_sets">
+        <item quantity="one">%d set</item>
+        <item quantity="other">%d sets</item>
+    </plurals>
+    <!-- %s: the record's title, for example "Gym · Day A" or "Bowling". -->
+    <string name="activity_entry_show_sets">Show sets for %s</string>
+    <string name="activity_entry_hide_sets">Hide sets for %s</string>
+    <string name="activity_entry_edit">Edit %s</string>
+    <string name="activity_entry_remove">Remove %s</string>
+    <string name="activity_entry_remove_failed">Couldn\'t remove this record. Try again.</string>
+
+    <string name="activity_calendar_none">No activity</string>
+    <string name="activity_calendar_select">Select date</string>
+
+    <!-- A week holidays or sick days make lighter. %1$d: active days kept so far; %2$d: days it asks for. -->
+    <plurals name="activity_lighter_week">
+        <item quantity="one">Lighter week · %1$d of %2$d active day</item>
+        <item quantity="other">Lighter week · %1$d of %2$d active days</item>
+    </plurals>
+    <string name="activity_name_label">Activity</string>
+    <string name="activity_name_placeholder">For example, bowling</string>
+    <string name="activity_duration_label">Duration in minutes (optional)</string>
+    <!-- Short enough to fit the label line it borrows inside the duration field. -->
+    <string name="activity_duration_invalid">Enter minutes as a whole number above 0</string>
+    <string name="activity_change_plan">Change day</string>
+    <string name="activity_save">Save activity</string>
+    <string name="activity_save_changes">Save changes</string>
+    <string name="activity_saved">Saved</string>
+    <string name="activity_cancel">Cancel</string>
+    <string name="activity_save_failed">Couldn\'t save the activity. Try again.</string>
+
+    <string name="activity_error_missing_name">Enter an activity name.</string>
+    <string name="activity_error_duration">Duration must be greater than zero.</string>
+    <string name="activity_error_not_found">Activity not found.</string>
+
+    <!-- %1$d: sets; %2$d and %3$d: the lowest and highest target reps. -->
+    <plurals name="activity_gym_exercise_target">
+        <item quantity="one">%1$d set · %2$d–%3$d reps</item>
+        <item quantity="other">%1$d sets · %2$d–%3$d reps</item>
+    </plurals>
+    <plurals name="activity_gym_plan_exercises">
+        <item quantity="one">%d exercise</item>
+        <item quantity="other">%d exercises</item>
+    </plurals>
+    <plurals name="activity_gym_plan_target_sets">
+        <item quantity="one">%d target set</item>
+        <item quantity="other">%d target sets</item>
+    </plurals>
+    <!-- %d: exercises in the plan beyond the three named ones. -->
+    <string name="activity_gym_plan_more">+%d more</string>
+    <!-- Marks the gym day next in turn on the picker. -->
+    <string name="activity_gym_plan_next">Next</string>
+    <!-- Sets filled out of the exercise's sets, for example "2/3". -->
+    <string name="activity_gym_progress">%1$d/%2$d</string>
+    <!-- %s: the last workout's average set, for example "25 kg × 10", or "6 reps" where no set recorded a weight. -->
+    <string name="activity_gym_last_average">Last avg %s</string>
+    <!-- %s: the plan's starting set, shown until a session of the exercise was recorded. -->
+    <string name="activity_gym_start_set">Start %s</string>
+    <!-- %s: reps without a weight, for example "6" or "6.5", as the average or the starting set above. -->
+    <plurals name="activity_gym_reps">
+        <item quantity="one">%s rep</item>
+        <item quantity="other">%s reps</item>
+    </plurals>
+    <!-- Under an exercise a recorded session holds that the plan does not know. -->
+    <string name="activity_gym_exercise_not_in_plan">Not in the plan</string>
+    <string name="activity_gym_increase_weight">Increase weight</string>
+    <string name="activity_gym_preset_last">Last</string>
+    <string name="activity_gym_preset_last_description">Use last workout</string>
+    <!-- %s: the step in kilograms, for example "2.5". -->
+    <string name="activity_gym_weight_down">Take %s kg off every set</string>
+    <string name="activity_gym_weight_up">Add %s kg to every set</string>
+    <string name="activity_gym_weight_field">kg</string>
+    <string name="activity_gym_reps_field">reps</string>
+    <string name="activity_gym_save_set_failed">Couldn\'t save this set. Try again.</string>
+    <string name="activity_gym_save_sets_failed">Couldn\'t save these sets. Try again.</string>
+    <string name="activity_gym_weight_change_failed">Couldn\'t save this weight change. Try again.</string>
+    <string name="activity_gym_finish">Finish workout</string>
+    <string name="activity_gym_finish_duration_invalid">Enter duration as a positive whole number of minutes.</string>
+    <string name="activity_gym_finish_invalid_set">Check the started sets before finishing.</string>
+    <string name="activity_gym_finish_no_sets">Complete at least one set to finish.</string>
+    <string name="activity_gym_finish_failed">Couldn\'t finish the workout. Your draft is still here.</string>
+
+    <!-- A set's load. BW is bodyweight: nothing on the bar. -->
+    <string name="activity_gym_load_bodyweight">BW</string>
+    <!-- Bodyweight with an assist band taking %s kilograms off, for example "BW −3 kg". -->
+    <string name="activity_gym_load_assisted">BW −%s kg</string>
+    <!-- %1$s: the load, for example "25 kg"; %2$s: the reps, for example "10" or "10 · 9 · 9". -->
+    <string name="activity_gym_set">%1$s × %2$s</string>
+
+    <!-- Settings: Activity's page. The part that holds the week's days and the activities, each with its routine, named by Activity's own word. -->
+    <string name="activity_settings_activities_part">Activities</string>
+    <!-- What Activity's third part is called on its page: the week's days, what is planned on each and the reminder that comes on them. -->
+    <string name="activity_settings_week_part">Week</string>
+    <!-- Over one field per chosen day, named by the day, that opens the list of what may be planned on it. -->
+    <string name="activity_settings_planned">Planned</string>
+    <!-- The first choice of that list: any activity done that day counts as planned. -->
+    <string name="activity_settings_any_activity">Any activity</string>
+    <!-- On a row of the Activities list or of an activity's routine, in place of its summary, while a field on the page it opens holds a blank name, a name in use or a number it may not have, which holds Save back. -->
+    <string name="activity_settings_to_fix">Something to fix</string>
+    <!-- In the fold of an exercise's numbers: whether it is done with a weight. Off, the start weight and the step leave the fold. -->
+    <string name="activity_settings_with_weight">With weight</string>
+    <!-- Spoken by the way up from an activity's page or a day's page, which shows only where it leads. %s: the Activities list's name, or the activity a day is part of. -->
+    <string name="activity_settings_up">Back to %s</string>
+    <string name="activity_settings_days_a_week">Days a week</string>
+    <!-- Under the row: what reaching the days earns. %1$d: the days, which pick the plural; %2$s: the tokens the first step adds, from settings_tokens. -->
+    <plurals name="activity_settings_days_note">
+        <item quantity="one">%1$d active day in a week earns %2$s.</item>
+        <item quantity="other">%1$d active days in a week earn %2$s.</item>
+    </plurals>
+    <!-- After that line: the week's rest days. %d: seven less the days, which pick the plural; none at all has its own sentence. -->
+    <plurals name="activity_settings_rest_days_note">
+        <item quantity="one">The other day is a rest day.</item>
+        <item quantity="other">The other %d days are rest days.</item>
+    </plurals>
+    <string name="activity_settings_no_rest_days_note">There are no rest days.</string>
+    <!-- Last on that line, where there is more than one step: the most a week can earn. %d: what every step adds, together, which picks the plural. -->
+    <plurals name="activity_settings_days_note_more">
+        <item quantity="one">More days earn up to %d token a week.</item>
+        <item quantity="other">More days earn up to %d tokens a week.</item>
+    </plurals>
+    <!-- In the rows of the steps a week earns tokens by (settings_steps), on Activity's Streak part: the first row's step, the week's days themselves, and each further step's, a day more than the one before. -->
+    <string name="activity_settings_step_days">At your days</string>
+    <plurals name="activity_settings_step_days_more">
+        <item quantity="one">%d day more</item>
+        <item quantity="other">%d days more</item>
+    </plurals>
+    <!-- Beside it, what that comes to with the week's days as chosen. %d: days. -->
+    <plurals name="activity_settings_step_week_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <!-- Spoken for the first row's stepper, which shows no label; a further step's is settings_step_tokens_at. -->
+    <string name="activity_settings_step_tokens_at_days">Tokens at your days</string>
+    <!-- Under the rows: what a week reaching the last step earns in all. %1$d: the last step's days, which pick the plural; %2$s: the tokens, from settings_tokens. -->
+    <plurals name="activity_settings_steps_total">
+        <item quantity="one">A week with %1$d active day or more earns %2$s.</item>
+        <item quantity="other">A week with %1$d active days or more earns %2$s.</item>
+    </plurals>
+    <!-- The field that names an activity to add, beside Add. -->
+    <string name="activity_settings_new_activity">New activity</string>
+    <!-- The switch under the list of activities, off at first, and the line under it. -->
+    <string name="activity_settings_logs_duration">Log how long it took</string>
+    <string name="activity_settings_logs_duration_note">Adds a field for the minutes when you log an activity.</string>
+    <!-- Shown in a name field's label line while another activity, a removed one included, has the name typed. -->
+    <string name="activity_settings_name_taken">Already in use</string>
+    <!-- Spoken by the button that moves an activity, a day or an exercise one place up. %s: its name. -->
+    <string name="activity_settings_move_up">Move %s up</string>
+    <!-- An activity's routine: the fold that holds its days, summed up by their number, the button that gives an activity one and the two-step remove of the whole. -->
+    <string name="activity_settings_routine">Routine</string>
+    <plurals name="activity_settings_routine_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <!-- The line under an activity's name on the Activities list while it has no routine, beside "Routine · 3 days" for one that has. -->
+    <string name="activity_settings_no_routine">No routine</string>
+    <string name="activity_settings_add_routine">Add a routine</string>
+    <string name="activity_settings_added">%1$s is added. Give it a routine now, or later on its page.</string>
+    <string name="activity_settings_new_activity_done">Done</string>
+    <string name="activity_settings_remove_routine">Remove routine</string>
+    <!-- The name fields of a routine day and of an exercise. -->
+    <string name="activity_settings_day_name">Day</string>
+    <string name="activity_settings_exercise_name">Exercise</string>
+    <!-- What a day added to the plan is called until it is renamed. %s: its letter, D after the seeded A, B and C. -->
+    <string name="activity_settings_day_lettered">Day %s</string>
+    <!-- The fold of an exercise's numbers reads them out, for example "3 sets · 8–10 reps · ±2.5 kg". Inside it: %1$d and %2$d, the rep range's ends. -->
+    <string name="activity_settings_reps_range">%1$d–%2$d reps</string>
+    <!-- Inside that summary: what the − and + buttons add and take. %s: the step in kilograms, for example "2.5". -->
+    <string name="activity_settings_step_summary">±%s kg</string>
+    <!-- The exercise's numbers: a stepper and typed fields, each labelled, with the rule in the label's place while a field holds no number it may. -->
+    <string name="activity_settings_sets">Sets</string>
+    <string name="activity_settings_target">Target</string>
+    <string name="activity_settings_reps_from">Reps from</string>
+    <string name="activity_settings_reps_to">Reps to</string>
+    <string name="activity_settings_start_weight">Start weight</string>
+    <string name="activity_settings_start_reps">Start reps</string>
+    <string name="activity_settings_reps_invalid">1–100</string>
+    <!-- Where "from" is above "to", or "to" below "from". %d: the other end. -->
+    <string name="activity_settings_reps_at_most">At most %d</string>
+    <string name="activity_settings_reps_at_least">At least %d</string>
+    <string name="activity_settings_weight_invalid">−200 to 500 kg</string>
+    <string name="activity_settings_step_invalid">0.25 to 20 kg</string>
+    <string name="activity_settings_add_exercise">Add an exercise</string>
+    <string name="activity_settings_add_day">Add a day</string>
+    <!-- Why the remove button of the last day, or of a day's last exercise, is disabled. -->
+    <string name="activity_settings_last_day">A routine keeps at least one day.</string>
+    <string name="activity_settings_last_exercise">A day keeps at least one exercise.</string>
+    <!-- What a holiday means for Activity, beside still due and not due: the week asks fewer days. -->
+    <string name="activity_settings_away_lower">Fewer days</string>
+    <!-- Above the row that sets how many days a week spent on holiday asks. -->
+    <string name="activity_settings_away_days">Days a week on holiday</string>
+    <plurals name="activity_settings_away_days_spoken">
+        <item quantity="one">%d day a week on holiday</item>
+        <item quantity="other">%d days a week on holiday</item>
+    </plurals>
+</resources>

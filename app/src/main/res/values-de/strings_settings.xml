@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_language_title">Sprache</string>
+    <string name="settings_language_system">Systemsprache</string>
+
+    <string name="settings_ok">OK</string>
+    <string name="settings_cancel">Abbrechen</string>
+    <string name="settings_allow">Erlauben</string>
+    <string name="settings_error_reminders">Die Erinnerungseinstellungen ließen sich nicht übernehmen</string>
+    <string name="settings_error_features">Die Einstellungen der Bereiche ließen sich nicht übernehmen</string>
+    <string name="settings_error_open_notifications">Die Benachrichtigungseinstellungen ließen sich nicht öffnen</string>
+    <string name="settings_error_notifications_off">Benachrichtigungen sind aus</string>
+    <string name="settings_error_precise_timing_off">Genaue Zeitplanung ist aus</string>
+    <string name="settings_error_open_precise_timing">Die Einstellungen für genaue Zeitplanung ließen sich nicht öffnen</string>
+    <string name="settings_error_view">Konnte nicht speichern. Versuch es noch einmal.</string>
+    <!-- Save on the page of a view that runs on no checklist, such as Weight. -->
+    <string name="settings_feature_save">Speichern</string>
+    <!-- On the page of a built-in view, such as Weight, whose Delete is disabled: why, and what to do instead. The switch is on the view's row in the Settings list. -->
+    <string name="settings_typed_text_pending">Füg hinzu oder lösch, was du getippt hast.</string>
+
+    <string name="settings_new">Etwas Neues erfassen</string>
+    <string name="settings_new_checklist_description">Etwa Medikamente, Zähneputzen oder Dehnen.</string>
+    <string name="settings_new_measurement_description">Etwa dein Gewicht.</string>
+    <string name="settings_new_questions_description">Multiple-Choice-Fragen, die du jeden Tag beantwortest.</string>
+    <string name="settings_new_time_description">Etwa Lesen, Meditieren oder ein Instrument üben.</string>
+
+    <string name="settings_reminders_title">Erinnerungen</string>
+    <string name="settings_allow_notifications">Benachrichtigungen erlauben</string>
+    <string name="settings_allow_notifications_note">Braucht Benachrichtigungen. Ohne sie erreicht dich keine Erinnerung.</string>
+    <string name="settings_precise_timing">Genaue Zeitplanung</string>
+    <string name="settings_precise_timing_note">Braucht genaue Zeitplanung. Erinnerungen kommen sonst verspätet oder gar nicht.</string>
+    <!-- Spoken for a time button. %1$s: what the time belongs to, e.g. "Workout reminder"; %2$s: a time of day, e.g. "19:30" -->
+    <string name="settings_time_at">%1$s um %2$s</string>
+    <!-- %1$s: feature name, e.g. "Reading" -->
+    <string name="settings_show_feature_on_home">%1$s auf der Startseite zeigen</string>
+    <!-- %1$s: feature name, e.g. "Reading" -->
+    <string name="settings_turn_feature_on">Schalte %1$s ein, um diese Erinnerung zu nutzen</string>
+    <string name="settings_needs_precise_timing">Braucht genaue Zeitplanung</string>
+    <string name="settings_needs_notifications">Braucht Benachrichtigungen</string>
+    <string name="settings_send_test">Test senden</string>
+    <string name="settings_error_test">Der Test ließ sich nicht senden</string>
+
+    <string name="settings_reminder_mo">Mos Anstupser</string>
+    <string name="settings_reminder_mo_feature">Mo</string>
+    <string name="settings_reminder_workout">Trainingserinnerung</string>
+    <string name="settings_reminder_weight">Gewichtserinnerung</string>
+    <string name="settings_reminder_reading">Leseerinnerung</string>
+    <string name="settings_reminder_eating">Essenserinnerung</string>
+
+    <!-- %1$s: a time of day, e.g. "19:30" -->
+    <string name="settings_timing_every_day">Jeden Tag um %1$s</string>
+    <!-- %1$s: the days a reminder comes on by their short names, e.g. "Mo., Mi., Fr."; %2$s: a time of day, e.g. "18:00" -->
+    <string name="settings_timing_on_days">%1$s um %2$s</string>
+    <!-- %1$s: the nudge times, e.g. "10:00, 14:00, 18:00" -->
+    <string name="settings_timing_mo">%1$s · nur solange etwas überfällig ist</string>
+    <!-- %1$d: minutes after the alarm; %2$s: the time used without an alarm, e.g. "08:05" -->
+    <string name="settings_timing_after_alarm">%1$d min nach dem nächsten Wecker · ohne Wecker %2$s</string>
+    <!-- A reminder set some minutes before sleep, the bedtime set on the Sleep page or 8 h before the next alarm. %1$d: the minutes, %2$s: the latest time, %3$s: the time without an alarm. -->
+    <string name="settings_timing_before_sleep">%1$d min vor dem Schlafen, spätestens %2$s · ohne Wecker %3$s</string>
+
+    <string name="settings_holidays_title">Urlaub</string>
+    <string name="settings_holidays_note">Im Urlaub pausiert Gewicht, und Aktivität verlangt weniger Tage.</string>
+    <string name="settings_holiday_add">Urlaub hinzufügen</string>
+    <string name="settings_holiday_error">Urlaub konnte nicht gespeichert werden</string>
+    <!-- How many holiday or sick days a year holds. %1$d: the days; %2$d: the year -->
+    <plurals name="settings_days_in_year">
+        <item quantity="one">%1$d Tag in %2$d</item>
+        <item quantity="other">%1$d Tage in %2$d</item>
+    </plurals>
+    <!-- %1$s: the holiday, e.g. "2026-10-12 – 2026-10-18" -->
+    <string name="settings_holiday_remove">Urlaub %1$s entfernen</string>
+    <!-- Dates stay ISO 8601. %1$s: first day; %2$s: last day -->
+    <string name="settings_holiday_range">%1$s – %2$s</string>
+    <plurals name="settings_holiday_days">
+        <item quantity="one">%d Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <!-- Under the calendar until days are chosen. -->
+    <string name="settings_days_off_hint">Tippe auf den ersten und letzten Tag</string>
+    <string name="settings_holiday_previous_month">Vorheriger Monat</string>
+    <string name="settings_holiday_next_month">Nächster Monat</string>
+    <!-- Spoken for a planned day. %1$s: the full date -->
+    <string name="settings_holiday_day_planned">%1$s, Urlaub</string>
+
+    <string name="settings_sick_title">Krankheitstage</string>
+    <string name="settings_sick_note">Ein Krankheitstag verlangt nichts: Der Streak hält, und weder ein Token noch ein Freeze wird eingesetzt. Deine Einträge bleiben, wie sie sind.</string>
+    <string name="settings_sick_add">Ich war krank</string>
+    <string name="settings_sick_error">Krankheitstage konnten nicht gespeichert werden</string>
+    <!-- %1$s: the sick days, e.g. "2026-10-12 – 2026-10-14" -->
+    <string name="settings_sick_remove">Krankheitstage %1$s entfernen</string>
+    <!-- Spoken for a day declared sick. %1$s: the full date -->
+    <string name="settings_sick_day_declared">%1$s, krank</string>
+    <string name="settings_sleep_title">Schlaf</string>
+    <string name="settings_sleep_summary">Aufwachen %1$s · Schlafen %2$s</string>
+    <string name="settings_sleep_note">Diese beiden Zeiten bestimmen, was „nach dem Aufwachen“ und „vor dem Schlafen“ für jede Erinnerung heißt und wann Mo müde wird.</string>
+    <string name="settings_sleep_wake">Weckzeit</string>
+    <string name="settings_sleep_wake_note">Der nächste Wecker deines Handys, oder diese Zeit an einem Tag ohne Wecker.</string>
+    <string name="settings_sleep_bedtime">Schlafenszeit</string>
+    <string name="settings_sleep_bedtime_automatic">8 Stunden vor dem Aufwachen</string>
+    <string name="settings_sleep_bedtime_fixed">Zu einer festen Zeit</string>
+    <string name="settings_backups_title">Sicherungen</string>
+    <!-- One line under Backups in the Settings list. -->
+    <string name="settings_backups_summary_setup">Noch nicht eingerichtet</string>
+    <string name="settings_backups_summary_delayed">Dauert länger als sonst</string>
+    <string name="settings_backups_summary_failed">Braucht Aufmerksamkeit</string>
+    <string name="settings_backups_summary_verified">Auf dem neuesten Stand</string>
+    <plurals name="settings_reminders_summary_on">
+        <item quantity="one">%d aktiv</item>
+        <item quantity="other">%d aktiv</item>
+    </plurals>
+    <string name="settings_reminders_summary_none">Alle aus</string>
+    <!-- %1$s: when the last backup was verified, an ISO 8601 instant -->
+    <string name="settings_backup_last_verified">Letzte geprüfte Sicherung: %1$s</string>
+    <string name="settings_backup_none_verified">Noch keine geprüfte Sicherung.</string>
+    <string name="settings_backup_needs_setup">Wähle einen Ordner, um deine Einträge zu schützen.</string>
+    <!-- %1$s: what went wrong, a whole sentence -->
+    <string name="settings_backup_needs_attention">Die Sicherung braucht Aufmerksamkeit: %1$s</string>
+    <string name="settings_backup_write_failed">Sicherung fehlgeschlagen. Die letzten Änderungen gibt es nur in dieser Installation. Prüfe den Zugriff auf den Ordner und versuch es noch einmal.</string>
+    <string name="settings_backup_backing_up">Wird gesichert…</string>
+    <string name="settings_backup_delayed">Die Sicherung dauert länger als sonst. Die letzten Änderungen sind noch nicht gesichert.</string>
+    <string name="settings_backup_verified">Die zuletzt gespeicherten Änderungen sind gesichert.</string>
+    <string name="settings_backup_working">Einen Moment…</string>
+    <string name="settings_backup_restore_failed">Die Sicherung ließ sich nicht wiederherstellen. Versuch es noch einmal.</string>
+    <string name="settings_backup_folder_failed">Dieser Ordner lässt sich nicht verwenden. Prüfe, ob Momentum darin schreiben darf, und versuch es noch einmal.</string>
+    <string name="settings_backup_unreadable">Diese Datei lässt sich nicht wiederherstellen. Diese Version von Momentum kann sie nicht lesen, oder sie ist beschädigt. Es wurde nichts geändert.</string>
+    <string name="settings_backup_not_local_folder">Wähle einen lokalen Ordner auf diesem Handy</string>
+    <string name="settings_backup_no_folder">Wähle zuerst einen Sicherungsordner</string>
+    <string name="settings_backup_change_folder">Sicherungsordner ändern</string>
+    <string name="settings_backup_choose_folder">Sicherungsordner wählen</string>
+    <string name="settings_backup_now">Jetzt sichern</string>
+    <string name="settings_backup_restore">Eine .momentum.json-Sicherung wiederherstellen</string>
+    <string name="settings_backup_explanation">Speichere lesbare Kopien aller Einträge und Einstellungen in einem Ordner deiner Wahl. Wer auf diese Dateien zugreifen kann, kann sie lesen. Ein lokaler Ordner übersteht das Deinstallieren der App, aber nicht den Verlust des Handys. Bewahre dafür eine weitere Kopie außerhalb des Handys auf.</string>
+    <!-- Which backups Momentum keeps in the folder; it removes only files it wrote itself. -->
+    <string name="settings_backup_kept">Momentum behält die zwei neuesten Sicherungen, die letzte von jedem der letzten 7 Tage mit einer Sicherung und die letzte aus jedem der letzten 3 Monate. Seine älteren Sicherungen werden entfernt.</string>
+    <!-- Backups written by a version that never removed any. %1$d: how many lie in the folder. -->
+    <plurals name="settings_backup_old_found">
+        <item quantity="one">In diesem Ordner liegt noch %1$d Sicherung aus einer früheren Version von Momentum.</item>
+        <item quantity="other">In diesem Ordner liegen noch %1$d Sicherungen aus einer früheren Version von Momentum.</item>
+    </plurals>
+    <string name="settings_backup_tidy">Aufräumen</string>
+    <!-- %1$d: how many of the earlier version's backups would be removed. -->
+    <plurals name="settings_backup_tidy_title">
+        <item quantity="one">%1$d alte Sicherung entfernen?</item>
+        <item quantity="other">%1$d alte Sicherungen entfernen?</item>
+    </plurals>
+    <!-- Under the question how many to remove. %1$d: how many of the earlier version's backups stay. -->
+    <plurals name="settings_backup_tidy_message">
+        <item quantity="one">%1$d weitere bleibt, nach derselben Regel wie Momentums eigene. Das gilt auch für alte Sicherungen einer anderen Momentum-App in diesem Ordner. Es lässt sich nicht rückgängig machen.</item>
+        <item quantity="other">%1$d weitere bleiben, nach derselben Regel wie Momentums eigene. Das gilt auch für alte Sicherungen einer anderen Momentum-App in diesem Ordner. Es lässt sich nicht rückgängig machen.</item>
+    </plurals>
+    <string name="settings_backup_tidy_confirm">Entfernen</string>
+    <string name="settings_backup_tidy_failed">Nicht alle alten Sicherungen ließen sich entfernen. Versuch es noch einmal.</string>
+    <string name="settings_backup_restore_title">Alle Einträge und Einstellungen ersetzen?</string>
+    <string name="settings_backup_restore_message">Diese Sicherung wurde geprüft. Beim Wiederherstellen werden alle aktuellen Einträge und App-Einstellungen durch den Inhalt der Sicherung ersetzt. Danach lädt die App neu.</string>
+    <string name="settings_backup_restore_confirm">Ersetzen und wiederherstellen</string>
+    <string name="settings_backup_restoring">Deine Einträge werden wiederhergestellt…</string>
+    <string name="settings_backup_warning_setup">Richte Sicherungen ein, damit deine Einträge eine Deinstallation überstehen.</string>
+    <string name="settings_backup_warning_delayed">Die Sicherung dauert länger als sonst. Sieh in den Einstellungen nach.</string>
+    <string name="settings_backup_warning_failed">Sicherung fehlgeschlagen. Versuch es in den Einstellungen noch einmal.</string>
+    <!-- The steps a week earns tokens by, one row each, read from the first up, on a time view's Streak part and on Activity's. The line says how the rows add up. -->
+    <string name="settings_steps">Tokens pro Woche</string>
+    <string name="settings_steps_note">Eine Woche bekommt die Tokens jeder Stufe, die sie erreicht.</string>
+    <!-- A row's stepper value: what reaching the step adds to the week. %d: tokens. -->
+    <string name="settings_step_tokens_added">+%d</string>
+    <!-- Spoken for the stepper of a further step, which shows no label, by its number, counting the first step as 1. -->
+    <string name="settings_step_tokens_at">Tokens bei Stufe %d</string>
+    <!-- Spoken by the remove button of a further step. %d: the step's number, counting the first step as 1. -->
+    <string name="settings_remove_step">Stufe %d entfernen</string>
+    <string name="settings_add_step">Stufe hinzufügen</string>
+    <!-- Tokens inside a sentence that says what a week earns, such as "… gibt es ein Token." %d: the tokens, which pick the plural. -->
+    <plurals name="settings_tokens">
+        <item quantity="one">ein Token</item>
+        <item quantity="other">%d Tokens</item>
+    </plurals>
+    <!-- The first start: a welcome, then Settings' own parts as numbered steps. -->
+    <string name="settings_first_start_welcome">Du entscheidest, was dir wichtig ist. Mo hilft dir, dranzubleiben.</string>
+    <string name="settings_first_start_begin">Los geht’s</string>
+    <!-- The first step: what is tracked, Settings' views and its way to add one. -->
+    <string name="settings_first_start_track">Erfassen</string>
+    <string name="settings_first_start_done">Fertig</string>
+    <!-- Under Activity and Substances in the first start's Track step: examples, as each kind to make has. -->
+    <string name="settings_activity_description">Training und Sport, etwa Fitnessstudio, Laufen oder Klettern.</string>
+    <string name="settings_substances_description">Alkohol, Gras, Nikotin oder Koffein.</string>
+    <string name="settings_new_schedule_description">Punkte, die du zu mehreren Zeiten am Tag abhakst, etwa morgens und abends.</string>
+</resources>

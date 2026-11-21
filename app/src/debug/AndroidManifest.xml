@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <!--
+        Debug-only launcher. The personal and release build types do not include src/debug,
+        so the gallery can never ship next to real data.
+        -->
+        <activity
+            android:name=".gallery.GalleryActivity"
+            android:exported="true"
+            android:label="@string/gallery_label"
+            android:taskAffinity="com.example.workouttracker.gallery"
+            android:theme="@style/Theme.WorkoutTracker">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".gallery.MoActDumpActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.NoDisplay" />
+    </application>
+
+</manifest>

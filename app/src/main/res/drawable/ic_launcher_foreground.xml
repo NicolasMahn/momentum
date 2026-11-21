@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mo, Steady, body only: arms and feet are left out so the flame fills the safe zone. Path data is in MoFigure.kt's design space; the group scales it into the 66dp safe circle. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="0.21"
+        android:scaleY="0.21"
+        android:translateX="29.85"
+        android:translateY="4.02">
+        <!-- Ledge band: the outline in the ledge colour, then the same outline lifted 11 units and clipped to itself. -->
+        <path
+            android:fillColor="@color/mo_icon_ledge"
+            android:pathData="M8,287C8,240 20,200 34,176C34,162 48,158 50,172C51,180 53,186 56,186C64,140 84,104 110,89C122,82 134,88 132,102C130,128 146,152 161,170C164,160 172,150 182,150C192,150 192,164 191,174C202,202 222,242 222,287C222,346.1 174.1,394 115,394C55.9,394 8,346.1 8,287Z" />
+        <group>
+            <clip-path android:pathData="M8,287C8,240 20,200 34,176C34,162 48,158 50,172C51,180 53,186 56,186C64,140 84,104 110,89C122,82 134,88 132,102C130,128 146,152 161,170C164,160 172,150 182,150C192,150 192,164 191,174C202,202 222,242 222,287C222,346.1 174.1,394 115,394C55.9,394 8,346.1 8,287Z" />
+            <path
+                android:fillColor="@color/mo_icon_outer"
+                android:pathData="M8,276C8,229 20,189 34,165C34,151 48,147 50,161C51,169 53,175 56,175C64,129 84,93 110,78C122,71 134,77 132,91C130,117 146,141 161,159C164,149 172,139 182,139C192,139 192,153 191,163C202,191 222,231 222,276C222,335.1 174.1,383 115,383C55.9,383 8,335.1 8,276Z" />
+        </group>
+        <path
+            android:fillColor="@color/mo_icon_middle"
+            android:pathData="M28,292C28,255 42,222 58,206C62,198 74,198 76,210C82,178 94,152 107,142C114,138 119,143 118,152C117,176 136,196 154,208C158,198 168,194 173,199C179,205 177,216 179,224C191,246 202,268 202,292C202,337.29 163.05,374 115,374C66.95,374 28,337.29 28,292Z" />
+        <path
+            android:fillColor="@color/mo_icon_belly"
+            android:pathData="M48,302C48,278 58,252 68,242C72,233 81,233 83,242C86,226 99,196 112,188C118,185 123,189 122,198C121,216 141,236 159,252C172,266 180,284 180,302C180,335.69 150.45,363 114,363C77.55,363 48,335.69 48,302Z" />
+        <path
+            android:strokeColor="@color/mo_icon_gloss"
+            android:strokeWidth="9"
+            android:strokeLineCap="round"
+            android:pathData="M69,151Q78,126 92,114" />
+        <path
+            android:strokeAlpha="0.85"
+            android:strokeColor="@color/mo_icon_gloss"
+            android:strokeWidth="9"
+            android:strokeLineCap="round"
+            android:pathData="M31,260Q38,236 51,219" />
+        <path
+            android:fillColor="@color/mo_icon_eye"
+            android:pathData="M44,284a27,27 0,1 0,54,0a27,27 0,1 0,-54,0Z" />
+        <path
+            android:fillColor="@color/mo_icon_ink"
+            android:pathData="M53.48,284a20.52,20.52 0,1 0,41.04,0a20.52,20.52 0,1 0,-41.04,0Z" />
+        <path
+            android:fillColor="@color/mo_icon_eye"
+            android:pathData="M60.5,275.09a6.48,6.48 0,1 0,12.96,0a6.48,6.48 0,1 0,-12.96,0Z" />
+        <path
+            android:fillColor="@color/mo_icon_eye"
+            android:pathData="M79.13,292.91a3.78,3.78 0,1 0,7.56,0a3.78,3.78 0,1 0,-7.56,0Z" />
+        <path
+            android:fillColor="@color/mo_icon_eye"
+            android:pathData="M128,284a27,27 0,1 0,54,0a27,27 0,1 0,-54,0Z" />
+        <path
+            android:fillColor="@color/mo_icon_ink"
+            android:pathData="M131.48,284a20.52,20.52 0,1 0,41.04,0a20.52,20.52 0,1 0,-41.04,0Z" />
+        <path
+            android:fillColor="@color/mo_icon_eye"
+            android:pathData="M138.5,275.09a6.48,6.48 0,1 0,12.96,0a6.48,6.48 0,1 0,-12.96,0Z" />
+        <path
+            android:fillColor="@color/mo_icon_eye"
+            android:pathData="M157.13,292.91a3.78,3.78 0,1 0,7.56,0a3.78,3.78 0,1 0,-7.56,0Z" />
+        <path
+            android:strokeColor="@color/mo_icon_ink"
+            android:strokeWidth="5.5"
+            android:strokeLineCap="round"
+            android:pathData="M96,313Q113,328 130,313" />
+    </group>
+</vector>

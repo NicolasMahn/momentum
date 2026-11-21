@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="substance_cannabis">Cannabis</string>
+    <string name="substance_alcohol">Alkohol</string>
+    <string name="substance_tobacco">Tabak</string>
+    <string name="substance_vaping">E-Zigarette</string>
+    <string name="substance_nicotine_pouches">Nikotinbeutel</string>
+    <string name="substance_coffee">Kaffee</string>
+    <string name="substance_energy_drinks">Energydrinks</string>
+    <string name="substance_cocaine">Kokain</string>
+    <string name="substance_crack">Crack</string>
+    <string name="substance_amphetamines">Amphetamine</string>
+    <string name="substance_mdma">MDMA</string>
+    <string name="substance_ketamine">Ketamin</string>
+    <string name="substance_psychedelics">Psychedelika</string>
+    <string name="substance_opioids">Opioide</string>
+    <string name="substance_benzodiazepines">Benzodiazepine</string>
+    <string name="substance_ghb">GHB</string>
+    <string name="substance_amount_grams">Gramm (optional)</string>
+    <string name="substance_amount_drinks">Gläser (optional)</string>
+    <string name="substance_amount_uses">Anzahl (optional)</string>
+    <string name="substance_amount_pouches">Beutel (optional)</string>
+    <string name="substance_amount_cups">Tassen (optional)</string>
+    <string name="substance_amount_cans">Dosen (optional)</string>
+    <string name="substance_amount_pills">Tabletten (optional)</string>
+    <!-- Suffixes inside the amount field, after the number. -->
+    <string name="substance_unit_grams">g</string>
+    <string name="substance_unit_drinks">Gläser</string>
+    <string name="substance_unit_uses">Mal</string>
+    <string name="substance_unit_pouches">Beutel</string>
+    <string name="substance_unit_cups">Tassen</string>
+    <string name="substance_unit_cans">Dosen</string>
+    <string name="substance_unit_pills">Tabletten</string>
+    <!-- A unit on its own, where one is chosen for a substance of your own. -->
+    <string name="substance_unit_name_grams">Gramm</string>
+    <string name="substance_unit_name_drinks">Gläser</string>
+    <string name="substance_unit_name_uses">Mal</string>
+    <string name="substance_unit_name_pouches">Beutel</string>
+    <string name="substance_unit_name_cups">Tassen</string>
+    <string name="substance_unit_name_cans">Dosen</string>
+    <string name="substance_unit_name_pills">Tabletten</string>
+
+    <string name="substance_optional_details">Optionale Angaben</string>
+    <string name="substance_save_day">Tag speichern</string>
+    <string name="substance_save_changes">Änderungen speichern</string>
+    <string name="substance_saved">Gespeichert</string>
+    <!-- %s: the date, for example "Sat, Oct 3". -->
+    <string name="substance_remove_day">Einträge für %s entfernen</string>
+    <string name="substance_error_remove_failed">Der Tag konnte nicht entfernt werden. Versuch es noch einmal.</string>
+    <string name="substance_error_save_failed">Der Tag konnte nicht gespeichert werden. Vielleicht wurde er woanders geändert.</string>
+    <!-- Only shown for two or more records left by an older version. %1$d: how many; %2$s: the substance. -->
+    <plurals name="substance_legacy_entries">
+        <item quantity="one">%1$d %2$s-Eintrag aus einer älteren Version.</item>
+        <item quantity="other">%1$d %2$s-Einträge aus einer älteren Version.</item>
+    </plurals>
+    <!-- One of several old records of a substance. %1$s: the substance; %2$d: its number. -->
+    <string name="substance_legacy_entry">%1$s %2$d</string>
+    <string name="substance_delete">Löschen</string>
+    <string name="substance_error_amount">Gib mehr als 0 ein oder lass es leer</string>
+    <!-- An amount field, spoken, so two fields with one unit are told apart. %1$s: the substance; %2$s: the field's label. -->
+    <string name="substance_amount_described">%1$s: %2$s</string>
+    <!-- Where the tiles would be, while no substance is tracked; the button opens the Substances page. -->
+    <string name="substance_nothing_tracked">Noch nichts ausgewählt.</string>
+    <string name="substance_choose">Substanzen wählen</string>
+    <!-- The whole day's answer when there is nothing to log: a record like a use, which the check-in's action and the calendar name the same way. -->
+    <string name="substance_none_today">Heute nichts</string>
+    <string name="substance_none_yesterday">Gestern nichts</string>
+    <string name="substance_none_day">An diesem Tag nichts</string>
+    <string name="substance_none_not_over">„Nichts“ kannst du eintragen, sobald der Tag vorbei ist.</string>
+    <!-- Under the buttons, when "None today" was pressed while the day still holds a use. -->
+    <string name="substance_none_blocked">Entferne zuerst die Einträge des Tages, um „nichts“ einzutragen.</string>
+
+    <!-- A summary tile: a big number or word, then what it counts. -->
+    <string name="substance_stat_nothing_unit">nichts erfasst</string>
+    <string name="substance_stat_nothing">Kein Konsum erfasst</string>
+    <string name="substance_stat_today_word">heute</string>
+    <string name="substance_stat_today_unit">zuletzt erfasst</string>
+    <string name="substance_stat_today">Heute erfasst</string>
+    <string name="substance_stat_ahead_unit">vorausdatiert</string>
+    <!-- %s: the latest record's date with its year, for example "Oct 7, 2026", which lies after today. -->
+    <string name="substance_stat_ahead">Letzter Eintrag am %s</string>
+    <!-- Under the count, which is shown on its own. -->
+    <plurals name="substance_stat_days_without_unit">
+        <item quantity="one">Tag ohne</item>
+        <item quantity="other">Tage ohne</item>
+    </plurals>
+    <!-- Whole days with nothing logged, between the last record and today. -->
+    <plurals name="substance_stat_days_without">
+        <item quantity="one">%d Tag ohne</item>
+        <item quantity="other">%d Tage ohne</item>
+    </plurals>
+    <!-- The whole tile, spoken. %1$s: the substance; %2$s: its state, for example "76 days without". -->
+    <string name="substance_stat_description">%1$s: %2$s</string>
+    <!-- A substance just tracked, not stayed away from: when it was last logged, never a count of anything. -->
+    <string name="substance_stat_yesterday_word">gestern</string>
+    <string name="substance_stat_yesterday">Zuletzt gestern erfasst</string>
+    <!-- Under the count, which is shown on its own. -->
+    <plurals name="substance_stat_days_ago_unit">
+        <item quantity="one">Tag her</item>
+        <item quantity="other">Tage her</item>
+    </plurals>
+    <plurals name="substance_stat_days_ago">
+        <item quantity="one">Zuletzt vor %d Tag erfasst</item>
+        <item quantity="other">Zuletzt vor %d Tagen erfasst</item>
+    </plurals>
+
+    <!-- A calendar day, spoken. -->
+    <string name="substance_history_none">Keine Einträge</string>
+    <!-- %1$s: the substance; %2$d: how many records it has that day. Several are joined with ", ". -->
+    <string name="substance_history_kind_count">%1$s %2$d</string>
+    <string name="substance_action_select">Datum wählen</string>
+    <string name="substance_action_open">Einträge öffnen</string>
+
+    <!-- The Substances page in Settings. -->
+    <string name="substance_settings_note">Ausgewählte Substanzen kannst du eintragen und siehst ihre Tage ohne. Einträge bleiben immer.</string>
+    <string name="substance_settings_new">Neue Substanz</string>
+    <string name="substance_settings_unit">Einheit</string>
+    <!-- %s: the unit, for example "Grams". -->
+    <string name="substance_settings_counted_in">Gezählt in %s.</string>
+    <string name="substance_settings_keeps_records">Hat Einträge und bleibt deshalb.</string>
+    <string name="substance_settings_save">Speichern</string>
+    <string name="substance_settings_error_save_failed">Konnte nicht speichern. Versuch es noch einmal.</string>
+    <!-- Each tracked substance is one of these two; it only changes what its stat says. -->
+    <string name="substance_settings_staying_away">Verzichte darauf</string>
+    <string name="substance_settings_just_tracking">Nur erfassen</string>
+    <string name="substance_settings_check_in">Check-in-Erinnerung</string>
+    <!-- Under "Counts toward the streak" while Logging is chosen: what keeps a day there. -->
+    <string name="substance_settings_streak_note">Ein Tag zählt, sobald er erfasst ist, mit Konsum oder mit „Gestern nichts“. Was erfasst wurde, spielt nie eine Rolle.</string>
+    <!-- "Counts toward the streak" as three tiles, with one line under them saying what keeps a day. -->
+    <string name="substance_settings_goal_off">Aus</string>
+    <string name="substance_settings_goal_logging">Erfassen</string>
+    <string name="substance_settings_goal_staying_away">Verzichten</string>
+    <string name="substance_settings_goal_off_note">Hier zählt nichts für den Streak.</string>
+    <string name="substance_settings_staying_away_note">Ein Tag zählt, solange du nichts einträgst, worauf du verzichtest.</string>
+    <!-- The same goal while "Only log uses" is unchecked: a day with no record at all is a gap too. -->
+    <string name="substance_settings_staying_away_check_in_note">Ein Tag zählt, sobald er erfasst ist, ohne etwas, worauf du verzichtest.</string>
+    <!-- The checkbox under Staying away, worded like a checklist's "Only log misses". Checked, a day with nothing logged counts, so no check-in is needed on a day without a use. -->
+    <string name="substance_settings_only_uses">Nur Konsum eintragen</string>
+    <!-- Under the tiles while Staying away names no substance: nothing is asked of such a day. -->
+    <string name="substance_settings_nothing_stayed_away">Noch nichts gewählt, worauf du verzichtest.</string>
+    <!-- Beside a disabled remove: an own substance an earlier day was judged against stays, like one with records. -->
+    <string name="substance_settings_keeps_stance">Du hast darauf verzichtet, deshalb bleibt sie.</string>
+
+    <!-- The check-in notification. It names no substance and assumes nothing. -->
+    <string name="substance_check_in_question">Gibt es für gestern etwas einzutragen?</string>
+    <string name="substance_check_in_none_today">Gestern nichts</string>
+    <!-- After "None today" was pressed for a day that already holds a use; a tap opens that day. -->
+    <string name="substance_check_in_holds_record">Dieser Tag hat schon einen Eintrag. Tipp drauf, um ihn zu öffnen.</string>
+    <string name="substance_check_in_failed_title">„Gestern nichts“ konnte nicht gespeichert werden</string>
+    <string name="substance_check_in_failed_text">Öffne %1$s, um den Tag einzutragen.</string>
+</resources>

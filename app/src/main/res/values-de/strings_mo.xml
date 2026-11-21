@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Mo's words. He is hurt, never angry, and every line names the way out. As a Husk he no longer
+speaks, so those lines speak about him in the third person.
+-->
+<resources>
+    <!-- His state, spoken for his figure on Home and on the widget. -->
+    <string name="mo_state_blazing">Mo lodert</string>
+    <string name="mo_state_steady">Mo brennt gleichmäßig</string>
+    <string name="mo_state_dimming">Mo wird schwächer</string>
+    <string name="mo_state_cold">Mo ist kalt</string>
+    <string name="mo_state_husk">Mo ist erloschen</string>
+
+    <!-- The score. Freezes join the streak with " · " once there are some. -->
+    <plurals name="mo_streak_days">
+        <item quantity="one">Streak: %d Tag</item>
+        <item quantity="other">Streak: %d Tage</item>
+    </plurals>
+    <plurals name="mo_freezes">
+        <item quantity="one">%d Freeze</item>
+        <item quantity="other">%d Freezes</item>
+    </plurals>
+    <!-- %1$d: freezes held; %2$d: how many the bank can hold. -->
+    <plurals name="mo_freezes_of">
+        <item quantity="one">%1$d von %2$d Freeze</item>
+        <item quantity="other">%1$d von %2$d Freezes</item>
+    </plurals>
+    <!-- %3$s: mo_full or mo_freeze_next_in. -->
+    <plurals name="mo_freezes_of_with_note">
+        <item quantity="one">%1$d von %2$d Freeze, %3$s</item>
+        <item quantity="other">%1$d von %2$d Freezes, %3$s</item>
+    </plurals>
+    <!-- The days until the next freeze. They are days with every daily task done, not calendar days. -->
+    <plurals name="mo_freeze_next_in">
+        <item quantity="one">noch %d geschaffter Tag</item>
+        <item quantity="other">noch %d geschaffte Tage</item>
+    </plurals>
+    <string name="mo_full">voll</string>
+
+    <!-- What he says. %s is a list of feature names, for example "Reading, Care". -->
+    <string name="mo_line_frozen">Gestern hat ein Freeze deinen Streak gerettet (%s).</string>
+    <string name="mo_line_thaw_anything">Trag irgendetwas ein, dann taue ich auf.</string>
+    <string name="mo_line_thaw_needs">Tau mich auf: %s.</string>
+    <!-- The same two for a Husk in the ice. He no longer speaks, so the app says it about him. -->
+    <string name="mo_line_thaw_anything_narrated">Jeder Eintrag taut Mo auf.</string>
+    <string name="mo_line_thaw_needs_narrated">Ein Eintrag taut Mo auf: %s.</string>
+    <string name="mo_line_nothing_due">Heute ist nichts fällig.</string>
+    <string name="mo_line_sick">Ruh dich heute aus. Nichts wird von dir verlangt.</string>
+    <string name="mo_line_husk">Mo ist erloschen. Der nächste Eintrag entfacht ihn wieder.</string>
+    <string name="mo_line_optional_warm">Heute muss nichts sein, aber das würde mich wärmen: %s.</string>
+    <string name="mo_line_optional">Heute muss nichts sein. Möglich wäre noch: %s.</string>
+    <string name="mo_line_done_blazing">Alles erledigt. Ich lodere!</string>
+    <string name="mo_line_done_steady">Heute ist alles erledigt. Das fühlt sich gut an.</string>
+    <string name="mo_line_done_warming">Danke. Ich spüre, wie es wärmer wird.</string>
+    <plurals name="mo_line_reading_left">
+        <item quantity="one">Noch %d Leseminute diese Woche.</item>
+        <item quantity="other">Noch %d Leseminuten diese Woche.</item>
+    </plurals>
+    <string name="mo_line_still_open">Heute noch offen: %s.</string>
+    <string name="mo_line_getting_cold">Hier drin wird es kalt.</string>
+    <!-- %1$d: days cold; %2$s: the open tasks. -->
+    <plurals name="mo_line_cold">
+        <item quantity="one">Mir ist seit einem Tag kalt. Eins davon würde mich wärmen: %2$s.</item>
+        <item quantity="other">Mir ist seit %1$d Tagen kalt. Eins davon würde mich wärmen: %2$s.</item>
+    </plurals>
+    <plurals name="mo_line_husk_open">
+        <item quantity="one">Mo ist seit einem Tag erloschen. Ein Eintrag entfacht ihn wieder: %2$s.</item>
+        <item quantity="other">Mo ist seit %1$d Tagen erloschen. Ein Eintrag entfacht ihn wieder: %2$s.</item>
+    </plurals>
+
+    <!-- What a neglected task feels like to him: the symptom his figure shows. -->
+    <string name="mo_ache_care">Meine Zähne tun weh.</string>
+    <string name="mo_ache_reading">Mein Buch verstaubt.</string>
+    <string name="mo_ache_activity">Meine Hanteln verstauben.</string>
+    <string name="mo_ache_supplements">Meine Tabletten liegen seit Tagen umgekippt da.</string>
+    <string name="mo_ache_eating">Meine Schüssel ist schon die ganze Woche leer.</string>
+    <string name="mo_ache_weight">Niemand hat sich auf die Waage gestellt.</string>
+
+    <!-- The streak page. -->
+    <plurals name="mo_days_in_a_row">
+        <item quantity="one">Tag in Folge</item>
+        <item quantity="other">Tage in Folge</item>
+    </plurals>
+    <!-- %s: the days, for example "Monday: complete, Tuesday: open". -->
+    <string name="mo_this_week">Diese Woche: %s</string>
+    <!-- %1$s: weekday name; %2$s: how that day went, for example "saved by a freeze". -->
+    <string name="mo_week_day">%1$s: %2$s</string>
+    <string name="mo_day_perfect">geschafft</string>
+    <string name="mo_day_frozen">per Freeze gerettet</string>
+    <string name="mo_day_protected">per Token gerettet</string>
+    <string name="mo_day_missed">verpasst</string>
+    <string name="mo_day_open">offen</string>
+    <string name="mo_day_upcoming">kommt noch</string>
+    <string name="mo_day_nothing_due">nichts fällig</string>
+    <string name="mo_day_sick">krank</string>
+
+    <string name="mo_rule_done">Alles geschafft</string>
+    <string name="mo_rule_done_effect">+1 Tag</string>
+    <string name="mo_rule_covered">Verpasst, aber abgedeckt</string>
+    <string name="mo_rule_covered_effect">hält</string>
+    <string name="mo_rule_uncovered">Verpasst, nicht abgedeckt</string>
+    <string name="mo_rule_uncovered_effect">beginnt neu</string>
+
+    <!-- How far the next token is. %1$d: counted so far; %2$d: needed. -->
+    <plurals name="mo_progress_days_this_week">
+        <item quantity="one">%1$d/%2$d Tag diese Woche</item>
+        <item quantity="other">%1$d/%2$d Tage diese Woche</item>
+    </plurals>
+    <plurals name="mo_progress_minutes_this_week">
+        <item quantity="one">%1$d/%2$d Min. diese Woche</item>
+        <item quantity="other">%1$d/%2$d Min. diese Woche</item>
+    </plurals>
+    <plurals name="mo_progress_full_days">
+        <item quantity="one">%1$d/%2$d Tag komplett</item>
+        <item quantity="other">%1$d/%2$d Tage komplett</item>
+    </plurals>
+    <plurals name="mo_progress_days">
+        <item quantity="one">%1$d/%2$d Tag</item>
+        <item quantity="other">%1$d/%2$d Tage</item>
+    </plurals>
+    <string name="mo_reserved">reserviert</string>
+    <!-- %1$s: feature name; %2$d: tokens held. -->
+    <plurals name="mo_bank_tokens">
+        <item quantity="one">%1$s: %2$d Token</item>
+        <item quantity="other">%1$s: %2$d Tokens</item>
+    </plurals>
+    <string name="mo_reserved_count">%d für heute reserviert</string>
+    <string name="mo_reserved_count_week">%d für diese Woche reserviert</string>
+    <string name="mo_resting">Ruhetag</string>
+    <!-- %s: mo_progress_*, for example "3/5 days this week". -->
+    <string name="mo_next_token">nächstes Token: %s</string>
+    <plurals name="mo_rest_days_left">
+        <item quantity="one">Noch %d Ruhetag diese Woche</item>
+        <item quantity="other">Noch %d Ruhetage diese Woche</item>
+    </plurals>
+    <!-- %s: the time the habit day ends, for example "04:00". -->
+    <string name="mo_reserved_spent_at">Reservierte Tokens werden um %s eingesetzt</string>
+    <string name="mo_reserve_hint">Tippe auf eine Aufgabe, um ein Token für heute zu reservieren</string>
+    <string name="mo_reserved_today">Für heute reserviert</string>
+    <string name="mo_can_reserve_today">Kann für heute reserviert werden</string>
+    <string name="mo_reserved_this_week">Für diese Woche reserviert</string>
+    <string name="mo_can_reserve_this_week">Kann für diese Woche reserviert werden</string>
+    <string name="mo_rest_hint">Tippe auf eine Aufgabe, um heute einen Ruhetag zu nehmen</string>
+    <string name="mo_rest_today_action">Heute Ruhetag nehmen</string>
+    <string name="mo_resting_today">Heute ist Ruhetag</string>
+    <string name="mo_can_rest_today">Heute kann Ruhetag sein</string>
+    <string name="mo_quiet_today_action">Heute nicht fragen</string>
+    <string name="mo_quiet_today">Mo fragt heute nicht</string>
+    <string name="mo_asks_today">Mo fragt heute nach</string>
+
+    <!-- A task's tokens in its header. %1$d: tokens; %2$s: feature name. -->
+    <plurals name="mo_task_tokens">
+        <item quantity="one">%1$d Token für %2$s</item>
+        <item quantity="other">%1$d Tokens für %2$s</item>
+    </plurals>
+    <!-- %s: feature name. -->
+    <string name="mo_reserve_token_for">Heute ein Token für %s reservieren</string>
+    <string name="mo_reserve_tokens_for_week">Diese Woche Tokens für %s reservieren</string>
+
+    <!-- The small line over Mo that names a special moment, in capitals as "NEW LEVEL" is. -->
+    <string name="mo_event_kicker_milestone">STREAK-MEILENSTEIN</string>
+    <string name="mo_event_kicker_perfect_week">WOCHE KOMPLETT</string>
+    <string name="mo_event_kicker_comeback">WIEDER DABEI</string>
+    <string name="mo_event_kicker_week_goal">WOCHENZIEL ERREICHT</string>
+    <string name="mo_event_kicker_token">TOKEN VERDIENT</string>
+    <string name="mo_event_kicker_freeze">FREEZE VERDIENT</string>
+    <!-- A special moment on Home: a big headline and one line under it. -->
+    <plurals name="mo_event_milestone">
+        <item quantity="one">%d Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <string name="mo_event_milestone_line">in Folge. Schau, wie ich lodere!</string>
+    <string name="mo_event_perfect_week">Perfekte Woche</string>
+    <string name="mo_event_perfect_week_line">Von Montag bis Sonntag kein einziger Aussetzer.</string>
+    <string name="mo_event_comeback">Du bist zurück</string>
+    <string name="mo_event_comeback_line">Gestern war schwer. Heute ist alles erledigt.</string>
+    <!-- %1$d: done; %2$d: the week's goal. -->
+    <string name="mo_event_week_goal">%1$d von %2$d</string>
+    <!-- %s: feature name. -->
+    <string name="mo_event_week_goal_line">%s ist für diese Woche erledigt.</string>
+    <!-- %s: feature name. -->
+    <string name="mo_event_token">Ein Token für %s</string>
+    <string name="mo_event_token_line_activity">Verdient mit 5 aktiven Tagen letzte Woche. Es deckt einen verpassten Tag ab.</string>
+    <plurals name="mo_event_token_line_activity_days">
+        <item quantity="one">Verdient mit %d aktivem Tag letzte Woche. Es deckt einen verpassten Tag ab.</item>
+        <item quantity="other">Verdient mit %d aktiven Tagen letzte Woche. Es deckt einen verpassten Tag ab.</item>
+    </plurals>
+    <!-- %d: the logged days the week needed at the close that earned the token, which is a setting. -->
+    <plurals name="mo_event_token_line_weight">
+        <item quantity="one">Verdient, weil du dich letzte Woche %d-mal gewogen hast. Es deckt einen verpassten Tag ab.</item>
+        <item quantity="other">Verdient, weil du dich letzte Woche %d-mal gewogen hast. Es deckt einen verpassten Tag ab.</item>
+    </plurals>
+    <string name="mo_event_token_line_reading">Verdient mit 60 Minuten Lesen letzte Woche. Es deckt einen verpassten Tag ab.</string>
+    <plurals name="mo_event_token_line_reading_minutes">
+        <item quantity="one">Verdient mit %d Minute Lesen letzte Woche. Es deckt einen verpassten Tag ab.</item>
+        <item quantity="other">Verdient mit %d Minuten Lesen letzte Woche. Es deckt einen verpassten Tag ab.</item>
+    </plurals>
+    <string name="mo_event_token_line_care">Verdient mit 14 Tagen, an denen die Pflege komplett war. Es deckt einen verpassten Tag ab.</string>
+    <string name="mo_event_token_line_supplements">Verdient mit 7 Tagen Nahrungsergänzung. Es deckt einen verpassten Tag ab.</string>
+    <string name="mo_event_token_line_eating">Verdient, weil du 7 Tage lang dein Essen erfasst hast. Es deckt einen verpassten Tag ab.</string>
+    <plurals name="mo_event_token_line_eating_days">
+        <item quantity="one">Verdient, weil du %d Tag lang dein Essen erfasst hast. Es deckt einen verpassten Tag ab.</item>
+        <item quantity="other">Verdient, weil du %d Tage lang dein Essen erfasst hast. Es deckt einen verpassten Tag ab.</item>
+    </plurals>
+    <string name="mo_event_freeze">Ein Freeze</string>
+    <string name="mo_event_freeze_line">Verdient mit 28 geschafften Tagen. Er rettet deinen Streak über einen schlechten Tag hinweg.</string>
+    <string name="mo_event_continue">Weiter</string>
+
+    <!-- What a calendar adds to a covered day's spoken status. -->
+    <string name="mo_cover_free">vom freien Tag dieser Woche abgedeckt</string>
+    <string name="mo_cover_token">von einem Token abgedeckt</string>
+    <string name="mo_cover_rest">ein geplanter Ruhetag</string>
+    <string name="mo_cover_freeze">von einem Freeze abgedeckt</string>
+
+    <!-- Labels stay verbatim and stand alone after a colon in every language. -->
+    <string name="mo_ache_checklist_mild">Ich muss ständig an diese Liste denken: %1$s.</string>
+    <string name="mo_ache_checklist_severe">Diese Liste wartet schon seit Tagen: %1$s.</string>
+    <string name="mo_event_week_goal_line_checklist">Für diese Woche erledigt: %1$s.</string>
+    <string name="mo_event_token_line_checklist">Mit geschafften Tagen für diese Liste verdient: %1$s. Es deckt einen verpassten Tag ab.</string>
+    <!-- Stufen, ein gerissener Streak und ihn teilen -->
+    <string name="mo_level_spark">Funke</string>
+    <string name="mo_level_flicker">Flämmchen</string>
+    <string name="mo_level_ember">Glut</string>
+    <string name="mo_level_flame">Flamme</string>
+    <string name="mo_level_fire">Feuer</string>
+    <string name="mo_level_blaze">Lohe</string>
+    <string name="mo_level_inferno">Inferno</string>
+    <string name="mo_level_new">NEUE STUFE · %1$d VON %2$d</string>
+    <plurals name="mo_level_days">
+        <item quantity="one">%d Tag in Folge</item>
+        <item quantity="other">%d Tage in Folge</item>
+    </plurals>
+    <plurals name="mo_level_next">
+        <item quantity="one">Noch %1$d Tag bis „%2$s“</item>
+        <item quantity="other">Noch %1$d Tage bis „%2$s“</item>
+    </plurals>
+    <string name="mo_level_top">Die höchste Stufe, die es gibt.</string>
+    <string name="mo_level_share">Teilen</string>
+    <string name="mo_lost_title">STREAK GERISSEN</string>
+    <plurals name="mo_lost_days">
+        <item quantity="one">%d Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <!-- One sentence; its first line, the count, is shown large. -->
+    <plurals name="mo_lost_sentence">
+        <item quantity="one">%1$d Tag\nwar es, bis %2$s</item>
+        <item quantity="other">%1$d Tage\nwaren es, bis %2$s</item>
+    </plurals>
+    <string name="mo_lost_restart">Neu anfangen</string>
+    <string name="mo_lost_strategy">Strategie ändern</string>
+    <string name="mo_lost_talk">Mit deiner KI besprechen</string>
+    <string name="mo_lost_forgot">Etwas vergessen?</string>
+    <string name="mo_lost_backfill">Nachtragen</string>
+    <string name="mo_lost_backfill_view">%1$s, %2$s</string>
+    <string name="mo_lost_backfill_hint">Nachtragen für %s</string>
+    <string name="mo_share_chooser">Streak teilen</string>
+    <string name="mo_share_brand">MOMENTUM</string>
+    <plurals name="mo_share_days">
+        <item quantity="one">%d Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <string name="mo_share_in_a_row">in Folge</string>
+    <string name="mo_share_level">Stufe %s</string>
+    <string name="mo_share_no_level">Noch keine Stufe</string>
+    <string name="mo_streak_share">Streak teilen</string>
+</resources>

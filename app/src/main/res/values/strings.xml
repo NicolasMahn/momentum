@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Shared words. Each feature keeps its own text in strings_<feature>.xml next to this file, so a
+feature's words live together the way its colors do. English is complete here, and so is German:
+StringTranslationTest fails for any string a language leaves out.
+-->
+<resources>
+    <string name="app_name" translatable="false">Momentum</string>
+    <string name="mo_widget_label" translatable="false">Mo</string>
+    <string name="mo_widget_description">Mo shows how your routines are doing, and your streak.</string>
+
+    <!-- Feature names: the screen titles, the Home tiles and every sentence that names a feature. -->
+    <string name="feature_activity">Activity</string>
+    <string name="feature_weight">Weight</string>
+    <string name="feature_supplements">Supplements</string>
+    <string name="feature_reading">Reading</string>
+    <string name="feature_substances">Substances</string>
+    <string name="feature_care">Care</string>
+    <string name="feature_eating">Eating</string>
+    <string name="feature_statistics">Statistics</string>
+    <string name="destination_streak">Streak and tokens</string>
+    <string name="destination_settings">Settings</string>
+
+    <!-- Relative days, lower case for use inside a sentence. -->
+    <string name="date_today">today</string>
+    <string name="date_yesterday">yesterday</string>
+    <plurals name="date_days_ago">
+        <item quantity="one">%d day ago</item>
+        <item quantity="other">%d days ago</item>
+    </plurals>
+
+    <!-- Calendar column headers: two letters, because one letter is ambiguous. -->
+    <string name="weekday_short_monday">Mo</string>
+    <string name="weekday_short_tuesday">Tu</string>
+    <string name="weekday_short_wednesday">We</string>
+    <string name="weekday_short_thursday">Th</string>
+    <string name="weekday_short_friday">Fr</string>
+    <string name="weekday_short_saturday">Sa</string>
+    <string name="weekday_short_sunday">Su</string>
+
+    <!-- Units: the number is already formatted for the locale. -->
+    <string name="unit_kg">%s kg</string>
+    <string name="unit_kilograms">%s kilograms</string>
+
+    <!-- Placeholder for a value that does not exist yet. -->
+    <string name="no_value" translatable="false">—</string>
+</resources>

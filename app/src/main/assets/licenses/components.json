@@ -1,0 +1,96 @@
+{
+  "licenses": {
+    "apache-2.0": "Apache License 2.0",
+    "bsd-3-clause-r8": "BSD 3-Clause License",
+    "bsd-3-clause-threetenbp": "BSD 3-Clause License",
+    "bsl-1.0": "Boost Software License 1.0",
+    "gpl-2.0-classpath-exception": "GNU General Public License, version 2, with the Classpath Exception",
+    "ofl-1.1-nunito": "SIL Open Font License 1.1"
+  },
+  "components": [
+    {
+      "name": "AndroidX, Jetpack Compose and Material 3",
+      "license": "apache-2.0",
+      "source": "https://github.com/androidx/androidx",
+      "maven": ["androidx"]
+    },
+    {
+      "name": "Boost math functions in the Kotlin standard library",
+      "license": "bsl-1.0",
+      "source": "https://github.com/JetBrains/kotlin/blob/v2.2.10/libraries/stdlib/jvm/src/kotlin/util/MathJVM.kt",
+      "notice": "Inverse hyperbolic function implementations derived from boost special math functions, Copyright Eric Ford & Hubert Holin 2001."
+    },
+    {
+      "name": "Guava ListenableFuture",
+      "license": "apache-2.0",
+      "source": "https://github.com/google/guava",
+      "maven": ["com.google.guava:listenablefuture"]
+    },
+    {
+      "name": "JetBrains Java Annotations",
+      "license": "apache-2.0",
+      "source": "https://github.com/JetBrains/java-annotations",
+      "maven": ["org.jetbrains:annotations"]
+    },
+    {
+      "name": "JSpecify",
+      "license": "apache-2.0",
+      "source": "https://github.com/jspecify/jspecify",
+      "maven": ["org.jspecify"]
+    },
+    {
+      "name": "Kotlin standard library",
+      "license": "apache-2.0",
+      "source": "https://github.com/JetBrains/kotlin",
+      "notice": "Copyright 2010-2024 JetBrains s.r.o. and Kotlin Programming Language contributors.",
+      "maven": ["org.jetbrains.kotlin"]
+    },
+    {
+      "name": "kotlinx.coroutines",
+      "license": "apache-2.0",
+      "source": "https://github.com/Kotlin/kotlinx.coroutines",
+      "notice": "Copyright 2016-2024 JetBrains s.r.o and contributors",
+      "maven": ["org.jetbrains.kotlinx:kotlinx-coroutines"]
+    },
+    {
+      "name": "kotlinx.serialization",
+      "license": "apache-2.0",
+      "source": "https://github.com/Kotlin/kotlinx.serialization",
+      "notice": "Copyright 2017-2019 JetBrains s.r.o and respective authors and developers",
+      "maven": ["org.jetbrains.kotlinx:kotlinx-serialization"]
+    },
+    {
+      "name": "Material Design Icons by Pictogrammers",
+      "license": "apache-2.0",
+      "source": "https://pictogrammers.com/library/mdi/icon/toothbrush/",
+      "notice": "Toothbrush icon by Michael Irigoyen."
+    },
+    {
+      "name": "Material Symbols by Google",
+      "license": "apache-2.0",
+      "source": "https://github.com/google/material-design-icons"
+    },
+    {
+      "name": "Nunito",
+      "license": "ofl-1.1-nunito",
+      "source": "https://github.com/googlefonts/nunito"
+    },
+    {
+      "name": "OpenJDK libraries for Android (desugar_jdk_libs)",
+      "license": "gpl-2.0-classpath-exception",
+      "source": "https://github.com/google/desugar_jdk_libs",
+      "maven": ["com.android.tools:desugar_jdk_libs"]
+    },
+    {
+      "name": "R8 desugared library support",
+      "license": "bsd-3-clause-r8",
+      "source": "https://r8.googlesource.com/r8",
+      "maven": ["com.android.tools:desugar_jdk_libs_configuration"]
+    },
+    {
+      "name": "ThreeTen backport in the Kotlin standard library",
+      "license": "bsd-3-clause-threetenbp",
+      "source": "https://github.com/JetBrains/kotlin/tree/v2.2.10/libraries/stdlib/src/kotlin/time"
+    }
+  ]
+}

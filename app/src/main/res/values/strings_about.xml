@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The page behind Settings' last entry: the app's version and the open-source software it ships.
+     Component names, license names and license texts are not here: they are shown as their authors
+     wrote them, in English, from assets/licenses. -->
+<resources>
+    <string name="about_title">About Momentum</string>
+    <!-- %1$s: the version name, such as 2.3-alpha. -->
+    <string name="about_version">Version %1$s</string>
+    <!-- The entry on the About page and the header of the page it opens. -->
+    <string name="about_privacy_title">Privacy policy</string>
+    <!-- Who offers the app and where they can be reached: the entry on the About page and the header of its page. -->
+    <string name="about_legal_notice_title">Legal notice</string>
+    <string name="about_licenses_title">Open-source licenses</string>
+    <!-- The header of one component's page, over its name and the full text of its license. -->
+    <string name="about_license_title">License</string>
+    <!-- Opens the component's repository or website in the browser. -->
+    <string name="about_license_source">Project page</string>
+</resources>

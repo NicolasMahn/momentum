@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mo_tracker_ache">Still waiting: %1$s.</string>
+    <string name="mo_tracker_token_earned">Completed days earned this token for %1$s. It covers one miss.</string>
+    <plurals name="mo_tracker_token_logged_days">
+        <item quantity="one">%d recorded day last week earned it. It covers one miss.</item>
+        <item quantity="other">%d recorded days last week earned it. It covers one miss.</item>
+    </plurals>
+    <plurals name="mo_tracker_token_kept_days">
+        <item quantity="one">%d completed day earned it. It covers one miss.</item>
+        <item quantity="other">%d completed days earned it. It covers one miss.</item>
+    </plurals>
+    <plurals name="mo_tracker_token_week_minutes">
+        <item quantity="one">%d recorded minute last week earned it. It covers one miss.</item>
+        <item quantity="other">%d recorded minutes last week earned it. It covers one miss.</item>
+    </plurals>
+    <plurals name="mo_tracker_minutes_remaining">
+        <item quantity="one">%1$s: %2$d minute still to go this week.</item>
+        <item quantity="other">%1$s: %2$d minutes still to go this week.</item>
+    </plurals>
+</resources>

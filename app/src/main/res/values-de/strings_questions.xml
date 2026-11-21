@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+    The screen of a questions view a person made. Its questions, its answers and its help are shown
+    as typed, so no sentence bends a word around them.
+    -->
+    <!-- What a questions view a person made is called where nothing names it, as Eating is called "Essen". -->
+    <string name="questions_destination">Fragen</string>
+    <string name="questions_not_sure">Weiß nicht</string>
+    <string name="questions_more_options">Weitere Optionen</string>
+    <string name="questions_note_label">Notiz (optional)</string>
+    <string name="questions_save">Speichern</string>
+    <string name="questions_save_changes">Änderungen speichern</string>
+    <string name="questions_saved">Gespeichert</string>
+    <!-- %s: the date, for example "Sa., 3. Okt.". -->
+    <string name="questions_remove">Antworten für %s entfernen</string>
+    <string name="questions_error_delete_failed">Die Antworten konnten nicht gelöscht werden. Versuch es noch einmal.</string>
+    <string name="questions_error_save_failed">Die Antworten konnten nicht gespeichert werden. Versuch es noch einmal.</string>
+    <!-- The button beside a question that has a help text, spoken. -->
+    <string name="questions_help_description">Hilfe zu dieser Frage</string>
+    <string name="questions_help_close">Schließen</string>
+
+    <!-- The reminder of a questions view a person made, under its name as the title, about today or about the day before. Plain words: Mo does not speak for it. -->
+    <string name="questions_reminder_open">Heute noch nicht beantwortet</string>
+    <string name="questions_reminder_open_yesterday">Gestern noch nicht beantwortet</string>
+
+    <!-- A calendar day, spoken. A day with answers says each question's answer, joined with "; ". -->
+    <string name="questions_status_none">keine Antworten</string>
+    <string name="questions_status_not_sure">weiß nicht</string>
+    <string name="questions_action_select">Datum wählen</string>
+    <string name="questions_action_open">Antworten öffnen</string>
+    <!-- Settings: making a questions view, and the page of one a person made. This is the title of its setup. -->
+    <string name="questions_settings_new">Neue Fragen</string>
+    <string name="questions_setup_create">Fragen erstellen</string>
+    <!-- Leaving the setup before the view is created. -->
+    <string name="questions_setup_discard_title">Neue Fragen verwerfen?</string>
+    <string name="questions_setup_discard_message">Nichts wird gespeichert, bis du sie erstellst.</string>
+    <!-- On the bar while the setup's Questions step, or the page's Save, waits for a question or an answer without its text. -->
+    <string name="questions_setup_text_needed">Gib jeder Frage und jeder Antwort einen Text, um weiterzugehen</string>
+    <string name="questions_settings_text_needed">Gib jeder Frage und jeder Antwort einen Text, um zu speichern</string>
+    <!-- The part of the page and the step of the setup that holds the questions, where a checklist has its items. -->
+    <string name="questions_settings_questions">Fragen</string>
+    <!-- Over the choice of the day each day's answers are about. -->
+    <string name="questions_settings_about">Diese Fragen gelten für</string>
+    <string name="questions_settings_about_today">Heute</string>
+    <string name="questions_settings_about_yesterday">Gestern</string>
+    <string name="questions_settings_about_today_note">Du antwortest für den Tag selbst.</string>
+    <string name="questions_settings_about_yesterday_note">Du antwortest am Morgen danach für den Vortag.</string>
+    <!-- Under the questions of a built-in view, which are shown and cannot be changed. -->
+    <string name="questions_settings_built_in">Diese Fragen sind fest eingebaut und lassen sich nicht ändern.</string>
+    <!-- The field of a question's text and the field of one of its answers. -->
+    <string name="questions_settings_question">Frage</string>
+    <string name="questions_settings_answer">Antwort</string>
+    <!-- Each takes its field's label while the field is empty. -->
+    <string name="questions_settings_question_missing">Gib die Frage ein</string>
+    <string name="questions_settings_answer_missing">Gib eine Antwort ein</string>
+    <!-- Takes the field's label while what was typed cannot be stored. %d: the most characters the text may have. -->
+    <string name="questions_settings_text_invalid">Höchstens %d Zeichen, ohne Zeilenumbruch</string>
+    <string name="questions_settings_add_answer">Antwort hinzufügen</string>
+    <string name="questions_settings_add_question">Frage hinzufügen</string>
+    <!-- The remove buttons, spoken. %1$d: the question's place, from 1. -->
+    <string name="questions_settings_remove_question">Frage %1$d entfernen</string>
+    <!-- %1$d: the answer's place in its question; %2$d: the question's place. -->
+    <string name="questions_settings_remove_answer">Antwort %1$d von Frage %2$d entfernen</string>
+    <string name="questions_settings_last_question">Mindestens eine Frage bleibt.</string>
+    <string name="questions_settings_two_answers">Eine Frage behält mindestens zwei Antworten.</string>
+    <!-- The field behind a question's "More options": what its help button shows on the view's screen. -->
+    <string name="questions_settings_help">Hilfetext (optional)</string>
+    <string name="questions_settings_removal_note">Entfernst du eine Frage oder eine Antwort, wird ausgeblendet, was dafür erfasst wurde.</string>
+    <!-- The five answers a new question starts with, least to most. They are the person's own text from then on. -->
+    <string name="questions_answer_default_1">Sehr schlecht</string>
+    <string name="questions_answer_default_2">Schlecht</string>
+    <string name="questions_answer_default_3">Okay</string>
+    <string name="questions_answer_default_4">Gut</string>
+    <string name="questions_answer_default_5">Sehr gut</string>
+    <!-- The delete confirmation. %d: how many days hold answers of this view. -->
+    <plurals name="questions_settings_delete_message">
+        <item quantity="one">Die Einstellungen und %d beantworteter Tag werden gelöscht. Das lässt sich nicht rückgängig machen.</item>
+        <item quantity="other">Die Einstellungen und %d beantwortete Tage werden gelöscht. Das lässt sich nicht rückgängig machen.</item>
+    </plurals>
+    <string name="questions_settings_delete_failed">Die Fragen konnten nicht gelöscht werden. Versuch es noch einmal.</string>
+</resources>

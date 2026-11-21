@@ -1,0 +1,45 @@
+# Recoverable personal data
+
+Momentum uses readable `.momentum.json` snapshots in a local folder chosen through Android's file picker. Files in this shared folder survive uninstall. Reinstalling removes the folder grant, so select an existing backup through Settings → Restore, then choose the folder again for future backups. There is no backup password or new cloud service. Anyone who can access the files can read them.
+
+## What is protected
+
+Every snapshot contains all raw keys from `workout_tracker`, `momentum_reminders`, and `momentum_feature_visibility`: all nine record collections, reminder settings, hidden features, and retained migration copies. A formatted `readableData` view makes records inspectable; exact original strings remain authoritative in `stores`. The view is verified against the strings. A separate format version, ISO 8601 timestamp, and SHA-256 checksum detect unsupported formats and accidental damage. A checksum is not authentication against deliberate modification.
+
+All context-created repositories use the shared persistence adapter, including notification actions and migration writes. Before a write, the app durably marks its backup revision pending. After each commit it queues a snapshot. The worker serializes exports, captures every store together, creates a new file, flushes/syncs/closes it, reopens it, validates it, and compares all values. It clears pending only if the saved revision still matches the captured revision. A snapshot is never overwritten.
+
+## Which snapshots stay
+
+Records that did not change get no new file: the newest snapshot is read back and compared instead, which proves the same thing. After each verified snapshot the installation removes those of its own that the keep rule no longer names. The rule (`backupsToKeep`) keeps the two newest, the last one of each of the latest 7 days that hold a snapshot, and the last one of each of the latest 3 months that hold one: at most 12 files. The two newest guard against a damaged file. The daily and monthly ones guard against damaged records, which every later snapshot copies faithfully: a mistake noticed three days later is still undone by the last snapshot from before it. What is given up is every state in between: a day older than the two newest snapshots keeps only its last state, and after seven such days a month keeps only its last day.
+
+An installation removes only what it wrote and verified itself, by an index it keeps in its backup preferences, never by looking at file names. Before it removes anything it lists the folder: a snapshot somebody deleted by hand leaves the index and no longer stands for its day or month, and a folder that cannot be listed loses nothing. The last two snapshots it wrote always stay, whatever the phone clock said when they were written. Another installation's snapshots in the same folder, a file put there by hand, what a failed write left behind and the copy made before a restore are never removed. Choosing another folder starts a new index, so the old folder is left as it is. Reinstalling starts a new index too. A removal that fails is tried again after the next snapshot and is never reported as a failed backup.
+
+Versions before this rule never removed a snapshot and ended each file name in a random UUID; a snapshot written since ends in eight random characters, so the two are told apart by name. Settings, Backups offers to tidy the old ones up. The confirmation says how many go and how many stay. The records are then backed up and verified first, since one of the old files may be their only copy, and after that the same rule is applied to the files with the old name shape that lie directly in the folder, whichever installation wrote them, and to nothing else. A file the rule would keep is read before it counts. It counts when this app can restore it, or when it is a readable snapshot from before schema 32, which is converted outside the app and is still the record of its day. Any other file, such as a damaged one or the copy of damaged records made before a restore, is left where it is and keeps no other from staying. Exactly the files counted when the confirmation was shown are removed, and none if another folder was chosen since.
+
+Settings displays the last successful verification time and neutral “Backing up…” status during ordinary pending work. Routine exports add no top banner or layout shift. Missing setup and pending work lasting 30 seconds show an actionable neutral notice; actual failures show an immediate error. Pending age persists across saves and process restarts and clears only after the latest revision is verified. Failed exports leave local saves intact. The next save, app restart, or Back up now retries. Startup verifies a current snapshot: it reads the newest one back, and writes a new one only when the records are not in it. There is no background-service guarantee after Android kills the process.
+
+## Actual guarantee and limits
+
+After verification, that generation is independently readable and recoverable after uninstall, provided the selected local storage and file still exist. The newest change is vulnerable between its local commit and completion of the asynchronous snapshot. Settings pending status makes this window visible; killing/uninstalling before verification can lose those newest changes. A process restart retries persisted pending work.
+
+A phone-local copy does not protect against phone loss, factory reset, storage failure, or someone deleting/editing all generations. Copy the folder off the phone for those risks. The folder stays small by the keep rule above; storage exhaustion causes a visible failure and removes nothing beyond that rule. Archives are capped at 16 MiB including both raw and readable representations.
+
+Android's scheduled Auto Backup remains a secondary layer, explicitly including the three personal stores and excluding installation-specific folder grants/freshness. It is not the current-data guarantee: Android controls backup scheduling and availability.
+
+## Safe restore
+
+Restore parses and validates the entire archive before requesting replacement confirmation. Unsupported active schemas, damaged active data, skipped records, duplicate repairs, and coercions that would silently change present tracker fields are rejected. Missing historical optional fields may acquire existing defaults; established reminder migrations remain supported. Malformed inactive rollback keys remain preserved as evidence.
+
+Before replacement, the configured destination must accept a fresh backup of current data. A local rescue archive is also retained in `no_backup`. A durable, read-verified journal then coordinates replacement of all three stores. Interrupted replacement rolls forward before repository access; removal of the journal is verified. A non-dismissible restore dialog blocks screen changes, and the activity reloads all records/settings afterward. Startup refuses normal editing if recovery cannot complete.
+
+## Development verification
+
+Update a personal installation with `scripts/deploy_personal.py` only. It refuses pending restore journals, requires a verified desktop archive before any personal update, and never uninstalls or clears the app. Tests use only an emulator and `com.example.workouttracker.test`.
+
+On 2026-09-17, the API 35 emulator drill saved fixtures for every collection and settings, verified a shared-folder snapshot, actually uninstalled the disposable app, verified the same external file survived byte-for-byte, reinstalled with empty private stores/configuration, and restored exact raw values plus domain objects. The source test is `BackupRecoveryDeviceTest`; each phase is invoked separately with explicit emulator targeting and `-Pandroid.testInstrumentationRunnerArguments.recoveryDrillPhase=seed|verify|revoked`; an unattended suite run skips the drill. Restore input was copied from the surviving shared file into the new test installation for deterministic instrumentation; normal users select that file through Android's picker.
+
+Unit tests cover exact all-store round trips, historical migrations, malformed/truncated/unsupported archives, checksum and readable-view disagreement, interrupted generation writes, readback mismatch, and interrupted restores at every store boundary. The deployment script has offline fake-device tests proving failures prevent installation.
+
+References: [Android shared storage](https://developer.android.com/training/data-storage/shared), [Storage Access Framework](https://developer.android.com/training/data-storage/shared/documents-files), [Auto Backup conditions](https://developer.android.com/identity/data/autobackup).
+
+The final durability-only build passed 420 unit tests and 10 deployment-preflight tests. A real Android folder-grant revocation test also passed: local writes remained available, backup stayed pending with a persisted error, and the verified timestamp did not advance. The warning was visually confirmed on the emulator.

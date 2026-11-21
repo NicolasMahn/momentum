@@ -1,0 +1,5 @@
+Zurück fragt, bevor Ungespeichertes verloren geht. Kleine Korrekturen überall.
+Mo ist in vielen Szenen neu gezeichnet: Mund, Hände und was er nach einem Eintrag vorspielt. Im Widget ist er ganz zu sehen.
+Sicherungen sammeln sich nicht mehr an.
+Nach einem Ruhetag an einem geplanten Tag wird ein freier Tag zum Trainingstag, wenn die Woche ihn braucht. Ruhen kannst du dann trotzdem.
+Reading: vor Sonntag lässt „Zz“ Mo für heute schweigen. Ein Token deckt die Woche am Sonntag ab.

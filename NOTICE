@@ -1,0 +1,64 @@
+Momentum
+Copyright (c) 2026 Nicolas Mahn
+
+Two licenses apply to this repository: one to Mo, one to everything else.
+
+
+Mo: non-commercial use only
+---------------------------
+
+Mo is the flame character of this app: his design, every picture and animation
+of him, and the code that draws them. These paths are Mo:
+
+    app/src/main/java/com/example/workouttracker/feature/mo/
+    app/src/main/res/drawable/ic_launcher_*.xml
+    docs/pet/
+
+They are not under the MIT License. They are licensed under the Creative
+Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0);
+its text is in LICENSES/CC-BY-NC-4.0.txt. In short, you may use, change and
+share Mo for purposes that are not commercial. When you share him, credit
+Nicolas Mahn, keep the license notice and say what you changed: section 3 of
+the license has the exact terms. Anything commercial needs permission first:
+momentum@nicolas-mahn.de.
+
+Mo's design is licensed here and nowhere else. A text that describes him, such
+as docs/mo.md, is under the MIT License as a text, and gives no further right
+to make or use pictures of him.
+
+A build of the app contains Mo. So the app as it is may be passed on only
+non-commercially. A commercial version needs that permission, or has to take
+Mo out.
+
+
+Everything else of Momentum's own: MIT
+-------------------------------------
+
+What Nicolas Mahn and Momentum's contributors wrote outside the paths above is
+under the MIT License. See LICENSE. That grant never covers Mo's design,
+wherever he appears. Files by others keep their own licenses; see "Software
+by others" below.
+
+
+Name and legal texts
+--------------------
+
+"Momentum with Mo" and "Momentum mit Mo" are the names this app is published
+under, and neither license grants a right to them. If you publish a version of
+your own, give it a name of its own.
+
+The privacy policy and the legal notice in app/src/main/assets/privacy/ are
+Nicolas Mahn's statements about the app as he publishes it, and they name him
+as its publisher. They are not true of anyone else's version. If you publish
+one, replace them with your own.
+
+
+Software by others
+------------------
+
+The libraries the app ships, and the Nunito typeface (SIL Open Font License
+1.1), are listed with their licenses in app/src/main/assets/licenses/. The app
+shows the same list under Settings, About Momentum. The toothbrush icon comes
+from Material Design Icons (Apache License 2.0); see
+third_party/material-design-icons/NOTICE.md. The Gradle wrapper (gradlew,
+gradlew.bat and gradle/wrapper/) is under the Apache License 2.0.

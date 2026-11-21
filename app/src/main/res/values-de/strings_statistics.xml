@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="statistics_range_four_weeks">4 Wochen</string>
+    <string name="statistics_range_three_months">3 Monate</string>
+    <string name="statistics_range_year">1 Jahr</string>
+    <!-- The range as a whole phrase of time, ending the sentences below that take it as %s. -->
+    <string name="statistics_range_four_weeks_spoken">in den letzten 4 Wochen</string>
+    <string name="statistics_range_three_months_spoken">in den letzten 3 Monaten</string>
+    <string name="statistics_range_year_spoken">im letzten Jahr</string>
+    <string name="statistics_all_hidden">Alles, was die Statistik auswertet, ist in den Einstellungen ausgeblendet.</string>
+    <string name="statistics_axis_this_week">Diese Woche</string>
+
+    <!-- A consistency row's big number. %d: a whole percentage. German sets a protected space before the sign. -->
+    <string name="statistics_percent">%d %%</string>
+    <!-- %s: the feature's name. -->
+    <string name="statistics_caption_nothing">%s · noch nichts</string>
+    <string name="statistics_caption_days_a_week">%s · Tage pro Woche</string>
+    <!-- A view whose first week has not finished: the big number is how far this week is. -->
+    <string name="statistics_caption_this_week">%s · diese Woche</string>
+
+    <!-- A consistency row, spoken. %1$s: the feature; the last %s: the range, for example "in den letzten 4 Wochen". -->
+    <string name="statistics_consistency_nothing">%1$s: %2$s nichts erfasst.</string>
+    <!-- %2$d of %3$d: days the view's rule was kept on of the days it asked; %5$d: the same as a percentage. -->
+    <plurals name="statistics_consistency_rate">
+        <item quantity="one">%1$s: an %2$d von %3$d Tag %4$s geschafft, %5$d Prozent.</item>
+        <item quantity="other">%1$s: an %2$d von %3$d Tagen %4$s geschafft, %5$d Prozent.</item>
+    </plurals>
+    <!-- A timer's row. %2$d: the average share of the weekly goal reached, in percent; %3$d: the weeks that are over; %5$d: those of them that reached the whole goal. -->
+    <plurals name="statistics_consistency_weeks_share">
+        <item quantity="one">%1$s: im Schnitt %2$d Prozent des Wochenziels in %3$d Woche %4$s, das ganze Ziel in %5$d.</item>
+        <item quantity="other">%1$s: im Schnitt %2$d Prozent des Wochenziels in %3$d Wochen %4$s, das ganze Ziel in %5$d.</item>
+    </plurals>
+    <!-- %5$s: the average days a week, for example "2,4". -->
+    <string name="statistics_consistency_days_a_week">%1$s: an %2$d von %3$d Tagen %4$s erfasst, etwa %5$s Tage pro Woche.</string>
+    <!-- After a daily view's row sentence, for the week that is not over. %d: the share of the week's goal done so far, in percent. -->
+    <string name="statistics_consistency_this_week_share">Diese Woche bisher: %d Prozent des Ziels.</string>
+    <!-- A view whose first week has not finished. %2$d: the share of the week's goal done so far, in percent. -->
+    <string name="statistics_consistency_first_week_share">%1$s: diese Woche bisher %2$d Prozent des Ziels.</string>
+    <!-- After a timer's row sentence. %1$d of %2$d: minutes recorded this week of the minutes it asks. -->
+    <plurals name="statistics_consistency_this_week">
+        <item quantity="one">Diese Woche bisher: %1$d von %2$d Minute.</item>
+        <item quantity="other">Diese Woche bisher: %1$d von %2$d Minuten.</item>
+    </plurals>
+    <!-- A timer whose first week has not finished. %2$d of %3$d: minutes recorded this week of the minutes it asks; %4$d: the same as a percentage. -->
+    <plurals name="statistics_consistency_first_week">
+        <item quantity="one">%1$s: diese Woche bisher %2$d von %3$d Minute, %4$d Prozent.</item>
+        <item quantity="other">%1$s: diese Woche bisher %2$d von %3$d Minuten, %4$d Prozent.</item>
+    </plurals>
+    <!-- After the activity row's sentence: each kind with its days, joined with ", ". -->
+    <string name="statistics_activity_kinds">%s.</string>
+    <!-- %1$s: an activity, for example "Gym"; %2$d: the days it was recorded on. -->
+    <plurals name="statistics_activity_kind_days">
+        <item quantity="one">%1$s an %2$d Tag</item>
+        <item quantity="other">%1$s an %2$d Tagen</item>
+    </plurals>
+    <!-- The key under the activity calendar. %1$s: an activity; %2$d: its days. -->
+    <string name="statistics_activity_key">%1$s %2$d</string>
+
+    <!-- The weight block. %s: a weight already formatted for the locale. -->
+
+    <!--
+    The streak calendar, spoken. It speaks of protection, never of anything done: a day is kept,
+    saved by a freeze or covered by a token, not completed. %1$s: the range, for example "in den
+    letzten 4 Wochen"; %2$s: the parts below joined with ", ".
+    -->
+    <string name="statistics_streak_summary">Streak %1$s: %2$s.</string>
+    <plurals name="statistics_streak_kept">
+        <item quantity="one">%d Tag geschafft</item>
+        <item quantity="other">%d Tage geschafft</item>
+    </plurals>
+    <plurals name="statistics_streak_frozen">
+        <item quantity="one">%d Tag per Freeze gerettet</item>
+        <item quantity="other">%d Tage per Freeze gerettet</item>
+    </plurals>
+    <plurals name="statistics_streak_protected">
+        <item quantity="one">%d geschützter Tag</item>
+        <item quantity="other">%d geschützte Tage</item>
+    </plurals>
+    <plurals name="statistics_streak_missed">
+        <item quantity="one">%d Tag verpasst</item>
+        <item quantity="other">%d Tage verpasst</item>
+    </plurals>
+    <plurals name="statistics_streak_restarts">
+        <item quantity="one">%d Neustart</item>
+        <item quantity="other">%d Neustarts</item>
+    </plurals>
+    <plurals name="statistics_streak_rest_days">
+        <item quantity="one">%d geplanter Ruhetag</item>
+        <item quantity="other">%d geplante Ruhetage</item>
+    </plurals>
+    <!-- The key under the streak calendar. %d: how many days. -->
+    <!-- Beside one task's token: how many days it covered, each counted once per task. -->
+    <plurals name="statistics_key_covered">
+        <item quantity="one">%d Tag abgedeckt</item>
+        <item quantity="other">%d Tage abgedeckt</item>
+    </plurals>
+    <!-- Beside the plain mark of a day a token protected that is no task of Mo's: a made view's or Substances'. -->
+    <string name="statistics_key_protected">geschützt</string>
+    <plurals name="statistics_key_kept">
+        <item quantity="one">%d geschafft</item>
+        <item quantity="other">%d geschafft</item>
+    </plurals>
+    <plurals name="statistics_key_frozen">
+        <item quantity="one">%d eingefroren</item>
+        <item quantity="other">%d eingefroren</item>
+    </plurals>
+    <plurals name="statistics_key_missed">
+        <item quantity="one">%d verpasst</item>
+        <item quantity="other">%d verpasst</item>
+    </plurals>
+    <plurals name="statistics_key_rest">
+        <item quantity="one">%d frei</item>
+        <item quantity="other">%d frei</item>
+    </plurals>
+
+    <string name="statistics_export">Statistik exportieren</string>
+    <string name="statistics_export_share">Statistik teilen</string>
+    <string name="statistics_export_failed">Die Statistik konnte nicht exportiert werden.</string>
+    <string name="statistics_export_title"># Momentum-Export, %1$s bis %2$s</string>
+    <string name="statistics_export_exported">Exportiert am %s. Jede Ansicht nennt ihren Plan, dann jeden Tag seit ihrem ersten Eintrag.</string>
+    <string name="statistics_export_terms">## Begriffe</string>
+    <string name="statistics_export_term_day">- **Tag:** läuft von 04:00 bis 04:00 Uhr. Ein Eintrag um 01:00 Uhr gehört zum Tag davor. Das Datum einer Zeile ist immer der Tag, um den es geht, auch bei einer Ansicht, die am Morgen danach erfasst wird.</string>
+    <string name="statistics_export_term_kept">- **Geschafft:** Der Tag hat den Plan der Ansicht erfüllt.</string>
+    <string name="statistics_export_term_missed">- **Verpasst:** Der Tag hat den Plan nicht erfüllt, und nichts hat ihn entschuldigt.</string>
+    <string name="statistics_export_term_excused">- **Entschuldigt:** krank, oder im Urlaub an einem Tag, an dem der Bereich nichts verlangt.</string>
+    <string name="statistics_export_term_rest">- **Ruhetag:** ein Tag ohne Training, den das Wochenziel von Aktivität erlaubt. Kein Versäumnis.</string>
+    <string name="statistics_export_term_free">- **Freier Tag:** ein Tag, den ein Wochenziel freilässt. Kein Versäumnis.</string>
+    <string name="statistics_export_term_protected">- **Geschützt:** ein verpasster Tag, dessen Streak ein Token (eine Ansicht) oder ein Freeze (alle Ansichten) gerettet hat. Der Eintrag bleibt verpasst.</string>
+    <string name="statistics_export_about">- Erfasst über: %s.</string>
+    <string name="statistics_export_about_today">den Tag selbst</string>
+    <string name="statistics_export_about_yesterday">den Vortag, erfasst am Morgen danach</string>
+    <string name="statistics_export_term_streak">- **Streak:** die Zahl der geschafften Tage in Folge. Ein geschützter Tag hält den Streak am Leben, zählt aber nicht mit: Ein Streak zählt geschaffte Tage, nicht vergangene.</string>
+    <string name="statistics_export_term_today">- **Heute** (%s) ist nicht vorbei; seine Zeile zeigt, was bisher erfasst ist, und hat kein Ergebnis.</string>
+    <string name="statistics_export_streak">## Streak</string>
+    <string name="statistics_export_streak_header">| Aktuell | Längster | Seit |</string>
+    <plurals name="statistics_export_days">
+        <item quantity="one">%d Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <string name="statistics_export_freezes_used">Freezes genutzt: %s.</string>
+    <string name="statistics_export_sick">Krank: %s.</string>
+    <string name="statistics_export_range">%1$s bis %2$s</string>
+    <string name="statistics_export_none">keine</string>
+    <string name="statistics_export_plan">**Plan**</string>
+    <string name="statistics_export_goal">- Ziel: %s</string>
+    <string name="statistics_export_reminder">- Erinnerung: %s.</string>
+    <string name="statistics_export_since">%1$s seit %2$s; davor %3$s</string>
+    <string name="statistics_export_activity_days">%1$d Trainingstage pro Woche, Montag bis Sonntag, also bis zu %2$d Ruhetage</string>
+    <string name="statistics_export_activity_rule">Ein Tag ohne Training ist ein Ruhetag, solange die Woche noch Ruhetage hat, sonst verpasst.</string>
+    <string name="statistics_export_activity_planned">- Geplante Tage: %s.</string>
+    <string name="statistics_export_activity_activities">- Aktivitäten: %s.</string>
+    <string name="statistics_export_activity_with_routine">%s (mit Routine)</string>
+    <string name="statistics_export_activity_routine">- Routine von %s, Tage der Reihe nach:</string>
+    <string name="statistics_export_routine_day">- %1$s: %2$s</string>
+    <string name="statistics_export_exercise_weight">%1$s, %2$d Sätze mit %3$d bis %4$d Wiederholungen, begonnen mit %5$s kg, in Schritten von %6$s kg</string>
+    <string name="statistics_export_exercise">%1$s, %2$d Sätze mit %3$d bis %4$d Wiederholungen</string>
+    <string name="statistics_export_activity_header">| Datum | Aktivität | Ergebnis |</string>
+    <string name="statistics_export_session">%1$s, %2$s</string>
+    <string name="statistics_export_sets_weight">%1$d × %2$s mit %3$s kg</string>
+    <string name="statistics_export_sets">%1$d × %2$s</string>
+    <string name="statistics_export_exercise_done">%1$s %2$s</string>
+    <string name="statistics_export_minutes">%d Min.</string>
+    <string name="statistics_export_activity_done">%1$s (%2$s)</string>
+    <string name="statistics_export_minutes_and_sets">%1$s: %2$s</string>
+    <string name="statistics_export_checklist_every_day">jeder Punkt, jeden Tag.</string>
+    <string name="statistics_export_checklist_weekdays">jeder Punkt an %s.</string>
+    <plurals name="statistics_export_checklist_per_week">
+        <item quantity="one">jeder Punkt einmal pro Woche.</item>
+        <item quantity="other">jeder Punkt %d-mal pro Woche.</item>
+    </plurals>
+    <string name="statistics_export_checklist_per_item">jeder Punkt so oft, wie bei ihm angegeben.</string>
+    <string name="statistics_export_checkpoint">- %1$s, %2$s: %3$s.</string>
+    <string name="statistics_export_items">- Punkte: %s.</string>
+    <string name="statistics_export_item_from">%1$s (ab %2$s)</string>
+    <string name="statistics_export_item_until">%1$s (bis %2$s)</string>
+    <string name="statistics_export_item_due">%1$s (%2$s)</string>
+    <string name="statistics_export_item_every_day">jeden Tag</string>
+    <plurals name="statistics_export_item_per_week">
+        <item quantity="one">einmal pro Woche</item>
+        <item quantity="other">%d-mal pro Woche</item>
+    </plurals>
+    <string name="statistics_export_checklist_header">| Datum | Erledigt | Nicht erledigt | Ergebnis |</string>
+    <string name="statistics_export_all">alle</string>
+    <string name="statistics_export_assumed">%s (als erledigt angenommen)</string>
+    <string name="statistics_export_at_checkpoint">%1$s: %2$s</string>
+    <string name="statistics_export_time_goal">%d Minuten pro Woche</string>
+    <string name="statistics_export_time_rule">- Eine Woche unter ihrem Ziel ist verpasst; einzelne Tage werden nicht bewertet.</string>
+    <string name="statistics_export_time_days_off">- Ein Krankheitstag oder ein Urlaubstag, an dem der Bereich nichts verlangt, nimmt ein Siebtel vom Ziel seiner Woche, aufgerundet. Minuten an diesem Tag zählen trotzdem.</string>
+    <string name="statistics_export_time_header">| Woche ab | Minuten pro Tag (Mo bis So) | Summe | Ergebnis |</string>
+    <string name="statistics_export_of">%1$d von %2$d</string>
+    <string name="statistics_export_measurement_goal">ein Wert pro Tag, in %s. Werte werden erfasst, nie bewertet.</string>
+    <string name="statistics_export_measurement_header">| Datum | %s | Ergebnis |</string>
+    <string name="statistics_export_questions_goal">einmal am Tag antworten. Notizen sind nicht enthalten.</string>
+    <string name="statistics_export_question">- %1$s: %2$s.</string>
+    <string name="statistics_export_questions_title">- Fragen:</string>
+    <string name="statistics_export_substances_logging">jeden Tag am Morgen danach erfassen, mit seinen Einträgen oder „nichts“. Jeder Eintrag zählt den Tag.</string>
+    <string name="statistics_export_substances_staying_away">jeden Tag am Morgen danach erfassen, mit seinen Einträgen oder „nichts“. Ein Tag mit einem Eintrag einer Substanz, auf die du verzichtest, ist verpasst.</string>
+    <string name="statistics_export_staying_away">- Verzichte auf: %s.</string>
+    <string name="statistics_export_just_tracking">- Nur erfassen: %s.</string>
+    <string name="statistics_export_check_in">- Check-in: %s.</string>
+    <string name="statistics_export_substances_header">| Datum | Einträge | Ergebnis |</string>
+    <string name="statistics_export_use">%1$s %2$s</string>
+    <string name="statistics_export_date">Datum</string>
+    <string name="statistics_export_result">Ergebnis</string>
+    <string name="statistics_export_kept">geschafft</string>
+    <string name="statistics_export_missed">verpasst</string>
+    <string name="statistics_export_rest_day">Ruhetag</string>
+    <string name="statistics_export_free_day">freier Tag</string>
+    <string name="statistics_export_excused_sick">entschuldigt (krank)</string>
+    <string name="statistics_export_excused_away">entschuldigt (Urlaub)</string>
+    <string name="statistics_export_protected_token">verpasst, geschützt (Token)</string>
+    <string name="statistics_export_protected_freeze">verpasst, geschützt (Freeze)</string>
+</resources>

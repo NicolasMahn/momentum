@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_title">Über Momentum</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_privacy_title">Datenschutzerklärung</string>
+    <string name="about_legal_notice_title">Impressum</string>
+    <string name="about_licenses_title">Open-Source-Lizenzen</string>
+    <string name="about_license_title">Lizenz</string>
+    <string name="about_license_source">Projektseite</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="momentum_launch_background">#0F1113</color>
+    <color name="momentum_mark_monochrome">#FFFFFF</color>
+    <!-- The app's dark background and its muted text, for the one surface Compose cannot theme. -->
+    <color name="mo_widget_background">#0D181E</color>
+    <color name="mo_widget_streak_text">#FFD9A8</color>
+    <color name="mo_widget_freeze_text">#CDEBFF</color>
+    <!-- Launcher icon. Mo's colours are fixed by docs/mo.md and mirror MoPalette.kt, which resources cannot read. -->
+    <color name="mo_icon_background">#0D181E</color>
+    <color name="mo_icon_outer">#FD4711</color>
+    <color name="mo_icon_middle">#FE7C1C</color>
+    <color name="mo_icon_belly">#F7C401</color>
+    <color name="mo_icon_ledge">#D43901</color>
+    <color name="mo_icon_gloss">#FEE7D3</color>
+    <color name="mo_icon_ink">#421709</color>
+    <color name="mo_icon_eye">#FFFFFF</color>
+    <color name="mo_icon_ice">#AEDDF8</color>
+    <color name="mo_icon_ice_front">#E4F5FF</color>
+    <color name="mo_icon_ice_ledge">#7DB7DD</color>
+    <color name="mo_icon_ice_shine">#FFFFFF</color>
+</resources>

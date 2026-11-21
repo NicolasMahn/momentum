@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The app shell: navigation, Home and the screens shown when records cannot be opened. -->
+<resources>
+    <string name="app_back">Back</string>
+    <string name="app_workout_saved">Workout saved</string>
+    <string name="app_workout_finished">Workout finished</string>
+
+    <!-- What a Home tile's corner badge means, for TalkBack. -->
+    <string name="app_home_task_done">Done today</string>
+    <!-- %1$d: parts done; %2$d: all parts, always more than one. -->
+    <string name="app_home_task_parts_done">%1$d of %2$d done today</string>
+    <string name="app_home_task_optional">Open today, a free day would cover it</string>
+    <string name="app_home_task_open">Still open today</string>
+    <!-- A day kept without being done: Substances' under either goal, or a checklist's kept only by items that log only misses. Never "done". -->
+    <string name="app_home_task_kept">Kept today</string>
+    <!-- A free day covers today and nothing is asked: Activity's rest day. Never "done". -->
+    <string name="app_home_task_rest">Rest day today</string>
+    <!-- A token is set aside for today. Never "done". -->
+    <string name="app_home_task_covered">A token covers today</string>
+
+    <string name="app_unreadable_records_message">Momentum could not read your records, so it is not showing or changing them. They are still stored as they were. Retry, or restore a backup.</string>
+    <string name="app_unreadable_records_retry">Retry</string>
+    <string name="app_open_failed_message">Momentum could not safely open your records. Your recovery files have been kept. Free storage if needed, then retry.</string>
+    <string name="app_open_failed_retry">Retry opening records</string>
+</resources>

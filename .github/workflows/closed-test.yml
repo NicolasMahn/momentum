@@ -1,0 +1,65 @@
+name: Closed test
+
+# Every merge to `main` goes to Google Play's closed test by itself: the signed bundle is built
+# here, uploaded, and sent for Google's review. A merge that changes documents only builds the
+# same app again, so it is left out.
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/**"
+      - "**.md"
+      - "scripts/tests/**"
+  workflow_dispatch:
+
+# Only the newest `main` is worth uploading: a later merge replaces a run that is still building.
+concurrency:
+  group: closed-test
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # The version code counts the commits, so the build needs the whole history.
+          fetch-depth: 0
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@v6
+
+      - name: Restore the keys
+        env:
+          UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
+          UPLOAD_KEY_PROPERTIES: ${{ secrets.UPLOAD_KEY_PROPERTIES }}
+          PLAY_UPLOAD_KEY_JSON: ${{ secrets.PLAY_UPLOAD_KEY_JSON }}
+        run: |
+          umask 077
+          mkdir -p ~/.config/momentum
+          printf '%s' "$UPLOAD_KEYSTORE_BASE64" | base64 --decode > ~/.config/momentum/upload.jks
+          {
+            printf '%s\n' "$UPLOAD_KEY_PROPERTIES"
+            printf 'storeFile=%s\n' "$HOME/.config/momentum/upload.jks"
+          } > ~/.config/momentum/upload-key.properties
+          printf '%s' "$PLAY_UPLOAD_KEY_JSON" > ~/.config/momentum/play-upload-key.json
+
+      - name: Build the signed bundle
+        run: ./gradlew :app:bundleRelease
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Upload to the closed test
+        run: |
+          python -m pip install --quiet google-auth requests
+          python scripts/play_upload.py app/build/outputs/bundle/release/app-release.aab

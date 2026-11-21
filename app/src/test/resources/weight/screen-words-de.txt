@@ -1,0 +1,1938 @@
+== several records of one day, two at the same time / 2026-10-05
+[measurement_selected_day] text="Mo., 5. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mo., 5. Okt. entfernen" disabled
+text="Mo., 5. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Mo., 5. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== several records of one day, two at the same time / 2026-10-06
+[measurement_selected_day] text="Di., 6. Okt."
+[measurement_value] field="78"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Di., 6. Okt. entfernen"
+spoken="78 kg"
+text="Di., 6. Okt."
+[measurement_selected_note] text="Trend 78 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Di., 6. Okt.: 78 kg, Trend 78 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== several records of one day, two at the same time / 2026-10-07
+[measurement_selected_day] text="Mi., 7. Okt."
+[measurement_value] field="80"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Mi., 7. Okt. entfernen"
+text="Zuvor: 78 ⁨kg⁩ (gestern) · +2 ⁨kg⁩"
+spoken="80 kg"
+text="Mi., 7. Okt."
+[measurement_selected_note] text="Trend 78,18 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Mi., 7. Okt.: 80 kg, Trend 78,18 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== several records of one day, two at the same time / 2026-10-08
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="82"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen"
+text="Zuvor: 80 ⁨kg⁩ (gestern) · +2 ⁨kg⁩"
+spoken="82 kg"
+text="Do., 8. Okt."
+[measurement_selected_note] text="Trend 78,53 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Do., 8. Okt.: 82 kg, Trend 78,53 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== several records of one day, two at the same time / 2026-10-09
+[measurement_value] field="82"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Zuvor: 82 ⁨kg⁩ (gestern)"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== two identical records / 2026-10-05
+[measurement_selected_day] text="Mo., 5. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mo., 5. Okt. entfernen" disabled
+text="Mo., 5. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 81,5 kg, Einträge zwischen 81,5 und 81,5 kg. Ausgewählt Mo., 5. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== two identical records / 2026-10-06
+[measurement_selected_day] text="Di., 6. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Di., 6. Okt. entfernen" disabled
+text="Di., 6. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 81,5 kg, Einträge zwischen 81,5 und 81,5 kg. Ausgewählt Di., 6. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== two identical records / 2026-10-07
+[measurement_selected_day] text="Mi., 7. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mi., 7. Okt. entfernen" disabled
+text="Mi., 7. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 81,5 kg, Einträge zwischen 81,5 und 81,5 kg. Ausgewählt Mi., 7. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== two identical records / 2026-10-08
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="81,5"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen"
+spoken="81,5 kg"
+text="Do., 8. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 81,5 kg, Einträge zwischen 81,5 und 81,5 kg. Ausgewählt Do., 8. Okt.: 81,5 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== two identical records / 2026-10-09
+[measurement_value] field="81,5"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Zuvor: 81,5 ⁨kg⁩ (gestern)"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 81,5 kg, Einträge zwischen 81,5 und 81,5 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a record without a time / 2026-10-05
+[measurement_selected_day] text="Mo., 5. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mo., 5. Okt. entfernen" disabled
+text="Mo., 5. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 79 kg, Einträge zwischen 79 und 80 kg. Ausgewählt Mo., 5. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a record without a time / 2026-10-06
+[measurement_selected_day] text="Di., 6. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Di., 6. Okt. entfernen" disabled
+text="Di., 6. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 79 kg, Einträge zwischen 79 und 80 kg. Ausgewählt Di., 6. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a record without a time / 2026-10-07
+[measurement_selected_day] text="Mi., 7. Okt."
+[measurement_value] field="80"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Mi., 7. Okt. entfernen"
+spoken="80 kg"
+text="Mi., 7. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 79 kg, Einträge zwischen 79 und 80 kg. Ausgewählt Mi., 7. Okt.: 80 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a record without a time / 2026-10-08
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="79"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen"
+text="Zuvor: 80 ⁨kg⁩ (gestern) · -1 ⁨kg⁩"
+spoken="79 kg"
+text="Do., 8. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 79 kg, Einträge zwischen 79 und 80 kg. Ausgewählt Do., 8. Okt.: 79 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a record without a time / 2026-10-09
+[measurement_value] field="79"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Zuvor: 79 ⁨kg⁩ (gestern)"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 79 kg, Einträge zwischen 79 und 80 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a value of zero and one below / 2026-10-05
+[measurement_selected_day] text="Mo., 5. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mo., 5. Okt. entfernen" disabled
+text="Mo., 5. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen -1,5 und 80 kg. Ausgewählt Mo., 5. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a value of zero and one below / 2026-10-06
+[measurement_selected_day] text="Di., 6. Okt."
+[measurement_value] field="80"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Di., 6. Okt. entfernen"
+spoken="80 kg"
+text="Di., 6. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen -1,5 und 80 kg. Ausgewählt Di., 6. Okt.: 80 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a value of zero and one below / 2026-10-07
+[measurement_selected_day] text="Mi., 7. Okt."
+[measurement_value] field="-1,5"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Mi., 7. Okt. entfernen"
+text="Zuvor: 80 ⁨kg⁩ (gestern) · -81,5 ⁨kg⁩"
+spoken="-1,5 kg"
+text="Mi., 7. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen -1,5 und 80 kg. Ausgewählt Mi., 7. Okt.: -1,5 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a value of zero and one below / 2026-10-08
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="0"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen"
+text="Zuvor: -1,5 ⁨kg⁩ (gestern) · +1,5 ⁨kg⁩"
+spoken="0 kg"
+text="Do., 8. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen -1,5 und 80 kg. Ausgewählt Do., 8. Okt.: 0 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a value of zero and one below / 2026-10-09
+[measurement_value] field="0"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Zuvor: 0 ⁨kg⁩ (gestern)"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen -1,5 und 80 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a date in the future / 2026-10-05
+[measurement_selected_day] text="Mo., 5. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mo., 5. Okt. entfernen" disabled
+text="Mo., 5. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen 80 und 80 kg. Ausgewählt Mo., 5. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a date in the future / 2026-10-06
+[measurement_selected_day] text="Di., 6. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Di., 6. Okt. entfernen" disabled
+text="Di., 6. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen 80 und 80 kg. Ausgewählt Di., 6. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a date in the future / 2026-10-07
+[measurement_selected_day] text="Mi., 7. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mi., 7. Okt. entfernen" disabled
+text="Mi., 7. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen 80 und 80 kg. Ausgewählt Mi., 7. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a date in the future / 2026-10-08
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="80"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen"
+spoken="80 kg"
+text="Do., 8. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen 80 und 80 kg. Ausgewählt Do., 8. Okt.: 80 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a date in the future / 2026-10-09
+[measurement_value] field="80"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Zuvor: 80 ⁨kg⁩ (gestern)"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen 80 und 80 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== only a date in the future / 2026-10-05
+[measurement_selected_day] text="Mo., 5. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mo., 5. Okt. entfernen" disabled
+text="Mo., 5. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== only a date in the future / 2026-10-06
+[measurement_selected_day] text="Di., 6. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Di., 6. Okt. entfernen" disabled
+text="Di., 6. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== only a date in the future / 2026-10-07
+[measurement_selected_day] text="Mi., 7. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mi., 7. Okt. entfernen" disabled
+text="Mi., 7. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== only a date in the future / 2026-10-08
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen" disabled
+text="Do., 8. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== only a date in the future / 2026-10-09
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== records stored out of date order / 2026-10-05
+[measurement_selected_day] text="Mo., 5. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mo., 5. Okt. entfernen" disabled
+text="Mo., 5. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Mo., 5. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== records stored out of date order / 2026-10-06
+[measurement_selected_day] text="Di., 6. Okt."
+[measurement_value] field="78"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Di., 6. Okt. entfernen"
+spoken="78 kg"
+text="Di., 6. Okt."
+[measurement_selected_note] text="Trend 78 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Di., 6. Okt.: 78 kg, Trend 78 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== records stored out of date order / 2026-10-07
+[measurement_selected_day] text="Mi., 7. Okt."
+[measurement_value] field="80"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Mi., 7. Okt. entfernen"
+text="Zuvor: 78 ⁨kg⁩ (gestern) · +2 ⁨kg⁩"
+spoken="80 kg"
+text="Mi., 7. Okt."
+[measurement_selected_note] text="Trend 78,18 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Mi., 7. Okt.: 80 kg, Trend 78,18 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== records stored out of date order / 2026-10-08
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="82"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen"
+text="Zuvor: 80 ⁨kg⁩ (gestern) · +2 ⁨kg⁩"
+spoken="82 kg"
+text="Do., 8. Okt."
+[measurement_selected_note] text="Trend 78,53 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Do., 8. Okt.: 82 kg, Trend 78,53 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== records stored out of date order / 2026-10-09
+[measurement_value] field="82"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Zuvor: 82 ⁨kg⁩ (gestern)"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a damaged entry between good ones / 2026-10-05
+[measurement_selected_day] text="Mo., 5. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mo., 5. Okt. entfernen" disabled
+text="Mo., 5. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 82 kg, Einträge zwischen 80,5 und 82 kg. Ausgewählt Mo., 5. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a damaged entry between good ones / 2026-10-06
+[measurement_selected_day] text="Di., 6. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Di., 6. Okt. entfernen" disabled
+text="Di., 6. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 82 kg, Einträge zwischen 80,5 und 82 kg. Ausgewählt Di., 6. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a damaged entry between good ones / 2026-10-07
+[measurement_selected_day] text="Mi., 7. Okt."
+[measurement_value] field="80,5"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Mi., 7. Okt. entfernen"
+spoken="80,5 kg"
+text="Mi., 7. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 82 kg, Einträge zwischen 80,5 und 82 kg. Ausgewählt Mi., 7. Okt.: 80,5 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a damaged entry between good ones / 2026-10-08
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="82"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen"
+text="Zuvor: 80,5 ⁨kg⁩ (gestern) · +1,5 ⁨kg⁩"
+spoken="82 kg"
+text="Do., 8. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 82 kg, Einträge zwischen 80,5 und 82 kg. Ausgewählt Do., 8. Okt.: 82 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a damaged entry between good ones / 2026-10-09
+[measurement_value] field="82"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Zuvor: 82 ⁨kg⁩ (gestern)"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 82 kg, Einträge zwischen 80,5 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== no records / 2026-10-05
+[measurement_selected_day] text="Mo., 5. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mo., 5. Okt. entfernen" disabled
+text="Mo., 5. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== no records / 2026-10-06
+[measurement_selected_day] text="Di., 6. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Di., 6. Okt. entfernen" disabled
+text="Di., 6. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== no records / 2026-10-07
+[measurement_selected_day] text="Mi., 7. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Mi., 7. Okt. entfernen" disabled
+text="Mi., 7. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== no records / 2026-10-08
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen" disabled
+text="Do., 8. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== no records / 2026-10-09
+[measurement_value] field=""
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== the last three months
+[measurement_value] field="82"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Zuvor: 82 ⁨kg⁩ (gestern)"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 91 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="11. Juli"
+text="25. Aug."
+text="9. Okt."
+[measurement_range_fourweeks] not selected
+text="4 W"
+[measurement_range_threemonths] selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== everything
+[measurement_value] field="82"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Zuvor: 82 ⁨kg⁩ (gestern)"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] not selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] selected
+text="Alle"
+
+== saving what is no number
+[measurement_value] field="abc" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Gib eine Zahl über null ein."
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== saving zero
+[measurement_value] field="0" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Gib eine Zahl über null ein."
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== saving a number below zero
+[measurement_value] field="-3" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Gib eine Zahl über null ein."
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== one step down from an empty field
+[measurement_value] field="" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Gib eine Zahl über null ein."
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== one step up from an empty field
+[measurement_value] field="" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Gib eine Zahl über null ein."
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== typed, not saved
+[measurement_value] field="83.5 KG"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Zuvor: 82 ⁨kg⁩ (gestern)"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== saved with a trailing KG
+[measurement_value] field="83,5"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen"
+text="Zuvor: 82 ⁨kg⁩ (gestern) · +1,5 ⁨kg⁩"
+spoken="83,5 kg"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Trend 78,98 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,98 kg, Einträge zwischen 78 und 83,5 kg. Ausgewählt Fr., 9. Okt.: 83,5 kg, Trend 78,98 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== one step up from the saved weight
+[measurement_value] field="83,6"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen"
+text="Zuvor: 82 ⁨kg⁩ (gestern) · +1,5 ⁨kg⁩"
+spoken="83,5 kg"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Trend 78,98 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,98 kg, Einträge zwischen 78 und 83,5 kg. Ausgewählt Fr., 9. Okt.: 83,5 kg, Trend 78,98 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== one step down from the saved weight
+[measurement_value] field="83,4"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen"
+text="Zuvor: 82 ⁨kg⁩ (gestern) · +1,5 ⁨kg⁩"
+spoken="83,5 kg"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Trend 78,98 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,98 kg, Einträge zwischen 78 und 83,5 kg. Ausgewählt Fr., 9. Okt.: 83,5 kg, Trend 78,98 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== saved with two decimal places
+[measurement_value] field="87,45"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen"
+text="Zuvor: 82 ⁨kg⁩ (gestern) · +5,45 ⁨kg⁩"
+spoken="87,45 kg"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Trend 79,34 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 79,34 kg, Einträge zwischen 78 und 87,45 kg. Ausgewählt Fr., 9. Okt.: 87,45 kg, Trend 79,34 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== saved with three decimal places
+[measurement_value] field="87,46"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen"
+text="Zuvor: 82 ⁨kg⁩ (gestern) · +5,46 ⁨kg⁩"
+spoken="87,46 kg"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Trend 79,34 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 79,34 kg, Einträge zwischen 78 und 87,46 kg. Ausgewählt Fr., 9. Okt.: 87,46 kg, Trend 79,34 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== saved with a decimal comma
+[measurement_value] field="87,5"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen"
+text="Zuvor: 82 ⁨kg⁩ (gestern) · +5,5 ⁨kg⁩"
+spoken="87,5 kg"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Trend 79,34 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 79,34 kg, Einträge zwischen 78 und 87,5 kg. Ausgewählt Fr., 9. Okt.: 87,5 kg, Trend 79,34 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== saved with a decimal point
+[measurement_value] field="87,25"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen"
+text="Zuvor: 82 ⁨kg⁩ (gestern) · +5,25 ⁨kg⁩"
+spoken="87,25 kg"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Trend 79,32 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 79,32 kg, Einträge zwischen 78 und 87,25 kg. Ausgewählt Fr., 9. Okt.: 87,25 kg, Trend 79,32 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a save that fails
+[measurement_value] field="83.5" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Der Eintrag konnte nicht gespeichert werden. Versuch es noch einmal."
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== the question before unsaved input is dropped
+[measurement_value] field="83.5" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Der Eintrag konnte nicht gespeichert werden. Versuch es noch einmal."
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+text="Änderungen verwerfen?"
+text="Deine Änderungen sind nicht gespeichert."
+text="Weiter bearbeiten"
+text="Verwerfen"
+
+== kept editing
+[measurement_value] field="83.5" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen" disabled
+text="Der Eintrag konnte nicht gespeichert werden. Versuch es noch einmal."
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== unsaved input dropped
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="82"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen"
+text="Zuvor: 80 ⁨kg⁩ (gestern) · +2 ⁨kg⁩"
+spoken="82 kg"
+text="Do., 8. Okt."
+[measurement_selected_note] text="Trend 78,53 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Do., 8. Okt.: 82 kg, Trend 78,53 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== removal armed
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="82"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Bestätigen: Eintrag für Do., 8. Okt. entfernen"
+text="Zuvor: 80 ⁨kg⁩ (gestern) · +2 ⁨kg⁩"
+spoken="82 kg"
+text="Do., 8. Okt."
+[measurement_selected_note] text="Trend 78,53 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Do., 8. Okt.: 82 kg, Trend 78,53 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== a removal that fails
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="82" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Erledigt" disabled
+text="Gespeichert"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen"
+text="Der Eintrag konnte nicht gelöscht werden. Versuch es noch einmal."
+spoken="82 kg"
+text="Do., 8. Okt."
+[measurement_selected_note] text="Trend 78,53 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Do., 8. Okt.: 82 kg, Trend 78,53 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== removed
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="80"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen" disabled
+text="Zuvor: 80 ⁨kg⁩ (gestern)"
+text="Do., 8. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen 78 und 80 kg. Ausgewählt Do., 8. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== saving over a record that changed elsewhere
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="83" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen"
+text="Dieser Eintrag wurde woanders geändert. Öffne Weight neu, bevor du speicherst."
+spoken="84 kg"
+text="Do., 8. Okt."
+[measurement_selected_note] text="Trend 78,71 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,71 kg, Einträge zwischen 78 und 84 kg. Ausgewählt Do., 8. Okt.: 84 kg, Trend 78,71 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== removing a record that changed elsewhere
+[measurement_selected_day] text="Do., 8. Okt."
+[measurement_value] field="83" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Do., 8. Okt. entfernen"
+text="Dieser Eintrag wurde woanders geändert. Sieh ihn dir an, bevor du ihn löschst."
+spoken="84 kg"
+text="Do., 8. Okt."
+[measurement_selected_note] text="Trend 78,71 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,71 kg, Einträge zwischen 78 und 84 kg. Ausgewählt Do., 8. Okt.: 84 kg, Trend 78,71 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== saving a first record over one stored elsewhere
+[measurement_value] field="83" error="Ungültige Eingabe"
+text="Weight in ⁨kg⁩"
+text="−0,1 ⁨kg⁩"
+text="+0,1 ⁨kg⁩"
+spoken="Schrittweite ändern"
+[measurement_save] state="Nicht erledigt"
+text="Speichern"
+[measurement_delete] spoken="Eintrag für Fr., 9. Okt. entfernen"
+text="Dieser Eintrag wurde woanders geändert. Öffne Weight neu, bevor du speicherst."
+spoken="84 kg"
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Trend 79,03 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 79,03 kg, Einträge zwischen 78 und 84 kg. Ausgewählt Fr., 9. Okt.: 84 kg, Trend 79,03 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+[measurement_range_fourweeks] selected
+text="4 W"
+[measurement_range_threemonths] not selected
+text="3 M"
+[measurement_range_all] not selected
+text="Alle"
+
+== several records of one day, two at the same time / the history without an average, 2026-10-08
+spoken="82 kg"
+text="Do., 8. Okt."
+[measurement_selected_note] text="Trend 78,53 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Do., 8. Okt.: 82 kg, Trend 78,53 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== several records of one day, two at the same time / the history without an average, 2026-10-09
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== several records of one day, two at the same time / the chart in Statistics
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg"
+
+== several records of one day, two at the same time / the chart of one day
+[measurement_history_chart] spoken="Trend für Weight am letzten Tag, zuletzt 78,53 kg"
+
+== several records of one day, two at the same time / the chart of one recorded day
+[measurement_history_chart] spoken="Trend für Weight am letzten Tag, zuletzt 78,53 kg, Einträge zwischen 82 und 82 kg"
+
+== several records of one day, two at the same time / the chart of three later days
+[measurement_history_chart] spoken="Trend für Weight in den letzten 3 Tagen, zuletzt 78,53 kg"
+
+== several records of one day, two at the same time / the screen's chart with no day picked
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg"
+
+== two identical records / the history without an average, 2026-10-08
+spoken="81,5 kg"
+text="Do., 8. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 81,5 kg, Einträge zwischen 81,5 und 81,5 kg. Ausgewählt Do., 8. Okt.: 81,5 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== two identical records / the history without an average, 2026-10-09
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 81,5 kg, Einträge zwischen 81,5 und 81,5 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== two identical records / the chart in Statistics
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 81,5 kg, Einträge zwischen 81,5 und 81,5 kg"
+
+== two identical records / the chart of one day
+[measurement_history_chart] spoken="Weight am letzten Tag, zuletzt 81,5 kg"
+
+== two identical records / the chart of one recorded day
+[measurement_history_chart] spoken="Weight am letzten Tag, zuletzt 81,5 kg, Einträge zwischen 81,5 und 81,5 kg"
+
+== two identical records / the chart of three later days
+[measurement_history_chart] spoken="Weight in den letzten 3 Tagen, zuletzt 81,5 kg"
+
+== two identical records / the screen's chart with no day picked
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 81,5 kg, Einträge zwischen 81,5 und 81,5 kg"
+
+== a record without a time / the history without an average, 2026-10-08
+spoken="79 kg"
+text="Do., 8. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 79 kg, Einträge zwischen 79 und 80 kg. Ausgewählt Do., 8. Okt.: 79 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== a record without a time / the history without an average, 2026-10-09
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 79 kg, Einträge zwischen 79 und 80 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== a record without a time / the chart in Statistics
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 79 kg, Einträge zwischen 79 und 80 kg"
+
+== a record without a time / the chart of one day
+[measurement_history_chart] spoken="Weight am letzten Tag, zuletzt 79 kg"
+
+== a record without a time / the chart of one recorded day
+[measurement_history_chart] spoken="Weight am letzten Tag, zuletzt 79 kg, Einträge zwischen 79 und 79 kg"
+
+== a record without a time / the chart of three later days
+[measurement_history_chart] spoken="Weight in den letzten 3 Tagen, zuletzt 79 kg"
+
+== a record without a time / the screen's chart with no day picked
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 79 kg, Einträge zwischen 79 und 80 kg"
+
+== a value of zero and one below / the history without an average, 2026-10-08
+spoken="0 kg"
+text="Do., 8. Okt."
+[measurement_selected_note] text="Trend 65,99 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 65,99 kg, Einträge zwischen -1,5 und 80 kg. Ausgewählt Do., 8. Okt.: 0 kg, Trend 65,99 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== a value of zero and one below / the history without an average, 2026-10-09
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 65,99 kg, Einträge zwischen -1,5 und 80 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== a value of zero and one below / the chart in Statistics
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 65,99 kg, Einträge zwischen -1,5 und 80 kg"
+
+== a value of zero and one below / the chart of one day
+[measurement_history_chart] spoken="Trend für Weight am letzten Tag, zuletzt 65,99 kg"
+
+== a value of zero and one below / the chart of one recorded day
+[measurement_history_chart] spoken="Trend für Weight am letzten Tag, zuletzt 65,99 kg, Einträge zwischen 0 und 0 kg"
+
+== a value of zero and one below / the chart of three later days
+[measurement_history_chart] spoken="Trend für Weight in den letzten 3 Tagen, zuletzt 65,99 kg"
+
+== a value of zero and one below / the screen's chart with no day picked
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen -1,5 und 80 kg"
+
+== a date in the future / the history without an average, 2026-10-08
+spoken="80 kg"
+text="Do., 8. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen 80 und 80 kg. Ausgewählt Do., 8. Okt.: 80 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== a date in the future / the history without an average, 2026-10-09
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen 80 und 80 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== a date in the future / the chart in Statistics
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen 80 und 80 kg"
+
+== a date in the future / the chart of one day
+[measurement_history_chart] spoken="Weight am letzten Tag, zuletzt 80 kg"
+
+== a date in the future / the chart of one recorded day
+[measurement_history_chart] spoken="Weight am letzten Tag, zuletzt 80 kg, Einträge zwischen 80 und 80 kg"
+
+== a date in the future / the chart of three later days
+[measurement_history_chart] spoken="Weight in den letzten 3 Tagen, zuletzt 90 kg, Einträge zwischen 90 und 90 kg"
+
+== a date in the future / the screen's chart with no day picked
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 80 kg, Einträge zwischen 80 und 80 kg"
+
+== only a date in the future / the history without an average, 2026-10-08
+text="Do., 8. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== only a date in the future / the history without an average, 2026-10-09
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== only a date in the future / the chart in Statistics
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+
+== only a date in the future / the chart of one day
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert am letzten Tag"
+
+== only a date in the future / the chart of one recorded day
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert am letzten Tag"
+
+== only a date in the future / the chart of three later days
+[measurement_history_chart] spoken="Weight in den letzten 3 Tagen, zuletzt 90 kg, Einträge zwischen 90 und 90 kg"
+
+== only a date in the future / the screen's chart with no day picked
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+
+== records stored out of date order / the history without an average, 2026-10-08
+spoken="82 kg"
+text="Do., 8. Okt."
+[measurement_selected_note] text="Trend 78,53 ⁨kg⁩"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Do., 8. Okt.: 82 kg, Trend 78,53 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== records stored out of date order / the history without an average, 2026-10-09
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== records stored out of date order / the chart in Statistics
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg"
+
+== records stored out of date order / the chart of one day
+[measurement_history_chart] spoken="Trend für Weight am letzten Tag, zuletzt 78,53 kg"
+
+== records stored out of date order / the chart of one recorded day
+[measurement_history_chart] spoken="Trend für Weight am letzten Tag, zuletzt 78,53 kg, Einträge zwischen 82 und 82 kg"
+
+== records stored out of date order / the chart of three later days
+[measurement_history_chart] spoken="Trend für Weight in den letzten 3 Tagen, zuletzt 78,53 kg"
+
+== records stored out of date order / the screen's chart with no day picked
+[measurement_history_chart] spoken="Trend für Weight in den letzten 28 Tagen, zuletzt 78,53 kg, Einträge zwischen 78 und 82 kg"
+
+== a damaged entry between good ones / the history without an average, 2026-10-08
+spoken="82 kg"
+text="Do., 8. Okt."
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 82 kg, Einträge zwischen 80,5 und 82 kg. Ausgewählt Do., 8. Okt.: 82 kg"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== a damaged entry between good ones / the history without an average, 2026-10-09
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 82 kg, Einträge zwischen 80,5 und 82 kg. Ausgewählt Fr., 9. Okt.: nichts erfasst"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== a damaged entry between good ones / the chart in Statistics
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 82 kg, Einträge zwischen 80,5 und 82 kg"
+
+== a damaged entry between good ones / the chart of one day
+[measurement_history_chart] spoken="Weight am letzten Tag, zuletzt 82 kg"
+
+== a damaged entry between good ones / the chart of one recorded day
+[measurement_history_chart] spoken="Weight am letzten Tag, zuletzt 82 kg, Einträge zwischen 82 und 82 kg"
+
+== a damaged entry between good ones / the chart of three later days
+[measurement_history_chart] spoken="Weight in den letzten 3 Tagen, zuletzt 82 kg"
+
+== a damaged entry between good ones / the screen's chart with no day picked
+[measurement_history_chart] spoken="Weight in den letzten 28 Tagen, zuletzt 82 kg, Einträge zwischen 80,5 und 82 kg"
+
+== no records / the history without an average, 2026-10-08
+text="Do., 8. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== no records / the history without an average, 2026-10-09
+text="Fr., 9. Okt."
+[measurement_selected_note] text="Nichts erfasst"
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+text="12. Sept."
+text="26. Sept."
+text="9. Okt."
+
+== no records / the chart in Statistics
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+
+== no records / the chart of one day
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert am letzten Tag"
+
+== no records / the chart of one recorded day
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert am letzten Tag"
+
+== no records / the chart of three later days
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 3 Tagen"
+
+== no records / the screen's chart with no day picked
+[measurement_history_chart] spoken="Diagramm für Weight ohne bekannten Wert in den letzten 28 Tagen"
+
+== the number as it is drawn, at rest and while it counts up
+82.0: "82" "82"
+81.5: "81,5" "81,5"
+87.45: "87,45" "87,5"
+87.456: "87,46" "87,5"
+80.88: "80,88" "80,9"
+78.58: "78,58" "78,6"
+0.0: "0" "0"
+-1.5: "-1,5" "-1,5"
+0.04: "0,04" "0"
+123456.789: "123456,79" "123456,8"

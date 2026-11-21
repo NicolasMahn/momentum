@@ -1,0 +1,111 @@
+package com.example.workouttracker.feature.eating
+
+import com.example.workouttracker.domain.questions.eatingEntry
+import com.example.workouttracker.domain.questions.QuestionEntry
+
+/** The day every scene of the script is shown on, a Thursday. */
+internal const val EatingScriptToday = "2026-09-17"
+
+/** Inherited-question entries: on the default day, with both answers, with one, with a note alone, and from an earlier week. */
+internal val EatingScriptRecords = listOf(
+    eatingEntry("yesterday", "2026-09-16", 500, "good", "about_the_same"),
+    eatingEntry("both", "2026-09-15", 400, "excellent", "a_little_more", "Late lunch"),
+    eatingEntry("amount", "2026-09-13", 300, amount = "much_less"),
+    eatingEntry("note", "2026-09-12", 200, note = "Travelling"),
+    eatingEntry("quality", "2026-09-01", 100, quality = "poor"),
+)
+
+/**
+ * What a transcript script needs from the screen: user actions addressed by the questions view's
+ * `questions_<id>` test-tag prefix.
+ */
+internal interface EatingScreenStage {
+    /** Shows the screen anew over [records], on [EatingScriptToday]; [refuse] makes every save and removal fail. */
+    fun open(records: List<QuestionEntry>, refuse: Boolean = false, initialDateKey: String? = null)
+    fun select(dateKey: String)
+    fun click(tag: String)
+    fun type(tag: String, text: String)
+
+    /** Writes down everything on show under [title]. */
+    fun say(title: String)
+}
+
+/**
+ * Every state of Eating's inherited questions screen a person can reach, one after another.
+ *
+ * Two scenes are named anew since a day that has a reflection shows it: the form no longer goes
+ * blank after a save, so their Save is pressed on the day's own reflection and stores nothing new.
+ * A typed date takes along only what was picked and not saved, so the scene that typed one from a
+ * reflection left as it was is named for the empty day it now reaches, and "the answers carried
+ * over" is written down where an answer was picked first, before the save that fails; no step was
+ * added for it.
+ */
+internal fun EatingScreenStage.playEatingScreen() {
+    open(emptyList())
+    say("nothing recorded")
+    click("questions_eating_quality_3")
+    click("questions_eating_amount_not_sure")
+    say("an answer and a not sure picked")
+    click("questions_eating_quality_3")
+    click("questions_eating_amount_1")
+    say("the answer taken back and another picked")
+    click("questions_eating_more_options")
+    say("more options open")
+    type("questions_eating_note", "  Dinner with friends  ")
+    click("questions_eating_more_options")
+    say("a note typed and folded away")
+    click("questions_eating_save")
+    say("after a first save")
+    click("questions_eating_history_2026-09-16")
+    say("the day just saved, opened again")
+    click("questions_eating_quality_4")
+    click("questions_eating_save")
+    say("its changes saved")
+    click("questions_eating_save")
+    say("Save again on the day just saved")
+
+    open(EatingScriptRecords)
+    say("records, on the default day")
+    click("questions_eating_save")
+    say("Save on a day that shows its reflection")
+    select("2026-09-15")
+    say("a day with both answers and a note")
+    select("2026-09-13")
+    say("a day with an amount alone")
+    select("2026-09-12")
+    say("a day with a note alone")
+    select("2026-09-14")
+    say("an empty day reached by its date")
+    click("questions_eating_history_2026-09-15")
+    say("a day opened from the calendar")
+    click("questions_eating_history_2026-09-10")
+    say("an empty day opened from the calendar")
+    select("2026-02-30")
+    click("questions_eating_save")
+    say("saving a date that is none")
+    select("2026-09-15")
+    click("questions_eating_delete")
+    say("removal armed")
+    click("questions_eating_delete")
+    say("removed")
+
+    open(EatingScriptRecords, refuse = true)
+    click("questions_eating_quality_0")
+    select("2026-09-14")
+    say("an empty day, with the answers carried over")
+    click("questions_eating_save")
+    say("a save that fails")
+    select("2026-09-15")
+    click("questions_eating_delete")
+    click("questions_eating_delete")
+    say("a removal that fails")
+
+    open(EatingScriptRecords, initialDateKey = "2026-09-13")
+    say("opened on the day a reminder asked about")
+
+    open(emptyList())
+    click("questions_eating_quality_help")
+    say("the quality help")
+    click("eating_quality_help_close")
+    say("the help closed")
+}

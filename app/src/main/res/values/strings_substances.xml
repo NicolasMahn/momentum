@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="substance_cannabis">Cannabis</string>
+    <string name="substance_alcohol">Alcohol</string>
+    <string name="substance_tobacco">Tobacco</string>
+    <string name="substance_vaping">Vaping</string>
+    <string name="substance_nicotine_pouches">Nicotine pouches</string>
+    <string name="substance_coffee">Coffee</string>
+    <string name="substance_energy_drinks">Energy drinks</string>
+    <string name="substance_cocaine">Cocaine</string>
+    <string name="substance_crack">Crack</string>
+    <string name="substance_amphetamines">Amphetamines</string>
+    <string name="substance_mdma">MDMA</string>
+    <string name="substance_ketamine">Ketamine</string>
+    <string name="substance_psychedelics">Psychedelics</string>
+    <string name="substance_opioids">Opioids</string>
+    <string name="substance_benzodiazepines">Benzodiazepines</string>
+    <string name="substance_ghb">GHB</string>
+    <string name="substance_amount_grams">Grams (optional)</string>
+    <string name="substance_amount_drinks">Drinks (optional)</string>
+    <string name="substance_amount_uses">Uses (optional)</string>
+    <string name="substance_amount_pouches">Pouches (optional)</string>
+    <string name="substance_amount_cups">Cups (optional)</string>
+    <string name="substance_amount_cans">Cans (optional)</string>
+    <string name="substance_amount_pills">Pills (optional)</string>
+    <!-- Suffixes inside the amount field, after the number. -->
+    <string name="substance_unit_grams">g</string>
+    <string name="substance_unit_drinks">drinks</string>
+    <string name="substance_unit_uses">uses</string>
+    <string name="substance_unit_pouches">pouches</string>
+    <string name="substance_unit_cups">cups</string>
+    <string name="substance_unit_cans">cans</string>
+    <string name="substance_unit_pills">pills</string>
+    <!-- A unit on its own, where one is chosen for a substance of your own. -->
+    <string name="substance_unit_name_grams">Grams</string>
+    <string name="substance_unit_name_drinks">Drinks</string>
+    <string name="substance_unit_name_uses">Uses</string>
+    <string name="substance_unit_name_pouches">Pouches</string>
+    <string name="substance_unit_name_cups">Cups</string>
+    <string name="substance_unit_name_cans">Cans</string>
+    <string name="substance_unit_name_pills">Pills</string>
+
+    <string name="substance_optional_details">Optional details</string>
+    <string name="substance_save_day">Save day</string>
+    <string name="substance_save_changes">Save changes</string>
+    <string name="substance_saved">Saved</string>
+    <!-- %s: the date, for example "Sat, Oct 3". -->
+    <string name="substance_remove_day">Remove substances for %s</string>
+    <string name="substance_error_remove_failed">Couldn\'t remove the day. Try again.</string>
+    <string name="substance_error_save_failed">Couldn\'t save. The day may have changed elsewhere.</string>
+    <!-- Only shown for two or more records left by an older version. %1$d: how many; %2$s: the substance. -->
+    <plurals name="substance_legacy_entries">
+        <item quantity="one">%1$d %2$s entry from an older version.</item>
+        <item quantity="other">%1$d %2$s entries from an older version.</item>
+    </plurals>
+    <!-- One of several old records of a substance. %1$s: the substance; %2$d: its number. -->
+    <string name="substance_legacy_entry">%1$s %2$d</string>
+    <string name="substance_delete">Delete</string>
+    <string name="substance_error_amount">Enter a positive amount or leave it blank</string>
+    <!-- An amount field, spoken, so two fields with one unit are told apart. %1$s: the substance; %2$s: the field's label. -->
+    <string name="substance_amount_described">%1$s: %2$s</string>
+    <!-- Where the tiles would be, while no substance is tracked; the button opens the Substances page. -->
+    <string name="substance_nothing_tracked">Nothing is tracked yet.</string>
+    <string name="substance_choose">Choose substances</string>
+    <!-- The whole day's answer when there is nothing to log: a record like a use, which the check-in's action and the calendar name the same way. -->
+    <string name="substance_none_today">None today</string>
+    <string name="substance_none_yesterday">None yesterday</string>
+    <string name="substance_none_day">None that day</string>
+    <string name="substance_none_not_over">None can be logged once the day is over.</string>
+    <!-- Under the buttons, when "None today" was pressed while the day still holds a use. -->
+    <string name="substance_none_blocked">To log none, remove the day\'s records first.</string>
+
+    <!-- A summary tile: a big number or word, then what it counts. -->
+    <string name="substance_stat_nothing_unit">nothing recorded</string>
+    <string name="substance_stat_nothing">No consumption recorded</string>
+    <string name="substance_stat_today_word">today</string>
+    <string name="substance_stat_today_unit">last logged</string>
+    <string name="substance_stat_today">Logged today</string>
+    <string name="substance_stat_ahead_unit">dated ahead</string>
+    <!-- %s: the latest record's date with its year, for example "Oct 7, 2026", which lies after today. -->
+    <string name="substance_stat_ahead">Latest record on %s</string>
+    <!-- Under the count, which is shown on its own. -->
+    <plurals name="substance_stat_days_without_unit">
+        <item quantity="one">day without</item>
+        <item quantity="other">days without</item>
+    </plurals>
+    <!-- Whole days with nothing logged, between the last record and today. -->
+    <plurals name="substance_stat_days_without">
+        <item quantity="one">%d day without</item>
+        <item quantity="other">%d days without</item>
+    </plurals>
+    <!-- The whole tile, spoken. %1$s: the substance; %2$s: its state, for example "76 days without". -->
+    <string name="substance_stat_description">%1$s: %2$s</string>
+    <!-- A substance just tracked, not stayed away from: when it was last logged, never a count of anything. -->
+    <string name="substance_stat_yesterday_word">yesterday</string>
+    <string name="substance_stat_yesterday">Last logged yesterday</string>
+    <!-- Under the count, which is shown on its own. -->
+    <plurals name="substance_stat_days_ago_unit">
+        <item quantity="one">day ago</item>
+        <item quantity="other">days ago</item>
+    </plurals>
+    <plurals name="substance_stat_days_ago">
+        <item quantity="one">Last logged %d day ago</item>
+        <item quantity="other">Last logged %d days ago</item>
+    </plurals>
+
+    <!-- A calendar day, spoken. -->
+    <string name="substance_history_none">No records</string>
+    <!-- %1$s: the substance; %2$d: how many records it has that day. Several are joined with ", ". -->
+    <string name="substance_history_kind_count">%1$s %2$d</string>
+    <string name="substance_action_select">Select date</string>
+    <string name="substance_action_open">Open records</string>
+
+    <!-- The Substances page in Settings. -->
+    <string name="substance_settings_note">Tracked substances are offered when logging and get a stat. Every record stays.</string>
+    <string name="substance_settings_new">New substance</string>
+    <string name="substance_settings_unit">Unit</string>
+    <!-- %s: the unit, for example "Grams". -->
+    <string name="substance_settings_counted_in">Counted in %s.</string>
+    <string name="substance_settings_keeps_records">Has records, so it stays.</string>
+    <string name="substance_settings_save">Save</string>
+    <string name="substance_settings_error_save_failed">Couldn\'t save. Try again.</string>
+    <!-- Each tracked substance is one of these two; it only changes what its stat says. -->
+    <string name="substance_settings_staying_away">Staying away</string>
+    <string name="substance_settings_just_tracking">Just tracking</string>
+    <string name="substance_settings_check_in">Check-in reminder</string>
+    <!-- Under "Counts toward the streak" while Logging is chosen: what keeps a day there. -->
+    <string name="substance_settings_streak_note">A day counts once it is logged, with a use or with None yesterday. What was logged never matters.</string>
+    <!-- "Counts toward the streak" as three tiles, with one line under them saying what keeps a day. -->
+    <string name="substance_settings_goal_off">Off</string>
+    <string name="substance_settings_goal_logging">Logging</string>
+    <string name="substance_settings_goal_staying_away">Staying away</string>
+    <string name="substance_settings_goal_off_note">Nothing here counts toward the streak.</string>
+    <string name="substance_settings_staying_away_note">A day counts unless you log something you\'re staying away from.</string>
+    <!-- The same goal while "Only log uses" is unchecked: a day with no record at all is a gap too. -->
+    <string name="substance_settings_staying_away_check_in_note">A day counts once it is logged without anything you\'re staying away from.</string>
+    <!-- The checkbox under Staying away, worded like a checklist's "Only log misses". Checked, a day with nothing logged counts, so no check-in is needed on a day without a use. -->
+    <string name="substance_settings_only_uses">Only log uses</string>
+    <!-- Under the tiles while Staying away names no substance: nothing is asked of such a day. -->
+    <string name="substance_settings_nothing_stayed_away">Nothing is chosen to stay away from yet.</string>
+    <!-- Beside a disabled remove: an own substance an earlier day was judged against stays, like one with records. -->
+    <string name="substance_settings_keeps_stance">Was stayed away from, so it stays.</string>
+
+    <!-- The check-in notification. It names no substance and assumes nothing. -->
+    <string name="substance_check_in_question">Anything to log for yesterday?</string>
+    <string name="substance_check_in_none_today">None yesterday</string>
+    <!-- After "None today" was pressed for a day that already holds a use; a tap opens that day. -->
+    <string name="substance_check_in_holds_record">This day already has a record. Tap to open it.</string>
+    <string name="substance_check_in_failed_title">Couldn\'t save None yesterday</string>
+    <!-- %1$s: the view's name, as stored or the app's own word. -->
+    <string name="substance_check_in_failed_text">Open %1$s to log the day.</string>
+</resources>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- %1$s: the gym's name; %2$s: the day's, for example "Gym · Day A". -->
+    <string name="activity_gym_session_title">%1$s · %2$s</string>
+    <!-- The tile that offers every further activity and a field for a new name. -->
+    <string name="activity_choice_other">Andere</string>
+
+    <!-- %d: minutes. -->
+    <string name="activity_duration_minutes">%d Min.</string>
+    <plurals name="activity_sets">
+        <item quantity="one">%d Satz</item>
+        <item quantity="other">%d Sätze</item>
+    </plurals>
+    <!-- %s: the record's title, for example "Gym · Day A" or "Bowling". -->
+    <string name="activity_entry_show_sets">Sätze für %s einblenden</string>
+    <string name="activity_entry_hide_sets">Sätze für %s ausblenden</string>
+    <string name="activity_entry_edit">%s bearbeiten</string>
+    <string name="activity_entry_remove">%s entfernen</string>
+    <string name="activity_entry_remove_failed">Der Eintrag konnte nicht entfernt werden. Versuch es noch einmal.</string>
+
+    <string name="activity_calendar_none">Keine Aktivität</string>
+    <string name="activity_calendar_select">Datum wählen</string>
+
+    <!-- A week holidays or sick days make lighter. %1$d: active days kept so far; %2$d: days it asks for. -->
+    <plurals name="activity_lighter_week">
+        <item quantity="one">Leichtere Woche · %1$d von %2$d aktiven Tag</item>
+        <item quantity="other">Leichtere Woche · %1$d von %2$d aktiven Tagen</item>
+    </plurals>
+    <string name="activity_name_label">Aktivität</string>
+    <string name="activity_name_placeholder">Zum Beispiel Bowling</string>
+    <string name="activity_duration_label">Dauer in Minuten (optional)</string>
+    <!-- Short enough to fit the label line it borrows inside the duration field. -->
+    <string name="activity_duration_invalid">Gib ganze Minuten über 0 ein</string>
+    <string name="activity_change_plan">Tag wechseln</string>
+    <string name="activity_save">Aktivität speichern</string>
+    <string name="activity_save_changes">Änderungen speichern</string>
+    <string name="activity_saved">Gespeichert</string>
+    <string name="activity_cancel">Abbrechen</string>
+    <string name="activity_save_failed">Die Aktivität konnte nicht gespeichert werden. Versuch es noch einmal.</string>
+
+    <string name="activity_error_missing_name">Gib einen Namen für die Aktivität ein.</string>
+    <string name="activity_error_duration">Die Dauer muss größer als null sein.</string>
+    <string name="activity_error_not_found">Aktivität nicht gefunden.</string>
+
+    <!-- %1$d: sets; %2$d and %3$d: the lowest and highest target reps. -->
+    <plurals name="activity_gym_exercise_target">
+        <item quantity="one">%1$d Satz · %2$d–%3$d Wdh.</item>
+        <item quantity="other">%1$d Sätze · %2$d–%3$d Wdh.</item>
+    </plurals>
+    <plurals name="activity_gym_plan_exercises">
+        <item quantity="one">%d Übung</item>
+        <item quantity="other">%d Übungen</item>
+    </plurals>
+    <plurals name="activity_gym_plan_target_sets">
+        <item quantity="one">%d geplanter Satz</item>
+        <item quantity="other">%d geplante Sätze</item>
+    </plurals>
+    <!-- %d: exercises in the plan beyond the three named ones. -->
+    <string name="activity_gym_plan_more">+%d weitere</string>
+    <!-- Marks the gym day next in turn on the picker. -->
+    <string name="activity_gym_plan_next">Als Nächstes</string>
+    <!-- Sets filled out of the exercise's sets, for example "2/3". -->
+    <string name="activity_gym_progress">%1$d/%2$d</string>
+    <!-- %s: the last workout's average set, for example "25 kg × 10", or "6 reps" where no set recorded a weight. -->
+    <string name="activity_gym_last_average">Zuletzt im Schnitt %s</string>
+    <!-- %s: the plan's starting set, shown until a session of the exercise was recorded. -->
+    <string name="activity_gym_start_set">Start %s</string>
+    <!-- %s: reps without a weight, for example "6" or "6.5", as the average or the starting set above. -->
+    <plurals name="activity_gym_reps">
+        <item quantity="one">%s Wdh.</item>
+        <item quantity="other">%s Wdh.</item>
+    </plurals>
+    <!-- Under an exercise a recorded session holds that the plan does not know. -->
+    <string name="activity_gym_exercise_not_in_plan">Nicht im Plan</string>
+    <string name="activity_gym_increase_weight">Gewicht erhöhen</string>
+    <string name="activity_gym_preset_last">Zuvor</string>
+    <string name="activity_gym_preset_last_description">Letztes Training übernehmen</string>
+    <!-- %s: the step in kilograms, for example "2.5". -->
+    <string name="activity_gym_weight_down">Jeden Satz um %s kg verringern</string>
+    <string name="activity_gym_weight_up">Jeden Satz um %s kg erhöhen</string>
+    <string name="activity_gym_weight_field">kg</string>
+    <string name="activity_gym_reps_field">Wdh.</string>
+    <string name="activity_gym_save_set_failed">Der Satz konnte nicht gespeichert werden. Versuch es noch einmal.</string>
+    <string name="activity_gym_save_sets_failed">Die Sätze konnten nicht gespeichert werden. Versuch es noch einmal.</string>
+    <string name="activity_gym_weight_change_failed">Die Gewichtsänderung konnte nicht gespeichert werden. Versuch es noch einmal.</string>
+    <string name="activity_gym_finish">Training beenden</string>
+    <string name="activity_gym_finish_duration_invalid">Gib die Dauer in ganzen Minuten über 0 ein.</string>
+    <string name="activity_gym_finish_invalid_set">Prüf die angefangenen Sätze, bevor du das Training beendest.</string>
+    <string name="activity_gym_finish_no_sets">Trag mindestens einen Satz ein, um das Training zu beenden.</string>
+    <string name="activity_gym_finish_failed">Das Training konnte nicht beendet werden. Deine Eingaben sind noch da.</string>
+
+    <!-- A set's load. BW is bodyweight: nothing on the bar. -->
+    <string name="activity_gym_load_bodyweight">KG</string>
+    <!-- Bodyweight with an assist band taking %s kilograms off, for example "BW −3 kg". -->
+    <string name="activity_gym_load_assisted">KG −%s kg</string>
+    <!-- %1$s: the load, for example "25 kg"; %2$s: the reps, for example "10" or "10 · 9 · 9". -->
+    <string name="activity_gym_set">%1$s × %2$s</string>
+
+    <!-- Settings: Activity's page. -->
+    <string name="activity_settings_activities_part">Aktivitäten</string>
+    <string name="activity_settings_week_part">Woche</string>
+    <string name="activity_settings_planned">Geplant</string>
+    <string name="activity_settings_any_activity">Beliebige Aktivität</string>
+    <string name="activity_settings_to_fix">Etwas zu korrigieren</string>
+    <string name="activity_settings_with_weight">Mit Gewicht</string>
+    <string name="activity_settings_up">Zurück zu %s</string>
+    <string name="activity_settings_days_a_week">Tage pro Woche</string>
+    <plurals name="activity_settings_days_note">
+        <item quantity="one">Für %1$d aktiven Tag in einer Woche gibt es %2$s.</item>
+        <item quantity="other">Für %1$d aktive Tage in einer Woche gibt es %2$s.</item>
+    </plurals>
+    <plurals name="activity_settings_rest_days_note">
+        <item quantity="one">Der andere Tag ist ein Ruhetag.</item>
+        <item quantity="other">Die anderen %d Tage sind Ruhetage.</item>
+    </plurals>
+    <string name="activity_settings_no_rest_days_note">Es gibt keine Ruhetage.</string>
+    <plurals name="activity_settings_days_note_more">
+        <item quantity="one">Für mehr Tage gibt es bis zu %d Token pro Woche.</item>
+        <item quantity="other">Für mehr Tage gibt es bis zu %d Tokens pro Woche.</item>
+    </plurals>
+    <string name="activity_settings_step_days">Bei deinen Tagen</string>
+    <plurals name="activity_settings_step_days_more">
+        <item quantity="one">%d Tag mehr</item>
+        <item quantity="other">%d Tage mehr</item>
+    </plurals>
+    <plurals name="activity_settings_step_week_days">
+        <item quantity="one">%d Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <string name="activity_settings_step_tokens_at_days">Tokens bei deinen Tagen</string>
+    <plurals name="activity_settings_steps_total">
+        <item quantity="one">Eine Woche mit %1$d aktiven Tag oder mehr bekommt %2$s.</item>
+        <item quantity="other">Eine Woche mit %1$d aktiven Tagen oder mehr bekommt %2$s.</item>
+    </plurals>
+    <string name="activity_settings_new_activity">Neue Aktivität</string>
+    <string name="activity_settings_logs_duration">Dauer erfassen</string>
+    <string name="activity_settings_logs_duration_note">Fügt beim Erfassen einer Aktivität ein Feld für die Minuten hinzu.</string>
+    <string name="activity_settings_name_taken">Schon vergeben</string>
+    <string name="activity_settings_move_up">%s nach oben</string>
+    <string name="activity_settings_routine">Routine</string>
+    <plurals name="activity_settings_routine_days">
+        <item quantity="one">%d Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <string name="activity_settings_no_routine">Keine Routine</string>
+    <string name="activity_settings_add_routine">Routine hinzufügen</string>
+    <string name="activity_settings_added">%1$s ist hinzugefügt. Eine Routine kannst du jetzt hinzufügen oder später auf der Seite der Aktivität.</string>
+    <string name="activity_settings_new_activity_done">Fertig</string>
+    <string name="activity_settings_remove_routine">Routine entfernen</string>
+    <string name="activity_settings_day_name">Tag</string>
+    <string name="activity_settings_exercise_name">Übung</string>
+    <string name="activity_settings_day_lettered">Tag %s</string>
+    <string name="activity_settings_reps_range">%1$d–%2$d Wdh.</string>
+    <string name="activity_settings_step_summary">±%s kg</string>
+    <string name="activity_settings_sets">Sätze</string>
+    <string name="activity_settings_target">Vorgabe</string>
+    <string name="activity_settings_reps_from">Wdh. von</string>
+    <string name="activity_settings_reps_to">Wdh. bis</string>
+    <string name="activity_settings_start_weight">Startgewicht</string>
+    <string name="activity_settings_start_reps">Start-Wdh.</string>
+    <string name="activity_settings_reps_invalid">1–100</string>
+    <string name="activity_settings_reps_at_most">Höchstens %d</string>
+    <string name="activity_settings_reps_at_least">Mindestens %d</string>
+    <string name="activity_settings_weight_invalid">−200 bis 500 kg</string>
+    <string name="activity_settings_step_invalid">0,25 bis 20 kg</string>
+    <string name="activity_settings_add_exercise">Übung hinzufügen</string>
+    <string name="activity_settings_add_day">Tag hinzufügen</string>
+    <string name="activity_settings_last_day">Eine Routine behält mindestens einen Tag.</string>
+    <string name="activity_settings_last_exercise">Ein Tag behält mindestens eine Übung.</string>
+    <string name="activity_settings_away_lower">Weniger Tage</string>
+    <string name="activity_settings_away_days">Tage pro Woche im Urlaub</string>
+    <plurals name="activity_settings_away_days_spoken">
+        <item quantity="one">%d Tag pro Woche im Urlaub</item>
+        <item quantity="other">%d Tage pro Woche im Urlaub</item>
+    </plurals>
+</resources>

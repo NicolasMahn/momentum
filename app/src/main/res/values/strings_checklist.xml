@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The words every checklist shares. Its own label and item labels are user text, shown as typed. -->
+<resources>
+    <!-- The title of a checklist screen whose configuration cannot be found. -->
+    <string name="checklist_destination">Checklist</string>
+    <string name="checklist_remove_all">Remove all</string>
+    <!-- Saves one checkpoint of a checklist that has several. -->
+    <string name="checklist_save">Save</string>
+    <string name="checklist_save_changes">Save changes</string>
+    <string name="checklist_mark_all_done">Mark all done</string>
+    <!-- %s: the one item ticked, as the user named it, for example "Creatine". -->
+    <string name="checklist_mark_one_done">Mark done: %s</string>
+    <string name="checklist_select">Tick what you did</string>
+    <string name="checklist_saved">Saved</string>
+    <!-- What pressing a checkpoint's token does, said after the number of tokens left ("1 Care token. Use a token for Morning"). -->
+    <string name="checklist_use_token">Use a token</string>
+    <!-- %1$s: the checkpoint's name, as the person typed it. -->
+    <string name="checklist_use_token_for">Use a token for %1$s</string>
+    <!-- Under an item due a number of times a week. %1$d: days done this week so far, %2$d: days the week asks for. -->
+    <string name="checklist_item_week">%1$d of %2$d this week</string>
+    <!-- The same, on a day skipping the item would cost: its free days are used up. -->
+    <string name="checklist_item_week_due">%1$d of %2$d this week · due today</string>
+    <!-- Under a daily or some-days item that asks fewer times on holiday, on an away day. %1$d: away days done this week so far, %2$d: away days the week asks for. -->
+    <string name="checklist_item_away_week">%1$d of %2$d on holiday this week</string>
+    <string name="checklist_item_away_week_due">%1$d of %2$d on holiday this week · due today</string>
+    <!-- The selected day has no item to tick: every item is out of season or ended. -->
+    <string name="checklist_nothing_due">Nothing to tick off on this day.</string>
+    <!-- What TalkBack says of an item that logs only misses: counted as done until it is marked missed, which is quieter than a tick. -->
+    <string name="checklist_item_assumed_done">Assumed done</string>
+    <string name="checklist_item_missed">Missed</string>
+
+    <!-- %s: the date, for example "Sat, Oct 3". -->
+    <string name="checklist_remove_day">Remove the record for %s</string>
+    <string name="checklist_error_remove_failed">Couldn\'t remove. Try again.</string>
+    <string name="checklist_error_save_failed">Couldn\'t save. Try again.</string>
+
+    <!-- A calendar day, spoken after its date, one entry per item joined with ", ". %s: the item. -->
+    <string name="checklist_day_done">%s: done</string>
+    <string name="checklist_day_not_done">%s: not done</string>
+    <!-- One checkpoint of a calendar day, joined with "; ". %1$s: the checkpoint, %2$s: its items' entries. -->
+    <string name="checklist_day_checkpoint">%1$s, %2$s</string>
+    <string name="checklist_day_select">Select date</string>
+    <!-- The switch for a checklist's reminder in Settings, under the checklist's own name. -->
+    <string name="checklist_settings_reminder">Reminder</string>
+    <!-- The switch that lets a checklist take part in the streak and earn its own tokens. -->
+    <string name="checklist_settings_rewards">Counts toward the streak</string>
+    <!-- Under that switch on every view's page, before Mo's line: what the streak and a token are, for someone who has met neither. It names no amount, since what one token covers differs by kind. -->
+    <string name="checklist_settings_rewards_explained">The streak counts the days in a row on which you kept everything that counts. A token covers a miss, so the streak holds. The miss still shows in your records.</string>
+    <!-- Under that switch on every view's page: the one rule for which views Mo watches. -->
+    <string name="checklist_settings_rewards_mo">Mo asks for what counts toward the streak.</string>
+    <!-- A checklist's reminder. %s: the items still open at its checkpoint, as the user named them, joined as a list ("a, b and c"). -->
+    <string name="checklist_reminder_open">Still open: %s</string>
+    <!-- The reminder's title when a checklist has several checkpoints. %1$s: the checklist, %2$s: the checkpoint. -->
+    <string name="checklist_reminder_title_checkpoint">%1$s · %2$s</string>
+    <string name="checklist_settings_new">New checklist</string>
+    <!-- The name a new checklist starts with, written once in the app language and then the user's own text. -->
+    <string name="checklist_new_label">Checklist</string>
+    <!-- The reminder of a checklist about yesterday, which asks about the day before. %s: the items still open there, as the user named them, joined as a list. -->
+    <string name="checklist_reminder_open_yesterday">Still open for yesterday: %s</string>
+    <!-- A calendar day's entry for an item that logs only misses, like checklist_day_done. %s: the item. -->
+    <string name="checklist_day_missed">%s: missed</string>
+    <string name="checklist_day_assumed">%s: assumed done</string>
+
+    <!-- The checklist editor. -->
+    <string name="checklist_editor_dated_note">Changes count from today. Earlier days keep the rules they had.</string>
+    <string name="checklist_editor_name">Name</string>
+    <string name="checklist_editor_item_name">Item</string>
+    <string name="checklist_editor_name_missing">Enter a name</string>
+    <string name="checklist_editor_add">Add</string>
+    <string name="checklist_editor_icon">Icon</string>
+    <string name="checklist_editor_icons_more">More icons</string>
+    <string name="checklist_editor_icons_fewer">Fewer icons</string>
+    <string name="checklist_editor_hue">Colour</string>
+    <!-- The content Mo uses for the checklist, such as pill bottles or teeth. -->
+    <string name="checklist_editor_motif">Mo\'s flavor</string>
+    <!-- Under the flavors of a view Mo does not watch: a flavor shows only where he does. -->
+    <string name="checklist_editor_motif_unwatched">Mo takes no notice of this until it counts toward the streak.</string>
+    <string name="checklist_editor_add_checkpoint">Add a checkpoint</string>
+    <!-- A checkpoint without a name, which only a checklist with one checkpoint has. -->
+    <string name="checklist_editor_checkpoint_unnamed">Checkpoint</string>
+    <!-- The remove button's description. %s: what is removed, as the user named it. -->
+    <string name="checklist_editor_remove">Remove %s</string>
+    <string name="checklist_editor_time_fixed">At a time</string>
+    <string name="checklist_editor_time_after_wake">After waking</string>
+    <string name="checklist_editor_time_before_sleep">Before sleep</string>
+    <string name="checklist_editor_time">Time</string>
+    <string name="checklist_editor_offset_after_wake">After waking</string>
+    <string name="checklist_editor_offset_before_sleep">Before sleep</string>
+    <plurals name="checklist_editor_minutes">
+        <item quantity="one">%d minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
+    <!-- Step buttons. %s: the setting, for example "Max. savable tokens". -->
+    <string name="checklist_editor_decrease">%s: less</string>
+    <string name="checklist_editor_increase">%s: more</string>
+    <string name="checklist_editor_tab_reminders">Reminders</string>
+    <string name="checklist_editor_tab_look">Look</string>
+    <string name="checklist_editor_items">Items</string>
+    <string name="checklist_editor_add_item">New item</string>
+    <!-- Folds out when an item is due: its days, checkpoints and season. -->
+    <string name="checklist_editor_due">When it\'s due</string>
+    <string name="checklist_editor_every_day">Every day</string>
+    <string name="checklist_editor_some_days">Some days</string>
+    <string name="checklist_editor_all_year">All year</string>
+    <string name="checklist_editor_some_months">Some months</string>
+    <!-- What a holiday means for each item, in the words Settings uses for away days. -->
+    <string name="checklist_editor_away">On holiday</string>
+    <string name="checklist_editor_away_due">Still due</string>
+    <string name="checklist_editor_away_excused">Not due</string>
+    <!-- What a holiday means for an item due more than once a week: it asks fewer times. -->
+    <string name="checklist_editor_away_lower">Fewer times</string>
+    <!-- The third way an item can be due, beside every day and some days. -->
+    <string name="checklist_editor_times_a_week">Times a week</string>
+    <!-- A folded item due a number of times a week. %d: how many. -->
+    <plurals name="checklist_editor_week_times">
+        <item quantity="one">Once a week</item>
+        <item quantity="other">%d times a week</item>
+    </plurals>
+    <!-- Above the row that sets how often an item asking fewer times is due in a week spent on holiday. -->
+    <string name="checklist_editor_away_times">Times a week on holiday</string>
+    <string name="checklist_editor_rewards">Streak</string>
+    <string name="checklist_editor_max_passes">Max. savable tokens</string>
+    <string name="checklist_editor_every_kept_days">A token for every</string>
+    <!-- Under the bank of a checklist ticked at several times of the day. %1$d: its checkpoints, always more than one. -->
+    <string name="checklist_editor_token_covers_checkpoint">A token covers one missed checkpoint. A day with all %1$d missed needs %1$d tokens.</string>
+    <plurals name="checklist_editor_days">
+        <item quantity="one">%d kept day</item>
+        <item quantity="other">%d kept days</item>
+    </plurals>
+    <!-- The clock time a checkpoint after waking or before sleep means today, beside its minutes. -->
+    <string name="checklist_editor_time_today">Today</string>
+    <!-- Under a reminder switched on, where its notification would be shown, when nothing is due at the checkpoint today. -->
+    <string name="checklist_editor_reminder_nothing_due">Nothing is due here today, so no reminder goes out.</string>
+    <!-- Under the notification preview while its reminder switch is off. -->
+    <string name="checklist_editor_reminder_off">Not sent while the reminder is off.</string>
+    <!-- Why the remove button of the last item or checkpoint is disabled. -->
+    <string name="checklist_editor_last_item">A checklist keeps at least one item.</string>
+    <string name="checklist_editor_last_checkpoint">A checklist keeps at least one checkpoint.</string>
+    <!-- Why a checkpoint cannot be removed while every item is checked only there. -->
+    <string name="checklist_editor_checkpoint_holds_items">Every item is here, so this checkpoint stays.</string>
+    <!-- Deleting a checklist a person made, at the end of its page. -->
+    <string name="checklist_editor_delete">Delete</string>
+    <!-- The confirmation's title. %s: the checklist's name, as the user wrote it. -->
+    <string name="checklist_editor_delete_title">Delete %s?</string>
+    <string name="checklist_editor_delete_message_none">Its settings are deleted. This cannot be undone.</string>
+    <!-- %d: how many days hold a record of this checklist. -->
+    <plurals name="checklist_editor_delete_message">
+        <item quantity="one">Its settings and %d recorded day are deleted. This cannot be undone.</item>
+        <item quantity="other">Its settings and %d recorded days are deleted. This cannot be undone.</item>
+    </plurals>
+    <string name="checklist_editor_delete_confirm">Delete</string>
+    <string name="checklist_editor_delete_failed">Couldn\'t delete. Try again.</string>
+    <!-- Saves every change made on the page; beside the delete button at the bottom. -->
+    <string name="checklist_editor_save">Save checklist</string>
+    <!-- Leaving the page with changes not saved. %s: the checklist's name, as the user wrote it. -->
+    <string name="checklist_editor_discard_title">Discard changes?</string>
+    <string name="checklist_editor_discard_message">Your changes to %s aren\'t saved.</string>
+    <string name="checklist_editor_discard_confirm">Discard</string>
+    <string name="checklist_editor_discard_stay">Keep editing</string>
+    <!-- Under a checklist in the Settings list that has no item, so it is off Home and asks nothing. -->
+    <string name="checklist_settings_no_items">Add an item to use it</string>
+    <!-- TalkBack's name for one item's holiday choice, as every item's row reads alike. %1$s: the item, as the user wrote it; %2$s: the choice, for example "Still due". -->
+    <string name="checklist_editor_away_item_option">%1$s: %2$s</string>
+    <!-- TalkBack's name for a count on the holiday row. %d: how many. -->
+    <plurals name="checklist_editor_away_week_times">
+        <item quantity="one">Once a week on holiday</item>
+        <item quantity="other">%d times a week on holiday</item>
+    </plurals>
+    <!-- Which day each day of the checklist asks about, at the top of the Items page: that day, or the day before for a checklist ticked the morning after. -->
+    <string name="checklist_editor_about_today">About today</string>
+    <string name="checklist_editor_about_yesterday">About yesterday</string>
+    <!-- Under the choice, what the chosen one means. -->
+    <string name="checklist_editor_about_today_note">You tick what you did that day.</string>
+    <string name="checklist_editor_about_yesterday_note">You look back the next morning and tick what you did.</string>
+    <!-- The fold on a checklist's Streak page that holds what a first setup need not decide. -->
+    <string name="checklist_editor_advanced">Advanced</string>
+    <!-- Beside "Advanced" while it holds a choice. %s: the items that log only misses, as the user named them, joined as a list. -->
+    <string name="checklist_editor_advanced_only_misses">Only misses: %s</string>
+    <!-- Inside that fold, the group of items that log only misses, for a habit so established that only the rare miss is worth recording: its title, over one checkbox per item. -->
+    <string name="checklist_editor_exceptions_only">Only log misses</string>
+    <!-- The same in a folded item's summary on the Items page, beside its days and season. -->
+    <string name="checklist_editor_exceptions_only_summary">Only misses</string>
+    <!-- Under the group's title: what the choice is for, then what a checked box means. -->
+    <string name="checklist_editor_exceptions_only_note">For things you almost always do. A checked item counts as done without a tick. You only mark it when you missed it.</string>
+    <!-- TalkBack's name for one item's checkbox in the group, whose row shows the item alone. %s: the item, as the user wrote it. -->
+    <string name="checklist_editor_exceptions_only_item">%s: only log misses</string>
+    <!-- Under the group's list while the checklist also has an item due a number of times a week, which is not listed. -->
+    <string name="checklist_editor_exceptions_only_week_items">Items due a number of times a week always log their ticks.</string>
+    <!-- Under an item's unchecked box while the item asks fewer times on holiday, which only logging misses cannot stand beside. -->
+    <string name="checklist_editor_exceptions_only_ends_fewer_times">With this, it is still due on holiday.</string>
+    <!-- Under an item's holiday choices while it logs only misses: choosing Fewer times turns that off. -->
+    <string name="checklist_editor_fewer_times_ends_exceptions_only">Fewer times turns off “Only log misses” for this item.</string>
+    <!-- Under a reminder's preview when everything due at the checkpoint today logs only misses: a miss is never reminded of. -->
+    <string name="checklist_editor_reminder_only_misses">Everything due here only logs misses, so no reminder goes out.</string>
+
+    <!-- The guided setup of a new checklist: four numbered steps, created on the last. -->
+    <!-- A step's tab. %1$d: its number, %2$s: the page's name, for example "Look". -->
+    <string name="checklist_setup_step">%1$d %2$s</string>
+    <string name="checklist_setup_next">Next</string>
+    <string name="checklist_setup_create">Create checklist</string>
+    <!-- Leaving the setup before the checklist is created. -->
+    <string name="checklist_setup_discard_title">Discard the new checklist?</string>
+    <string name="checklist_setup_discard_message">Nothing is saved until you create it.</string>
+    <!-- On the bar under the Items step while Next waits for an item. -->
+    <string name="checklist_setup_items_needed">Add at least one item to continue</string>
+    <!-- On the bar while Next or Create wait for a field: an item whose name was cleared, or text typed into "New item" but not added. -->
+    <string name="checklist_setup_names_needed">Give every item a name to continue</string>
+    <string name="checklist_setup_checkpoint_names_needed">Give every checkpoint a name to continue</string>
+    <string name="checklist_setup_checkpoint_items_needed">Add an item to every checkpoint to continue</string>
+    <string name="checklist_editor_checkpoint_items_needed">Add an item to every checkpoint to save</string>
+    <string name="checklist_setup_text_pending">Add or clear what you typed to continue</string>
+
+    <!-- The icons a checklist can wear. -->
+    <string name="checklist_icon_medication">Medicine</string>
+    <string name="checklist_icon_checklist">Checklist</string>
+    <string name="checklist_icon_toothbrush">Teeth</string>
+    <string name="checklist_icon_water">Water</string>
+    <string name="checklist_icon_shower">Shower</string>
+    <string name="checklist_icon_spa">Self-care</string>
+    <string name="checklist_icon_meditation">Calm</string>
+    <string name="checklist_icon_sleep">Sleep</string>
+    <string name="checklist_icon_food">Food</string>
+    <string name="checklist_icon_walk">Walk</string>
+    <string name="checklist_icon_heart">Heart</string>
+    <string name="checklist_icon_mind">Mind</string>
+    <string name="checklist_icon_study">Study</string>
+    <string name="checklist_icon_music">Music</string>
+    <string name="checklist_icon_plant">Plants</string>
+    <string name="checklist_icon_pets">Pets</string>
+    <string name="checklist_icon_cleaning">Cleaning</string>
+    <string name="checklist_icon_journal">Journal</string>
+    <string name="checklist_icon_savings">Savings</string>
+    <string name="checklist_icon_sun">Sun</string>
+    <string name="checklist_icon_scale">Scale</string>
+    <string name="checklist_icon_ruler">Ruler</string>
+    <string name="checklist_icon_pulse">Pulse</string>
+    <string name="checklist_icon_mood">Mood</string>
+    <string name="checklist_icon_book">Book</string>
+    <string name="checklist_icon_timer">Timer</string>
+    <string name="checklist_icon_language">Language</string>
+    <string name="checklist_icon_art">Art</string>
+    <string name="checklist_icon_dumbbell">Dumbbell</string>
+    <string name="checklist_icon_bouldering">Bouldering</string>
+    <string name="checklist_icon_bicycle">Bicycle</string>
+    <string name="checklist_icon_running">Running</string>
+    <string name="checklist_icon_hiking">Hiking</string>
+    <string name="checklist_icon_bolt">Bolt</string>
+    <string name="checklist_icon_swimming">Swimming</string>
+    <string name="checklist_icon_ball">Ball</string>
+    <string name="checklist_icon_tennis">Tennis</string>
+    <string name="checklist_icon_basketball">Basketball</string>
+    <string name="checklist_icon_rowing">Rowing</string>
+    <string name="checklist_icon_skiing">Skiing</string>
+    <string name="checklist_icon_martial_arts">Martial arts</string>
+    <string name="checklist_icon_golf">Golf</string>
+    <string name="checklist_icon_skateboarding">Skateboard</string>
+    <string name="checklist_icon_kayaking">Kayak</string>
+    <string name="checklist_icon_science">Flask</string>
+    <string name="checklist_icon_drink">Drink</string>
+    <string name="checklist_icon_smoking">Smoking</string>
+    <string name="checklist_icon_sweets">Sweets</string>
+
+    <!-- The colors a checklist can wear. -->
+    <string name="checklist_hue_orange">Orange</string>
+    <string name="checklist_hue_yellow">Yellow</string>
+    <string name="checklist_hue_green">Green</string>
+    <string name="checklist_hue_teal">Teal</string>
+    <string name="checklist_hue_sky">Sky</string>
+    <string name="checklist_hue_indigo">Indigo</string>
+    <string name="checklist_hue_purple">Purple</string>
+    <string name="checklist_hue_pink">Pink</string>
+    <string name="checklist_hue_red">Red</string>
+    <string name="checklist_hue_rust">Rust</string>
+    <string name="checklist_hue_olive">Olive</string>
+    <string name="checklist_hue_forest">Forest</string>
+    <string name="checklist_hue_pine">Pine</string>
+    <string name="checklist_hue_navy">Navy</string>
+    <string name="checklist_hue_violet">Violet</string>
+    <string name="checklist_hue_plum">Plum</string>
+    <string name="checklist_hue_berry">Berry</string>
+
+    <!-- What Mo brings to the checklist: his plain words, or the drawings and words of pills, teeth, food, running, reading or the scale. -->
+    <string name="checklist_motif_none">Plain</string>
+    <string name="checklist_motif_pills">Pills</string>
+    <string name="checklist_motif_teeth">Teeth</string>
+    <string name="checklist_motif_food">Food</string>
+    <string name="checklist_motif_running">Running</string>
+    <string name="checklist_motif_reading">Reading</string>
+    <string name="checklist_motif_scale">Scale</string>
+    <string name="checklist_icon_schedule">Clock</string>
+    <string name="checklist_schedule_destination">Schedule</string>
+    <string name="checklist_schedule_settings_new">New schedule</string>
+    <string name="checklist_schedule_new_label">Schedule</string>
+    <string name="checklist_schedule_create">Create schedule</string>
+    <string name="checklist_schedule_save">Save schedule</string>
+    <string name="checklist_schedule_last_item">Every checkpoint keeps at least one item.</string>
+    <string name="checklist_schedule_discard_title">Discard the new schedule?</string>
+    <string name="checklist_icon_star">Star</string>
+    <string name="checklist_icon_coffee">Coffee</string>
+    <string name="checklist_icon_calendar">Calendar</string>
+</resources>

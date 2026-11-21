@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Device-specific backup folder grants and verification status must never be transferred. -->
+<full-backup-content>
+    <include domain="sharedpref" path="workout_tracker.xml" />
+    <include domain="sharedpref" path="momentum_reminders.xml" />
+    <include domain="sharedpref" path="momentum_feature_visibility.xml" />
+    <include domain="database" path="momentum.db" />
+    <include domain="database" path="momentum.db-wal" />
+</full-backup-content>

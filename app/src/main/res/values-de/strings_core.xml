@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="core_completion_saving">Wird gespeichert</string>
+    <string name="core_completion_completed">Erledigt</string>
+    <string name="core_completion_not_completed">Nicht erledigt</string>
+
+    <string name="core_remove_confirm">Bestätigen: %1$s</string>
+
+    <string name="core_discard_title">Änderungen verwerfen?</string>
+    <string name="core_discard_message">Deine Änderungen sind nicht gespeichert.</string>
+    <string name="core_discard_confirm">Verwerfen</string>
+    <string name="core_discard_stay">Weiter bearbeiten</string>
+
+    <string name="core_date_field_label">Datum (JJJJ-MM-TT)</string>
+    <string name="core_date_field_invalid">Gib ein gültiges Datum im Format JJJJ-MM-TT ein</string>
+
+    <string name="core_calendar_today">Heute, %1$s</string>
+    <string name="core_calendar_away">%1$s, im Urlaub</string>
+    <string name="core_calendar_away_days">Im Urlaub: %1$s.</string>
+    <string name="core_calendar_sick">%1$s, krank</string>
+    <string name="core_calendar_covered">%1$s, %2$s</string>
+    <string name="core_calendar_sick_days">Krank: %1$s.</string>
+    <string name="core_calendar_away_range">%1$s bis %2$s</string>
+    <string name="core_calendar_day_description">%1$s: %2$s. %3$s.</string>
+
+    <string name="core_disclosure_show">%1$s einblenden</string>
+    <string name="core_disclosure_hide">%1$s ausblenden</string>
+
+    <string name="core_list_and">%1$s und %2$s</string>
+    <!-- The arrows at the ends of every tab row, said by TalkBack. -->
+    <!-- The step of a row of − and + buttons, changed in place: the pencil that opens its field, the check that saves it, and what the field says when the store refused it. -->
+    <string name="core_step_edit">Schrittweite ändern</string>
+    <string name="core_step_save">Schrittweite speichern</string>
+    <string name="core_step_not_stored">Nicht gespeichert. Versuch es noch einmal.</string>
+</resources>

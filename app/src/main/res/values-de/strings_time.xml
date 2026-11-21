@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared wording for every configured timer. Its name is shown as stored. -->
+    <string name="time_destination">Timer</string>
+    <string name="time_start">Timer starten</string>
+    <string name="time_type_minutes">Minuten ohne Timer eintragen</string>
+    <string name="time_back_to_timer">Zurück zum Timer</string>
+    <string name="time_minutes_label">Minuten</string>
+    <string name="time_add">Eintragen</string>
+    <string name="time_added">Eingetragen</string>
+    <string name="time_error_remove_failed">Der Eintrag konnte nicht entfernt werden. Versuch es noch einmal.</string>
+    <string name="time_error_save_failed">Der Eintrag konnte nicht gespeichert werden. Versuch es noch einmal.</string>
+    <!-- Short enough for the label line of the narrow minutes field. %d: minutes in a day. -->
+    <string name="time_minutes_error_range">1–%d</string>
+    <string name="time_minutes_error_over_day">Über 24 h</string>
+
+    <!-- The week against what it asks. %1$d: minutes recorded; %2$d: the minutes the week asks, which pick the plural. -->
+    <plurals name="time_week_minutes">
+        <item quantity="one">%1$d / %2$d min</item>
+        <item quantity="other">%1$d / %2$d min</item>
+    </plurals>
+    <plurals name="time_week_minutes_description">
+        <item quantity="one">%1$d von %2$d Minute diese Woche</item>
+        <item quantity="other">%1$d von %2$d Minuten diese Woche</item>
+    </plurals>
+
+    <!-- %s: the date, for example "Sa., 3. Okt.". Used for a day that holds no minutes. -->
+    <string name="time_remove">Eintrag für %s entfernen</string>
+    <!-- %1$d: minutes recorded; %2$s: the date, for example "Sa., 3. Okt.". -->
+    <plurals name="time_remove_minutes">
+        <item quantity="one">%1$d Minute für %2$s entfernen</item>
+        <item quantity="other">%1$d Minuten für %2$s entfernen</item>
+    </plurals>
+
+    <!-- A calendar day, spoken after its date. -->
+    <string name="time_day_recorded">Minuten erfasst</string>
+    <string name="time_day_empty">kein Eintrag</string>
+    <string name="time_day_select">Datum wählen</string>
+
+    <!-- The quiet line left by a session that saved less than it might seem. -->
+    <plurals name="time_note_left_app_saved">
+        <item quantity="one">Der Timer endete beim Verlassen der App · %d min gespeichert</item>
+        <item quantity="other">Der Timer endete beim Verlassen der App · %d min gespeichert</item>
+    </plurals>
+    <string name="time_note_left_app_nothing_saved">Der Timer endete beim Verlassen der App · unter einer Minute, nichts gespeichert</string>
+    <string name="time_note_nothing_saved">Unter einer Minute · nichts gespeichert</string>
+
+    <!-- The running session. %1$s: the view's name as typed; %2$d: whole minutes so far, which pick the plural. -->
+    <plurals name="time_session_minutes">
+        <item quantity="one">%1$s · %2$d min</item>
+        <item quantity="other">%1$s · %2$d min</item>
+    </plurals>
+    <string name="time_session_done">Fertig</string>
+
+    <string name="time_focus_message">Momentum kann „Bitte nicht stören“ einschalten, solange der Timer läuft, und es danach wieder zurückstellen. Android bittet dich, das einmal in den Einstellungen zu erlauben.</string>
+    <string name="time_focus_allow">Erlauben</string>
+    <string name="time_focus_without">Ohne „Bitte nicht stören“ starten</string>
+
+    <!-- The reminder of a time view a person made, under its name as the title. Plain words: Mo does not speak for it. %d: the minutes its week still asks for. -->
+    <plurals name="time_reminder_week_remaining">
+        <item quantity="one">Noch %d Minute diese Woche</item>
+        <item quantity="other">Noch %d Minuten diese Woche</item>
+    </plurals>
+
+    <!-- Settings: a time view a person made. The name of the page that sets one up, and what its setup creates. -->
+    <string name="time_settings_new">Neuer Timer</string>
+    <string name="time_setup_create">Timer erstellen</string>
+    <!-- Leaving the setup after something was typed or chosen. -->
+    <string name="time_setup_discard_title">Neuen Timer verwerfen?</string>
+    <string name="time_setup_discard_message">Nichts wird gespeichert, bis du ihn erstellst.</string>
+    <!-- The part of a time view's settings, and the step of its setup, that holds its goal. -->
+    <string name="time_settings_goal_part">Ziel</string>
+    <string name="time_settings_goal">Minuten pro Woche</string>
+    <!-- Shown in the label's place while the field holds no such number. %1$d and %2$d: the least and the most minutes a week can ask. -->
+    <string name="time_settings_goal_invalid">Eine ganze Zahl von %1$d bis %2$d</string>
+    <!-- What reaching the goal earns, under the goal. %1$d: the minutes a week, which pick the plural; %2$s: the tokens the goal earns, from settings_tokens. -->
+    <plurals name="time_settings_goal_note">
+        <item quantity="one">Für %1$d Minute in einer Woche gibt es %2$s.</item>
+        <item quantity="other">Für %1$d Minuten in einer Woche gibt es %2$s.</item>
+    </plurals>
+    <!-- After that line, where there is more than one step: the most a week can earn. %d: what every step adds, together, which picks the plural. -->
+    <plurals name="time_settings_goal_note_more">
+        <item quantity="one">Für mehr Minuten gibt es bis zu %d Token pro Woche.</item>
+        <item quantity="other">Für mehr Minuten gibt es bis zu %d Tokens pro Woche.</item>
+    </plurals>
+    <!-- In the rows of the steps a time view's week earns tokens by (settings_steps): the first row's step, the goal itself. -->
+    <string name="time_settings_step_goal">Beim Ziel</string>
+    <!-- The narrow typed field of each further step, its share of the goal: the label says what the number is a percent of, and the sign stands after the number inside the field, a space apart, as "200 %" is written. Short enough for the field's label line. -->
+    <string name="time_settings_step_of_goal">Vom Ziel</string>
+    <string name="time_settings_step_percent_sign">" %"</string>
+    <!-- Shown in that label line while the field holds no whole number the step may have. %1$d and %2$d: the least and the most it may be beside its neighbors. -->
+    <string name="time_settings_step_percent_invalid">%1$d–%2$d</string>
+    <!-- The same, where the neighbors leave room for one percent alone. %d: that percent. -->
+    <string name="time_settings_step_percent_only">%d</string>
+    <!-- Beside it, what that share of the goal comes to. %d: minutes. -->
+    <string name="time_settings_step_minutes">%d min</string>
+    <!-- Spoken for the goal's stepper, which shows no label; a further step's is settings_step_tokens_at. -->
+    <string name="time_settings_step_tokens_at_goal">Tokens beim Ziel</string>
+    <!-- Under the rows: what a week reaching the last step earns in all. %1$d: the last step's minutes, which pick the plural; %2$s: the tokens, from settings_tokens. -->
+    <plurals name="time_settings_steps_total">
+        <item quantity="one">Eine Woche mit %1$d Minute oder mehr bekommt %2$s.</item>
+        <item quantity="other">Eine Woche mit %1$d Minuten oder mehr bekommt %2$s.</item>
+    </plurals>
+    <string name="time_settings_delete_failed">Der Timer konnte nicht gelöscht werden. Versuch es noch einmal.</string>
+    <!-- On a time view's Streak part, below the steps: how many minutes of a week that falls short one token covers, set with − and +. -->
+    <string name="time_settings_token_cover">Ein Token deckt ab</string>
+    <!-- Under it. %1$d: the minutes one token covers. -->
+    <string name="time_settings_token_cover_note">Fehlen einer Woche Minuten zum Ziel, wird für je %1$d&#160;min ein Token eingesetzt, sofern deine Tokens alles abdecken.</string>
+    <!-- After that note, while the token still covers what it always did, a quarter of the goal. -->
+    <string name="time_settings_token_cover_quarter">Bis du es änderst, ist das ein Viertel des Ziels und ändert sich mit ihm.</string>
+</resources>

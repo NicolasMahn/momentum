@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The statistics export and the streak image are written here and shared from here; nothing else is reachable. -->
+<paths>
+    <cache-path name="exports" path="exports/" />
+    <cache-path name="shares" path="shares/" />
+</paths>

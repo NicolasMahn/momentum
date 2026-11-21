@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="eating_quality_question">Wie gut hast du dich insgesamt ernährt?</string>
+    <string name="eating_quality_help_description">Qualitätsstufen erklären</string>
+    <string name="eating_amount_question">Wie viel hast du im Vergleich zu einem normalen Tag gegessen?</string>
+
+    <!-- Quality levels, from worst to best. The stored values keep their old names; these are the labels. -->
+    <string name="eating_quality_poor">Sehr schwach</string>
+    <string name="eating_quality_fair">Schwach</string>
+    <string name="eating_quality_good">Mittel</string>
+    <string name="eating_quality_very_good">Gut</string>
+    <string name="eating_quality_excellent">Sehr gut</string>
+
+    <!-- What each quality level means, shown in the help dialog after the level's label. -->
+    <string name="eating_quality_poor_description">Vor allem Süßes oder Snacks statt Mahlzeiten.</string>
+    <string name="eating_quality_fair_description">Vor allem Brot, Nudeln oder ähnliche Grundnahrungsmittel, mit wenig pflanzlichem Eiweiß, Obst oder Gemüse.</string>
+    <string name="eating_quality_good_description">Ein paar ausgewogene Mahlzeiten, aber sonst über den Tag deutliche Lücken.</string>
+    <string name="eating_quality_very_good_description">Die meisten Mahlzeiten verbanden pflanzliches Eiweiß, Grundnahrungsmittel und Obst oder Gemüse.</string>
+    <string name="eating_quality_excellent_description">Ein rundum ausgewogener Tag mit Vollkorn, pflanzlichem Eiweiß, Obst und Gemüse, Nüssen oder Samen und calciumreichen Lebensmitteln.</string>
+    <string name="eating_quality_guide_footer">Schau auf den ganzen Tag: Eine Nascherei allein entscheidet keine Stufe, und Portionen oder Nährstoffbedarf werden nicht gemessen.</string>
+    <string name="eating_help_close">Schließen</string>
+    <string name="eating_help_dge">DGE-Empfehlung</string>
+    <string name="eating_help_nhs">NHS-Ratgeber</string>
+
+    <string name="eating_amount_much_less">Viel weniger</string>
+    <string name="eating_amount_a_little_less">Etwas weniger</string>
+    <string name="eating_amount_about_the_same">Etwa gleich</string>
+    <string name="eating_amount_a_little_more">Etwas mehr</string>
+    <string name="eating_amount_much_more">Viel mehr</string>
+
+
+</resources>
