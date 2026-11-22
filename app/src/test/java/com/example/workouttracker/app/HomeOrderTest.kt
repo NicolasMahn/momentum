@@ -147,6 +147,22 @@ class HomeOrderTest {
         assertEquals(reading, order(reached, LocalTime.of(17, 30)).last())
     }
 
+    // 2026-11-22: on a Sunday, minutes that left the week short wore the check, though the close
+    // still took a token for the week.
+    @Test fun onItsSundayAWeeklyTimerIsDoneOnlyOnceTheWeeksGoalIsReached() {
+        val sunday = LocalDate.parse("2026-11-22")
+        fun readingOn(vararg minutes: Pair<String, Int>) = statuses(
+            EverydayViews.state(*minutes.map { (day, logged) -> "timeLogs" to """{"time":"reading","dateKey":"$day","timestampMillis":2,"minutes":$logged}""" }.toTypedArray(), today = sunday),
+            sunday,
+        ).second[reading]
+        // The kept history gave the week 5 of its 60 minutes before today.
+        assertEquals(open, readingOn("2026-11-22" to 15))
+        assertEquals(TrackerHomeStatus.Done, readingOn("2026-11-22" to 55))
+        // A weekday's minutes still settle that day: the week is not judged on it.
+        val thursdayMinutes = statuses(state("timeLogs" to """{"time":"reading","dateKey":"$thursday","timestampMillis":2,"minutes":5}"""), thursday).second[reading]
+        assertEquals(TrackerHomeStatus.Done, thursdayMinutes)
+    }
+
     /** Substances counting toward the streak from Monday, with its check-in reminding at 18:00. */
     private fun substancesInTheStreak(state: AppState) = state.copy(
         substances = state.substances

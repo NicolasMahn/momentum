@@ -43,7 +43,8 @@ import org.robolectric.RobolectricTestRunner
 /**
  * A time view a person made wears Reading's kind of badge once it counts toward the streak: the
  * coin once today holds minutes, whatever its week still asks for, the socket on a Sunday whose
- * week is judged and still short, and nothing otherwise. Outside the streak or hidden it wears
+ * week is judged and still short, and nothing otherwise. Home's tile is stricter on that Sunday:
+ * it is done only once the week's goal is reached. Outside the streak or hidden it wears
  * nothing. Home reads it from the streak, and the token page has its row in minutes.
  */
 @RunWith(RobolectricTestRunner::class)
@@ -125,8 +126,9 @@ class HomeTimeBadgeTest {
         show(piano(today to 20, since = null))
         assertEquals("Done today", spokenBadge())
 
+        // In the streak a Sunday judges the week, and 20 of its 60 minutes leave it short.
         show(piano(today to 20, since = weeksAgo))
-        assertEquals("Done today", spokenBadge())
+        assertEquals(if (today.dayOfWeek == DayOfWeek.SUNDAY) "Still open today" else "Done today", spokenBadge())
 
         // Before its first factual record there is no Mo task to call overdue.
         show(piano(since = weeksAgo))
