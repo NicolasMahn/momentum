@@ -59,6 +59,7 @@ import com.example.workouttracker.domain.AppState
 import com.example.workouttracker.core.time.isValidDateKey
 import com.example.workouttracker.domain.checklist.ChecklistItem
 import com.example.workouttracker.domain.checklist.DayRecord
+import com.example.workouttracker.domain.checklist.ChecklistTarget
 import com.example.workouttracker.domain.checklist.WeekItemProgress
 import com.example.workouttracker.domain.checklist.removeChecklistDay
 import com.example.workouttracker.domain.holiday.HolidaySchedule
@@ -578,7 +579,7 @@ private fun ChecklistItemRow(
             )
             if (week != null) {
                 Text(
-                    text = stringResource(week.countRes, week.done, week.asked),
+                    text = week.count(),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -595,6 +596,20 @@ internal val ItemMark.look: MomentumCheckboxLook
         ItemMark.Assumed -> MomentumCheckboxLook.Assumed
         ItemMark.Missed -> MomentumCheckboxLook.Crossed
     }
+
+/**
+ * The line under a week item. A week that asks nothing of it yet, as the one it was added in, says
+ * when it starts asking, since "0 of 0" reads as broken.
+ */
+@Composable
+private fun WeekItemProgress.count(): String {
+    val target = target
+    return if (target is ChecklistTarget.PerWeek && asked == 0) {
+        pluralStringResource(R.plurals.checklist_item_week_from_monday, target.times, target.times)
+    } else {
+        stringResource(countRes, done, asked)
+    }
+}
 
 /** The week's count under an item: its week, or, for an item that asks fewer times on holiday, the week's away days. */
 @get:StringRes

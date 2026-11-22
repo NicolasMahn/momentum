@@ -416,6 +416,7 @@ internal fun ChecklistPageContent(
             }
 
             ChecklistPage.Items -> {
+                if (!checklist.isSchedule(today)) RhythmEditor(checklist.target) { onEdit(ChecklistEdit.SetTarget(it)) }
                 AboutEditor(checklist.about.on(today), testTag = "checklist_editor", label = { it.labelRes }, note = { it.noteRes }) { onEdit(ChecklistEdit.SetAbout(it)) }
                 val items = checklist.liveItems(today)
                 @Composable
@@ -423,6 +424,7 @@ internal fun ChecklistPageContent(
                     ItemEditor(
                         item = item,
                         checklistTarget = checklist.target,
+                        followsChecklist = item.target == null && !checklist.isSchedule(today),
                         checkpoints = checkpoints,
                         today = today,
                         // The last item stays, and in a schedule the last of a part: there is always something to tick.
@@ -832,6 +834,7 @@ private val OffsetRange = 0..720
 private fun ItemEditor(
     item: ChecklistItem,
     checklistTarget: ChecklistTarget,
+    followsChecklist: Boolean,
     checkpoints: List<Checkpoint>,
     today: LocalDate,
     removable: Boolean,
@@ -871,9 +874,10 @@ private fun ItemEditor(
                 )
             }
             if (!removable) EditorNote(stringResource(if (checkpoints.size > 1) R.string.checklist_schedule_last_item else R.string.checklist_editor_last_item), testTag = "checklist_editor_item_${item.id}_keep")
-            // When it is due, said in full even where it is the usual, so a folded item never hides it.
+            // When it is due, said in full even where it is the usual, so a folded item never hides
+            // it; one that follows the checklist says so, as the checklist's rhythm stands above.
             val summary = listOfNotNull(
-                when (target) {
+                if (followsChecklist) stringResource(R.string.checklist_editor_due_as_checklist) else when (target) {
                     is ChecklistTarget.Weekdays -> target.days.sorted().joinToString { it.getDisplayName(TextStyle.SHORT, locale) }
                     is ChecklistTarget.PerWeek -> pluralStringResource(R.plurals.checklist_editor_week_times, target.times, target.times)
                     ChecklistTarget.PerDay -> stringResource(R.string.checklist_editor_every_day)
@@ -1204,6 +1208,51 @@ internal fun AboutEditor(
             }
         }
         EditorNote(stringResource(note(about)), testTag = "${testTag}_about_note")
+    }
+}
+
+/**
+ * How often every item of a plain checklist is due: daily, or a number of times a week on any days.
+ * An item can still differ under its own "When it's due". The count row keeps its space while the
+ * checklist is daily, so choosing weekly moves nothing below it. A checklist stored on chosen
+ * weekdays shows neither choice selected until one is made.
+ */
+@Composable
+private fun RhythmEditor(target: ChecklistTarget, onChoose: (ChecklistTarget) -> Unit) {
+    val weekly = target as? ChecklistTarget.PerWeek
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        MomentumChoiceTileRow {
+            MomentumChoiceTile(
+                label = stringResource(R.string.checklist_editor_rhythm_daily),
+                selected = target == ChecklistTarget.PerDay,
+                onClick = { if (target != ChecklistTarget.PerDay) onChoose(ChecklistTarget.PerDay) },
+                modifier = Modifier.weight(1f).fillMaxHeight(),
+                testTag = "checklist_editor_rhythm_daily",
+            )
+            MomentumChoiceTile(
+                label = stringResource(R.string.checklist_editor_rhythm_weekly),
+                selected = weekly != null,
+                onClick = { if (weekly == null) onChoose(ChecklistTarget.PerWeek()) },
+                modifier = Modifier.weight(1f).fillMaxHeight(),
+                testTag = "checklist_editor_rhythm_weekly",
+            )
+        }
+        CountRow(
+            counts = (1..DaysPerWeek).toList(),
+            chosen = weekly?.times ?: 0,
+            testTag = { "checklist_editor_rhythm_times_$it" },
+            spoken = { pluralStringResource(R.plurals.checklist_editor_week_times, it, it) },
+            onChoose = { times -> onChoose(ChecklistTarget.PerWeek(times)).let { true } },
+            shown = { weekly != null },
+        )
+        EditorNote(
+            text = when {
+                weekly != null -> pluralStringResource(R.plurals.checklist_editor_rhythm_weekly_note, weekly.times, weekly.times)
+                target == ChecklistTarget.PerDay -> stringResource(R.string.checklist_editor_rhythm_daily_note)
+                else -> ""
+            },
+            testTag = "checklist_editor_rhythm_note",
+        )
     }
 }
 

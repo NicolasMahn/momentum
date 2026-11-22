@@ -87,6 +87,31 @@ class ChecklistEditsTest {
         assertEquals(2, twice.medication.items.count { it.id == "ibu" })
     }
 
+    @Test fun theChecklistsRhythmChangesTheItemsFollowingItFromTodayAndNoEarlierDay() {
+        val weekly = ChecklistTarget.PerWeek(times = 2)
+        val saturdays = ChecklistTarget.Weekdays(setOf(DayOfWeek.SATURDAY))
+        val own = state.edit(ChecklistEdit.SetItemTarget("levo", saturdays), on = yesterday)
+        val changed = own.edit(ChecklistEdit.SetTarget(weekly))
+        assertEquals(own.dueOn(yesterday), changed.dueOn(yesterday))
+        assertEquals(own.medication.rulesOn(yesterday).weekItems, changed.medication.rulesOn(yesterday).weekItems)
+        // Ibuprofen and Iron follow the checklist; Levothyroxine keeps the Saturdays it chose.
+        assertEquals(listOf("ibu", "iron"), changed.medication.rulesOn(today).weekItems.map { it.item.id })
+        assertEquals(saturdays, changed.medication.liveItems(today).single { it.id == "levo" }.target)
+        assertEquals(listOf(null, null), changed.medication.liveItems(today).filter { it.id != "levo" }.map { it.target })
+
+        // Back to daily on the same day, every day reads as before the change.
+        val back = changed.edit(ChecklistEdit.SetTarget(ChecklistTarget.PerDay))
+        listOf(yesterday, today, today.plusDays(3)).forEach { day -> assertEquals(own.dueOn(day), back.dueOn(day)) }
+        assertEquals(emptyList<WeekItemRules>(), back.medication.rulesOn(today).weekItems)
+    }
+
+    @Test fun anItemAskingWhatTheChecklistNowAsksFollowsItAgain() {
+        val weekly = ChecklistTarget.PerWeek(times = 3)
+        val changed = state.edit(ChecklistEdit.SetItemTarget("ibu", weekly), on = yesterday).edit(ChecklistEdit.SetTarget(weekly))
+        assertEquals(null, changed.medication.liveItems(today).single { it.id == "ibu" }.target)
+        assertEquals(state.dueOn(yesterday.minusDays(1)), changed.dueOn(yesterday.minusDays(1)))
+    }
+
     @Test fun aWeekTargetAndItsAwayNumberAreDatedLikeAnyTarget() {
         val weekly = ChecklistTarget.PerWeek(times = 3)
         val changed = state.edit(ChecklistEdit.SetItemTarget("ibu", weekly), ChecklistEdit.SetItemAwayTimes("ibu", 1))

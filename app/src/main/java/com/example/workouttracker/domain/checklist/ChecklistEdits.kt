@@ -47,6 +47,9 @@ sealed interface ChecklistEdit {
     /** Items due only there end with it; the others stop being due there. */
     data class RemoveCheckpoint(val checkpointId: String) : ChecklistEdit
 
+    /** The checklist's own target, which every item without its own follows, from today on. */
+    data class SetTarget(val target: ChecklistTarget) : ChecklistEdit
+
     data class AddItem(
         val itemId: String,
         val label: String,
@@ -271,6 +274,7 @@ private fun ChecklistConfiguration.edited(edit: ChecklistEdit, today: LocalDate,
         edit.checkpoints?.let { requireLive(it, today) }
         copy(items = items.changing(edit.itemId, today) { it.copy(checkpoints = edit.checkpoints) })
     }
+    is ChecklistEdit.SetTarget -> withTarget(edit.target, today)
     is ChecklistEdit.SetItemTarget -> copy(items = items.changing(edit.itemId, today) { it.withTarget(edit.target, default = target) })
     is ChecklistEdit.SetItemAwayTimes -> copy(items = items.changing(edit.itemId, today) { it.copy(awayTimes = edit.times) })
     is ChecklistEdit.SetItemSeason -> copy(items = items.changing(edit.itemId, today) { it.copy(months = edit.months) })
@@ -346,6 +350,30 @@ private fun ChecklistItem.withTarget(target: ChecklistTarget?, default: Checklis
         whenAway = whenAway.map { it.forTarget(usual) },
         awayTimes = if (usual.canAskFewerTimes) awayTimes?.coerceAtMost(usual.timesAWeek - 1) else null,
         exceptionsOnly = if (usual.canBeExceptionsOnly) exceptionsOnly else Dated.always(false),
+    )
+}
+
+/**
+ * The checklist's target changed to [updated] from [today] on. What is due is dated, so every entry
+ * that followed the old target keeps it as its own before the following ones change: an earlier
+ * day never reads the new one. An item already asking for [updated] on its own follows the
+ * checklist again, which changes no day.
+ */
+private fun ChecklistConfiguration.withTarget(updated: ChecklistTarget, today: LocalDate): ChecklistConfiguration {
+    if (updated == target) return this
+    val live = liveItems(today)
+    val following = live.filter { it.target == null }.mapTo(HashSet()) { it.id }
+    val asking = live.filter { it.target == updated }.toSet()
+    val pinned = items.map {
+        when {
+            it in asking -> it.copy(target = null)
+            it.target == null -> it.copy(target = target)
+            else -> it
+        }
+    }
+    return copy(
+        target = updated,
+        items = following.fold(pinned) { entries, itemId -> entries.changing(itemId, today) { it.withTarget(null, default = updated) } },
     )
 }
 
