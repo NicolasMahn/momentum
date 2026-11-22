@@ -597,12 +597,12 @@ internal val ItemMark.look: MomentumCheckboxLook
     }
 
 /**
- * The line under a week item. A week that asks nothing of it, as the one it was added in, says so,
- * since "0 of 0" reads as broken.
+ * The line under a week item. A week that asks nothing of it and holds no tick, as the one it was
+ * added in, says so, since "0 of 0" reads as broken; a tick always shows its count.
  */
 @Composable
 private fun WeekItemProgress.count(): String =
-    if (isWeekItem && asked == 0) stringResource(R.string.checklist_item_week_not_due) else stringResource(countRes, done, asked)
+    if (isWeekItem && asked == 0 && done == 0) stringResource(R.string.checklist_item_week_not_due) else stringResource(countRes, done, asked)
 
 /** The week's count under an item: its week, or, for an item that asks fewer times on holiday, the week's away days. */
 @get:StringRes

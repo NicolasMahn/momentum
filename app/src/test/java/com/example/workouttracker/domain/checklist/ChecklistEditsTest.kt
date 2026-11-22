@@ -103,6 +103,19 @@ class ChecklistEditsTest {
         assertEquals(own, changed.edit(ChecklistEdit.SetTarget(ChecklistTarget.PerDay)))
     }
 
+    @Test fun aRhythmChangeNeverJoinsEntriesThatSplitAWeekAlreadyJudged() {
+        val weekly = ChecklistTarget.PerWeek(times = 2)
+        val split = medication.copy(
+            target = weekly,
+            items = listOf(
+                ChecklistItem("ibu", "Ibuprofen", until = today.minusDays(8), target = weekly),
+                ChecklistItem("ibu", "Ibuprofen", from = today.minusDays(7)),
+            ),
+        )
+        val changed = AppState(checklists = listOf(split)).edit(ChecklistEdit.SetTarget(ChecklistTarget.PerWeek(times = 3)))
+        assertEquals(listOf(null, today.minusDays(7), today), changed.medication.items.map { it.from })
+    }
+
     @Test fun anItemsOwnTargetStaysWhenTheChecklistAsksTheSameAndThenChanges() {
         val once = ChecklistTarget.PerWeek(times = 1)
         val own = state.edit(ChecklistEdit.SetItemTarget("ibu", once), on = yesterday)

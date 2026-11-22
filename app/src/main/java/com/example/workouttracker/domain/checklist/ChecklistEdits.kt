@@ -423,7 +423,7 @@ private fun List<ChecklistItem>.changing(itemId: String, today: LocalDate, listT
     } else {
         listOf(live.copy(until = today.minusDays(1)), changed.copy(from = today))
     }
-    return flatMap { if (it == live) replacement else listOf(it) }.mergingAdjacent(itemId, listTarget)
+    return flatMap { if (it == live) replacement else listOf(it) }.mergingAdjacent(itemId, today, listTarget)
 }
 
 /** Ends an item after yesterday, or drops its entry if it only started today. Its records stay. */
@@ -439,14 +439,16 @@ private fun List<ChecklistItem>.liveEntry(today: LocalDate): ChecklistItem? =
 
 /**
  * Two entries of one item that follow each other and ask for the same become one again, as when a
- * change is undone on the day it was made. A target is compared as [listTarget] makes it, so an
- * entry that follows the checklist joins one that asked the same on its own, and follows it.
+ * change is undone on the day it was made. Only a boundary at [today] closes: one between earlier
+ * days marks where a saved week was judged, and joining it would judge that week again. A target is
+ * compared as [listTarget] makes it, so an entry that follows the checklist joins one that asked
+ * the same on its own, and follows it.
  */
-private fun List<ChecklistItem>.mergingAdjacent(itemId: String, listTarget: ChecklistTarget): List<ChecklistItem> {
+private fun List<ChecklistItem>.mergingAdjacent(itemId: String, today: LocalDate, listTarget: ChecklistTarget): List<ChecklistItem> {
     val entries = filter { it.id == itemId }.sortedBy { it.from ?: LocalDate.MIN }
     val merged = entries.fold(mutableListOf<ChecklistItem>()) { kept, entry ->
         val previous = kept.lastOrNull()
-        if (previous != null && previous.until != null && entry.from == previous.until.plusDays(1) &&
+        if (previous != null && previous.until != null && entry.from == today && entry.from == previous.until.plusDays(1) &&
             previous.copy(from = null, until = null, target = previous.target ?: listTarget) == entry.copy(from = null, until = null, target = entry.target ?: listTarget)
         ) {
             kept[kept.lastIndex] = previous.copy(until = entry.until, target = entry.target)
