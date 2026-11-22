@@ -17,6 +17,11 @@ data class RouteRecording(
     val stretchEnded: Boolean = false,
     /** Fixes refused in a row as too far from the last point; enough of them say the last point was the wrong one. */
     val jumpsInARow: Int = 0,
+    /**
+     * The seconds of the last fix taken in, kept or not. A jump is judged by the time since then:
+     * after a long stop the last kept point is old, and a wrong fix would look reachable from it.
+     */
+    val lastSeenSecondsIn: Long? = null,
 ) {
     fun secondsIn(timeMillis: Long): Long = ((timeMillis - startedAtMillis) / 1000).coerceAtLeast(0)
 
@@ -41,17 +46,19 @@ data class RouteRecording(
         val last = route.stretches.lastOrNull()?.lastOrNull()
         // Time runs forward across stretches too, whatever the clock did meanwhile.
         if (last != null && point.secondsIn < last.secondsIn) return this
+        val seen = copy(lastSeenSecondsIn = point.secondsIn)
         if (last != null && !stretchEnded) {
             val meters = metersBetween(last, point)
-            val seconds = point.secondsIn - last.secondsIn
-            if (meters < maxOf(MinStepMeters, fix.accuracyMeters.toDouble())) return this
+            val seconds = point.secondsIn - maxOf(last.secondsIn, lastSeenSecondsIn ?: last.secondsIn)
+            // A fix that agrees with the last point confirms it: jumps before it were stray ones.
+            if (meters < maxOf(MinStepMeters, fix.accuracyMeters.toDouble())) return seen.copy(jumpsInARow = 0)
             if (meters > MaxMetersPerSecond * seconds.coerceAtLeast(1)) {
-                if (jumpsInARow + 1 < JumpsToReanchor) return copy(jumpsInARow = jumpsInARow + 1)
+                if (jumpsInARow + 1 < JumpsToReanchor) return seen.copy(jumpsInARow = jumpsInARow + 1)
                 val kept = Route(route.stretches.filterNot { it.size == 1 && it.single() == last })
-                return copy(route = kept.adding(point, newStretch = true), stretchEnded = false, jumpsInARow = 0)
+                return seen.copy(route = kept.adding(point, newStretch = true), stretchEnded = false, jumpsInARow = 0)
             }
         }
-        return copy(route = route.adding(point, newStretch = stretchEnded), stretchEnded = false, jumpsInARow = 0)
+        return seen.copy(route = route.adding(point, newStretch = stretchEnded), stretchEnded = false, jumpsInARow = 0)
     }
 
     fun pausing(): RouteRecording = copy(paused = true, stretchEnded = true)

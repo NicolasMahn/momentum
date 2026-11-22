@@ -1,6 +1,7 @@
 package com.example.workouttracker.domain.activity.route
 
 import kotlin.math.asin
+import kotlin.math.ceil
 import kotlin.math.cos
 import kotlin.math.roundToLong
 import kotlin.math.sin
@@ -59,7 +60,7 @@ data class Route(val stretches: List<List<RoutePoint>>) {
      * The seconds of the same moving steps. A wait at a red light, or the phone left lying on a
      * bench, is not moving time, whether or not the recording was paused.
      */
-    val movingSeconds: Long get() = steps().filter { it.isMoving }.sumOf { it.seconds }
+    val movingSeconds: Long get() = steps().filter { it.isMoving }.sumOf { it.movingSeconds }
 
     /**
      * The moving time at [secondsIn], for a recording still running: [movingSeconds], plus the time
@@ -92,6 +93,14 @@ data class Route(val stretches: List<List<RoutePoint>>) {
      */
     private data class Step(val meters: Double, val seconds: Long) {
         val isMoving: Boolean get() = seconds in 1..LongestGapSeconds && meters / seconds >= MovingMetersPerSecond
+
+        /**
+         * The step's seconds, but no more than a stroll at [StrollMetersPerSecond] takes for it. A
+         * point is kept only once the person left the fix's accuracy circle, so the step out of a
+         * wait at a red light starts at the wait: this bounds what a stop can add to the circle's
+         * width at walking pace.
+         */
+        val movingSeconds: Long get() = minOf(seconds, ceil(meters / StrollMetersPerSecond).toLong())
     }
 
     companion object {
@@ -101,6 +110,8 @@ data class Route(val stretches: List<List<RoutePoint>>) {
         const val MovingMetersPerSecond = 0.5
 
         const val LongestGapSeconds = 120L
+
+        const val StrollMetersPerSecond = 1.0
 
         /** How long after the last point a running clock still counts the person as moving. */
         const val StillMovingSeconds = 10L

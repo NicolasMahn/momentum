@@ -70,6 +70,38 @@ class RouteTest {
     }
 
     @Test
+    fun aRedLightUnderPoorGpsAddsLittleMovingTime() {
+        // A cyclist at 7 m/s, the phone sure to 20 m, waits 30 s at a light and rides on.
+        val before = (0..10).map { north(it * 7.0, it.toLong(), accuracy = 20f) }
+        val wait = (11..40).map { north(70.0 + (it % 2), it.toLong(), accuracy = 20f) }
+        val after = (1..10).map { north(70.0 + it * 7.0, 40L + it, accuracy = 20f) }
+        val ride = recorded(*(before + wait + after).toTypedArray()).route
+        // 20 s of riding; the wait adds at most the circle's width at a stroll.
+        assertTrue(ride.movingSeconds in 18L..45L)
+    }
+
+    @Test
+    fun aWrongFixAfterAStopIsStillAJump() {
+        // 85 s standing, then one fix 1 km off, then the true fixes walking on.
+        val stand = (1..85).map { north(30.0 + (it % 2), 10L + it) }
+        val route = recorded(north(0.0, 0), north(30.0, 10), *stand.toTypedArray(), north(1030.0, 96), north(40.0, 97), north(50.0, 98)).route
+        // The outlier is refused; the slow step out of the stop adds nothing, the 10 m after it do.
+        assertEquals(40.0, route.distanceMeters, 2.0)
+        assertTrue(route.points.none { it.latitude > 48.78 })
+    }
+
+    @Test
+    fun aMultipathFixAtACrossingIsDropped() {
+        // Walk 100 m, wait 30 s, one fix 150 m off, walk on 100 m.
+        val walk = (0..20).map { north(it * 5.0, it * 4L) }
+        val wait = (1..30).map { north(100.0, 80L + it) }
+        val on = (1..20).map { north(100.0 + it * 5.0, 111L + it * 4) }
+        val route = recorded(*(walk + wait).toTypedArray(), north(250.0, 111, accuracy = 15f), *on.toTypedArray()).route
+        assertEquals(1, route.stretches.size)
+        assertEquals(195.0, route.distanceMeters, 6.0)
+    }
+
+    @Test
     fun aResumedFixBeforeTheLastPointIsNotKept() {
         val resumed = recorded(north(0.0, 0), north(30.0, 10)).pausing().resuming().taking(north(40.0, 5))
         assertEquals(listOf(0L, 10L), resumed.route.points.map { it.secondsIn })

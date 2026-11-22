@@ -72,12 +72,15 @@ internal class RouteRecorder private constructor(private val journal: AtomicFile
     @Synchronized
     private fun update(recording: RouteRecording) {
         current.value = recording
+        val bytes = recording.encodeJournal().toByteArray(Charsets.UTF_8)
         unsaved.value = runCatching {
             val stream = journal.startWrite()
-            runCatching { stream.write(recording.encodeJournal().toByteArray(Charsets.UTF_8)) }
+            runCatching { stream.write(bytes) }
                 .onSuccess { journal.finishWrite(stream) }
                 .onFailure { journal.failWrite(stream) }
                 .getOrThrow()
+            // finishWrite only logs a failed sync or rename, so the file is read back to know.
+            check(journal.readFully().contentEquals(bytes)) { "The file does not hold what was written" }
         }.onFailure { Log.w(Tag, "The recording could not be written to its file", it) }.isFailure
     }
 
