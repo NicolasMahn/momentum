@@ -1,13 +1,13 @@
 package com.example.workouttracker.feature.logactivity.route
 
 import android.content.Context
-import android.util.AtomicFile
 import android.util.Log
 import com.example.workouttracker.domain.activity.route.LocationFix
 import com.example.workouttracker.domain.activity.route.RouteRecording
 import com.example.workouttracker.persistence.json.decodeRecordingJournal
 import com.example.workouttracker.persistence.json.encodeJournal
 import java.io.File
+import java.io.FileOutputStream
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,7 +20,7 @@ import kotlinx.coroutines.flow.asStateFlow
  * system. A recording read back from that file is paused: nothing was measuring while the app was
  * gone, and only the person can say whether to go on.
  */
-internal class RouteRecorder private constructor(private val journal: AtomicFile) {
+internal class RouteRecorder private constructor(private val journal: File) {
     private val current = MutableStateFlow(readJournal())
 
     val recording: StateFlow<RouteRecording?> = current.asStateFlow()
@@ -47,7 +47,8 @@ internal class RouteRecorder private constructor(private val journal: AtomicFile
         val recording = current.value ?: return
         if (fix.accuracyMeters <= RouteRecording.MaxAccuracyMeters) lastFix.value = fix.timeMillis
         val taken = recording.taking(fix)
-        if (taken != recording) update(taken)
+        // What only steers the judging of fixes is not written; a kept point is.
+        if (taken.route != recording.route) update(taken) else current.value = taken
     }
 
     fun pause() {
@@ -67,25 +68,33 @@ internal class RouteRecorder private constructor(private val journal: AtomicFile
         lastFix.value = null
         unsaved.value = false
         journal.delete()
+        File(journal.path + ".new").delete()
     }
 
     @Synchronized
     private fun update(recording: RouteRecording) {
         current.value = recording
-        val bytes = recording.encodeJournal().toByteArray(Charsets.UTF_8)
-        unsaved.value = runCatching {
-            val stream = journal.startWrite()
-            runCatching { stream.write(bytes) }
-                .onSuccess { journal.finishWrite(stream) }
-                .onFailure { journal.failWrite(stream) }
-                .getOrThrow()
-            // finishWrite only logs a failed sync or rename, so the file is read back to know.
-            check(journal.readFully().contentEquals(bytes)) { "The file does not hold what was written" }
-        }.onFailure { Log.w(Tag, "The recording could not be written to its file", it) }.isFailure
+        unsaved.value = runCatching { writeSynced(recording.encodeJournal().toByteArray(Charsets.UTF_8)) }
+            .onFailure { Log.w(Tag, "The recording could not be written to its file", it) }
+            .isFailure
+    }
+
+    /**
+     * Writes the file whole or not at all: a new file beside it, synced to the disk, then renamed
+     * over it. Unlike AtomicFile, which only logs a failed sync, every failure here throws, so the
+     * panel can say the recording is not kept.
+     */
+    private fun writeSynced(bytes: ByteArray) {
+        val next = File(journal.path + ".new")
+        FileOutputStream(next).use { stream ->
+            stream.write(bytes)
+            stream.fd.sync()
+        }
+        check(next.renameTo(journal)) { "The recording's file could not take the new version" }
     }
 
     private fun readJournal(): RouteRecording? = runCatching {
-        if (!journal.baseFile.exists()) null else decodeRecordingJournal(journal.readFully().toString(Charsets.UTF_8))
+        if (!journal.exists()) null else decodeRecordingJournal(journal.readText(Charsets.UTF_8))
     }.onFailure { Log.w(Tag, "The recording's file could not be read", it) }
         .getOrNull()
         ?.let { if (it.paused) it else it.pausing() }
@@ -98,7 +107,7 @@ internal class RouteRecorder private constructor(private val journal: AtomicFile
 
         fun of(context: Context): RouteRecorder = instance ?: synchronized(this) {
             // Not in a backup: a recording is no record until it is saved, and restores carry records.
-            instance ?: RouteRecorder(AtomicFile(File(context.applicationContext.noBackupFilesDir, "route-recording.json"))).also { instance = it }
+            instance ?: RouteRecorder(File(context.applicationContext.noBackupFilesDir, "route-recording.json")).also { instance = it }
         }
     }
 }

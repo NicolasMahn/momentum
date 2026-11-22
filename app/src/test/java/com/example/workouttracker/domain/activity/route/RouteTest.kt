@@ -70,14 +70,21 @@ class RouteTest {
     }
 
     @Test
-    fun aRedLightUnderPoorGpsAddsLittleMovingTime() {
-        // A cyclist at 7 m/s, the phone sure to 20 m, waits 30 s at a light and rides on.
-        val before = (0..10).map { north(it * 7.0, it.toLong(), accuracy = 20f) }
-        val wait = (11..40).map { north(70.0 + (it % 2), it.toLong(), accuracy = 20f) }
-        val after = (1..10).map { north(70.0 + it * 7.0, 40L + it, accuracy = 20f) }
-        val ride = recorded(*(before + wait + after).toTypedArray()).route
-        // 20 s of riding; the wait adds at most the circle's width at a stroll.
-        assertTrue(ride.movingSeconds in 18L..45L)
+    fun aFastRideUnderPoorGpsIsNotMistakenForJumps() {
+        // A minute at 12 m/s, a fix a second, the phone sure only to 25 m.
+        val ride = recorded(*(0..60).map { north(it * 12.0, it.toLong(), accuracy = 25f) }.toTypedArray()).route
+        assertEquals(1, ride.stretches.size)
+        assertEquals(720.0, ride.distanceMeters, 30.0)
+        assertTrue(ride.movingSeconds >= 57)
+    }
+
+    @Test
+    fun aSlowClimbKeepsItsTime() {
+        val climb = recorded(*(0..100).map { north(it * 0.6, it.toLong()) }.toTypedArray()).route
+        // Every step of it is moving, from the start to the last point kept.
+        assertEquals(climb.points.last().secondsIn, climb.movingSeconds)
+        assertTrue(climb.movingSeconds >= 85)
+        assertEquals(climb.movingSeconds * 0.6, climb.distanceMeters, 3.0)
     }
 
     @Test
