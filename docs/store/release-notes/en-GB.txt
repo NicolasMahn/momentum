@@ -1,4 +1,4 @@
-Checklists can be weekly: choose under Items how often their items are due.
+Checklists can be weekly: choose it under Items.
 Back asks before unsaved changes are lost.
 Mo is redrawn in many scenes. Nothing of him is cut off in the widget.
 Backups no longer pile up.
