@@ -9,7 +9,8 @@ import androidx.compose.runtime.setValue
  * [edits] made on the page, the name fields left blank and the fields holding text typed but not
  * yet added. What a page shows is its edits replayed in order over the latest stored value, never
  * reordered, with one the stored value refuses left out; Save hands the edits over. Only a kind's
- * own [keepInstead] replaces the last edit with one that overrides it.
+ * own [keepInstead] replaces the last edit with one that overrides it, or takes it away when the
+ * page is back where it started.
  *
  * Each kind of draft keeps its own rules: what dirty means ([isDirty]), and what its edits are
  * applied with, which it brings to [keep] and to its own replay. Blank names and typed text stay
