@@ -115,9 +115,10 @@ class HomeTimeBadgeTest {
     }
 
     /**
-     * The tile through the app, on the real day: done once today holds minutes while it counts, except on a Sunday the week still falls short,
-     * nothing outside the streak, and the socket only where today is a Sunday. The token page has
-     * its row, the bank under its name with this week's minutes toward the next token.
+     * The tile through the app, on the real day: done once today holds minutes, in the streak or
+     * out of it, except on a judged Sunday whose week is still short, and nothing before the first
+     * record. The token page has its row, the bank under its name with this week's minutes toward
+     * the next token.
      */
     @Test fun theTileIsDoneByTodaysMinutesAndTheTokenPageHasItsRowInMinutes() {
         compose.setContent { WorkoutTrackerTheme { MomentumApp(state = state, onStateChange = { state = it; true }, onActivitySave = ActivitySaveNotExpected) } }

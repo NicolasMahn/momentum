@@ -24,7 +24,7 @@ internal fun trackerHomeStatus(progress: DayProgress?): TrackerHomeStatus = when
 internal fun MoMood.homeStatuses(started: Set<TrackerRef>): Map<TrackerRef, TrackerHomeStatus> = trackerProgress.mapValues { (ref, progress) ->
     val status = trackerHomeStatus(progress)
     when {
-        ref in weekJudgedTrackers && ref in tokenOpenTrackers && ref in streak.standings -> TrackerHomeStatus.Open(0, 1)
+        ref in weekJudgedTrackers && ref in tokenOpenTrackers && streak.standings[ref]?.openToday == true -> TrackerHomeStatus.Open(0, 1)
         status !is TrackerHomeStatus.Open || status.done > 0 || ref !in freeTrackersToday || ref in missingTrackersToday -> status
         ref in restingTrackersToday -> TrackerHomeStatus.Rest
         else -> status.copy(optional = true)
