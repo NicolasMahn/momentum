@@ -211,7 +211,8 @@ private object BedShush : MoAct("sleepy_bed_shush", MoOccasion.Sleepy, intensity
             leftEye = eye,
             rightEye = eye,
             brows = if (shushing(p)) MoBrows(MoBrowKind.Raised, lift = 3f + 3f * beat(p)) else MoBrows(),
-            mouth = MoMouth.Flat(if (shushing(p)) 13f else 8f),
+            // The act draws his lips for the shh itself, shut whatever state his teeth are in.
+            mouth = if (shushing(p)) MoMouth.Hidden else MoMouth.Flat(8f),
             leftArm = mix(atMouth, inBed.leftArm, leaving),
             rightArm = mix(inBed.rightArm, grip, toGrip),
             tilt = -3f * span(p, 0.50f, 0.60f) * (1f - span(p, 0.86f, 0.92f)),
@@ -226,10 +227,12 @@ private object BedShush : MoAct("sleepy_bed_shush", MoOccasion.Sleepy, intensity
 
     override fun DrawScope.held(t: Float, v: MoVariant, rig: MoRig) {
         val p = progress(t, v)
+        // Shut lips show no teeth and let nothing out, neither breath nor the smell of neglected teeth:
+        // anything leaving his mouth beside the finger reads as something he smokes.
+        if (shushing(p)) limb(rig.mouth + Offset(-13f, 2f), rig.mouth + Offset(13f, 2f), rig.palette.ink, 5.5f)
         val raised = (1f - span(p, 0.24f, 0.29f)) + span(p, 0.97f, 1f)
         if (raised <= 0.01f) return
-        // One finger upright across his shut lips, and nothing coming out of them: that is a shh.
-        // Breath drawn beside a mitten at his mouth reads as something he smokes.
+        // One finger upright across them: that is a shh.
         limb(rig.leftHand, rig.leftHand + Offset(0f, -26f - 2f * beat(p)) * raised, rig.palette.limb, 13f)
     }
 

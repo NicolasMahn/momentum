@@ -86,7 +86,7 @@ Start a Frozen pose from `frozenRest(body)` so the droplet keeps both mittens ar
 - **No hats**, and nothing that hides both eyes, the mouth or the flame tip for the whole loop. Things he wears sit below the tip.
 - **Things near him do not burn.** He is warm, not dangerous.
 - **No wrong incentives** (`docs/mo.md`): junk food is never what he craves, dreams of, or wins; the scale is never something to fear; a prop that touches a risk, such as a celebratory drink, reads as its harmless version. Nice things are fine, and he is never preachy.
-- **Nothing reads as smoking.** A stream of clouds from his mouth beside a mitten or a stick held to it is a smoker's picture, whatever the act meant. A gesture at his mouth, such as a shh, is drawn without breath.
+- **Nothing reads as smoking.** A stream of clouds from his mouth beside a mitten or a stick held to it is a smoker's picture, whatever the act meant. A shh is a finger across shut lips, with no breath.
 - **He is ethically vegan** (`docs/mo.md`): no fishing and no hunting. Food may be anything that could be vegan, such as a burger or a sausage, but never something that can only come from an animal, such as a drumstick or a fish.
 - Smug, sarcastic, dramatic, and angry are all fine when they point at a task left open, like the Duolingo owl. He never makes fun of the user, never of a logged value such as a weight or food quality, and never of Substances.
 - Something cheerful in his mittens is fine in any state, such as a bauble at Christmas while he dims; the contrast can be the joke, as long as his face and body still say how he is. Cold and Husk acts are quiet and sad; the Husk does not look at you.
