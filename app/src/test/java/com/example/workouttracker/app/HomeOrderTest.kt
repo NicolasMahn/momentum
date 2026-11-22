@@ -11,6 +11,8 @@ import com.example.workouttracker.domain.mo.trackerDueMinutes
 import com.example.workouttracker.domain.substance.SubstanceEdit
 import com.example.workouttracker.domain.substance.SubstanceGoal
 import com.example.workouttracker.domain.substance.applyEdit
+import com.example.workouttracker.domain.time.TimeEdit
+import com.example.workouttracker.domain.time.applyingTimeEdits
 import com.example.workouttracker.feature.tracker.TrackerHomeStatus
 import java.time.LocalDate
 import java.time.LocalTime
@@ -151,13 +153,16 @@ class HomeOrderTest {
     // still took a token for the week.
     @Test fun onItsSundayAWeeklyTimerIsDoneOnlyOnceTheWeeksGoalIsReached() {
         val sunday = LocalDate.parse("2026-11-22")
-        fun readingOn(vararg minutes: Pair<String, Int>) = statuses(
-            EverydayViews.state(*minutes.map { (day, logged) -> "timeLogs" to """{"time":"reading","dateKey":"$day","timestampMillis":2,"minutes":$logged}""" }.toTypedArray(), today = sunday),
+        fun readingOn(vararg minutes: Pair<String, Int>, edits: List<TimeEdit> = emptyList()) = statuses(
+            EverydayViews.state(*minutes.map { (day, logged) -> "timeLogs" to """{"time":"reading","dateKey":"$day","timestampMillis":2,"minutes":$logged}""" }.toTypedArray(), today = sunday)
+                .applyingTimeEdits("reading", edits, sunday.minusDays(4)),
             sunday,
         ).second[reading]
         // The kept history gave the week 5 of its 60 minutes before today.
         assertEquals(open, readingOn("2026-11-22" to 15))
         assertEquals(TrackerHomeStatus.Done, readingOn("2026-11-22" to 55))
+        // Out of the streak no token is at stake, so today's minutes settle the day.
+        assertEquals(TrackerHomeStatus.Done, readingOn("2026-11-22" to 15, edits = listOf(TimeEdit.LeaveRewards)))
         // A weekday's minutes still settle that day: the week is not judged on it.
         val thursdayMinutes = statuses(state("timeLogs" to """{"time":"reading","dateKey":"$thursday","timestampMillis":2,"minutes":5}"""), thursday).second[reading]
         assertEquals(TrackerHomeStatus.Done, thursdayMinutes)

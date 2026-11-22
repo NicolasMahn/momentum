@@ -18,13 +18,13 @@ internal fun trackerHomeStatus(progress: DayProgress?): TrackerHomeStatus = when
  * as a planned workout. A task with a token set aside for today is covered. [started] are the tasks with a first record: before it nothing is asked of
  * one yet.
  *
- * A week's amount is judged on its Sunday, so that day it is done only once the week's goal is
- * reached: minutes that leave the week short still cost a token at the close.
+ * A week's amount in the streak is judged on its Sunday, so that day it is done only once the
+ * week's goal is reached: minutes that leave the week short still cost a token at the close.
  */
 internal fun MoMood.homeStatuses(started: Set<TrackerRef>): Map<TrackerRef, TrackerHomeStatus> = trackerProgress.mapValues { (ref, progress) ->
     val status = trackerHomeStatus(progress)
     when {
-        ref in weekJudgedTrackers && ref in tokenOpenTrackers -> TrackerHomeStatus.Open(0, 1)
+        ref in weekJudgedTrackers && ref in tokenOpenTrackers && ref in streak.standings -> TrackerHomeStatus.Open(0, 1)
         status !is TrackerHomeStatus.Open || status.done > 0 || ref !in freeTrackersToday || ref in missingTrackersToday -> status
         ref in restingTrackersToday -> TrackerHomeStatus.Rest
         else -> status.copy(optional = true)

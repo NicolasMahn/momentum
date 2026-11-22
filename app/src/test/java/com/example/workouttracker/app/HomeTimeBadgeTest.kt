@@ -115,7 +115,7 @@ class HomeTimeBadgeTest {
     }
 
     /**
-     * The tile through the app, on the real day: done once today holds minutes while it counts,
+     * The tile through the app, on the real day: done once today holds minutes while it counts, except on a Sunday the week still falls short,
      * nothing outside the streak, and the socket only where today is a Sunday. The token page has
      * its row, the bank under its name with this week's minutes toward the next token.
      */
