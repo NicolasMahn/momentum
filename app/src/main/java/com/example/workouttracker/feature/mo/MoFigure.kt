@@ -542,6 +542,10 @@ private fun DrawScope.drawAngry(body: FlameBody, look: MoLook, seconds: Float) {
     }
 }
 
+/**
+ * Clenched teeth. They fill his mouth and his lips cut them off, so they sit in it and not on it:
+ * a block of teeth with its own corners, laid inside a mouth that has none, reads as painted on.
+ */
 internal fun DrawScope.grittedTeeth(centre: Offset) {
     val width = 54f
     val height = 24f
@@ -554,13 +558,19 @@ internal fun DrawScope.grittedTeeth(centre: Offset) {
         cubicTo(left + width * 0.8f, top, left + width + 2f, top + 2f, left + width, top + height)
         close()
     }
-    drawPath(mouth, MoInk)
+    val gap = 2.8f
     clipPath(mouth) {
-        drawRoundRect(MoFoam, Offset(left + 4f, top + 4f), Size(width - 8f, height - 6f), CornerRadius(4f))
-        for (index in 1..4) {
-            val x = left + 4f + (width - 8f) * index / 5f
-            limb(Offset(x, top + 3f), Offset(x, top + height), MoInk, 2.6f)
+        drawPath(mouth, MoFoam)
+        // Where the two rows meet. It sags toward the corners as his upper lip does, so the row
+        // turns away from us there and does not end flat against his cheek.
+        curve(Offset(left, top + 16f), Offset(centre.x, top + 8f), Offset(left + width, top + 16f), MoInk, gap)
+        for (column in -1..1) {
+            // The gaps fan out downward, as the sides of his mouth do.
+            val x = centre.x + column * 13f
+            limb(Offset(x - column * 1.5f, top), Offset(x + column * 1.5f, top + height), MoInk, gap)
         }
+        // His lips are the inner half of this line, which keeps them one width all the way round.
+        drawPath(mouth, MoInk, style = Stroke(width = 7f))
     }
 }
 
