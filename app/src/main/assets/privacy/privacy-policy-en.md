@@ -1,13 +1,15 @@
 # Privacy policy for Momentum
 
-Version of 2026-11-21.
+Version of 2026-11-22.
 
 Momentum is an Android app made by Nicolas Mahn, a private developer in Germany.
 Contact for privacy questions: momentum@nicolas-mahn.de
 
 ## In short
 
-Momentum has no account, no server, no ads, no analytics and no crash reporting. The app has no permission to use the internet, so it cannot send anything to anyone. What you record is stored on your phone. I, the developer, never receive it.
+Momentum has no account, no ads, no analytics and no crash reporting. What you record is stored on your phone. I, the developer, never receive it.
+
+The app uses the internet for one thing: the map under a route you recorded with GPS. Its map images come from my own server. Your route itself is never sent; see "The route map".
 
 A copy leaves the app only in the three cases described under "When a copy leaves the app". Each of them is switched on or started by you or by your phone's settings.
 
@@ -17,10 +19,11 @@ Momentum stores what you type and tap, and nothing else:
 
 - what you track and how: names, goals, units, reminder times, your wake time and bedtime, the app language;
 - your records: activities and workouts with their exercises, sets, weights and duration; measurements such as your body weight; ticks in checklists, for example medication, supplements or care; your answers to your own questions; minutes of timers such as reading; uses of substances such as alcohol or nicotine, with an amount if you enter one, or that there was none;
+- routes you record with GPS: where you went and when, during an activity you started recording;
 - holidays and sick days you enter;
 - what the app works out from this: your streak, Tokens, Freezes and how Mo is doing.
 
-Some of this is information about your health. Momentum reads nothing from your phone: no contacts, no location, no sensors, no other apps' data, no advertising ID.
+Some of this is information about your health. Momentum reads your location only while you record a route, from the moment you tap Start recording until you pause, finish or discard it. It reads nothing else from your phone: no contacts, no sensors, no other apps' data, no advertising ID.
 
 The data is kept in the app's private storage, which other apps cannot read. Momentum does not add encryption of its own. It relies on the storage encryption and the screen lock of your phone.
 
@@ -34,6 +37,14 @@ The data is kept in the app's private storage, which other apps cannot read. Mom
 
 Nothing else leaves the app. Restoring a backup only reads the file you pick.
 
+A route is part of your records, so it is in these copies too.
+
+## The route map
+
+When Momentum shows a route on a map, it loads the map images (tiles) for that area from momentum.nicolas-mahn.de, my server, rented from Hetzner Online GmbH in Finland. To deliver them, the server receives your phone's internet address and which tiles it asks for, which shows roughly the area the map shows. It does not receive the route, your records or anything that names you. The server keeps no log of these requests. The app keeps tiles it has shown for a while, so a map you saw before does not ask again. The map data is © OpenStreetMap contributors.
+
+No map is loaded unless you record a route or open one you recorded. Without an internet connection the route still shows, without the map under it.
+
 ## Reminders
 
 Reminders are created on your phone. A reminder can show the name of what it is about, for example a checklist item, also on your lock screen. You can hide notification content on the lock screen in your phone's settings.
@@ -44,12 +55,14 @@ Reminders are created on your phone. A reminder can show the name of what it is 
 - Alarms and reminders (exact alarms): so a reminder arrives at the time you set.
 - Start after the phone restarts: to set your reminders again.
 - Do Not Disturb access: only if you allow it. Momentum can then switch Do Not Disturb on while a timer runs and put it back when you finish.
+- Location, precise, while the app is in use: only if you allow it, to record a route. Momentum never asks for location in the background. While a recording runs, a notification shows it, which lets the recording go on with the screen off.
+- Internet: to load the route map's images.
 
-Momentum has no internet permission. The backup folder is chosen through Android's own file picker, so the app needs no storage permission.
+The backup folder is chosen through Android's own file picker, so the app needs no storage permission.
 
 ## What I receive
 
-From the app: nothing.
+From the app: nothing but the map requests described under "The route map", which are not stored.
 
 From Google Play: Google shows developers summary figures such as the number of installs, and crash reports from people who agreed to share diagnostics with Google. That is Google's processing, described in Google's privacy policy. These figures do not contain your records.
 

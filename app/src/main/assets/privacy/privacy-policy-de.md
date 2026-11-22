@@ -1,13 +1,15 @@
 # Datenschutzerklärung für Momentum
 
-Stand: 2026-11-21.
+Stand: 2026-11-22.
 
 Momentum ist eine Android-App von Nicolas Mahn, einem privaten Entwickler in Deutschland.
 Kontakt für Fragen zum Datenschutz: momentum@nicolas-mahn.de
 
 ## Kurz gesagt
 
-Momentum hat kein Konto, keinen Server, keine Werbung, keine Analyse-Werkzeuge und keine Absturzberichte. Die App hat keine Berechtigung, das Internet zu nutzen. Sie kann also nichts an irgendwen senden. Was du einträgst, liegt auf deinem Handy. Ich als Entwickler bekomme es nie zu sehen.
+Momentum hat kein Konto, keine Werbung, keine Analyse-Werkzeuge und keine Absturzberichte. Was du einträgst, liegt auf deinem Handy. Ich als Entwickler bekomme es nie zu sehen.
+
+Das Internet nutzt die App für eine einzige Sache: die Karte unter einer Strecke, die du per GPS aufgezeichnet hast. Ihre Kartenbilder kommen von meinem eigenen Server. Deine Strecke selbst wird nie gesendet; siehe „Die Karte einer Strecke“.
 
 Eine Kopie verlässt die App nur in den drei Fällen, die unter „Wann eine Kopie die App verlässt“ stehen. Jeden davon schaltest du selbst ein oder stößt ihn selbst an, in der App oder in den Einstellungen deines Handys.
 
@@ -17,10 +19,11 @@ Momentum speichert, was du tippst und antippst, und sonst nichts:
 
 - was du erfasst und wie: Namen, Ziele, Einheiten, Erinnerungszeiten, deine Aufsteh- und Schlafenszeit, die Sprache der App;
 - deine Einträge: Aktivitäten und Trainings mit Übungen, Sätzen, Gewichten und Dauer; Messwerte wie dein Körpergewicht; abgehakte Punkte in Checklisten, zum Beispiel Medikamente, Nahrungsergänzung oder Pflege; deine Antworten auf deine eigenen Fragen; Minuten von Timern, etwa fürs Lesen; Konsum von Substanzen wie Alkohol oder Nikotin, auf Wunsch mit Menge, oder dass es keinen gab;
+- Strecken, die du per GPS aufzeichnest: wo du warst und wann, während einer Aktivität, deren Aufzeichnung du gestartet hast;
 - Urlaub und Krankheitstage, die du einträgst;
 - was die App daraus berechnet: deinen Streak, Tokens, Freezes und wie es Mo geht.
 
-Ein Teil davon sind Angaben zu deiner Gesundheit. Momentum liest nichts von deinem Handy aus: keine Kontakte, keinen Standort, keine Sensoren, keine Daten anderer Apps, keine Werbe-ID.
+Ein Teil davon sind Angaben zu deiner Gesundheit. Deinen Standort liest Momentum nur, während du eine Strecke aufzeichnest: von „Aufzeichnung starten“ an, bis du pausierst, beendest oder verwirfst. Sonst liest es nichts von deinem Handy aus: keine Kontakte, keine Sensoren, keine Daten anderer Apps, keine Werbe-ID.
 
 Die Daten liegen im privaten Speicher der App. Andere Apps können ihn nicht lesen. Momentum verschlüsselt nicht selbst, sondern verlässt sich auf die Speicherverschlüsselung und die Bildschirmsperre deines Handys.
 
@@ -34,6 +37,14 @@ Die Daten liegen im privaten Speicher der App. Andere Apps können ihn nicht les
 
 Sonst verlässt nichts die App. Beim Wiederherstellen einer Sicherung wird nur die Datei gelesen, die du auswählst.
 
+Eine Strecke gehört zu deinen Einträgen, sie ist also auch in diesen Kopien.
+
+## Die Karte einer Strecke
+
+Zeigt Momentum eine Strecke auf einer Karte, lädt es die Kartenbilder (Kacheln) für diese Gegend von momentum.nicolas-mahn.de, meinem Server, gemietet bei der Hetzner Online GmbH in Finnland. Um sie zu liefern, bekommt der Server die Internetadresse deines Handys und welche Kacheln es anfragt; daran lässt sich ungefähr die Gegend ablesen, die die Karte zeigt. Die Strecke, deine Einträge oder etwas, das dich nennt, bekommt er nicht. Der Server speichert diese Anfragen nicht. Die App behält gezeigte Kacheln eine Weile, damit eine Karte, die du schon gesehen hast, nicht erneut anfragt. Die Kartendaten sind © OpenStreetMap-Mitwirkende.
+
+Eine Karte wird nur geladen, wenn du eine Strecke aufzeichnest oder eine aufgezeichnete öffnest. Ohne Internetverbindung siehst du die Strecke trotzdem, nur ohne Karte darunter.
+
 ## Erinnerungen
 
 Erinnerungen entstehen auf deinem Handy. Eine Erinnerung kann den Namen dessen zeigen, worum es geht, zum Beispiel einen Punkt einer Checkliste, auch auf dem Sperrbildschirm. In den Einstellungen deines Handys kannst du Inhalte von Benachrichtigungen auf dem Sperrbildschirm ausblenden.
@@ -44,12 +55,14 @@ Erinnerungen entstehen auf deinem Handy. Eine Erinnerung kann den Namen dessen z
 - Wecker und Erinnerungen (exakte Alarme): damit eine Erinnerung zu der Zeit kommt, die du eingestellt hast.
 - Start nach dem Neustart des Handys: um deine Erinnerungen wieder einzurichten.
 - Zugriff auf „Bitte nicht stören“: nur, wenn du ihn erlaubst. Momentum kann dann „Bitte nicht stören“ einschalten, solange ein Timer läuft, und es danach zurückstellen.
+- Standort, genau, während die App genutzt wird: nur, wenn du ihn erlaubst, um eine Strecke aufzuzeichnen. Im Hintergrund fragt Momentum nie nach dem Standort. Während eine Aufzeichnung läuft, zeigt eine Benachrichtigung sie an; dadurch läuft sie auch bei ausgeschaltetem Bildschirm weiter.
+- Internet: um die Kartenbilder einer Strecke zu laden.
 
-Momentum hat keine Internet-Berechtigung. Den Ordner für Sicherungen wählst du über die Dateiauswahl von Android, deshalb braucht die App keine Speicher-Berechtigung.
+Den Ordner für Sicherungen wählst du über die Dateiauswahl von Android, deshalb braucht die App keine Speicher-Berechtigung.
 
 ## Was ich bekomme
 
-Von der App: nichts.
+Von der App: nichts außer den Kartenanfragen unter „Die Karte einer Strecke“, die nicht gespeichert werden.
 
 Von Google Play: Google zeigt Entwicklern zusammengefasste Zahlen, etwa die Anzahl der Installationen, und Absturzberichte von Menschen, die dem Teilen von Diagnosedaten mit Google zugestimmt haben. Das verarbeitet Google; mehr dazu steht in der Datenschutzerklärung von Google. Deine Einträge sind darin nicht enthalten.
 

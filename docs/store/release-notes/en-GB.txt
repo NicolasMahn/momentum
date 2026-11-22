@@ -1,5 +1,4 @@
+Activity: switch on “Record the route with GPS” for running or cycling, and today’s log records distance, time, pace and your route on a map.
 Back asks before unsaved changes are lost. Small fixes throughout.
 Mo is redrawn in many scenes: his mouth, his hands and what he acts out after you log something. Nothing of him is cut off in the widget.
 Backups no longer pile up: only the newest ones stay.
-After a rest on a planned day, a free day becomes a workout day when the week needs it. You can still rest on it.
-Reading: before Sunday, “Zz” keeps Mo quiet for the day. A token covers the week on Sunday.

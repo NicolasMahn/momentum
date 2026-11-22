@@ -68,6 +68,8 @@ import com.example.workouttracker.domain.activity.ActivityConfiguration
 import com.example.workouttracker.domain.activity.ListedActivity
 import com.example.workouttracker.domain.activity.activityNameKey
 import com.example.workouttracker.feature.logactivity.gym.formatExerciseSets
+import com.example.workouttracker.feature.logactivity.route.RouteMap
+import com.example.workouttracker.feature.logactivity.route.RouteNumbers
 
 internal enum class ActivityFormField {
     Name,
@@ -318,6 +320,7 @@ private fun ActivityTimelineRow(
 ) {
     var removeError by remember(item.id) { mutableStateOf<Int?>(null) }
     val workout = item.source as? ActivityTimelineSource.Workout
+    val route = (item.source as? ActivityTimelineSource.Logged)?.entry?.route
     val title = item.title.resolve()
     val motionEnabled = platformAnimationsEnabled()
 
@@ -327,14 +330,18 @@ private fun ActivityTimelineRow(
             .testTag("activity_timeline_item_${item.id}"),
     ) {
         TimelineRowHeader(item = item, configuration = configuration) {
-            if (workout != null) {
+            if (workout != null || route != null) {
                 QuietIconButton(
                     icon = if (expanded) Icons.Rounded.ExpandLess else Icons.Rounded.ExpandMore,
-                    description = if (expanded) {
-                        stringResource(R.string.activity_entry_hide_sets, title)
-                    } else {
-                        stringResource(R.string.activity_entry_show_sets, title)
-                    },
+                    description = stringResource(
+                        when {
+                            route != null && expanded -> R.string.activity_entry_hide_route
+                            route != null -> R.string.activity_entry_show_route
+                            expanded -> R.string.activity_entry_hide_sets
+                            else -> R.string.activity_entry_show_sets
+                        },
+                        title,
+                    ),
                     onClick = {
                         removeError = null
                         onExpandedChange(!expanded)
@@ -365,7 +372,7 @@ private fun ActivityTimelineRow(
             text = removeError?.let { stringResource(it) },
             testTag = "activity_entry_message_${item.id}",
         )
-        if (workout != null) {
+        if (workout != null || route != null) {
             AnimatedVisibility(
                 visible = expanded,
                 enter = if (motionEnabled) expandVertically() + fadeIn() else EnterTransition.None,
@@ -379,7 +386,11 @@ private fun ActivityTimelineRow(
                         .padding(start = RowTextInset, bottom = 4.dp)
                         .testTag("activity_timeline_detail_${item.id}"),
                 ) {
-                    WorkoutSetReview(workout)
+                    if (workout != null) WorkoutSetReview(workout)
+                    if (route != null) {
+                        RouteNumbers(route = route, movingSeconds = route.movingSeconds, large = false)
+                        RouteMap(route = route, modifier = Modifier.padding(top = 8.dp), testTag = "activity_route_map_${item.id}")
+                    }
                 }
             }
         }

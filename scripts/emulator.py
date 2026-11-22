@@ -22,6 +22,8 @@ it, pass `--run RUN` to every command; anyone else waits until you `release`.
     emulator.py --run first-look screen                 list what is on screen
     emulator.py --run first-look tap Settings           tap an element by its label
     emulator.py --run first-look shot settings          screenshot into the run's folder
+    emulator.py --run first-look geo walk 48.7758,9.1829 --kmh 11 --seconds 300
+                                                        move the device's GPS, for a route recording
     emulator.py --run first-look restore start          put build and data back, checked
     emulator.py --run first-look release
     emulator.py --help                                  every command
@@ -34,6 +36,7 @@ from functools import cache
 import hashlib
 import io
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -710,6 +713,51 @@ def alarms(package=PACKAGE):
     print(f"{len(found)} alarms")
 
 
+def reverse(port):
+    """Lets the app reach a server on this PC at 127.0.0.1:[port], such as `scripts/maps.py serve`."""
+    adb("reverse", f"tcp:{port}", f"tcp:{port}")
+    print(f"127.0.0.1:{port} on {SERIAL} reaches this PC")
+
+
+def geo_walk(start, heading, kmh, seconds, pause_at, pause_seconds):
+    """Moves the device's GPS from [start] along [heading] at [kmh], one fix a second, as a runner would.
+
+    The emulator takes each position on its console. A test phone takes them from a test GPS
+    provider that the shell adds for the walk and removes after it, so the phone's own GPS is back
+    when it ends, also when it is stopped. [pause_at] stands still for [pause_seconds] after that
+    many seconds, as a wait at a crossing does.
+    """
+    require_test_device()
+    on_phone = SERIAL != EMULATOR
+    if on_phone:
+        shell("appops", "set", "com.android.shell", "android:mock_location", "allow")
+        shell("cmd", "location", "providers", "add-test-provider", "gps", "--supportsSpeed", "--supportsBearing")
+        shell("cmd", "location", "providers", "set-test-provider-enabled", "gps", "true")
+    latitude, longitude = (float(part) for part in start.split(","))
+    meters_per_second = kmh / 3.6
+    north = math.cos(math.radians(heading)) * meters_per_second / 111_195
+    east = math.sin(math.radians(heading)) * meters_per_second / (111_195 * math.cos(math.radians(latitude)))
+    moved = 0
+    try:
+        for second in range(seconds + (pause_seconds if pause_at is not None else 0)):
+            standing = pause_at is not None and pause_at <= second < pause_at + pause_seconds
+            if not standing:
+                latitude += north
+                longitude += east
+                moved += 1
+            if on_phone:
+                shell("cmd", "location", "providers", "set-test-provider-location", "gps", "--location", f"{latitude:.6f},{longitude:.6f}", "--accuracy", "4")
+            else:
+                # The console takes longitude first.
+                run_adb("emu", "geo", "fix", f"{longitude:.6f}", f"{latitude:.6f}", timeout=10)
+            time.sleep(1)
+    finally:
+        if on_phone:
+            shell("cmd", "location", "providers", "remove-test-provider", "gps", check=False)
+            shell("appops", "set", "com.android.shell", "android:mock_location", "default", check=False)
+    print(f"Walked {moved} s at {kmh} km/h, ending at {latitude:.5f},{longitude:.5f}")
+
+
 def notifications():
     # Only the list on show; Android also lists notifications still being posted.
     shown = re.search(r"^  Notification List:\n(.*?)^  \S", shell("dumpsys", "notification", "--noredact"), re.M | re.S)
@@ -825,6 +873,17 @@ def main():
     pulling.add_argument("state", choices=["open", "close"])
     shooting = commands.add_parser("shot", help="screenshot into the run's folder")
     shooting.add_argument("name")
+    reversing = commands.add_parser("reverse", help="let the app reach a port on this PC, such as scripts/maps.py serve")
+    reversing.add_argument("port", type=int)
+    geo = commands.add_parser("geo", help="move the device's GPS position")
+    geo_commands = geo.add_subparsers(dest="geo", required=True)
+    walking = geo_commands.add_parser("walk", help="move along a heading at a speed, one fix a second")
+    walking.add_argument("start", help="latitude,longitude")
+    walking.add_argument("--heading", type=float, default=0.0, help="degrees from north")
+    walking.add_argument("--kmh", type=float, default=10.0)
+    walking.add_argument("--seconds", type=int, default=120)
+    walking.add_argument("--pause-at", type=int, help="stand still after this many seconds")
+    walking.add_argument("--pause-seconds", type=int, default=60)
     commands.add_parser("alarms", help="the app's pending alarms")
     commands.add_parser("notifications", help="the app's notifications on show")
     commands.add_parser("crashes", help="the app's crashes since the last launch")
@@ -871,6 +930,8 @@ def dispatch(args):
         case "scroll": scroll(args.direction)
         case "shade": shade(args.state)
         case "shot": shot(args.name, args.run)
+        case "reverse": reverse(args.port)
+        case "geo": geo_walk(args.start, args.heading, args.kmh, args.seconds, args.pause_at, args.pause_seconds)
         case "alarms": alarms()
         case "notifications": notifications()
         case "crashes": crashes()

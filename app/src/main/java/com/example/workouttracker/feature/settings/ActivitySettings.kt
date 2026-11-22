@@ -250,6 +250,9 @@ internal class ActivitySettingsDraft(
 
     fun setActivityIcon(activityId: String, icon: ViewIcon): Boolean = edit(ActivityEdit.SetActivityIcon(activityId, icon))
 
+    /** The activity is recorded with GPS from today's log on, or no longer. */
+    fun recordRoute(activityId: String, recordsRoute: Boolean): Boolean = edit(ActivityEdit.SetActivityRecordsRoute(activityId, recordsRoute))
+
     fun moveActivityUp(activityId: String): Boolean = edit(ActivityEdit.MoveActivityUp(activityId))
 
     /** Removes an activity; whatever its name field and every field under its path held goes with it. */

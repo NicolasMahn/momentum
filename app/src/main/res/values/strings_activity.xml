@@ -201,4 +201,41 @@
         <item quantity="one">%d day a week on holiday</item>
         <item quantity="other">%d days a week on holiday</item>
     </plurals>
+
+    <!-- Recording an activity with GPS (an activity whose settings switch it on). -->
+    <string name="activity_route_start">Start recording</string>
+    <string name="activity_route_pause">Pause</string>
+    <string name="activity_route_resume">Resume</string>
+    <string name="activity_route_finish">Finish</string>
+    <!-- The two-step remove that throws the recording away unsaved. -->
+    <string name="activity_route_discard">Discard the recording</string>
+    <!-- Above the live numbers. %s: the activity's name, as typed. -->
+    <string name="activity_route_recording">Recording %s</string>
+    <string name="activity_route_paused">%s paused</string>
+    <string name="activity_route_searching">%s · looking for GPS…</string>
+    <!-- %s: kilometres in the screen's decimal style, for example "2.31". -->
+    <string name="activity_route_kilometers">%s km</string>
+    <!-- %1$s: minutes and seconds a kilometre took, for example "5:32"; %2$s: kilometres an hour, for example "10.8". -->
+    <string name="activity_route_pace_and_speed">%1$s /km · %2$s km/h</string>
+    <string name="activity_route_location_needed">Allow location for Momentum to record the route.</string>
+    <string name="activity_route_location_off">Turn on location to record the route.</string>
+    <string name="activity_route_activity_gone">This activity was removed. Discard the recording, or bring the activity back in Settings.</string>
+    <!-- Under every route map: the map data's licence asks for it. -->
+    <string name="activity_route_map_attribution">© OpenStreetMap contributors</string>
+    <!-- The quiet button that opens a recorded entry's numbers and map. %s: the activity's name. -->
+    <string name="activity_entry_show_route">Show the route of %s</string>
+    <string name="activity_entry_hide_route">Hide the route of %s</string>
+    <!-- The ongoing notification while a route is recorded. -->
+    <string name="activity_route_channel_name">Route recording</string>
+    <string name="activity_route_channel_description">Shows while Momentum records a route with GPS.</string>
+    <string name="activity_route_notification_title">Recording your route</string>
+    <!-- %1$s: kilometres, for example "2.31"; %2$s: the moving time, for example "12 min". -->
+    <string name="activity_route_notification_text">%1$s km · %2$s</string>
+    <plurals name="activity_route_minutes">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <!-- On an activity's settings page. -->
+    <string name="activity_settings_records_route">Record the route with GPS</string>
+    <string name="activity_settings_records_route_note">Today\'s log then offers Start recording: distance, time, pace and the route on a map. The route stays on this phone. The map is loaded from Momentum\'s server, which sees the area it shows.</string>
 </resources>

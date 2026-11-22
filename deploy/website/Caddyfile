@@ -1,0 +1,14 @@
+# The website's own server: the static pages, and the route map's tiles from the map stack
+# (deploy/maps), whose prefix it strips, so /maps/tiles/basemap/14/8608/5615.mvt asks that
+# container for /basemap/14/8608/5615.mvt. TLS is the server's Caddy's, in front of this one.
+:80 {
+	handle_path /maps/tiles/* {
+		# pmtiles serve says nothing about caching; a week lets the app keep a tile it showed.
+		header Cache-Control "public, max-age=604800"
+		reverse_proxy momentum-maps:8080
+	}
+	handle {
+		root * /srv
+		file_server
+	}
+}

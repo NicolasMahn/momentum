@@ -32,6 +32,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RESOURCES = ROOT / "app/src/main/res"
 COMPOSE = ROOT / "deploy/website/docker-compose.yml"
+CADDYFILE = ROOT / "deploy/website/Caddyfile"
 
 SITE_URL = "https://momentum.nicolas-mahn.de/"
 SERVER = os.environ.get("MOMENTUM_SITE_SERVER", "root@momentum.nicolas-mahn.de")
@@ -278,7 +279,9 @@ def publish(allow_unfinished):
         run("ssh", *options, SERVER, f"mkdir -p {SERVER_DIRECTORY}/public")
         run("rsync", "--archive", "--delete", "--chmod=D755,F644", "--rsh", ssh, f"{work}/", f"{SERVER}:{SERVER_DIRECTORY}/public/")
     run("rsync", "--chmod=F644", "--rsh", ssh, str(COMPOSE), f"{SERVER}:{SERVER_DIRECTORY}/docker-compose.yml")
-    run("ssh", *options, SERVER, f"cd {SERVER_DIRECTORY} && docker compose up --detach --quiet-pull")
+    run("rsync", "--chmod=F644", "--rsh", ssh, str(CADDYFILE), f"{SERVER}:{SERVER_DIRECTORY}/Caddyfile")
+    # A changed Caddyfile is read on start, so the container is recreated when it changes.
+    run("ssh", *options, SERVER, f"cd {SERVER_DIRECTORY} && docker compose up --detach --quiet-pull --force-recreate")
 
     print(f"Published. {SITE_URL}")
     for lines in open_.values():

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The debug build alone may speak plain HTTP, and only to this PC through `scripts/emulator.py
+     reverse`, for a map served by `scripts/maps.py serve`. Every other build speaks HTTPS only. -->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">127.0.0.1</domain>
+    </domain-config>
+</network-security-config>

@@ -15,6 +15,10 @@ fun formatMetricNumber(value: Double, locale: Locale): String {
     return DecimalFormat("0.##", DecimalFormatSymbols.getInstance(locale)).format(normalized)
 }
 
+/** [value] with exactly [decimals] decimals in [locale]'s style: "2.30", "2,30". */
+fun formatFixedDecimals(value: Double, decimals: Int, locale: Locale): String =
+    DecimalFormat("0" + (if (decimals > 0) "." + "0".repeat(decimals) else ""), DecimalFormatSymbols.getInstance(locale)).format(value)
+
 /** A change between two readings: always signed, and "±0" rather than a bare zero. */
 fun formatSignedMetric(value: Double, locale: Locale): String = when {
     abs(value) < 0.005 -> "±0"

@@ -38,6 +38,7 @@ class ActivityEditJsonTest {
             ActivityEdit.AddActivity(ListedActivity("act_yoga", "Yoga", ViewIcon.Bolt)),
             ActivityEdit.RenameActivity("act_yoga", "Hot yoga"),
             ActivityEdit.SetActivityIcon("act_yoga", ViewIcon.Swimming),
+            ActivityEdit.SetActivityRecordsRoute("act_yoga", true),
             ActivityEdit.MoveActivityUp("act_yoga"),
             ActivityEdit.RemoveActivity("act_yoga"),
             ActivityEdit.AddRoutineDay("act_yoga", RoutineDay("day_d", "Legs", listOf(exercise))),

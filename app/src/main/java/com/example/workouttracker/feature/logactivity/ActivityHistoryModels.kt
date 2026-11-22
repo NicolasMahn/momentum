@@ -12,6 +12,8 @@ import com.example.workouttracker.domain.AppState
 import com.example.workouttracker.domain.activity.ActivityEntry
 import com.example.workouttracker.domain.activity.activityRules
 import com.example.workouttracker.domain.activity.routine.WorkoutSession
+import com.example.workouttracker.feature.logactivity.route.KilometerDecimals
+import com.example.workouttracker.feature.logactivity.route.formatClock
 
 /**
  * What a timeline row stands for. A row is the unit of action now, so it carries the record it
@@ -61,7 +63,13 @@ fun activityTimelineForDate(
             ActivityTimelineItem(
                 id = "activity:${entry.id}",
                 title = rules.labelOf(entry.mark, entry.name.trim()),
-                detail = entry.durationMinutes?.let { uiText(R.string.activity_duration_minutes, it) },
+                // A recorded route says how far and for how long; its minutes are that same moving time.
+                detail = entry.route?.let { route ->
+                    listOf(
+                        uiText(R.string.activity_route_kilometers, UiText.Number(route.distanceMeters / 1000, decimals = KilometerDecimals)),
+                        UiText.Verbatim(formatClock(route.movingSeconds)),
+                    ).joinedBy(" · ")
+                } ?: entry.durationMinutes?.let { uiText(R.string.activity_duration_minutes, it) },
                 timestampMillis = entry.timestampMillis,
                 mark = entry.mark,
                 source = ActivityTimelineSource.Logged(entry),

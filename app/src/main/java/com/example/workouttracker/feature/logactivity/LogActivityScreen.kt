@@ -1,6 +1,10 @@
 package com.example.workouttracker.feature.logactivity
 
+import android.Manifest
+import android.os.Build
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,10 +14,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.LocationOn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
@@ -23,6 +30,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.pluralStringResource
@@ -34,6 +42,7 @@ import com.example.workouttracker.R
 import com.example.workouttracker.core.format.DateStyle
 import com.example.workouttracker.core.format.formatDate
 import com.example.workouttracker.core.locale.currentLocale
+import com.example.workouttracker.core.time.habitDate
 import com.example.workouttracker.core.time.parseDateKey
 import com.example.workouttracker.core.ui.DiscardChangesDialog
 import com.example.workouttracker.core.ui.FollowTodayEffect
@@ -58,8 +67,13 @@ import com.example.workouttracker.feature.logactivity.gym.GymPlanPicker
 import com.example.workouttracker.feature.logactivity.gym.GymWorkoutEditor
 import com.example.workouttracker.feature.logactivity.gym.sessionFor
 import com.example.workouttracker.feature.logactivity.gym.unfoldingFrom
+import com.example.workouttracker.feature.logactivity.route.RoutePanel
+import com.example.workouttracker.feature.logactivity.route.RouteRecorder
+import com.example.workouttracker.feature.logactivity.route.RouteRecordingService
 import java.time.DayOfWeek
+import java.time.Instant
 import java.time.LocalDate
+import java.time.ZoneId
 import java.time.temporal.TemporalAdjusters
 import kotlinx.coroutines.launch
 
@@ -302,6 +316,68 @@ internal fun ActivityLogScreen(
 
     var saveCelebrationSignal by remember { mutableIntStateOf(0) }
 
+    // The one route recording of the app. While there is one, it takes the form's place, whichever
+    // activity is selected: a run goes on when the app is left, and coming back finds it here.
+    val context = LocalContext.current
+    val recorder = remember(context) { RouteRecorder.of(context) }
+    val recording by recorder.recording.collectAsState()
+    val lastFixMillis by recorder.lastFixMillis.collectAsState()
+    var routeMessage by remember { mutableStateOf<Int?>(null) }
+
+    /** Whether the phone can measure a route now, location allowed and switched on; the line under the button says what is missing. */
+    fun canMeasure(): Boolean {
+        routeMessage = when {
+            !RouteRecordingService.hasLocationPermission(context) -> R.string.activity_route_location_needed
+            !RouteRecordingService.locationIsOn(context) -> R.string.activity_route_location_off
+            else -> null
+        }
+        return routeMessage == null
+    }
+
+    // What to do once the person answered the question about their location: start, or resume.
+    var afterPermission by remember { mutableStateOf<(() -> Unit)?>(null) }
+    val askForLocation = rememberLauncherForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
+        afterPermission?.invoke()
+        afterPermission = null
+    }
+
+    /** Runs [action] where location may be used, and asks first where it may not yet. */
+    fun withLocation(action: () -> Unit) {
+        if (RouteRecordingService.hasLocationPermission(context)) return action()
+        afterPermission = action
+        // The notification that shows the recording is asked for with it, since Android 13 asks for each.
+        val asked = listOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION) +
+            listOfNotNull(Manifest.permission.POST_NOTIFICATIONS.takeIf { Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU })
+        askForLocation.launch(asked.toTypedArray())
+    }
+
+    fun startRecording(activity: ListedActivity) = withLocation {
+        if (canMeasure() && recorder.start(activity.id, System.currentTimeMillis())) RouteRecordingService.start(context)
+    }
+
+    fun resumeRecording() = withLocation {
+        if (canMeasure()) {
+            recorder.resume()
+            RouteRecordingService.start(context)
+        }
+    }
+
+    fun finishRecording() {
+        val finished = recording ?: return
+        recorder.pause()
+        val dateKey = habitDate(Instant.ofEpochMilli(finished.startedAtMillis).atZone(ZoneId.systemDefault())).toString()
+        val result = recordRoute(state, finished, dateKey)
+        if (result is RecordActivityResult.Success && onStateChange(result.state)) {
+            recorder.clear()
+            routeMessage = null
+            selectedDateKey = dateKey
+            saveCelebrationSignal += 1
+        } else {
+            // Kept, paused, so nothing of the run is lost: Finish can be tried again, or the recording discarded.
+            routeMessage = if ((result as? RecordActivityResult.Invalid)?.problem == ActivityProblem.NotFound) R.string.activity_route_activity_gone else R.string.activity_save_failed
+        }
+    }
+
     fun saveActivity() {
         if (!durationIsValid) {
             message = ActivityFormMessage(
@@ -393,14 +469,27 @@ internal fun ActivityLogScreen(
                     modifier = Modifier.testTag("activity_week_days"),
                 )
             }
-            ActivityTileRow(
+            val current = recording
+            if (current != null) RoutePanel(
+                recording = current,
+                activityLabel = rules.activity(current.activityId)?.label.orEmpty(),
+                lastFixMillis = lastFixMillis,
+                message = routeMessage?.let { stringResource(it) },
+                onPause = recorder::pause,
+                onResume = ::resumeRecording,
+                onFinish = ::finishRecording,
+                onDiscard = {
+                    recorder.clear()
+                    routeMessage = null
+                },
+            ) else ActivityTileRow(
                 tiles = tiles,
                 configuration = rules,
                 selected = selectedMark,
                 onSelect = ::selectActivity,
             )
 
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            if (current == null) Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 if (openDay == null && (selectedMark == ActivityMark.Other || !hasRoutine)) {
                     // Other owns the overflow picker, including activities with a routine.
                     val other = selectedMark == ActivityMark.Other
@@ -506,6 +595,21 @@ internal fun ActivityLogScreen(
                     )
                 } else {
                     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        // A recording measures what happens now, so it is offered on today alone;
+                        // the button under it still logs the activity without one.
+                        val recordable = selectedActivity?.takeIf { it.offersRecording && !isEditingEntry && selectedDateKey == todayKey }
+                        if (recordable != null) {
+                            MomentumButton(
+                                text = stringResource(R.string.activity_route_start),
+                                onClick = { startRecording(recordable) },
+                                icon = Icons.Rounded.LocationOn,
+                                modifier = Modifier.fillMaxWidth(),
+                                // The save under it stays the one green button the screen leads to.
+                                variant = MomentumButtonVariant.Secondary,
+                                testTag = "activity_route_start",
+                            )
+                            ReservedMessage(text = routeMessage?.let { stringResource(it) }, testTag = "activity_route_start_message")
+                        }
                         // Momentary because the same activity can honestly be logged
                         // twice in a day.
                         MomentaryCompletionButton(

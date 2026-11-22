@@ -7,6 +7,15 @@
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <!-- A reading session turns on Do Not Disturb; the user grants this in system settings. -->
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <!-- An activity recorded with GPS: location while the app is in use, which the recording's
+         foreground service keeps on with the screen off. Never background location. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <!-- The route map loads its tiles from Momentum's map server. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -56,6 +65,11 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/mo_widget_info" />
         </receiver>
+
+        <service
+            android:name=".feature.logactivity.route.RouteRecordingService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
 
         <!-- Shares the statistics export with whatever app the person picks, read-only. -->
         <provider

@@ -80,6 +80,9 @@ sealed interface ActivityEdit {
 
     data class SetActivityIcon(val activityId: String, val icon: ViewIcon) : ActivityEdit
 
+    /** The activity is recorded with GPS, or no longer; routes already recorded stay with their entries. */
+    data class SetActivityRecordsRoute(val activityId: String, val recordsRoute: Boolean) : ActivityEdit
+
     /** One place up among the activities still offered; the first cannot move. */
     data class MoveActivityUp(val activityId: String) : ActivityEdit
 
@@ -161,6 +164,7 @@ fun ActivityConfiguration.applyEdit(edit: ActivityEdit, today: LocalDate, firstR
     }
     is ActivityEdit.RenameActivity -> withActivity(edit.activityId) { it.copy(label = edit.label) }
     is ActivityEdit.SetActivityIcon -> withActivity(edit.activityId) { it.copy(icon = edit.icon) }
+    is ActivityEdit.SetActivityRecordsRoute -> withActivity(edit.activityId) { it.copy(recordsRoute = edit.recordsRoute) }
     is ActivityEdit.MoveActivityUp -> copy(activities = activities.movedUp(edit.activityId, { it.id }, { it.removed }))
     is ActivityEdit.RemoveActivity -> withActivity(edit.activityId) {
         require(!it.removed) { "Activity ${edit.activityId} is removed already." }
