@@ -15,18 +15,28 @@
     <string name="about_license_title">License</string>
     <!-- Opens the component's repository or website in the browser. -->
     <string name="about_license_source">Project page</string>
-    <!-- The Settings row and the header of the page it opens: two ways to reach the developer. -->
+    <!-- The Settings row and the header of the page it opens, where a message is written and sent. -->
     <string name="feedback_title">Feedback</string>
     <string name="feedback_summary">A problem, an idea, or just a word</string>
-    <string name="feedback_issue_title">Report a problem or idea</string>
-    <!-- Where the report is written; issues there are public. -->
-    <string name="feedback_issue_summary">On GitHub</string>
-    <!-- %1$s: the app version, Android version and phone model, one per line. -->
-    <string name="feedback_issue_body">What happened?\n\n\nWhat did you expect?\n\n\n---\n%1$s</string>
-    <string name="feedback_mail_title">Write an email</string>
-    <string name="feedback_mail_summary">For anything else</string>
+    <string name="feedback_kind_problem">Problem</string>
+    <string name="feedback_kind_idea">Idea</string>
+    <string name="feedback_kind_other">Something else</string>
+    <string name="feedback_text_label">Your message</string>
+    <string name="feedback_with_facts">Add the app version and phone model</string>
+    <string name="feedback_send">Send</string>
+    <string name="feedback_sent">Thank you. Your message is posted.</string>
+    <string name="feedback_too_many">Many messages came at once. Try again in an hour.</string>
+    <string name="feedback_offline">No connection. Your message is still here; try again later.</string>
+    <string name="feedback_failed">Sending failed. Your message is still here; try again later.</string>
+    <!-- Said under Send: what happens to a message. Nothing recorded in the app is ever added. -->
+    <string name="feedback_public_note">Messages are posted publicly on GitHub, without your name. Nothing you have recorded is added.</string>
+    <!-- A quiet button under the form, for what someone would rather not post publicly. -->
+    <string name="feedback_mail_instead">Write an email instead</string>
     <string name="feedback_mail_subject">Momentum feedback</string>
     <!-- %1$s: the app version, Android version and phone model, one per line. -->
-    <string name="feedback_mail_body">\n\n\n---\n%1$s</string>
-    <string name="feedback_facts_note">Both add the app version and your phone model, nothing you have recorded.</string>
+    <string name="feedback_mail_body">
+
+
+---
+%1$s</string>
 </resources>

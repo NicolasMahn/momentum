@@ -1,0 +1,19 @@
+# Momentum's feedback service on the web server (`scripts/feedback_server.py deploy`). The website's
+# container (`deploy/website`) sends `/api/feedback` here; nothing else reaches it. The GitHub App's
+# ids and private key are copies of the files in ~/.config/momentum/ and never enter the repository.
+services:
+  feedback:
+    build: .
+    container_name: momentum-feedback
+    env_file: ./github-app.env
+    environment:
+      GITHUB_APP_KEY_FILE: /run/secrets/github-app.pem
+    volumes:
+      - ./github-app.pem:/run/secrets/github-app.pem:ro
+    restart: unless-stopped
+    networks: [edge]
+
+networks:
+  edge:
+    name: av-stuttgart_default
+    external: true

@@ -9,12 +9,22 @@
     <string name="about_license_source">Projektseite</string>
     <string name="feedback_title">Feedback</string>
     <string name="feedback_summary">Ein Problem, eine Idee oder einfach ein Wort</string>
-    <string name="feedback_issue_title">Problem oder Idee melden</string>
-    <string name="feedback_issue_summary">Auf GitHub</string>
-    <string name="feedback_issue_body">Was ist passiert?\n\n\nWas hast du erwartet?\n\n\n---\n%1$s</string>
-    <string name="feedback_mail_title">E-Mail schreiben</string>
-    <string name="feedback_mail_summary">Für alles andere</string>
+    <string name="feedback_kind_problem">Problem</string>
+    <string name="feedback_kind_idea">Idee</string>
+    <string name="feedback_kind_other">Etwas anderes</string>
+    <string name="feedback_text_label">Deine Nachricht</string>
+    <string name="feedback_with_facts">App-Version und Handymodell mitschicken</string>
+    <string name="feedback_send">Senden</string>
+    <string name="feedback_sent">Danke. Deine Nachricht ist angekommen.</string>
+    <string name="feedback_too_many">Gerade kamen viele Nachrichten auf einmal. Versuch es in einer Stunde noch mal.</string>
+    <string name="feedback_offline">Keine Verbindung. Deine Nachricht ist noch da; versuch es später noch mal.</string>
+    <string name="feedback_failed">Senden fehlgeschlagen. Deine Nachricht ist noch da; versuch es später noch mal.</string>
+    <string name="feedback_public_note">Nachrichten werden öffentlich auf GitHub veröffentlicht, ohne deinen Namen. Nichts, was du aufgezeichnet hast, wird mitgeschickt.</string>
+    <string name="feedback_mail_instead">Lieber eine E-Mail schreiben</string>
     <string name="feedback_mail_subject">Feedback zu Momentum</string>
-    <string name="feedback_mail_body">\n\n\n---\n%1$s</string>
-    <string name="feedback_facts_note">Beides enthält die App-Version und dein Handymodell, nichts, was du aufgezeichnet hast.</string>
+    <string name="feedback_mail_body">
+
+
+---
+%1$s</string>
 </resources>
