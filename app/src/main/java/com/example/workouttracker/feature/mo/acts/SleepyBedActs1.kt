@@ -172,7 +172,7 @@ private object BedOneEyeOpen : MoAct("sleepy_bed_one_eye_open", MoOccasion.Sleep
     override val sparkles get() = false
 }
 
-/** A long shh at the viewer, mitten to his mouth; then he pulls the blanket up over his nose and his eyes fall shut. */
+/** A long shh at the viewer, a finger across his lips; then he pulls the blanket up over his nose and his eyes fall shut. */
 private object BedShush : MoAct("sleepy_bed_shush", MoOccasion.Sleepy, intensity = MoIntensity.Strong) {
     /** Up to just under his eyes: the eye whites end at 311 on both bodies, and the hem then peaks at 316. */
     private const val OVER_NOSE = 30f
@@ -188,11 +188,14 @@ private object BedShush : MoAct("sleepy_bed_shush", MoOccasion.Sleepy, intensity
 
     private fun shushing(p: Float) = p < 0.28f || p > 0.97f
 
+    /** Two soft beats while he holds it, a shh and a shh: his brows go up and the finger presses in. */
+    private fun beat(p: Float) = hump(p, 0.04f, 0.08f) + hump(p, 0.15f, 0.08f)
+
     override fun pose(t: Float, v: MoVariant, body: MoBodyKind): MoPose {
         val p = progress(t, v)
         val inBed = moInBed(t, body)
-        // The Whistle mouth purses to the right, so the mitten comes to it from the left and stops against it.
-        val atMouth = bedArm(body, Offset(CENTRE - 8f, 339f), -1f, bend = 0.35f)
+        // Under his mouth, so the finger it holds up crosses his lips in the middle.
+        val atMouth = bedArm(body, Offset(MoBodies.of(body).mouth.x, 340f), -1f, bend = 0.35f)
         val leaving = span(p, 0.28f, 0.36f) * (1f - span(p, 0.95f, 1f))
         // The other mitten grips the hem, rides it up, slips under the blanket, and comes out to let it down.
         val under = span(p, 0.46f, 0.54f) * (1f - span(p, 0.84f, 0.90f))
@@ -207,8 +210,8 @@ private object BedShush : MoAct("sleepy_bed_shush", MoOccasion.Sleepy, intensity
         return inBed.copy(
             leftEye = eye,
             rightEye = eye,
-            brows = if (shushing(p)) MoBrows(MoBrowKind.Raised, lift = 3f) else MoBrows(),
-            mouth = if (shushing(p)) MoMouth.Whistle else MoMouth.Flat(8f),
+            brows = if (shushing(p)) MoBrows(MoBrowKind.Raised, lift = 3f + 3f * beat(p)) else MoBrows(),
+            mouth = MoMouth.Flat(if (shushing(p)) 13f else 8f),
             leftArm = mix(atMouth, inBed.leftArm, leaving),
             rightArm = mix(inBed.rightArm, grip, toGrip),
             tilt = -3f * span(p, 0.50f, 0.60f) * (1f - span(p, 0.86f, 0.92f)),
@@ -223,17 +226,11 @@ private object BedShush : MoAct("sleepy_bed_shush", MoOccasion.Sleepy, intensity
 
     override fun DrawScope.held(t: Float, v: MoVariant, rig: MoRig) {
         val p = progress(t, v)
-        val breath = (1f - span(p, 0.24f, 0.29f)) + span(p, 0.97f, 1f)
-        if (breath <= 0.01f) return
-        // An upright mitten against his pursed lips, with the wrist down on the blanket.
-        limb(rig.leftHand, rig.leftHand + Offset(6f, -16f) * breath, rig.palette.limb, 15f)
-        val count = 2 + v.pick(2, salt = 4)
-        for (index in 0 until count) {
-            val along = cycle(t, 1.2f, offset = index.toFloat() / count)
-            // Out of the pursed side of his mouth and away under the eye, never over it.
-            val at = rig.mouth + Offset(22f + 46f * along, 4f - 6f * along + 3f * wave(t + index, 0.5f))
-            puff(at, 7f * (1f - 0.4f * along), MoPropSilver.copy(alpha = breath * (1f - along * along)))
-        }
+        val raised = (1f - span(p, 0.24f, 0.29f)) + span(p, 0.97f, 1f)
+        if (raised <= 0.01f) return
+        // One finger upright across his shut lips, and nothing coming out of them: that is a shh.
+        // Breath drawn beside a mitten at his mouth reads as something he smokes.
+        limb(rig.leftHand, rig.leftHand + Offset(0f, -26f - 2f * beat(p)) * raised, rig.palette.limb, 13f)
     }
 
     override fun DrawScope.foreground(t: Float, v: MoVariant) = bedBlanket(t, v, pulledUp = OVER_NOSE * up(progress(t, v)))
