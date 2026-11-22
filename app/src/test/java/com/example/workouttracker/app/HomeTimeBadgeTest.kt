@@ -43,9 +43,9 @@ import org.robolectric.RobolectricTestRunner
 /**
  * A time view a person made wears Reading's kind of badge once it counts toward the streak: the
  * coin once today holds minutes, whatever its week still asks for, the socket on a Sunday whose
- * week is judged and still short, and nothing otherwise. Home's tile is stricter on that Sunday:
- * it is done only once the week's goal is reached. Outside the streak or hidden it wears
- * nothing. Home reads it from the streak, and the token page has its row in minutes.
+ * week is judged and still short, and nothing otherwise. Outside the streak or hidden the badge
+ * is absent. Home's tile is stricter on that Sunday: it is done only once the week's goal is
+ * reached. The token page has its row in minutes.
  */
 @RunWith(RobolectricTestRunner::class)
 class HomeTimeBadgeTest {
