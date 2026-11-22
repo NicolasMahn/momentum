@@ -79,6 +79,14 @@ class RouteTest {
     }
 
     @Test
+    fun aLongRoadRideUnderPoorGpsKeepsItsDistance() {
+        // Ten minutes at 8 m/s, a fix a second, the phone sure only to 25 m.
+        val ride = recorded(*(0..600).map { north(it * 8.0, it.toLong(), accuracy = 25f) }.toTypedArray()).route
+        assertEquals(1, ride.stretches.size)
+        assertEquals(4800.0, ride.distanceMeters, 96.0)
+    }
+
+    @Test
     fun aSlowClimbKeepsItsTime() {
         val climb = recorded(*(0..100).map { north(it * 0.6, it.toLong()) }.toTypedArray()).route
         // Every step of it is moving, from the start to the last point kept.
