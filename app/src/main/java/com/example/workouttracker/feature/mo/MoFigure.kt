@@ -558,6 +558,8 @@ internal fun DrawScope.grittedTeeth(centre: Offset) {
         cubicTo(left + width * 0.8f, top, left + width + 2f, top + 2f, left + width, top + height)
         close()
     }
+    // The mouth's own edge is this fill's: the edge of a clip is not smoothed on every phone.
+    drawPath(mouth, MoInk)
     val gap = 2.8f
     clipPath(mouth) {
         drawPath(mouth, MoFoam)
@@ -565,9 +567,10 @@ internal fun DrawScope.grittedTeeth(centre: Offset) {
         // turns away from us there and does not end flat against his cheek.
         curve(Offset(left, top + 16f), Offset(centre.x, top + 8f), Offset(left + width, top + 16f), MoInk, gap)
         for (column in -1..1) {
-            // The gaps fan out downward, as the sides of his mouth do.
-            val x = centre.x + column * 13f
-            limb(Offset(x - column * 1.5f, top), Offset(x + column * 1.5f, top + height), MoInk, gap)
+            // Two wide teeth in front and a narrow one either side, as of a row that goes back
+            // there. The gaps fan out downward, as the sides of his mouth do.
+            val x = centre.x + column * 15f
+            limb(Offset(x - column * 2f, top), Offset(x + column * 2f, top + height), MoInk, gap)
         }
         // His lips are the inner half of this line, which keeps them one width all the way round.
         drawPath(mouth, MoInk, style = Stroke(width = 7f))
