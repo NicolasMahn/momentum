@@ -10,7 +10,7 @@ Mo ist eine kleine Flamme. Er lebt in der App und in einem Widget für deinen St
 
 ## Nur deins
 
-Momentum hat kein Konto, keine Werbung und keine Berechtigung, das Internet zu nutzen. Ich als Entwickler bekomme nie zu sehen, was du einträgst. Die Datenschutzerklärung sagt genau, wann eine Kopie die App verlässt.
+Momentum hat kein Konto und keine Werbung und nutzt das Internet nur, um Feedback zu senden, das du selbst schreibst. Ich als Entwickler bekomme nie zu sehen, was du einträgst. Die Datenschutzerklärung sagt genau, wann eine Kopie die App verlässt.
 
 ## Wo es Momentum gibt
 

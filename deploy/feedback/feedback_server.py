@@ -93,6 +93,9 @@ class Limits:
     def take(self, client):
         now = self.clock()
         with self.lock:
+            # An address is forgotten once its hour has passed, so none is kept longer than that.
+            for known in [known for known, times in self.clients.items() if now - times[-1] > 3600]:
+                del self.clients[known]
             sent = self.clients[client]
             while sent and now - sent[0] > 3600:
                 sent.popleft()

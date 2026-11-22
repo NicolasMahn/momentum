@@ -34,10 +34,10 @@ Alternative A, 69 of 80 characters. It says what the app is for and who Mo is:
 Track the habits you choose. Mo, a small flame, helps you keep at it.
 ```
 
-Alternative B, 77 of 80 characters. It leads with privacy:
+Alternative B, 65 of 80 characters. It leads with privacy:
 
 ```text
-A habit tracker with no account and no internet access. Mo keeps you company.
+A habit tracker with no account and no ads. Mo keeps you company.
 ```
 
 I recommend A. It is the app's own promise, the one the welcome screen makes. B tells a stranger nothing about what they will do with the app.
@@ -83,7 +83,7 @@ What else it does
 Your data
 
 - No account, no ads, no analytics, no in-app purchases.
-- The app has no internet permission. It cannot send your records to anyone, including its developer.
+- The app uses the internet only to send feedback you write yourself. It never sends your records to anyone, including its developer.
 - Your records are stored on your phone. You can let Momentum write readable backup files into a folder you choose, and restore from them.
 - If Android's own backup is switched on, Android includes Momentum's data in the backup to your Google account, as it does for other apps.
 
@@ -100,5 +100,5 @@ Momentum is made by one person. It records what you do and shows you patterns. I
 - Tokens, Freezes, levels, protected days: `docs/glossary.md`, game words.
 - Do Not Disturb: `time_focus_message` in `strings_time.xml`.
 - Export: `app/StatisticsExportShare.kt`. Backups: `settings_backup_explanation`.
-- No internet, no ads, no analytics, no purchases: the merged release manifest and `gradle/libs.versions.toml`.
+- Internet only for feedback: `feature/about/FeedbackSender.kt` is the app's one network call. No ads, no analytics, no purchases: the merged release manifest and `gradle/libs.versions.toml`.
 - The disclaimer is the wording the [Health Content and Services policy](https://support.google.com/googleplay/android-developer/answer/16679511) asks health apps to put in their description.
