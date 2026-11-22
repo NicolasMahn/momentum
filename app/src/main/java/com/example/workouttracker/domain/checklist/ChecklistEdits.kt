@@ -272,12 +272,12 @@ private fun ChecklistConfiguration.edited(edit: ChecklistEdit, today: LocalDate,
     }
     is ChecklistEdit.SetItemCheckpoints -> {
         edit.checkpoints?.let { requireLive(it, today) }
-        copy(items = items.changing(edit.itemId, today) { it.copy(checkpoints = edit.checkpoints) })
+        copy(items = items.changing(edit.itemId, today, target) { it.copy(checkpoints = edit.checkpoints) })
     }
     is ChecklistEdit.SetTarget -> withTarget(edit.target, today)
-    is ChecklistEdit.SetItemTarget -> copy(items = items.changing(edit.itemId, today) { it.withTarget(edit.target, default = target) })
-    is ChecklistEdit.SetItemAwayTimes -> copy(items = items.changing(edit.itemId, today) { it.copy(awayTimes = edit.times) })
-    is ChecklistEdit.SetItemSeason -> copy(items = items.changing(edit.itemId, today) { it.copy(months = edit.months) })
+    is ChecklistEdit.SetItemTarget -> copy(items = items.changing(edit.itemId, today, target) { it.withTarget(edit.target, default = target) })
+    is ChecklistEdit.SetItemAwayTimes -> copy(items = items.changing(edit.itemId, today, target) { it.copy(awayTimes = edit.times) })
+    is ChecklistEdit.SetItemSeason -> copy(items = items.changing(edit.itemId, today, target) { it.copy(months = edit.months) })
     is ChecklistEdit.RemoveItem -> {
         require(liveItems(today).size > 1) { "Checklist $id keeps an item." }
         copy(items = items.ending(edit.itemId, today))
@@ -356,24 +356,18 @@ private fun ChecklistItem.withTarget(target: ChecklistTarget?, default: Checklis
 /**
  * The checklist's target changed to [updated] from [today] on. What is due is dated, so every entry
  * that followed the old target keeps it as its own before the following ones change: an earlier
- * day never reads the new one. An item already asking for [updated] on its own follows the
- * checklist again, which changes no day.
+ * day never reads the new one. An item with a target of its own keeps it. An ended entry that now
+ * asks what the checklist asks follows it again, which changes no day, so a change undone on the
+ * day it was made leaves the checklist as it was.
  */
 private fun ChecklistConfiguration.withTarget(updated: ChecklistTarget, today: LocalDate): ChecklistConfiguration {
     if (updated == target) return this
-    val live = liveItems(today)
-    val following = live.filter { it.target == null }.mapTo(HashSet()) { it.id }
-    val asking = live.filter { it.target == updated }.toSet()
-    val pinned = items.map {
-        when {
-            it in asking -> it.copy(target = null)
-            it.target == null -> it.copy(target = target)
-            else -> it
-        }
-    }
+    val following = liveItems(today).filter { it.target == null }.map { it.id }
+    val pinned = items.map { if (it.target == null) it.copy(target = target) else it }
+    val changed = following.fold(pinned) { entries, itemId -> entries.changing(itemId, today, updated) { it.withTarget(null, default = updated) } }
     return copy(
         target = updated,
-        items = following.fold(pinned) { entries, itemId -> entries.changing(itemId, today) { it.withTarget(null, default = updated) } },
+        items = changed.map { if (it.until != null && it.until < today && it.target == updated) it.copy(target = null) else it },
     )
 }
 
@@ -403,7 +397,7 @@ private fun ChecklistConfiguration.removingCheckpoint(checkpointId: String, toda
     require(canRemoveCheckpoint(checkpointId, today)) { "Checklist $id keeps a checkpoint and an item." }
     val remaining = liveItems(today).filter { it.checkpoints?.contains(checkpointId) == true }.fold(items) { items, item ->
         val others = item.checkpoints.orEmpty() - checkpointId
-        if (others.isEmpty()) items.ending(item.id, today) else items.changing(item.id, today) { it.copy(checkpoints = others) }
+        if (others.isEmpty()) items.ending(item.id, today) else items.changing(item.id, today, target) { it.copy(checkpoints = others) }
     }
     val startsToday = checkpoint.from != null && checkpoint.from >= today
     return copy(
@@ -420,7 +414,7 @@ private fun ChecklistConfiguration.removingCheckpoint(checkpointId: String, toda
  * Changes what an item asks for from [today] on: its entry ends yesterday and a new one with the
  * same ID starts today, so earlier days keep the entry they were judged by.
  */
-private fun List<ChecklistItem>.changing(itemId: String, today: LocalDate, change: (ChecklistItem) -> ChecklistItem): List<ChecklistItem> {
+private fun List<ChecklistItem>.changing(itemId: String, today: LocalDate, listTarget: ChecklistTarget, change: (ChecklistItem) -> ChecklistItem): List<ChecklistItem> {
     val live = filter { it.id == itemId }.liveEntry(today) ?: error("No item $itemId in use.")
     val changed = change(live)
     if (changed == live) return this
@@ -429,7 +423,7 @@ private fun List<ChecklistItem>.changing(itemId: String, today: LocalDate, chang
     } else {
         listOf(live.copy(until = today.minusDays(1)), changed.copy(from = today))
     }
-    return flatMap { if (it == live) replacement else listOf(it) }.mergingAdjacent(itemId)
+    return flatMap { if (it == live) replacement else listOf(it) }.mergingAdjacent(itemId, listTarget)
 }
 
 /** Ends an item after yesterday, or drops its entry if it only started today. Its records stay. */
@@ -445,16 +439,17 @@ private fun List<ChecklistItem>.liveEntry(today: LocalDate): ChecklistItem? =
 
 /**
  * Two entries of one item that follow each other and ask for the same become one again, as when a
- * change is undone on the day it was made.
+ * change is undone on the day it was made. A target is compared as [listTarget] makes it, so an
+ * entry that follows the checklist joins one that asked the same on its own, and follows it.
  */
-private fun List<ChecklistItem>.mergingAdjacent(itemId: String): List<ChecklistItem> {
+private fun List<ChecklistItem>.mergingAdjacent(itemId: String, listTarget: ChecklistTarget): List<ChecklistItem> {
     val entries = filter { it.id == itemId }.sortedBy { it.from ?: LocalDate.MIN }
     val merged = entries.fold(mutableListOf<ChecklistItem>()) { kept, entry ->
         val previous = kept.lastOrNull()
         if (previous != null && previous.until != null && entry.from == previous.until.plusDays(1) &&
-            previous.copy(from = null, until = null) == entry.copy(from = null, until = null)
+            previous.copy(from = null, until = null, target = previous.target ?: listTarget) == entry.copy(from = null, until = null, target = entry.target ?: listTarget)
         ) {
-            kept[kept.lastIndex] = previous.copy(until = entry.until)
+            kept[kept.lastIndex] = previous.copy(until = entry.until, target = entry.target)
         } else {
             kept += entry
         }

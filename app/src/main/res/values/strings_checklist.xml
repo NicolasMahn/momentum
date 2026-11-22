@@ -23,11 +23,8 @@
     <!-- Under a daily or some-days item that asks fewer times on holiday, on an away day. %1$d: away days done this week so far, %2$d: away days the week asks for. -->
     <string name="checklist_item_away_week">%1$d of %2$d on holiday this week</string>
     <string name="checklist_item_away_week_due">%1$d of %2$d on holiday this week · due today</string>
-    <!-- Under an item due a number of times a week in a week that asks nothing of it yet, as the week it was added in. %d: how many times a week. -->
-    <plurals name="checklist_item_week_from_monday">
-        <item quantity="one">From Monday, once a week</item>
-        <item quantity="other">From Monday, %d times a week</item>
-    </plurals>
+    <!-- Under an item due a number of times a week in a week that asks nothing of it, as the week it was added in. -->
+    <string name="checklist_item_week_not_due">Not due this week</string>
     <!-- The selected day has no item to tick: every item is out of season or ended. -->
     <string name="checklist_nothing_due">Nothing to tick off on this day.</string>
     <!-- What TalkBack says of an item that logs only misses: counted as done until it is marked missed, which is quieter than a tick. -->

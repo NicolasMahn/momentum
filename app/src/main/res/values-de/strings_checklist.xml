@@ -14,10 +14,7 @@
     <string name="checklist_item_week_due">%1$d von %2$d diese Woche · heute fällig</string>
     <string name="checklist_item_away_week">%1$d von %2$d im Urlaub diese Woche</string>
     <string name="checklist_item_away_week_due">%1$d von %2$d im Urlaub diese Woche · heute fällig</string>
-    <plurals name="checklist_item_week_from_monday">
-        <item quantity="one">Ab Montag einmal pro Woche</item>
-        <item quantity="other">Ab Montag %d-mal pro Woche</item>
-    </plurals>
+    <string name="checklist_item_week_not_due">Diese Woche nicht fällig</string>
     <string name="checklist_nothing_due">An diesem Tag gibt es nichts abzuhaken.</string>
     <string name="checklist_item_assumed_done">Als erledigt angenommen</string>
     <string name="checklist_item_missed">Verpasst</string>

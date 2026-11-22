@@ -75,6 +75,11 @@ internal abstract class SettingsDraft<S, E>(
         }
         .isSuccess
 
+    /** Keeps [edit] in place of the last edit, which it overrides, unless [applied] refuses it as [keep] would. */
+    protected fun keepInstead(edit: E, applied: () -> S): Boolean = runCatching(applied)
+        .onSuccess { edits = edits.dropLast(1) + edit }
+        .isSuccess
+
     /** The edits were stored, so nothing is left to save. A kind that keeps typed text beside them lets it go here too. */
     open fun saved() {
         edits = emptyList()

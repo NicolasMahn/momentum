@@ -182,9 +182,17 @@ internal class ChecklistDraft(
     fun draft(today: LocalDate, recordedDates: Set<LocalDate>): ChecklistConfiguration =
         stored.applyingEdits(edits, today, recordedDates)
 
-    /** Whether the draft takes [edit], which it refuses as the stored configuration would. */
+    /**
+     * Whether the draft takes [edit], which it refuses as the stored configuration would. A rhythm
+     * chosen right after another replaces it: choosing Weekly and then 5 is one change, so a holiday
+     * rule or only misses that Weekly 1 cannot hold is not lost on the way.
+     */
     fun edit(edit: ChecklistEdit, today: LocalDate, recordedDates: Set<LocalDate>): Boolean =
-        keep(edit) { draft(today, recordedDates).applyEdit(edit, today, recordedDates) }
+        if (edit is ChecklistEdit.SetTarget && edits.lastOrNull() is ChecklistEdit.SetTarget) {
+            keepInstead(edit) { stored.applyingEdits(edits.dropLast(1) + edit, today, recordedDates) }
+        } else {
+            keep(edit) { draft(today, recordedDates).applyEdit(edit, today, recordedDates) }
+        }
 
     /** The stored configuration as it is now; the edits are shown over it from here on. */
     fun follow(current: ChecklistConfiguration) {
@@ -513,7 +521,8 @@ internal fun ChecklistPageContent(
                 // the Items page is here as it is now.
                 val items = checklist.liveItems(today)
                 // What the page opened on, which Save compares against; an item added on the page has only itself.
-                val opened = form.stored.liveItems(today).associateBy { it.id }
+                // Read against the stored rhythm, so a rhythm chosen on the page does not change what it opened on.
+                val opened = form.stored.liveItems(today).associate { it.id to it.copy(target = it.target ?: form.stored.target) }
                 val holidayChoices = items.associate { it.id to awayOptionsOf(it, opened[it.id] ?: it, checklist.target, today) }
                 // Whether an item counts without an entry also decides what the day's screen and
                 // the reminders ask, so the choice stands whether or not the checklist counts
@@ -1213,8 +1222,8 @@ internal fun AboutEditor(
 
 /**
  * How often every item of a plain checklist is due: daily, or a number of times a week on any days.
- * An item can still differ under its own "When it's due". The count row keeps its space while the
- * checklist is daily, so choosing weekly moves nothing below it. A checklist stored on chosen
+ * An item can still differ under its own "When it's due". The count row and the note keep their
+ * space while the checklist is daily, so choosing weekly moves nothing below them. A checklist stored on chosen
  * weekdays shows neither choice selected until one is made.
  */
 @Composable
@@ -1245,13 +1254,18 @@ private fun RhythmEditor(target: ChecklistTarget, onChoose: (ChecklistTarget) ->
             onChoose = { times -> onChoose(ChecklistTarget.PerWeek(times)).let { true } },
             shown = { weekly != null },
         )
-        EditorNote(
+        val daily = stringResource(R.string.checklist_editor_rhythm_daily_note)
+        val weeklyNotes = (1..DaysPerWeek).map { pluralStringResource(R.plurals.checklist_editor_rhythm_weekly_note, it, it) }
+        ReservedMessage(
             text = when {
-                weekly != null -> pluralStringResource(R.plurals.checklist_editor_rhythm_weekly_note, weekly.times, weekly.times)
-                target == ChecklistTarget.PerDay -> stringResource(R.string.checklist_editor_rhythm_daily_note)
-                else -> ""
+                weekly != null -> weeklyNotes[weekly.times - 1]
+                target == ChecklistTarget.PerDay -> daily
+                else -> null
             },
             testTag = "checklist_editor_rhythm_note",
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            reserving = weeklyNotes + daily,
+            announced = false,
         )
     }
 }

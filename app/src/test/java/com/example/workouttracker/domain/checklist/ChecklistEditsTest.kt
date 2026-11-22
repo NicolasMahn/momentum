@@ -99,17 +99,15 @@ class ChecklistEditsTest {
         assertEquals(saturdays, changed.medication.liveItems(today).single { it.id == "levo" }.target)
         assertEquals(listOf(null, null), changed.medication.liveItems(today).filter { it.id != "levo" }.map { it.target })
 
-        // Back to daily on the same day, every day reads as before the change.
-        val back = changed.edit(ChecklistEdit.SetTarget(ChecklistTarget.PerDay))
-        listOf(yesterday, today, today.plusDays(3)).forEach { day -> assertEquals(own.dueOn(day), back.dueOn(day)) }
-        assertEquals(emptyList<WeekItemRules>(), back.medication.rulesOn(today).weekItems)
+        // Back to daily on the same day, the checklist is as it was, so no entry splits a week that was judged whole.
+        assertEquals(own, changed.edit(ChecklistEdit.SetTarget(ChecklistTarget.PerDay)))
     }
 
-    @Test fun anItemAskingWhatTheChecklistNowAsksFollowsItAgain() {
-        val weekly = ChecklistTarget.PerWeek(times = 3)
-        val changed = state.edit(ChecklistEdit.SetItemTarget("ibu", weekly), on = yesterday).edit(ChecklistEdit.SetTarget(weekly))
-        assertEquals(null, changed.medication.liveItems(today).single { it.id == "ibu" }.target)
-        assertEquals(state.dueOn(yesterday.minusDays(1)), changed.dueOn(yesterday.minusDays(1)))
+    @Test fun anItemsOwnTargetStaysWhenTheChecklistAsksTheSameAndThenChanges() {
+        val once = ChecklistTarget.PerWeek(times = 1)
+        val own = state.edit(ChecklistEdit.SetItemTarget("ibu", once), on = yesterday)
+        val changed = own.edit(ChecklistEdit.SetTarget(once), ChecklistEdit.SetTarget(ChecklistTarget.PerWeek(times = 3)))
+        assertEquals(once, changed.medication.liveItems(today).single { it.id == "ibu" }.target)
     }
 
     @Test fun aWeekTargetAndItsAwayNumberAreDatedLikeAnyTarget() {
