@@ -16,11 +16,14 @@ import kotlinx.coroutines.flow.asStateFlow
  * The one route recording of the app, whichever activity it is of. The screen starts, pauses,
  * resumes, saves and discards it; [RouteRecordingService] feeds it the phone's fixes while it runs.
  *
- * Every change is written to a file at once, so a recording outlives the app being stopped by the
+ * Every kept point and every start, pause and resume is written to a file at once, so a recording outlives the app being stopped by the
  * system. A recording read back from that file is paused: nothing was measuring while the app was
  * gone, and only the person can say whether to go on.
  */
 internal class RouteRecorder private constructor(private val journal: File) {
+    /** Where the next version of [journal] is written before it takes the file's place. */
+    private val nextJournal = File(journal.path + ".new")
+
     private val current = MutableStateFlow(readJournal())
 
     val recording: StateFlow<RouteRecording?> = current.asStateFlow()
@@ -68,7 +71,7 @@ internal class RouteRecorder private constructor(private val journal: File) {
         lastFix.value = null
         unsaved.value = false
         journal.delete()
-        File(journal.path + ".new").delete()
+        nextJournal.delete()
     }
 
     @Synchronized
@@ -85,12 +88,11 @@ internal class RouteRecorder private constructor(private val journal: File) {
      * panel can say the recording is not kept.
      */
     private fun writeSynced(bytes: ByteArray) {
-        val next = File(journal.path + ".new")
-        FileOutputStream(next).use { stream ->
+        FileOutputStream(nextJournal).use { stream ->
             stream.write(bytes)
             stream.fd.sync()
         }
-        check(next.renameTo(journal)) { "The recording's file could not take the new version" }
+        check(nextJournal.renameTo(journal)) { "The recording's file could not take the new version" }
     }
 
     private fun readJournal(): RouteRecording? = runCatching {

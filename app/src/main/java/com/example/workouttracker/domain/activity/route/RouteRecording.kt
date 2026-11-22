@@ -23,6 +23,8 @@ data class RouteRecording(
      * reachable from it. It only steers the judging, so the recorder's file leaves it out.
      */
     val lastSeen: RoutePoint? = null,
+    /** The seconds of the last fix taken in at all, refused ones included: a spike of two fixes is judged a second apart, not two. */
+    val lastFixSecondsIn: Long? = null,
 ) {
     fun secondsIn(timeMillis: Long): Long = ((timeMillis - startedAtMillis) / 1000).coerceAtLeast(0)
 
@@ -48,17 +50,19 @@ data class RouteRecording(
         // Time runs forward across stretches too, whatever the clock did meanwhile.
         if (last != null && point.secondsIn < last.secondsIn) return this
         if (last != null && !stretchEnded) {
-            val previous = lastSeen?.takeIf { it.secondsIn >= last.secondsIn } ?: last
-            val seconds = (point.secondsIn - previous.secondsIn).coerceAtLeast(1)
+            val previous = lastSeen ?: last
+            val seconds = (point.secondsIn - maxOf(previous.secondsIn, lastFixSecondsIn ?: previous.secondsIn)).coerceAtLeast(1)
             if (metersBetween(previous, point) > MaxMetersPerSecond * seconds) {
-                if (jumpsInARow + 1 < JumpsToReanchor) return copy(jumpsInARow = jumpsInARow + 1)
+                if (jumpsInARow + 1 < JumpsToReanchor) return copy(jumpsInARow = jumpsInARow + 1, lastFixSecondsIn = point.secondsIn)
                 val kept = Route(route.stretches.filterNot { it.size == 1 && it.single() == last })
-                return copy(route = kept.adding(point, newStretch = true), stretchEnded = false, jumpsInARow = 0, lastSeen = point)
+                return copy(route = kept.adding(point, newStretch = true), stretchEnded = false, jumpsInARow = 0, lastSeen = point, lastFixSecondsIn = point.secondsIn)
             }
             // Inside the circle: it agrees with the last point, so jumps before it were stray ones.
-            if (metersBetween(last, point) < maxOf(MinStepMeters, fix.accuracyMeters.toDouble())) return copy(jumpsInARow = 0, lastSeen = point)
+            if (metersBetween(last, point) < maxOf(MinStepMeters, fix.accuracyMeters.toDouble())) {
+                return copy(jumpsInARow = 0, lastSeen = point, lastFixSecondsIn = point.secondsIn)
+            }
         }
-        return copy(route = route.adding(point, newStretch = stretchEnded), stretchEnded = false, jumpsInARow = 0, lastSeen = point)
+        return copy(route = route.adding(point, newStretch = stretchEnded), stretchEnded = false, jumpsInARow = 0, lastSeen = point, lastFixSecondsIn = point.secondsIn)
     }
 
     fun pausing(): RouteRecording = copy(paused = true, stretchEnded = true)

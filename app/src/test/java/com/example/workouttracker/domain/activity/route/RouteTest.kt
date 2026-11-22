@@ -87,6 +87,14 @@ class RouteTest {
     }
 
     @Test
+    fun aSpikeOfTwoFixesIsDropped() {
+        // A phone lying still reports 0, 55, 55, 0, 0 m a second apart.
+        val still = recorded(north(0.0, 0), north(55.0, 1), north(55.0, 2), north(0.0, 3), north(0.0, 4)).route
+        assertEquals(0.0, still.distanceMeters, 0.0)
+        assertEquals(1, still.points.size)
+    }
+
+    @Test
     fun aSlowClimbKeepsItsTime() {
         val climb = recorded(*(0..100).map { north(it * 0.6, it.toLong()) }.toTypedArray()).route
         // Every step of it is moving, from the start to the last point kept.
