@@ -1,7 +1,9 @@
 package com.example.workouttracker.feature.mo.acts
 
-import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.PathOperation
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import com.example.workouttracker.core.ui.theme.MoFlameBelly
 import com.example.workouttracker.core.ui.theme.MoPropBlueDark
@@ -539,8 +541,11 @@ private object TooHotToCry : MoAct("angry_too_hot_to_cry", MoOccasion.Angry) {
             val u = cycle(t, period, offset = if ((side < 0f) == leftFirst) 0.2f else 0.7f)
             val wells = eye + Offset(side * r * 0.5f, r * 0.72f)
             val fizzes = wells + Offset(side * 3f, 26f)
-            // The eye it came from stays brimful the whole time.
-            oval(eye + Offset(side * r * 0.2f, r * 0.84f), r * 0.55f, 4.5f, MoTear)
+            // The eye it came from stays brimful the whole time. The water lies along the bottom
+            // of it, inside its rim and deepest in the middle, so it is in his eye and not across it.
+            val rim = Path().apply { addOval(Rect(eye, r)) }
+            val dry = Path().apply { addOval(Rect(eye.x - r * 1.49f, eye.y - r * 1.46f, eye.x + r * 1.49f, eye.y + r * 0.66f)) }
+            drawPath(Path.combine(PathOperation.Difference, rim, dry), MoTear)
             if (u < ROLLS) {
                 drop(mix(wells, fizzes, ease(u / ROLLS)), 7f * min(1f, u * 8f), MoTear)
             } else {
@@ -552,7 +557,9 @@ private object TooHotToCry : MoAct("angry_too_hot_to_cry", MoOccasion.Angry) {
                 }
                 // It swings out round the eye before it rises, so it never crosses it.
                 val at = fizzes + Offset(side * (30f * ease(w * 2f) + 12f * w), 6f - 86f * w)
-                puff(at, steam * (0.6f + 0.6f * w), MoPropWhite.copy(alpha = 1f - w * w))
+                val size = steam * (0.6f + 0.6f * w)
+                // As one shape: three circles each at their own alpha show where they overlap.
+                fading(1f - w * w, Rect(at, size * 1.3f)) { puff(at, size, MoPropWhite) }
             }
         }
         angerMark(Offset(CENTRE + 74f, rig.body.top + 96f), 0.75f)
