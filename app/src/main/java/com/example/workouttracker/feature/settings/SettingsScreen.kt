@@ -29,6 +29,7 @@ import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.rounded.Bedtime
 import androidx.compose.material.icons.rounded.CloudUpload
+import androidx.compose.material.icons.rounded.Feedback
 import androidx.compose.material.icons.rounded.Luggage
 import androidx.compose.material.icons.rounded.Notifications
 import androidx.compose.material.icons.rounded.Sick
@@ -57,6 +58,7 @@ import com.example.workouttracker.feature.tracker.TrackerVisibilityFlow
 import com.example.workouttracker.feature.tracker.TrackerVisibilityEffect
 import com.example.workouttracker.feature.tracker.trackerRef
 import com.example.workouttracker.feature.about.AboutPage
+import com.example.workouttracker.feature.about.FeedbackPage
 import com.example.workouttracker.feature.about.LegalText
 import com.example.workouttracker.feature.about.LegalTextPage
 import com.example.workouttracker.feature.about.LicensePage
@@ -857,6 +859,13 @@ internal fun SettingsScreen(
                             onClick = { onOpenPage(SettingsPage.Reminders) },
                             testTag = "settings_open_reminders",
                         )
+                        SettingsLinkRow(
+                            icon = Icons.Rounded.Feedback,
+                            title = stringResource(R.string.feedback_title),
+                            summary = stringResource(R.string.feedback_summary),
+                            onClick = { onOpenPage(SettingsPage.Feedback) },
+                            testTag = "settings_open_feedback",
+                        )
 
                         Spacer(Modifier.height(8.dp))
                         viewList(false)
@@ -947,6 +956,8 @@ internal fun SettingsScreen(
                         onOpenLegalNotice = { onOpenPage(SettingsPage.LegalNotice) },
                         onOpenComponent = { onOpenPage(SettingsPage.License(it.name)) },
                     )
+
+                    SettingsPage.Feedback -> FeedbackPage()
 
                     SettingsPage.Privacy -> LegalTextPage(LegalText.PrivacyPolicy)
 

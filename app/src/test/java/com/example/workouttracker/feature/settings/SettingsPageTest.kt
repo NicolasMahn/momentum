@@ -34,6 +34,7 @@ class SettingsPageTest {
             SettingsPage.NewTracker(TrackerTypeId("counter")),
             SettingsPage.Substances,
             SettingsPage.About,
+            SettingsPage.Feedback,
             SettingsPage.Privacy,
             SettingsPage.LegalNotice,
             SettingsPage.License("Nunito"),

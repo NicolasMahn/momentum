@@ -15,4 +15,18 @@
     <string name="about_license_title">License</string>
     <!-- Opens the component's repository or website in the browser. -->
     <string name="about_license_source">Project page</string>
+    <!-- The Settings row and the header of the page it opens: two ways to reach the developer. -->
+    <string name="feedback_title">Feedback</string>
+    <string name="feedback_summary">A problem, an idea, or just a word</string>
+    <string name="feedback_issue_title">Report a problem or idea</string>
+    <!-- Where the report is written; issues there are public. -->
+    <string name="feedback_issue_summary">On GitHub</string>
+    <!-- %1$s: the app version, Android version and phone model, one per line. -->
+    <string name="feedback_issue_body">What happened?\n\n\nWhat did you expect?\n\n\n---\n%1$s</string>
+    <string name="feedback_mail_title">Write an email</string>
+    <string name="feedback_mail_summary">For anything else</string>
+    <string name="feedback_mail_subject">Momentum feedback</string>
+    <!-- %1$s: the app version, Android version and phone model, one per line. -->
+    <string name="feedback_mail_body">\n\n\n---\n%1$s</string>
+    <string name="feedback_facts_note">Both add the app version and your phone model, nothing you have recorded.</string>
 </resources>

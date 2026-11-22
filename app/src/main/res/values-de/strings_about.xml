@@ -7,4 +7,14 @@
     <string name="about_licenses_title">Open-Source-Lizenzen</string>
     <string name="about_license_title">Lizenz</string>
     <string name="about_license_source">Projektseite</string>
+    <string name="feedback_title">Feedback</string>
+    <string name="feedback_summary">Ein Problem, eine Idee oder einfach ein Wort</string>
+    <string name="feedback_issue_title">Problem oder Idee melden</string>
+    <string name="feedback_issue_summary">Auf GitHub</string>
+    <string name="feedback_issue_body">Was ist passiert?\n\n\nWas hast du erwartet?\n\n\n---\n%1$s</string>
+    <string name="feedback_mail_title">E-Mail schreiben</string>
+    <string name="feedback_mail_summary">Für alles andere</string>
+    <string name="feedback_mail_subject">Feedback zu Momentum</string>
+    <string name="feedback_mail_body">\n\n\n---\n%1$s</string>
+    <string name="feedback_facts_note">Beides enthält die App-Version und dein Handymodell, nichts, was du aufgezeichnet hast.</string>
 </resources>
