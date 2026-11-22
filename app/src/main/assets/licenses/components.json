@@ -79,7 +79,7 @@
       "name": "MapLibre Native for Android",
       "license": "bsd-2-clause-maplibre",
       "source": "https://github.com/maplibre/maplibre-native",
-      "maven": ["org.maplibre.gl:android-sdk", "org.maplibre.gl:android-sdk-geojson", "org.maplibre.gl:android-sdk-turf"]
+      "maven": ["org.maplibre.gl:android-sdk-opengl", "org.maplibre.gl:android-sdk-geojson", "org.maplibre.gl:android-sdk-turf"]
     },
     {
       "name": "Material Design Icons by Pictogrammers",

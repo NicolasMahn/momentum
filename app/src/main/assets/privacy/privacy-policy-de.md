@@ -41,7 +41,7 @@ Eine Strecke gehört zu deinen Einträgen, sie ist also auch in diesen Kopien.
 
 ## Die Karte einer Strecke
 
-Zeigt Momentum eine Strecke auf einer Karte, lädt es die Kartenbilder (Kacheln) für diese Gegend von momentum.nicolas-mahn.de, meinem Server, gemietet bei der Hetzner Online GmbH in Finnland. Um sie zu liefern, bekommt der Server die Internetadresse deines Handys und welche Kacheln es anfragt; daran lässt sich ungefähr die Gegend ablesen, die die Karte zeigt. Die Strecke, deine Einträge oder etwas, das dich nennt, bekommt er nicht. Der Server speichert diese Anfragen nicht. Die App behält gezeigte Kacheln eine Weile, damit eine Karte, die du schon gesehen hast, nicht erneut anfragt. Die Kartendaten sind © OpenStreetMap-Mitwirkende.
+Zeigt Momentum eine Strecke auf einer Karte, lädt es die Kartenbilder (Kacheln) für diese Gegend von momentum.nicolas-mahn.de, meinem Server, gemietet bei der Hetzner Online GmbH in Finnland. Um sie zu liefern, bekommt der Server die Internetadresse deines Handys und welche Kacheln es anfragt; daran lässt sich ungefähr die Gegend ablesen, die die Karte zeigt. Während du mit eingeschaltetem Bildschirm aufzeichnest, folgt die Karte dir, und damit folgen diese Anfragen deinem Weg. Die Strecke, deine Einträge oder etwas, das dich nennt, bekommt er nicht. Der Server speichert diese Anfragen nicht. Die App behält gezeigte Kacheln eine Weile, damit eine Karte, die du schon gesehen hast, nicht erneut anfragt. Die Kartendaten sind © OpenStreetMap-Mitwirkende.
 
 Eine Karte wird nur geladen, wenn du eine Strecke aufzeichnest oder eine aufgezeichnete öffnest. Ohne Internetverbindung siehst du die Strecke trotzdem, nur ohne Karte darunter.
 
@@ -56,7 +56,7 @@ Erinnerungen entstehen auf deinem Handy. Eine Erinnerung kann den Namen dessen z
 - Start nach dem Neustart des Handys: um deine Erinnerungen wieder einzurichten.
 - Zugriff auf „Bitte nicht stören“: nur, wenn du ihn erlaubst. Momentum kann dann „Bitte nicht stören“ einschalten, solange ein Timer läuft, und es danach zurückstellen.
 - Standort, genau, während die App genutzt wird: nur, wenn du ihn erlaubst, um eine Strecke aufzuzeichnen. Im Hintergrund fragt Momentum nie nach dem Standort. Während eine Aufzeichnung läuft, zeigt eine Benachrichtigung sie an; dadurch läuft sie auch bei ausgeschaltetem Bildschirm weiter.
-- Internet: um die Kartenbilder einer Strecke zu laden.
+- Internet und Netzwerkstatus: um die Kartenbilder einer Strecke zu laden und zu wissen, ob sie laden können.
 
 Den Ordner für Sicherungen wählst du über die Dateiauswahl von Android, deshalb braucht die App keine Speicher-Berechtigung.
 

@@ -370,11 +370,13 @@ internal fun ActivityLogScreen(
         if (result is RecordActivityResult.Success && onStateChange(result.state)) {
             recorder.clear()
             routeMessage = null
-            selectedDateKey = dateKey
+            // The run's day is shown, unless a record opened for editing before the run still waits
+            // under the panel: its day is the one it is saved on.
+            if (editingEntryId == null && openDay == null) selectedDateKey = dateKey
             saveCelebrationSignal += 1
         } else {
             // Kept, paused, so nothing of the run is lost: Finish can be tried again, or the recording discarded.
-            routeMessage = if ((result as? RecordActivityResult.Invalid)?.problem == ActivityProblem.NotFound) R.string.activity_route_activity_gone else R.string.activity_save_failed
+            routeMessage = R.string.activity_save_failed
         }
     }
 

@@ -217,9 +217,8 @@
     <string name="activity_route_kilometers">%s km</string>
     <!-- %1$s: minutes and seconds a kilometre took, for example "5:32"; %2$s: kilometres an hour, for example "10.8". -->
     <string name="activity_route_pace_and_speed">%1$s /km · %2$s km/h</string>
-    <string name="activity_route_location_needed">Allow location for Momentum to record the route.</string>
+    <string name="activity_route_location_needed">Allow precise location for Momentum to record the route, in the phone\'s settings if it no longer asks.</string>
     <string name="activity_route_location_off">Turn on location to record the route.</string>
-    <string name="activity_route_activity_gone">This activity was removed. Discard the recording, or bring the activity back in Settings.</string>
     <!-- Under every route map: the map data's licence asks for it. -->
     <string name="activity_route_map_attribution">© OpenStreetMap contributors</string>
     <!-- The quiet button that opens a recorded entry's numbers and map. %s: the activity's name. -->
@@ -237,5 +236,5 @@
     </plurals>
     <!-- On an activity's settings page. -->
     <string name="activity_settings_records_route">Record the route with GPS</string>
-    <string name="activity_settings_records_route_note">Today\'s log then offers Start recording: distance, time, pace and the route on a map. The route stays on this phone. The map is loaded from Momentum\'s server, which sees the area it shows.</string>
+    <string name="activity_settings_records_route_note">Today\'s log then offers Start recording: distance, time, pace and the route on a map. The route is kept with your records and never sent to the map server. The map is loaded from Momentum\'s server, which sees the area it shows.</string>
 </resources>

@@ -41,7 +41,7 @@ A route is part of your records, so it is in these copies too.
 
 ## The route map
 
-When Momentum shows a route on a map, it loads the map images (tiles) for that area from momentum.nicolas-mahn.de, my server, rented from Hetzner Online GmbH in Finland. To deliver them, the server receives your phone's internet address and which tiles it asks for, which shows roughly the area the map shows. It does not receive the route, your records or anything that names you. The server keeps no log of these requests. The app keeps tiles it has shown for a while, so a map you saw before does not ask again. The map data is © OpenStreetMap contributors.
+When Momentum shows a route on a map, it loads the map images (tiles) for that area from momentum.nicolas-mahn.de, my server, rented from Hetzner Online GmbH in Finland. To deliver them, the server receives your phone's internet address and which tiles it asks for, which shows roughly the area the map shows. While you record with the screen on, the map follows you, so these requests follow where you are. It does not receive the route, your records or anything that names you. The server keeps no log of these requests. The app keeps tiles it has shown for a while, so a map you saw before does not ask again. The map data is © OpenStreetMap contributors.
 
 No map is loaded unless you record a route or open one you recorded. Without an internet connection the route still shows, without the map under it.
 
@@ -56,7 +56,7 @@ Reminders are created on your phone. A reminder can show the name of what it is 
 - Start after the phone restarts: to set your reminders again.
 - Do Not Disturb access: only if you allow it. Momentum can then switch Do Not Disturb on while a timer runs and put it back when you finish.
 - Location, precise, while the app is in use: only if you allow it, to record a route. Momentum never asks for location in the background. While a recording runs, a notification shows it, which lets the recording go on with the screen off.
-- Internet: to load the route map's images.
+- Internet and network state: to load the route map's images, and to know whether they can load.
 
 The backup folder is chosen through Android's own file picker, so the app needs no storage permission.
 

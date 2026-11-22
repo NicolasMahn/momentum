@@ -10,6 +10,9 @@ services:
     volumes:
       - ./data:/data:ro
     restart: unless-stopped
+    # Not even an error may keep which tiles were asked for: they say where someone was.
+    logging:
+      driver: none
     networks: [edge]
 
 networks:

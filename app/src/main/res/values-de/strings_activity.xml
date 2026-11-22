@@ -185,9 +185,8 @@
     <string name="activity_route_searching">%s · GPS wird gesucht …</string>
     <string name="activity_route_kilometers">%s km</string>
     <string name="activity_route_pace_and_speed">%1$s /km · %2$s km/h</string>
-    <string name="activity_route_location_needed">Erlaube Momentum den Standort, um die Strecke aufzuzeichnen.</string>
+    <string name="activity_route_location_needed">Erlaube Momentum den genauen Standort, um die Strecke aufzuzeichnen, in den Einstellungen des Handys, wenn es nicht mehr fragt.</string>
     <string name="activity_route_location_off">Schalte den Standort ein, um die Strecke aufzuzeichnen.</string>
-    <string name="activity_route_activity_gone">Diese Aktivität wurde entfernt. Verwirf die Aufzeichnung oder hol die Aktivität in den Einstellungen zurück.</string>
     <string name="activity_route_map_attribution">© OpenStreetMap-Mitwirkende</string>
     <string name="activity_entry_show_route">Strecke von %s einblenden</string>
     <string name="activity_entry_hide_route">Strecke von %s ausblenden</string>
@@ -200,5 +199,5 @@
         <item quantity="other">%d Min.</item>
     </plurals>
     <string name="activity_settings_records_route">Strecke per GPS aufzeichnen</string>
-    <string name="activity_settings_records_route_note">Der heutige Eintrag bietet dann „Aufzeichnung starten“: Strecke, Zeit, Pace und der Weg auf einer Karte. Die Strecke bleibt auf diesem Handy. Die Karte kommt von Momentums Server, der den gezeigten Ausschnitt sieht.</string>
+    <string name="activity_settings_records_route_note">Der heutige Eintrag bietet dann „Aufzeichnung starten“: Strecke, Zeit, Pace und der Weg auf einer Karte. Die Strecke bleibt bei deinen Einträgen und geht nie an den Kartenserver. Die Karte kommt von Momentums Server, der den gezeigten Ausschnitt sieht.</string>
 </resources>

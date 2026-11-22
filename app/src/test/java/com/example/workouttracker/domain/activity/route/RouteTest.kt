@@ -42,6 +42,21 @@ class RouteTest {
     }
 
     @Test
+    fun wanderingWithinTheFixesAccuracyIsNotMovement() {
+        // Standing still with a phone sure only to 12 m: fixes jump 6 to 10 m each second.
+        val wander = (1..30).map { north(if (it % 2 == 0) 0.0 else 6.0 + it % 5, it.toLong(), accuracy = 12f) }
+        val standing = recorded(north(0.0, 0, accuracy = 12f), *wander.toTypedArray()).route
+        assertEquals(0.0, standing.distanceMeters, 0.0)
+        assertEquals(0L, standing.movingSeconds)
+    }
+
+    @Test
+    fun theFirstFixAfterAResumeBeginsTheNewStretchWhereverItIs() {
+        val resumed = recorded(north(0.0, 0), north(100.0, 30)).pausing().resuming().taking(north(101.0, 33))
+        assertEquals(listOf(listOf(0L, 30L), listOf(33L)), resumed.route.stretches.map { stretch -> stretch.map { it.secondsIn } })
+    }
+
+    @Test
     fun nothingIsMeasuredAcrossAPause() {
         val beforePause = recorded(north(0.0, 0), north(300.0, 90))
         val paused = beforePause.pausing()

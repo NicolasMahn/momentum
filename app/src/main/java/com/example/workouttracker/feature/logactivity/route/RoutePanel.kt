@@ -1,12 +1,11 @@
 package com.example.workouttracker.feature.logactivity.route
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Pause
-import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -37,7 +36,8 @@ import kotlinx.coroutines.delay
 /**
  * The recording under way, in place of the form while it lasts: what it is of, its distance and
  * moving time large, its pace and speed beside them, the route so far on the map, and what can be
- * done with it. Pause and Resume share one place, so the buttons never move under the thumb.
+ * done with it. Pause and Resume share one place, so the buttons never move under the thumb;
+ * Finish, the end of it all, is the one wide button under them.
  * Discard is the two-step remove every removal is. [message] says what the person must do for the
  * recording to measure, such as allow location, in the reserved line under the buttons.
  */
@@ -63,10 +63,11 @@ internal fun RoutePanel(
     }
     val route = recording.route
     // The live clock counts on between points while the runner moves, and learns of a stop only
-    // from the next point, seconds later. It holds what it showed rather than run backwards, and
-    // what is saved is the measured time.
+    // from the next point, seconds later. It holds what it showed rather than run backwards; paused,
+    // it shows the measured time that Finish saves.
     val shownMoving = remember(recording.startedAtMillis) { mutableLongStateOf(0L) }
-    val moving = maxOf(shownMoving.longValue, route.movingSecondsAt(recording.secondsIn(now), recording = !recording.paused))
+    val measured = route.movingSecondsAt(recording.secondsIn(now), recording = !recording.paused)
+    val moving = if (recording.paused) measured else maxOf(shownMoving.longValue, measured)
     SideEffect { shownMoving.longValue = moving }
     val searching = !recording.paused && (lastFixMillis == null || now - lastFixMillis > SearchingAfterMillis)
     val colors = LocalViewColors.current
@@ -88,16 +89,9 @@ internal fun RoutePanel(
             MomentumButton(
                 text = stringResource(if (recording.paused) R.string.activity_route_resume else R.string.activity_route_pause),
                 onClick = if (recording.paused) onResume else onPause,
-                icon = if (recording.paused) Icons.Rounded.PlayArrow else Icons.Rounded.Pause,
                 variant = MomentumButtonVariant.Secondary,
                 modifier = Modifier.weight(1f),
                 testTag = "activity_route_pause",
-            )
-            MomentumButton(
-                text = stringResource(R.string.activity_route_finish),
-                onClick = onFinish,
-                modifier = Modifier.weight(1f),
-                testTag = "activity_route_finish",
             )
             MomentumRemoveButton(
                 description = stringResource(R.string.activity_route_discard),
@@ -106,6 +100,13 @@ internal fun RoutePanel(
                 resetKey = recording.startedAtMillis,
             )
         }
+        // A row of its own: in German or at a large font, half a row breaks the word.
+        MomentumButton(
+            text = stringResource(R.string.activity_route_finish),
+            onClick = onFinish,
+            modifier = Modifier.fillMaxWidth(),
+            testTag = "activity_route_finish",
+        )
         ReservedMessage(text = message, testTag = "activity_route_message")
     }
 }
@@ -115,6 +116,7 @@ internal fun RoutePanel(
  * which a cyclist reads. Before it went anywhere measurable the pace and speed are a dash, rather
  * than something GPS noise made up. [large] is the live recording, read at a glance mid-run.
  */
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun RouteNumbers(route: Route, movingSeconds: Long, large: Boolean, modifier: Modifier = Modifier) {
     val locale = currentLocale()
@@ -122,7 +124,8 @@ internal fun RouteNumbers(route: Route, movingSeconds: Long, large: Boolean, mod
     val pace = route.secondsPerKilometer(movingSeconds)
     val speed = route.kilometersPerHour(movingSeconds)
     Column(modifier = modifier.testTag("activity_route_numbers"), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        Row(horizontalArrangement = Arrangement.spacedBy(24.dp)) {
+        // Side by side where they fit; a long run at a large font puts the time under the distance.
+        FlowRow(horizontalArrangement = Arrangement.spacedBy(24.dp)) {
             Text(
                 text = stringResource(R.string.activity_route_kilometers, formatKilometers(route.distanceMeters, locale)),
                 style = big,

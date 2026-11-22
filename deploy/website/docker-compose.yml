@@ -11,6 +11,9 @@ services:
       - ./public:/srv:ro
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
     restart: unless-stopped
+    # It passes map tiles on, and a failed one would be logged with the area it shows.
+    logging:
+      driver: none
     networks: [edge]
 
 networks:

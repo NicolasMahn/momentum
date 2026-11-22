@@ -1,5 +1,9 @@
 // Momentum's route map style: Protomaps' dark flavor without the sprite it would need, so the map
 // asks the server for tiles only. Run by deploy/maps/style.sh.
+//
+// Its ground, water and road colours are Protomaps', not GeneratedPalette's: a map is drawn by
+// its style, and this is the one place in the app whose colours are a third party's. Only the
+// route line on top wears the view's own accent, set in RouteMap.kt.
 import { layers, namedFlavor } from "@protomaps/basemaps";
 const lang = process.argv[2];
 const dropped = new Set(["roads_oneway", "roads_shields", "pois"]);

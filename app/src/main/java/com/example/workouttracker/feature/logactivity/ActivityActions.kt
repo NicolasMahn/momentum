@@ -88,18 +88,26 @@ fun recordActivityOf(
  * A finished [recording] as an entry of its activity on [dateKey], the habit day it started on,
  * at the moment it started: with its route and its moving time as the entry's minutes. A
  * recording that never kept a point, because the phone found no GPS, is still the activity done,
- * and is saved as a plain entry without a route or minutes.
+ * and is saved as a plain entry without a route or minutes. An activity removed while it was
+ * recorded keeps the run, as it keeps every entry it had, without coming back to the list.
+ *
+ * The entry's ID is the recording's own ([routeEntryId]), so finishing the same recording twice,
+ * as after the app was stopped between saving it and letting it go, replaces the first save.
  */
 fun recordRoute(
     state: AppState,
     recording: RouteRecording,
     dateKey: String,
-    newEntryId: String = UUID.randomUUID().toString(),
 ): RecordActivityResult {
+    val activity = state.activityRules.activity(recording.activityId) ?: return RecordActivityResult.Invalid(ActivityProblem.NotFound)
     val route = recording.route.takeUnless { it.isEmpty }
     val minutes = route?.let { ((it.movingSeconds + 30) / 60).toInt() }?.takeIf { it >= 1 }
-    return recordActivityOf(state, recording.activityId, dateKey, minutes, notes = null, newEntryId, recording.startedAtMillis, route)
+    problemWith(dateKey, minutes)?.let { return RecordActivityResult.Invalid(it) }
+    return state.recording(state.activityRules, activity, dateKey, minutes, notes = null, recording.routeEntryId, recording.startedAtMillis, route)
 }
+
+/** The ID a recording's entry is saved under: one per recording, as each starts at its own moment. */
+val RouteRecording.routeEntryId: String get() = "route-$activityId-$startedAtMillis"
 
 /** What makes a day or a duration unfit for any entry, or null when both can be stored. */
 private fun problemWith(dateKey: String, durationMinutes: Int?): ActivityProblem? = when {

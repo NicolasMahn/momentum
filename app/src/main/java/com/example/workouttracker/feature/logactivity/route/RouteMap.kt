@@ -3,10 +3,12 @@ package com.example.workouttracker.feature.logactivity.route
 import android.content.Context
 import android.util.Log
 import android.view.View
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -21,8 +23,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -100,6 +104,8 @@ internal fun RouteMap(route: Route, modifier: Modifier = Modifier, height: Dp = 
             loaded.uiSettings.isLogoEnabled = false
             loaded.uiSettings.isCompassEnabled = false
             map = loaded
+            // The style being replaced is gone once setStyle runs; nothing may touch it meanwhile.
+            style = null
             loaded.setStyle(Style.Builder().fromJson(styleJson(context, language))) { loadedStyle ->
                 loadedStyle.addSource(GeoJsonSource(RouteSource))
                 loadedStyle.addLayer(
@@ -132,11 +138,15 @@ internal fun RouteMap(route: Route, modifier: Modifier = Modifier, height: Dp = 
                 .clip(RoundedCornerShape(12.dp))
                 .testTag(testTag),
         )
-        // The map's data is OpenStreetMap's, whose licence asks for this line wherever it is shown.
+        // The map's data is OpenStreetMap's, whose licence asks for this line, leading to it, wherever it is shown.
+        val uriHandler = LocalUriHandler.current
         Text(
             text = stringResource(R.string.activity_route_map_attribution),
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier
+                .clickable(role = Role.Button) { uriHandler.openUri(OpenStreetMapCopyright) }
+                .padding(vertical = 4.dp),
         )
     }
 }
@@ -176,6 +186,7 @@ private fun frame(map: MapLibreMap, route: Route, context: Context) {
     }
 }
 
+private const val OpenStreetMapCopyright = "https://www.openstreetmap.org/copyright"
 private const val RouteSource = "momentum-route"
 private const val RouteLayer = "momentum-route-line"
 private const val TilesPlaceholder = "{tiles}"

@@ -22,7 +22,7 @@ class RouteJsonTest {
         assertEquals(route, stored.decodeRoute())
         assertEquals(route.distanceMeters, stored.decodeRoute().distanceMeters, 0.0)
 
-        // An hour at a point every three seconds: about a dozen bytes a point, so a year of runs stays far under a backup's limit.
+        // An hour at a point every three seconds stays within a dozen bytes a point; docs/data-durability.md says what that means for a backup's cap.
         val hour = Route(listOf((0 until 1200).map { RoutePoint.of(48.7 + it * 0.00003, 9.1 + it * 0.00002, it * 3L) }))
         assertEquals(hour, hour.encode().decodeRoute())
         assertTrue(hour.encode().toString().length < 1200 * 12)

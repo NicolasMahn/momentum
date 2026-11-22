@@ -57,15 +57,25 @@ internal class RouteRecordingService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         val recording = recorder.recording.value
-        if (recording == null || recording.paused || !hasLocationPermission(this)) {
+        createChannel(this)
+        // Android ends the app unless a service started this way goes to the foreground, even one
+        // that has nothing to do: a pause tapped right after Start can get here first. Where it
+        // cannot go there, because location was taken away meanwhile, the recording waits paused.
+        val promoted = runCatching {
+            ServiceCompat.startForeground(this, NotificationId, notification(recording ?: RouteRecording("", 0L)), foregroundType())
+        }.isSuccess
+        if (!promoted || recording == null || recording.paused || !hasLocationPermission(this)) {
+            recorder.pause()
             stopSelf()
             return START_NOT_STICKY
         }
-        createChannel(this)
-        ServiceCompat.startForeground(this, NotificationId, notification(recording), foregroundType())
         if (!listening) {
-            listening = true
-            listen()
+            listening = listen()
+            if (!listening) {
+                recorder.pause()
+                stopSelf()
+                return START_NOT_STICKY
+            }
             scope.launch {
                 recorder.recording.collect { current ->
                     if (current == null || current.paused) stopSelf() else show(current)
@@ -75,11 +85,12 @@ internal class RouteRecordingService : Service() {
         return START_NOT_STICKY
     }
 
+    /** Asks for GPS fixes; false where the phone refuses, such as a GPS switched off since the screen looked. */
     @SuppressLint("MissingPermission") // Asked for in onStartCommand, which stops without it.
-    private fun listen() {
-        val locations = getSystemService(LocationManager::class.java)
-        locations.requestLocationUpdates(LocationManager.GPS_PROVIDER, FixIntervalMillis, 0f, listener, Looper.getMainLooper())
-    }
+    private fun listen(): Boolean = runCatching {
+        getSystemService(LocationManager::class.java)
+            .requestLocationUpdates(LocationManager.GPS_PROVIDER, FixIntervalMillis, 0f, listener, Looper.getMainLooper())
+    }.isSuccess
 
     /** The notification follows the recording, but only when what it says changes: once a minute or so, not on every fix. */
     private fun show(recording: RouteRecording) {
@@ -139,7 +150,7 @@ internal class RouteRecordingService : Service() {
         fun locationIsOn(context: Context): Boolean =
             context.getSystemService(LocationManager::class.java).isProviderEnabled(LocationManager.GPS_PROVIDER)
 
-        /** Run again when the app language changes: re-creating a channel only renames it. */
+        /** Each recording creates it again, which renames it after a change of the app language. */
         fun createChannel(context: Context) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
             val resources = context.withAppLanguage().resources
@@ -154,5 +165,6 @@ internal class RouteRecordingService : Service() {
 
 private fun Location.ageMillis(): Long = (SystemClock.elapsedRealtimeNanos() - elapsedRealtimeNanos) / 1_000_000
 
+/** When the fix was measured, on the wall clock the recording counts by: fixes can arrive batched. */
 private fun Location.toFix(): LocationFix =
-    LocationFix(latitude = latitude, longitude = longitude, accuracyMeters = if (hasAccuracy()) accuracy else Float.MAX_VALUE, timeMillis = System.currentTimeMillis())
+    LocationFix(latitude = latitude, longitude = longitude, accuracyMeters = if (hasAccuracy()) accuracy else Float.MAX_VALUE, timeMillis = System.currentTimeMillis() - ageMillis())
