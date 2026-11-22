@@ -30,6 +30,11 @@ internal class RouteRecorder private constructor(private val journal: AtomicFile
     /** When the phone last reported a fix good enough to keep, for the "looking for GPS" line. */
     val lastFixMillis: StateFlow<Long?> = lastFix.asStateFlow()
 
+    private val unsaved = MutableStateFlow(false)
+
+    /** Whether the last change could not be written to the file: the recording then lives only while the app does. */
+    val unsavedOnPhone: StateFlow<Boolean> = unsaved.asStateFlow()
+
     /** Starts recording [activityId]; refused while another recording waits to be saved or discarded. */
     fun start(activityId: String, nowMillis: Long): Boolean {
         if (current.value != null) return false
@@ -60,19 +65,20 @@ internal class RouteRecorder private constructor(private val journal: AtomicFile
     fun clear() {
         current.value = null
         lastFix.value = null
+        unsaved.value = false
         journal.delete()
     }
 
     @Synchronized
     private fun update(recording: RouteRecording) {
         current.value = recording
-        runCatching {
+        unsaved.value = runCatching {
             val stream = journal.startWrite()
             runCatching { stream.write(recording.encodeJournal().toByteArray(Charsets.UTF_8)) }
                 .onSuccess { journal.finishWrite(stream) }
                 .onFailure { journal.failWrite(stream) }
                 .getOrThrow()
-        }.onFailure { Log.w(Tag, "The recording could not be written to its file", it) }
+        }.onFailure { Log.w(Tag, "The recording could not be written to its file", it) }.isFailure
     }
 
     private fun readJournal(): RouteRecording? = runCatching {

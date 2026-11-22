@@ -143,6 +143,9 @@ internal class RouteRecordingService : Service() {
             ContextCompat.startForegroundService(context, Intent(context, RouteRecordingService::class.java))
         }
 
+        /** Whether the phone has GPS at all; without it there is nothing to record a route with. */
+        fun phoneHasGps(context: Context): Boolean = context.packageManager.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)
+
         fun hasLocationPermission(context: Context): Boolean =
             ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
 

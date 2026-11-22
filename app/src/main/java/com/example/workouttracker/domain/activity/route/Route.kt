@@ -85,8 +85,13 @@ data class Route(val stretches: List<List<RoutePoint>>) {
         Step(meters = metersBetween(from, to), seconds = to.secondsIn - from.secondsIn)
     }
 
+    /**
+     * A step moved when it was covered at least at [MovingMetersPerSecond], within [LongestGapSeconds].
+     * A longer gap had no fix at all: a tunnel is passed sooner, so it is a stop indoors, whatever
+     * the distance across it says.
+     */
     private data class Step(val meters: Double, val seconds: Long) {
-        val isMoving: Boolean get() = seconds > 0 && meters / seconds >= MovingMetersPerSecond
+        val isMoving: Boolean get() = seconds in 1..LongestGapSeconds && meters / seconds >= MovingMetersPerSecond
     }
 
     companion object {
@@ -94,6 +99,8 @@ data class Route(val stretches: List<List<RoutePoint>>) {
 
         /** Slower than a slow walk is standing about with the phone, not moving. */
         const val MovingMetersPerSecond = 0.5
+
+        const val LongestGapSeconds = 120L
 
         /** How long after the last point a running clock still counts the person as moving. */
         const val StillMovingSeconds = 10L

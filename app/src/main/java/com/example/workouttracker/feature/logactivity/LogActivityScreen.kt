@@ -322,6 +322,7 @@ internal fun ActivityLogScreen(
     val recorder = remember(context) { RouteRecorder.of(context) }
     val recording by recorder.recording.collectAsState()
     val lastFixMillis by recorder.lastFixMillis.collectAsState()
+    val unsavedOnPhone by recorder.unsavedOnPhone.collectAsState()
     var routeMessage by remember { mutableStateOf<Int?>(null) }
 
     /** Whether the phone can measure a route now, location allowed and switched on; the line under the button says what is missing. */
@@ -476,7 +477,9 @@ internal fun ActivityLogScreen(
                 recording = current,
                 activityLabel = rules.activity(current.activityId)?.label.orEmpty(),
                 lastFixMillis = lastFixMillis,
-                message = routeMessage?.let { stringResource(it) },
+                // What the person must do comes first; a recording kept only in memory is said otherwise.
+                message = (routeMessage ?: R.string.activity_route_unsaved.takeIf { unsavedOnPhone })?.let { stringResource(it) },
+                reservedMessages = RouteMessages.map { stringResource(it) },
                 onPause = recorder::pause,
                 onResume = ::resumeRecording,
                 onFinish = ::finishRecording,
@@ -599,7 +602,9 @@ internal fun ActivityLogScreen(
                     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         // A recording measures what happens now, so it is offered on today alone;
                         // the button under it still logs the activity without one.
-                        val recordable = selectedActivity?.takeIf { it.offersRecording && !isEditingEntry && selectedDateKey == todayKey }
+                        val recordable = selectedActivity?.takeIf {
+                            it.offersRecording && !isEditingEntry && selectedDateKey == todayKey && RouteRecordingService.phoneHasGps(context)
+                        }
                         if (recordable != null) {
                             MomentumButton(
                                 text = stringResource(R.string.activity_route_start),
@@ -610,7 +615,11 @@ internal fun ActivityLogScreen(
                                 variant = MomentumButtonVariant.Secondary,
                                 testTag = "activity_route_start",
                             )
-                            ReservedMessage(text = routeMessage?.let { stringResource(it) }, testTag = "activity_route_start_message")
+                            ReservedMessage(
+                                text = routeMessage?.let { stringResource(it) },
+                                testTag = "activity_route_start_message",
+                                reserving = RouteMessages.map { stringResource(it) },
+                            )
                         }
                         // Momentary because the same activity can honestly be logged
                         // twice in a day.
@@ -676,6 +685,9 @@ internal fun ActivityLogScreen(
         }
     }
 }
+
+/** Every line the route's reserved message may show, so its space fits the longest at any font. */
+private val RouteMessages = listOf(R.string.activity_route_location_needed, R.string.activity_route_location_off, R.string.activity_save_failed, R.string.activity_route_unsaved)
 
 /** The routine day the editor is open on, with the activity whose routine it belongs to. */
 private data class OpenRoutineDay(val activity: ListedActivity, val day: RoutineDay)

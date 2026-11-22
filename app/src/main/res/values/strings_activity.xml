@@ -217,8 +217,10 @@
     <string name="activity_route_kilometers">%s km</string>
     <!-- %1$s: minutes and seconds a kilometre took, for example "5:32"; %2$s: kilometres an hour, for example "10.8". -->
     <string name="activity_route_pace_and_speed">%1$s /km · %2$s km/h</string>
-    <string name="activity_route_location_needed">Allow precise location for Momentum to record the route, in the phone\'s settings if it no longer asks.</string>
+    <string name="activity_route_location_needed">Allow precise location for Momentum to record the route. If Android no longer asks, allow it in the phone\'s settings.</string>
     <string name="activity_route_location_off">Turn on location to record the route.</string>
+    <!-- The phone could not keep the recording in its file; it lives only while the app does. -->
+    <string name="activity_route_unsaved">This recording cannot be kept on the phone right now. Finish it to save it.</string>
     <!-- Under every route map: the map data's licence asks for it. -->
     <string name="activity_route_map_attribution">© OpenStreetMap contributors</string>
     <!-- The quiet button that opens a recorded entry's numbers and map. %s: the activity's name. -->

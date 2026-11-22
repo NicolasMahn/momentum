@@ -2,6 +2,7 @@ package com.example.workouttracker.feature.settings
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import com.example.workouttracker.core.ui.MomentumTextField
@@ -56,6 +57,7 @@ import com.example.workouttracker.domain.activity.routine.RoutineDay
 import com.example.workouttracker.domain.activity.routine.RoutineDays
 import com.example.workouttracker.domain.activity.routine.RoutineExercise
 import com.example.workouttracker.domain.activity.routine.SetsAnExercise
+import com.example.workouttracker.feature.logactivity.route.RouteRecordingService
 import com.example.workouttracker.feature.settings.ActivitySettingsDraft.Companion.activityKey
 import com.example.workouttracker.feature.settings.ActivitySettingsDraft.Companion.dayKey
 import com.example.workouttracker.feature.settings.ActivitySettingsDraft.Companion.exerciseKey
@@ -352,8 +354,9 @@ private fun ActivityPage(
                 }
             }
         }
-        // A routine is what its log is, so an activity with one is not recorded with GPS.
-        if (!activity.hasRoutine) Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        // A routine is what its log is, so an activity with one is not recorded with GPS; nor is
+        // anything on a phone without GPS.
+        if (!activity.hasRoutine && RouteRecordingService.phoneHasGps(LocalContext.current)) Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             EditorSwitch(
                 label = stringResource(R.string.activity_settings_records_route),
                 checked = activity.recordsRoute,

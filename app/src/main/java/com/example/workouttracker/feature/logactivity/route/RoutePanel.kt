@@ -47,6 +47,8 @@ internal fun RoutePanel(
     activityLabel: String,
     lastFixMillis: Long?,
     message: String?,
+    /** Every line [message] may be, so the reserved space fits the longest. */
+    reservedMessages: List<String> = emptyList(),
     onPause: () -> Unit,
     onResume: () -> Unit,
     onFinish: () -> Unit,
@@ -107,7 +109,7 @@ internal fun RoutePanel(
             modifier = Modifier.fillMaxWidth(),
             testTag = "activity_route_finish",
         )
-        ReservedMessage(text = message, testTag = "activity_route_message")
+        ReservedMessage(text = message, testTag = "activity_route_message", reserving = reservedMessages)
     }
 }
 

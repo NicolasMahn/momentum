@@ -22,13 +22,13 @@ data class RouteRecording(
 
     /**
      * This recording with [fix] kept where it says something: not while paused, not when the phone
-     * is unsure by more than [MaxAccuracyMeters], not when reaching it would have taken more than
-     * [MaxMetersPerSecond], which no one runs or cycles, and not when it lies closer to the last
-     * point than the phone is sure of, or than [MinStepMeters], less than [StillPointSeconds] after
-     * it. GPS wanders within its accuracy while a person stands still; those wanders are dropped,
-     * but every few seconds of standing keep a point where the last one is, so a wait shows in the
-     * route as the standing it is and is not mistaken for the moving step after it. The first fix after a
-     * start or a resume is kept as it is: it begins a stretch, and no step leads to it.
+     * is unsure by more than [MaxAccuracyMeters], not before the last point, not when reaching it
+     * would have taken more than [MaxMetersPerSecond], which no one runs or cycles, and not when
+     * it lies closer to the last point than the phone is sure of, or than [MinStepMeters]. GPS
+     * wanders within its accuracy while a person stands still, and those wanders are dropped.
+     * When the person moves on, the first fix outside that circle is kept, and the step to it is
+     * a slow one: the wait is not mistaken for moving. The first fix after a start or a resume is
+     * kept however near: it begins a stretch, and no step leads to it.
      *
      * A jump is usually one wrong fix, and is dropped. But when [JumpsToReanchor] fixes in a row
      * are too far, the last point was the wrong one, such as a stale first fix from where the
@@ -37,17 +37,14 @@ data class RouteRecording(
      */
     fun taking(fix: LocationFix): RouteRecording {
         if (paused || fix.accuracyMeters > MaxAccuracyMeters || fix.timeMillis < startedAtMillis) return this
-        var point = RoutePoint.of(fix.latitude, fix.longitude, secondsIn(fix.timeMillis))
+        val point = RoutePoint.of(fix.latitude, fix.longitude, secondsIn(fix.timeMillis))
         val last = route.stretches.lastOrNull()?.lastOrNull()
+        // Time runs forward across stretches too, whatever the clock did meanwhile.
+        if (last != null && point.secondsIn < last.secondsIn) return this
         if (last != null && !stretchEnded) {
-            if (point.secondsIn < last.secondsIn) return this
             val meters = metersBetween(last, point)
             val seconds = point.secondsIn - last.secondsIn
-            if (meters < maxOf(MinStepMeters, fix.accuracyMeters.toDouble())) {
-                if (seconds < StillPointSeconds) return this
-                // Still here: the point repeats where the person stands, and only the time moves on.
-                point = RoutePoint.of(last.latitude, last.longitude, point.secondsIn)
-            }
+            if (meters < maxOf(MinStepMeters, fix.accuracyMeters.toDouble())) return this
             if (meters > MaxMetersPerSecond * seconds.coerceAtLeast(1)) {
                 if (jumpsInARow + 1 < JumpsToReanchor) return copy(jumpsInARow = jumpsInARow + 1)
                 val kept = Route(route.stretches.filterNot { it.size == 1 && it.single() == last })
@@ -64,7 +61,6 @@ data class RouteRecording(
     companion object {
         const val MaxAccuracyMeters = 25f
         const val MinStepMeters = 5.0
-        const val StillPointSeconds = 10L
 
         /** About 108 km/h: faster than anyone on foot or by bike, slower than most GPS jumps. */
         const val MaxMetersPerSecond = 30.0

@@ -55,12 +55,15 @@ private fun decodeStretch(text: String): List<RoutePoint> {
     var latitude = 0L
     var longitude = 0L
     var seconds = 0L
-    return numbers.chunked(3).map { (dLatitude, dLongitude, dSeconds) ->
+    val points = numbers.chunked(3).map { (dLatitude, dLongitude, dSeconds) ->
         latitude += dLatitude
         longitude += dLongitude
         seconds += dSeconds
         RoutePoint.of(RoutePoint.fromFixUnits(latitude), RoutePoint.fromFixUnits(longitude), seconds)
     }
+    // A stretch has one spelling, the one encodeStretch writes; any other is damage, read or not.
+    require(encodeStretch(points) == text) { "A stretch is not spelled as it is written" }
+    return points
 }
 
 /** One signed number in the polyline alphabet: zig-zag, then five bits per character, low bits first. */

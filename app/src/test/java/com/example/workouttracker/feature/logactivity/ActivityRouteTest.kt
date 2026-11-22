@@ -1,5 +1,6 @@
 package com.example.workouttracker.feature.logactivity
 
+import android.content.pm.PackageManager
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -27,6 +28,8 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
+import org.robolectric.Shadows.shadowOf
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
@@ -69,7 +72,25 @@ class ActivityRouteTest {
     }
 
     @Test
+    fun finishingTheSameRecordingTwiceLeavesOneEntry() {
+        val recording = RouteRecording(CyclingActivityId, started, ride, paused = true)
+        val once = (recordRoute(AppState(activity = configuration), recording, today) as RecordActivityResult.Success).state
+        val twice = (recordRoute(once, recording, today) as RecordActivityResult.Success).state
+        assertEquals(1, twice.activityEntries.size)
+    }
+
+    @Test
+    fun aRideOfAnActivityRemovedMeanwhileIsKeptAndTheActivityStaysRemoved() {
+        val removed = configuration.applyingEdits(listOf(ActivityEdit.RemoveActivity(CyclingActivityId)), LocalDate.parse(today))
+        val recording = RouteRecording(CyclingActivityId, started, ride, paused = true)
+        val saved = (recordRoute(AppState(activity = removed), recording, today) as RecordActivityResult.Success).state
+        assertEquals(ride, saved.activityEntries.single().route)
+        assertEquals(true, requireNotNull(saved.activity).activity(CyclingActivityId)?.removed)
+    }
+
+    @Test
     fun onlyTodaysLogOfAnActivityRecordedWithGpsOffersARecording() {
+        shadowOf(RuntimeEnvironment.getApplication().packageManager).setSystemFeature(PackageManager.FEATURE_LOCATION_GPS, true)
         var state by mutableStateOf(AppState(activity = configuration))
         compose.setContent {
             WorkoutTrackerTheme {

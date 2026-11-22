@@ -27,18 +27,52 @@ class RouteTest {
 
     @Test
     fun standingStillAddsNeitherDistanceNorMovingTime() {
-        // At 500 m the runner waits two minutes at a crossing while GPS wanders by a few metres.
+        // 500 m at 10 m every 3 s, two minutes at a crossing while GPS wanders by a few metres, 500 m more.
+        val out = (0..50).map { north(it * 10.0, it * 3L) }
         val wander = (1..40).map { north(500.0 + (it % 3), 150L + it * 3) }
-        val route = recorded(north(0.0, 0), north(250.0, 75), north(500.0, 150), *wander.toTypedArray(), north(750.0, 345), north(1000.0, 420)).route
-        assertEquals(1000.0, route.distanceMeters, 2.0)
-        // Four moving quarters of 75 s; the wait is neither moving time nor folded into the step after it.
-        assertEquals(300L, route.movingSeconds)
-        assertEquals(300L, route.secondsPerKilometer())
+        val back = (1..50).map { north(500.0 + it * 10.0, 270L + it * 3) }
+        val route = recorded(*(out + wander + back).toTypedArray()).route
+        // The first step out of the wait is slow, so the wait is not moving, and those 10 m and 3 s go with it.
+        assertEquals(990.0, route.distanceMeters, 2.0)
+        assertEquals(297L, route.movingSeconds)
 
         // A phone left on a bench drifts slowly: kept points, but neither distance nor moving time.
         val drifting = recorded(north(0.0, 0), north(100.0, 30), north(106.0, 60), north(112.0, 90)).route
         assertEquals(30L, drifting.movingSeconds)
         assertEquals(100.0, drifting.distanceMeters, 1.0)
+    }
+
+    @Test
+    fun aSteadyJogUnderPoorGpsKeepsItsTime() {
+        // Two minutes at 2 m/s, a fix a second, the phone sure only to 23 m.
+        val jog = recorded(*(0..120).map { north(it * 2.0, it.toLong(), accuracy = 23f) }.toTypedArray()).route
+        assertEquals(240.0, jog.distanceMeters, 25.0)
+        assertTrue(jog.movingSeconds >= 108)
+    }
+
+    @Test
+    fun aWalkUnderPoorGpsKeepsItsTime() {
+        // Ten minutes at 1.4 m/s, a fix a second, the phone sure only to 15 m.
+        val walk = recorded(*(0..600).map { north(it * 1.4, it.toLong(), accuracy = 15f) }.toTypedArray()).route
+        assertEquals(840.0, walk.distanceMeters, 16.0)
+        assertTrue(walk.movingSeconds >= 585)
+    }
+
+    @Test
+    fun aLongGapWithoutAnyFixIsNotMoving() {
+        // Four minutes without a fix, 150 m on: a stop indoors, not a run through a tunnel.
+        val gap = recorded(north(0.0, 0), north(30.0, 10), north(180.0, 250), north(210.0, 260)).route
+        assertEquals(60.0, gap.distanceMeters, 1.0)
+        assertEquals(20L, gap.movingSeconds)
+        // A minute through an underpass still counts.
+        val underpass = recorded(north(0.0, 0), north(30.0, 10), north(180.0, 70)).route
+        assertEquals(70L, underpass.movingSeconds)
+    }
+
+    @Test
+    fun aResumedFixBeforeTheLastPointIsNotKept() {
+        val resumed = recorded(north(0.0, 0), north(30.0, 10)).pausing().resuming().taking(north(40.0, 5))
+        assertEquals(listOf(0L, 10L), resumed.route.points.map { it.secondsIn })
     }
 
     @Test

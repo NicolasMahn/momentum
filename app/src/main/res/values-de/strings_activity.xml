@@ -185,8 +185,9 @@
     <string name="activity_route_searching">%s · GPS wird gesucht …</string>
     <string name="activity_route_kilometers">%s km</string>
     <string name="activity_route_pace_and_speed">%1$s /km · %2$s km/h</string>
-    <string name="activity_route_location_needed">Erlaube Momentum den genauen Standort, um die Strecke aufzuzeichnen, in den Einstellungen des Handys, wenn es nicht mehr fragt.</string>
+    <string name="activity_route_location_needed">Erlaube Momentum den genauen Standort, um die Strecke aufzuzeichnen. Fragt Android nicht mehr, erlaube ihn in den Einstellungen des Handys.</string>
     <string name="activity_route_location_off">Schalte den Standort ein, um die Strecke aufzuzeichnen.</string>
+    <string name="activity_route_unsaved">Diese Aufzeichnung lässt sich gerade nicht auf dem Handy festhalten. Beende sie, um sie zu speichern.</string>
     <string name="activity_route_map_attribution">© OpenStreetMap-Mitwirkende</string>
     <string name="activity_entry_show_route">Strecke von %s einblenden</string>
     <string name="activity_entry_hide_route">Strecke von %s ausblenden</string>
