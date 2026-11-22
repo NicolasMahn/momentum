@@ -8,7 +8,8 @@ import androidx.compose.runtime.setValue
  * What every draft page keeps, written once: the [stored] value as its baseline, the ordered
  * [edits] made on the page, the name fields left blank and the fields holding text typed but not
  * yet added. What a page shows is its edits replayed in order over the latest stored value, never
- * cancelled or reordered, with one the stored value refuses left out; Save hands the edits over.
+ * reordered, with one the stored value refuses left out; Save hands the edits over. Only a kind's
+ * own [keepInstead] replaces the last edit with one that overrides it.
  *
  * Each kind of draft keeps its own rules: what dirty means ([isDirty]), and what its edits are
  * applied with, which it brings to [keep] and to its own replay. Blank names and typed text stay
@@ -75,9 +76,13 @@ internal abstract class SettingsDraft<S, E>(
         }
         .isSuccess
 
-    /** Keeps [edit] in place of the last edit, which it overrides, unless [applied] refuses it as [keep] would. */
-    protected fun keepInstead(edit: E, applied: () -> S): Boolean = runCatching(applied)
-        .onSuccess { edits = edits.dropLast(1) + edit }
+    /**
+     * Keeps [edit] in place of the last edit, which it overrides, unless [applied] refuses it as
+     * [keep] would. One that brings the page back to where the last edit started ([undoes]) takes
+     * the last edit away instead, so nothing is left to save.
+     */
+    protected fun keepInstead(edit: E, undoes: Boolean, applied: () -> S): Boolean = runCatching(applied)
+        .onSuccess { edits = edits.dropLast(1) + listOfNotNull(edit.takeUnless { undoes }) }
         .isSuccess
 
     /** The edits were stored, so nothing is left to save. A kind that keeps typed text beside them lets it go here too. */

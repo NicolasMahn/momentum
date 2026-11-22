@@ -62,6 +62,9 @@ class ChecklistDraftTest {
         assertEquals(ChecklistEdit.SetTarget(ChecklistTarget.PerWeek(5)), draft.edits.last())
         assertEquals(2, draft.edits.size)
         assertEquals(WhenAway.LowerTarget, draft.draft().liveItems(today).single().whenAway.on(today))
+
+        assertTrue(draft.edit(ChecklistEdit.SetTarget(ChecklistTarget.PerDay), today, recordedDates = emptySet()))
+        assertEquals(1, draft.edits.size)
     }
 
     /** An item's holiday rule is a page choice like any other: the draft takes it, the stored configuration waits for Save. */

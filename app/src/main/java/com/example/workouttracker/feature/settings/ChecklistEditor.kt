@@ -185,11 +185,13 @@ internal class ChecklistDraft(
     /**
      * Whether the draft takes [edit], which it refuses as the stored configuration would. A rhythm
      * chosen right after another replaces it: choosing Weekly and then 5 is one change, so a holiday
-     * rule or only misses that Weekly 1 cannot hold is not lost on the way.
+     * rule or only misses that Weekly 1 cannot hold is not lost on the way, and back where it
+     * started leaves nothing to save.
      */
     fun edit(edit: ChecklistEdit, today: LocalDate, recordedDates: Set<LocalDate>): Boolean =
         if (edit is ChecklistEdit.SetTarget && edits.lastOrNull() is ChecklistEdit.SetTarget) {
-            keepInstead(edit) { stored.applyingEdits(edits.dropLast(1) + edit, today, recordedDates) }
+            val before = stored.applyingEdits(edits.dropLast(1), today, recordedDates)
+            keepInstead(edit, undoes = edit.target == before.target) { before.applyEdit(edit, today, recordedDates) }
         } else {
             keep(edit) { draft(today, recordedDates).applyEdit(edit, today, recordedDates) }
         }
