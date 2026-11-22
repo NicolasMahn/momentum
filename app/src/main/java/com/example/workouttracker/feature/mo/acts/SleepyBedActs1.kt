@@ -188,7 +188,7 @@ private object BedShush : MoAct("sleepy_bed_shush", MoOccasion.Sleepy, intensity
 
     private fun shushing(p: Float) = p < 0.28f || p > 0.97f
 
-    /** Two soft beats while he holds it, a shh and a shh: his brows go up and the finger presses in. */
+    /** Two soft beats of his brows while he holds it: a shh, and a shh. */
     private fun beat(p: Float) = hump(p, 0.04f, 0.08f) + hump(p, 0.15f, 0.08f)
 
     override fun pose(t: Float, v: MoVariant, body: MoBodyKind): MoPose {
@@ -227,13 +227,17 @@ private object BedShush : MoAct("sleepy_bed_shush", MoOccasion.Sleepy, intensity
 
     override fun DrawScope.held(t: Float, v: MoVariant, rig: MoRig) {
         val p = progress(t, v)
-        // Shut lips show no teeth and let nothing out, neither breath nor the smell of neglected teeth:
-        // anything leaving his mouth beside the finger reads as something he smokes.
-        if (shushing(p)) limb(rig.mouth + Offset(-13f, 2f), rig.mouth + Offset(13f, 2f), rig.palette.ink, 5.5f)
         val raised = (1f - span(p, 0.24f, 0.29f)) + span(p, 0.97f, 1f)
+        if (shushing(p)) {
+            // Shut lips show no teeth and let nothing out, neither breath nor the smell of neglected
+            // teeth: anything leaving his mouth beside the finger reads as something he smokes.
+            // Pressed wide under the finger, and back to the width of his resting mouth as it goes.
+            val half = 8f + 5f * raised
+            limb(rig.mouth + Offset(-half, 2f), rig.mouth + Offset(half, 2f), rig.palette.ink, 5.5f)
+        }
         if (raised <= 0.01f) return
         // One finger upright across them: that is a shh.
-        limb(rig.leftHand, rig.leftHand + Offset(0f, -26f - 2f * beat(p)) * raised, rig.palette.limb, 13f)
+        limb(rig.leftHand, rig.leftHand + Offset(0f, -26f) * raised, rig.palette.limb, 13f)
     }
 
     override fun DrawScope.foreground(t: Float, v: MoVariant) = bedBlanket(t, v, pulledUp = OVER_NOSE * up(progress(t, v)))
