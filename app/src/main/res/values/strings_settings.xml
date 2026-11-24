@@ -23,7 +23,7 @@
     <!-- The one button under the views in the Settings list, and the title of the page it opens, which asks what kind of thing to track. -->
     <string name="settings_new">Track something new</string>
     <!-- On that page, under a kind's name: what it is, in one line. -->
-    <string name="settings_new_checklist_description">Such as medication, brushing your teeth or stretching.</string>
+    <string name="settings_new_checklist_description">Such as medication and brushing your teeth, or cleaning once a week.</string>
     <string name="settings_new_measurement_description">Such as your weight.</string>
     <string name="settings_new_questions_description">Multiple-choice questions to answer each day.</string>
     <string name="settings_new_time_description">Such as reading, meditating or practising an instrument.</string>

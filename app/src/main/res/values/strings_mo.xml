@@ -217,7 +217,6 @@ speaks, so those lines speak about him in the third person.
     <!-- What a calendar adds to a covered day's spoken status. -->
     <string name="mo_cover_free">covered by this week\'s free day</string>
     <string name="mo_cover_token">covered by a token</string>
-    <string name="mo_cover_rest">a planned rest day</string>
     <string name="mo_cover_freeze">covered by a freeze</string>
 
     <!-- Labels stay verbatim and stand alone after a colon in every language. -->

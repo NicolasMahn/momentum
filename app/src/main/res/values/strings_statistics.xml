@@ -84,10 +84,6 @@
         <item quantity="one">%d restart</item>
         <item quantity="other">%d restarts</item>
     </plurals>
-    <plurals name="statistics_streak_rest_days">
-        <item quantity="one">%d planned rest day</item>
-        <item quantity="other">%d planned rest days</item>
-    </plurals>
     <!-- The key under the streak calendar. %d: how many days. -->
     <!-- Beside one task's token: how many days it covered, each counted once per task. -->
     <plurals name="statistics_key_covered">
@@ -107,10 +103,6 @@
     <plurals name="statistics_key_missed">
         <item quantity="one">%d missed</item>
         <item quantity="other">%d missed</item>
-    </plurals>
-    <plurals name="statistics_key_rest">
-        <item quantity="one">%d rest</item>
-        <item quantity="other">%d rest</item>
     </plurals>
 
     <!-- The export: a Markdown file of every view's plan and every day since its first record, to share, for example with an AI. -->

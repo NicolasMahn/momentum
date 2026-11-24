@@ -69,7 +69,7 @@ class NewViewPageTest {
         click("settings_new")
         val page = compose.transcript()
         assertTrue(page.toString(), said("Track something new"))
-        assertTrue(page.toString(), said("Checklist") && said("Such as medication, brushing your teeth or stretching."))
+        assertTrue(page.toString(), said("Checklist") && said("Such as medication and brushing your teeth, or cleaning once a week."))
         assertTrue(page.toString(), said("Measurement") && said("Such as your weight."))
         assertTrue(page.toString(), said("Questions") && said("Multiple-choice questions to answer each day."))
         assertTrue(page.toString(), said("Timer") && said("Such as reading, meditating or practising an instrument."))
@@ -167,7 +167,7 @@ class NewViewPageTest {
         click("settings_new")
         val page = compose.transcript()
         assertTrue(page.toString(), said("Etwas Neues erfassen"))
-        assertTrue(page.toString(), said("Checkliste") && said("Etwa Medikamente, Zähneputzen oder Dehnen."))
+        assertTrue(page.toString(), said("Checkliste") && said("Etwa Medikamente und Zähneputzen oder einmal pro Woche putzen."))
         assertTrue(page.toString(), said("Messwert") && said("Etwa dein Gewicht."))
         assertTrue(page.toString(), said("Fragen") && said("Multiple-Choice-Fragen, die du jeden Tag beantwortest."))
     }

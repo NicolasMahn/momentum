@@ -158,13 +158,9 @@ internal data class StreakCalendarDay(
     val mark: MoDayMark,
     /** On a [MoDayMark.Protected] day, whose tokens covered it, in the order Mo lists his tasks. */
     val tokens: List<TrackerRef> = emptyList(),
-    /** Trackers whose rules planned rest; these marks never count as records. */
-    val restedTrackers: Set<TrackerRef> = emptySet(),
     /** On a [MoDayMark.Missed] day, whether it ended a running streak rather than finding none. */
     val restart: Boolean = false,
-) {
-    val rested: Boolean get() = restedTrackers.isNotEmpty()
-}
+)
 
 internal data class StreakCalendar(
     /** The window's days, Monday first, including the ones after today. */
@@ -187,7 +183,6 @@ internal data class StreakCalendar(
         .toSortedMap(compareBy<TrackerRef> { it.type.value }.thenBy { it.id })
     val missedDays: Int = days.count { it.mark == MoDayMark.Missed }
     val restarts: Int = days.count { it.restart }
-    val restDays: Int = days.count { it.rested }
 }
 
 /**
@@ -520,7 +515,6 @@ private fun streakCalendar(
                     dateKey = key,
                     mark = record.mark,
                     tokens = if (record.mark == MoDayMark.Protected) record.tokenTrackers() else emptyList(),
-                    restedTrackers = record.restedTrackers,
                     restart = key in restartKeys,
                 )
             }

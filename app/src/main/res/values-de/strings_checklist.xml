@@ -14,6 +14,7 @@
     <string name="checklist_item_week_due">%1$d von %2$d diese Woche · heute fällig</string>
     <string name="checklist_item_away_week">%1$d von %2$d im Urlaub diese Woche</string>
     <string name="checklist_item_away_week_due">%1$d von %2$d im Urlaub diese Woche · heute fällig</string>
+    <string name="checklist_item_week_not_due">Diese Woche nicht fällig</string>
     <string name="checklist_nothing_due">An diesem Tag gibt es nichts abzuhaken.</string>
     <string name="checklist_item_assumed_done">Als erledigt angenommen</string>
     <string name="checklist_item_missed">Verpasst</string>
@@ -67,6 +68,14 @@
     <string name="checklist_editor_tab_reminders">Erinnerungen</string>
     <string name="checklist_editor_tab_look">Aussehen</string>
     <string name="checklist_editor_items">Punkte</string>
+    <string name="checklist_editor_rhythm_daily">Täglich</string>
+    <string name="checklist_editor_rhythm_weekly">Wöchentlich</string>
+    <string name="checklist_editor_rhythm_daily_note">Jeder Punkt ist jeden Tag fällig.</string>
+    <plurals name="checklist_editor_rhythm_weekly_note">
+        <item quantity="one">Jeder Punkt einmal pro Woche, an einem beliebigen Tag.</item>
+        <item quantity="other">Jeder Punkt %d-mal pro Woche, an beliebigen Tagen.</item>
+    </plurals>
+    <string name="checklist_editor_due_as_checklist">Wie die Checkliste</string>
     <string name="checklist_editor_add_item">Neuer Punkt</string>
     <string name="checklist_editor_due">Wann fällig</string>
     <string name="checklist_editor_every_day">Jeden Tag</string>

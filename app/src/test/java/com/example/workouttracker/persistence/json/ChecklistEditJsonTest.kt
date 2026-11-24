@@ -32,6 +32,8 @@ class ChecklistEditJsonTest {
             ChecklistEdit.SetCheckpointTime("cpt_2", CheckpointTime.Fixed(LocalTime.of(21, 15))),
             ChecklistEdit.SetCheckpointRemind("cpt_2", remind = false),
             ChecklistEdit.RemoveCheckpoint("cpt_2"),
+            ChecklistEdit.SetTarget(ChecklistTarget.PerWeek(2)),
+            ChecklistEdit.SetTarget(ChecklistTarget.PerDay),
             ChecklistEdit.AddItem("itm_1", "Water the plants"),
             ChecklistEdit.AddItem("itm_2", "Feed", checkpoints = listOf("cpt_1"), target = ChecklistTarget.PerWeek(3), months = setOf(Month.MARCH, Month.OCTOBER)),
             ChecklistEdit.RenameItem("itm_1", "Mist the plants"),

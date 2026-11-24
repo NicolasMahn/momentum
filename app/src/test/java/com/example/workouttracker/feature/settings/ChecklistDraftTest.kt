@@ -52,6 +52,29 @@ class ChecklistDraftTest {
         assertEquals(storedPath, draft.draft())
     }
 
+    /** Weekly and then 5 is one change: Weekly 1 on the way cannot hold fewer times, which must survive. */
+    @Test
+    fun aRhythmChosenRightAfterAnotherReplacesIt() {
+        val draft = ChecklistDraft(plants)
+        assertTrue(draft.edit(ChecklistEdit.SetItemWhenAway("itm_1", WhenAway.LowerTarget), today, recordedDates = emptySet()))
+        assertTrue(draft.edit(ChecklistEdit.SetTarget(ChecklistTarget.PerWeek(1)), today, recordedDates = emptySet()))
+        assertTrue(draft.edit(ChecklistEdit.SetTarget(ChecklistTarget.PerWeek(5)), today, recordedDates = emptySet()))
+        assertEquals(ChecklistEdit.SetTarget(ChecklistTarget.PerWeek(5)), draft.edits.last())
+        assertEquals(2, draft.edits.size)
+        assertEquals(WhenAway.LowerTarget, draft.draft().liveItems(today).single().whenAway.on(today))
+
+        assertTrue(draft.edit(ChecklistEdit.SetTarget(ChecklistTarget.PerDay), today, recordedDates = emptySet()))
+        assertEquals(plants.applyEdit(ChecklistEdit.SetItemWhenAway("itm_1", WhenAway.LowerTarget), today), draft.draft())
+    }
+
+    @Test
+    fun aRhythmChosenAndChosenBackLeavesNothingToSave() {
+        val draft = ChecklistDraft(plants)
+        assertTrue(draft.edit(ChecklistEdit.SetTarget(ChecklistTarget.PerWeek(2)), today, recordedDates = emptySet()))
+        assertTrue(draft.edit(ChecklistEdit.SetTarget(ChecklistTarget.PerDay), today, recordedDates = emptySet()))
+        assertFalse(draft.isDirty)
+    }
+
     /** An item's holiday rule is a page choice like any other: the draft takes it, the stored configuration waits for Save. */
     @Test
     fun anItemsAwayRuleChangesTheDraftAndWaitsForSave() {

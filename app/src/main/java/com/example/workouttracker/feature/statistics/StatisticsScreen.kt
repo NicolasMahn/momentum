@@ -68,7 +68,6 @@ import com.example.workouttracker.feature.mo.PassToken
 import com.example.workouttracker.feature.mo.drawFreezeCube
 import com.example.workouttracker.feature.mo.drawPassToken
 import com.example.workouttracker.core.ui.neutralViewColors
-import com.example.workouttracker.feature.mo.drawRestToken
 import com.example.workouttracker.feature.mo.drawSpentCoin
 import com.example.workouttracker.feature.mo.drawStreakCoin
 import com.example.workouttracker.feature.measurement.words
@@ -344,9 +343,6 @@ private fun StreakBlock(
             }
             if (calendar.missedDays > 0) {
                 DrawnKeyItem(text = pluralStringResource(R.plurals.statistics_key_missed, calendar.missedDays, calendar.missedDays)) { drawSpentCoin() }
-            }
-            if (calendar.restDays > 0) {
-                DrawnKeyItem(text = pluralStringResource(R.plurals.statistics_key_rest, calendar.restDays, calendar.restDays)) { drawRestToken() }
             }
         }
         // The days themselves, each once, however many tokens covered it: a total under the key,
