@@ -46,6 +46,7 @@ import com.example.workouttracker.core.ui.ViewColors
 import com.example.workouttracker.core.ui.ViewIdentity
 import com.example.workouttracker.core.ui.MomentumCardColors
 import com.example.workouttracker.feature.mo.PassToken
+import com.example.workouttracker.feature.mo.QuietMark
 import com.example.workouttracker.feature.mo.RestToken
 import com.example.workouttracker.feature.tracker.TrackerHomeStatus
 
@@ -82,7 +83,7 @@ internal fun HomeRow(
     // darker shade is both its outline and its ledge. Kept, it turns over into the view's full
     // color, everything on it in the ink drawn on that color: the day is done, and it shows. A
     // rest day and a day a token covers turn over too: they are settled.
-    val face = if (status is TrackerHomeStatus.Open || status == TrackerHomeStatus.None) colors else colors.keptFace()
+    val face = if (status is TrackerHomeStatus.Open || status == TrackerHomeStatus.None || status == TrackerHomeStatus.Quiet) colors else colors.keptFace()
     MomentumCard(
         onClick = onClick,
         modifier = modifier.fillMaxWidth().height(HomeRowDefaults.Height),
@@ -149,6 +150,7 @@ private fun HomeStatusMark(status: TrackerHomeStatus, identity: ViewIdentity) {
         TrackerHomeStatus.Kept -> stringResource(R.string.app_home_task_kept)
         TrackerHomeStatus.Rest -> stringResource(R.string.app_home_task_rest)
         TrackerHomeStatus.Covered -> stringResource(R.string.app_home_task_covered)
+        TrackerHomeStatus.Quiet -> stringResource(R.string.mo_quiet_today)
         is TrackerHomeStatus.Open -> when {
             status.parts > 1 -> stringResource(R.string.app_home_task_parts_done, status.done, status.parts)
             status.optional -> stringResource(R.string.app_home_task_optional)
@@ -164,6 +166,8 @@ private fun HomeStatusMark(status: TrackerHomeStatus, identity: ViewIdentity) {
         // No check: nothing was done, and the token is the one such a day wears in every calendar.
         TrackerHomeStatus.Rest -> RestToken(mark)
         TrackerHomeStatus.Covered -> PassToken(identity, mark)
+        // The same "Zz" the view's header offers, where the open ring stood.
+        TrackerHomeStatus.Quiet -> QuietMark(colors.label, mark)
         is TrackerHomeStatus.Open, TrackerHomeStatus.None -> {
             val ring = colors.ledge
             Canvas(mark) { drawCircle(ring, radius = size.minDimension / 2 - 1.5.dp.toPx(), style = Stroke(3.dp.toPx())) }

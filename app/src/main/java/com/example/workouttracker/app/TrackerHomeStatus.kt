@@ -18,20 +18,26 @@ internal fun trackerHomeStatus(progress: DayProgress?): TrackerHomeStatus = when
  * as a planned workout. A task with a token set aside for today is covered. [started] are the tasks with a first record: before it nothing is asked of
  * one yet.
  *
+ * A week's amount quieted for the day reads as quiet while its week is still short.
+ *
  * A week's amount in the streak is judged on its Sunday, so that day it is done only once the
  * week's goal is reached: minutes that leave the week short still cost a token at the close.
  */
-internal fun MoMood.homeStatuses(started: Set<TrackerRef>): Map<TrackerRef, TrackerHomeStatus> = trackerProgress.mapValues { (ref, progress) ->
-    val status = trackerHomeStatus(progress)
-    when {
-        ref in weekJudgedTrackers && ref in tokenOpenTrackers && streak.standings[ref]?.openToday == true -> TrackerHomeStatus.Open(0, 1)
-        status !is TrackerHomeStatus.Open || status.done > 0 || ref !in freeTrackersToday || ref in missingTrackersToday -> status
-        ref in restingTrackersToday -> TrackerHomeStatus.Rest
-        else -> status.copy(optional = true)
+internal fun MoMood.homeStatuses(started: Set<TrackerRef>): Map<TrackerRef, TrackerHomeStatus> {
+    val statuses = trackerProgress.mapValues { (ref, progress) ->
+        val status = trackerHomeStatus(progress)
+        when {
+            ref in weekJudgedTrackers && ref in tokenOpenTrackers && streak.standings[ref]?.openToday == true -> TrackerHomeStatus.Open(0, 1)
+            status !is TrackerHomeStatus.Open || status.done > 0 || ref !in freeTrackersToday || ref in missingTrackersToday -> status
+            ref in restingTrackersToday -> TrackerHomeStatus.Rest
+            else -> status.copy(optional = true)
+        }
+    } + trackerWeeklyRemainders.filterKeys { it !in trackerProgress && it in started }.mapValues { (_, remainder) ->
+        // A week's amount judges no single day, so its row stands for the week: kept once the week's
+        // goal is reached, open until then.
+        if (remainder == 0) TrackerHomeStatus.Kept else TrackerHomeStatus.Open(0, 1)
     }
-} + trackerWeeklyRemainders.filterKeys { it !in trackerProgress && it in started }.mapValues { (_, remainder) ->
-    // A week's amount judges no single day, so its row stands for the week: kept once the week's
-    // goal is reached, open until then.
-    if (remainder == 0) TrackerHomeStatus.Kept else TrackerHomeStatus.Open(0, 1)
+    val quiet = quietTrackersToday.filter { statuses[it] is TrackerHomeStatus.Open }.associateWith { TrackerHomeStatus.Quiet }
     // A token set aside settles the task whatever of it is recorded, so it stands last.
-} + chosenTrackersToday.associateWith { TrackerHomeStatus.Covered }
+    return statuses + quiet + chosenTrackersToday.associateWith { TrackerHomeStatus.Covered }
+}

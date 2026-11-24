@@ -34,7 +34,7 @@ internal const val HomeDueSoonMinutes = 60
  */
 internal fun homeRowRank(status: TrackerHomeStatus, dueMinutes: List<Int>, nowMinute: Int): Pair<HomeRowGroup, Int> = when (status) {
     TrackerHomeStatus.Done, TrackerHomeStatus.Kept, TrackerHomeStatus.Rest, TrackerHomeStatus.Covered -> HomeRowGroup.Kept to 0
-    TrackerHomeStatus.None -> HomeRowGroup.NothingAsked to 0
+    TrackerHomeStatus.None, TrackerHomeStatus.Quiet -> HomeRowGroup.NothingAsked to 0
     is TrackerHomeStatus.Open -> {
         val soon = dueMinutes.filter { it <= nowMinute + HomeDueSoonMinutes }
         when {
