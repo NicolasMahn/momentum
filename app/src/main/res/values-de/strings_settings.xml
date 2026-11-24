@@ -19,7 +19,7 @@
     <string name="settings_typed_text_pending">Füg hinzu oder lösch, was du getippt hast.</string>
 
     <string name="settings_new">Etwas Neues erfassen</string>
-    <string name="settings_new_checklist_description">Etwa Medikamente, Zähneputzen oder Dehnen.</string>
+    <string name="settings_new_checklist_description">Etwa Medikamente und Zähneputzen oder einmal pro Woche putzen.</string>
     <string name="settings_new_measurement_description">Etwa dein Gewicht.</string>
     <string name="settings_new_questions_description">Multiple-Choice-Fragen, die du jeden Tag beantwortest.</string>
     <string name="settings_new_time_description">Etwa Lesen, Meditieren oder ein Instrument üben.</string>

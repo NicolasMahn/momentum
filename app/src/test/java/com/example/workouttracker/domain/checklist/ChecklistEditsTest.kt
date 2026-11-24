@@ -87,6 +87,42 @@ class ChecklistEditsTest {
         assertEquals(2, twice.medication.items.count { it.id == "ibu" })
     }
 
+    @Test fun theChecklistsRhythmChangesTheItemsFollowingItFromTodayAndNoEarlierDay() {
+        val weekly = ChecklistTarget.PerWeek(times = 2)
+        val saturdays = ChecklistTarget.Weekdays(setOf(DayOfWeek.SATURDAY))
+        val own = state.edit(ChecklistEdit.SetItemTarget("levo", saturdays), on = yesterday)
+        val changed = own.edit(ChecklistEdit.SetTarget(weekly))
+        assertEquals(own.dueOn(yesterday), changed.dueOn(yesterday))
+        assertEquals(own.medication.rulesOn(yesterday).weekItems, changed.medication.rulesOn(yesterday).weekItems)
+        // Ibuprofen and Iron follow the checklist; Levothyroxine keeps the Saturdays it chose.
+        assertEquals(listOf("ibu", "iron"), changed.medication.rulesOn(today).weekItems.map { it.item.id })
+        assertEquals(saturdays, changed.medication.liveItems(today).single { it.id == "levo" }.target)
+        assertEquals(listOf(null, null), changed.medication.liveItems(today).filter { it.id != "levo" }.map { it.target })
+
+        // Back to daily on the same day, the checklist is as it was, so no entry splits a week that was judged whole.
+        assertEquals(own, changed.edit(ChecklistEdit.SetTarget(ChecklistTarget.PerDay)))
+    }
+
+    @Test fun aRhythmChangeNeverJoinsEntriesThatSplitAWeekAlreadyJudged() {
+        val weekly = ChecklistTarget.PerWeek(times = 2)
+        val split = medication.copy(
+            target = weekly,
+            items = listOf(
+                ChecklistItem("ibu", "Ibuprofen", until = today.minusDays(8), target = weekly),
+                ChecklistItem("ibu", "Ibuprofen", from = today.minusDays(7)),
+            ),
+        )
+        val changed = AppState(checklists = listOf(split)).edit(ChecklistEdit.SetTarget(ChecklistTarget.PerWeek(times = 3)))
+        assertEquals(listOf(null, today.minusDays(7), today), changed.medication.items.map { it.from })
+    }
+
+    @Test fun anItemsOwnTargetStaysWhenTheChecklistAsksTheSameAndThenChanges() {
+        val once = ChecklistTarget.PerWeek(times = 1)
+        val own = state.edit(ChecklistEdit.SetItemTarget("ibu", once), on = yesterday)
+        val changed = own.edit(ChecklistEdit.SetTarget(once), ChecklistEdit.SetTarget(ChecklistTarget.PerWeek(times = 3)))
+        assertEquals(once, changed.medication.liveItems(today).single { it.id == "ibu" }.target)
+    }
+
     @Test fun aWeekTargetAndItsAwayNumberAreDatedLikeAnyTarget() {
         val weekly = ChecklistTarget.PerWeek(times = 3)
         val changed = state.edit(ChecklistEdit.SetItemTarget("ibu", weekly), ChecklistEdit.SetItemAwayTimes("ibu", 1))

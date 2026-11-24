@@ -539,8 +539,11 @@ def launch(activity=LAUNCHER):
 
 
 def screen_size():
-    # The last size is the override, when a session left one.
-    return tuple(map(int, re.findall(r"(\d+)x(\d+)", shell("wm", "size"))[-1]))
+    # The last size is the override, when a session left one. `wm size` is always the upright
+    # size, so a phone lying on its side swaps it, or every swipe lands off the screen.
+    width, height = map(int, re.findall(r"(\d+)x(\d+)", shell("wm", "size"))[-1])
+    turned = re.search(r"displayId=0,.*?orientation=([13])\b", shell("dumpsys", "input"))
+    return (height, width) if turned else (width, height)
 
 
 def look(locale, font, width, reset):

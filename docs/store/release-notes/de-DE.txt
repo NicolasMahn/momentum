@@ -1,4 +1,6 @@
 Aktivität: Schalte „Strecke per GPS aufzeichnen“ für Laufen oder Radfahren ein, dann zeichnet der heutige Eintrag Strecke, Zeit, Pace und deinen Weg auf einer Karte auf.
-Zurück fragt, bevor Ungespeichertes verloren geht. Kleine Korrekturen überall.
-Mo ist in vielen Szenen neu gezeichnet: Mund, Hände und was er nach einem Eintrag vorspielt. Im Widget ist er ganz zu sehen.
-Sicherungen sammeln sich nicht mehr an.
+Checklisten können wöchentlich sein (unter „Punkte“).
+Zurück fragt, bevor Ungespeichertes verloren geht.
+Mo ist in vielen Szenen neu gezeichnet und im Widget ganz zu sehen.
+Reading: vor Sonntag lässt „Zz“ Mo heute schweigen. Sonntags Haken erst beim Wochenziel, sonst deckt ein Token die Woche.
+Kalender zeigen keine Ruhetage mehr.

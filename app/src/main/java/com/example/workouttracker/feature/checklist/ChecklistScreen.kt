@@ -578,7 +578,7 @@ private fun ChecklistItemRow(
             )
             if (week != null) {
                 Text(
-                    text = stringResource(week.countRes, week.done, week.asked),
+                    text = week.count(mark),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -595,6 +595,15 @@ internal val ItemMark.look: MomentumCheckboxLook
         ItemMark.Assumed -> MomentumCheckboxLook.Assumed
         ItemMark.Missed -> MomentumCheckboxLook.Crossed
     }
+
+/**
+ * The line under a week item. A week that asks nothing of it and holds no tick, as the one it was
+ * added in, says so while the day's box is empty, since "0 of 0" reads as broken; a tick, counted
+ * or not, always shows the count.
+ */
+@Composable
+private fun WeekItemProgress.count(mark: ItemMark): String =
+    if (isWeekItem && asked == 0 && done == 0 && mark == ItemMark.Open) stringResource(R.string.checklist_item_week_not_due) else stringResource(countRes, done, asked)
 
 /** The week's count under an item: its week, or, for an item that asks fewer times on holiday, the week's away days. */
 @get:StringRes

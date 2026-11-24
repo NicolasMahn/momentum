@@ -53,7 +53,6 @@ import com.example.workouttracker.domain.activity.ActivityConfiguration
 import com.example.workouttracker.feature.logactivity.lookOf
 import com.example.workouttracker.feature.mo.drawFreezeCube
 import com.example.workouttracker.feature.mo.drawPassToken
-import com.example.workouttracker.feature.mo.drawRestToken
 import com.example.workouttracker.feature.mo.drawSpentCoin
 import com.example.workouttracker.feature.mo.drawStreakCoin
 import com.example.workouttracker.domain.holiday.DayOff
@@ -112,7 +111,6 @@ internal fun StreakCalendarGrid(
                 }
             }
         }
-        if (day.rested) drawRestBadge()
     }
 }
 
@@ -349,14 +347,6 @@ private fun DrawScope.drawExtraTokens(colors: List<Color>, ring: Color) {
         val centre = Offset(size.width - radius - index * radius * 1.8f, radius)
         drawCircle(ring, radius = radius + 1.dp.toPx(), center = centre)
         drawCircle(color, radius = radius, center = centre)
-    }
-}
-
-/** A planned rest day: the rest token, small, in the cell's lower right corner. */
-private fun DrawScope.drawRestBadge() {
-    val side = size.minDimension * 0.5f
-    inset(left = size.width - side, top = size.height - side, right = 0f, bottom = 0f) {
-        drawRestToken()
     }
 }
 

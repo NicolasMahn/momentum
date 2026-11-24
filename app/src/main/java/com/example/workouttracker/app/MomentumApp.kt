@@ -826,7 +826,7 @@ internal fun MomentumApp(
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { innerPadding ->
         CompositionLocalProvider(
-            LocalDayCovers provides remember(mood.streak, freeDays, additionalViews, todayKey, mood.chosenTrackersToday, mood.restChosenTrackers) {
+            LocalDayCovers provides remember(mood.streak, freeDays, additionalViews, todayKey, mood.chosenTrackersToday) {
                 moDayCovers(mood.streak, freeDays, ::recordDateForJudgmentDay, parseDateKey(todayKey), mood.saidTodayCovers())
             },
             LocalRecordsExist provides state.hasRecords,

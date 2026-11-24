@@ -182,9 +182,19 @@ internal class ChecklistDraft(
     fun draft(today: LocalDate, recordedDates: Set<LocalDate>): ChecklistConfiguration =
         stored.applyingEdits(edits, today, recordedDates)
 
-    /** Whether the draft takes [edit], which it refuses as the stored configuration would. */
+    /**
+     * Whether the draft takes [edit], which it refuses as the stored configuration would. A rhythm
+     * chosen right after another replaces it: choosing Weekly and then 5 is one change, so a holiday
+     * rule or only misses that Weekly 1 cannot hold is not lost on the way, and back where it
+     * started leaves nothing to save.
+     */
     fun edit(edit: ChecklistEdit, today: LocalDate, recordedDates: Set<LocalDate>): Boolean =
-        keep(edit) { draft(today, recordedDates).applyEdit(edit, today, recordedDates) }
+        if (edit is ChecklistEdit.SetTarget && edits.lastOrNull() is ChecklistEdit.SetTarget) {
+            val before = stored.applyingEdits(edits.dropLast(1), today, recordedDates)
+            keepInstead(edit, undoes = edit.target == before.target) { before.applyEdit(edit, today, recordedDates) }
+        } else {
+            keep(edit) { draft(today, recordedDates).applyEdit(edit, today, recordedDates) }
+        }
 
     /** The stored configuration as it is now; the edits are shown over it from here on. */
     fun follow(current: ChecklistConfiguration) {
@@ -416,6 +426,7 @@ internal fun ChecklistPageContent(
             }
 
             ChecklistPage.Items -> {
+                if (!checklist.isSchedule(today)) RhythmEditor(checklist.target) { onEdit(ChecklistEdit.SetTarget(it)) }
                 AboutEditor(checklist.about.on(today), testTag = "checklist_editor", label = { it.labelRes }, note = { it.noteRes }) { onEdit(ChecklistEdit.SetAbout(it)) }
                 val items = checklist.liveItems(today)
                 @Composable
@@ -423,6 +434,7 @@ internal fun ChecklistPageContent(
                     ItemEditor(
                         item = item,
                         checklistTarget = checklist.target,
+                        followsChecklist = item.target == null && !checklist.isSchedule(today),
                         checkpoints = checkpoints,
                         today = today,
                         // The last item stays, and in a schedule the last of a part: there is always something to tick.
@@ -511,7 +523,8 @@ internal fun ChecklistPageContent(
                 // the Items page is here as it is now.
                 val items = checklist.liveItems(today)
                 // What the page opened on, which Save compares against; an item added on the page has only itself.
-                val opened = form.stored.liveItems(today).associateBy { it.id }
+                // Read against the stored rhythm, so a rhythm chosen on the page does not change what it opened on.
+                val opened = form.stored.liveItems(today).associate { it.id to it.copy(target = it.target ?: form.stored.target) }
                 val holidayChoices = items.associate { it.id to awayOptionsOf(it, opened[it.id] ?: it, checklist.target, today) }
                 // Whether an item counts without an entry also decides what the day's screen and
                 // the reminders ask, so the choice stands whether or not the checklist counts
@@ -832,6 +845,7 @@ private val OffsetRange = 0..720
 private fun ItemEditor(
     item: ChecklistItem,
     checklistTarget: ChecklistTarget,
+    followsChecklist: Boolean,
     checkpoints: List<Checkpoint>,
     today: LocalDate,
     removable: Boolean,
@@ -871,9 +885,10 @@ private fun ItemEditor(
                 )
             }
             if (!removable) EditorNote(stringResource(if (checkpoints.size > 1) R.string.checklist_schedule_last_item else R.string.checklist_editor_last_item), testTag = "checklist_editor_item_${item.id}_keep")
-            // When it is due, said in full even where it is the usual, so a folded item never hides it.
+            // When it is due, said in full even where it is the usual, so a folded item never hides
+            // it; one that follows the checklist says so, as the checklist's rhythm stands above.
             val summary = listOfNotNull(
-                when (target) {
+                if (followsChecklist) stringResource(R.string.checklist_editor_due_as_checklist) else when (target) {
                     is ChecklistTarget.Weekdays -> target.days.sorted().joinToString { it.getDisplayName(TextStyle.SHORT, locale) }
                     is ChecklistTarget.PerWeek -> pluralStringResource(R.plurals.checklist_editor_week_times, target.times, target.times)
                     ChecklistTarget.PerDay -> stringResource(R.string.checklist_editor_every_day)
@@ -1204,6 +1219,56 @@ internal fun AboutEditor(
             }
         }
         EditorNote(stringResource(note(about)), testTag = "${testTag}_about_note")
+    }
+}
+
+/**
+ * How often every item of a plain checklist is due: daily, or a number of times a week on any days.
+ * An item can still differ under its own "When it's due". The count row and the note keep their
+ * space while the checklist is daily, so choosing weekly moves nothing below them. A checklist stored on chosen
+ * weekdays shows neither choice selected until one is made.
+ */
+@Composable
+private fun RhythmEditor(target: ChecklistTarget, onChoose: (ChecklistTarget) -> Unit) {
+    val weekly = target as? ChecklistTarget.PerWeek
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        MomentumChoiceTileRow {
+            MomentumChoiceTile(
+                label = stringResource(R.string.checklist_editor_rhythm_daily),
+                selected = target == ChecklistTarget.PerDay,
+                onClick = { if (target != ChecklistTarget.PerDay) onChoose(ChecklistTarget.PerDay) },
+                modifier = Modifier.weight(1f).fillMaxHeight(),
+                testTag = "checklist_editor_rhythm_daily",
+            )
+            MomentumChoiceTile(
+                label = stringResource(R.string.checklist_editor_rhythm_weekly),
+                selected = weekly != null,
+                onClick = { if (weekly == null) onChoose(ChecklistTarget.PerWeek()) },
+                modifier = Modifier.weight(1f).fillMaxHeight(),
+                testTag = "checklist_editor_rhythm_weekly",
+            )
+        }
+        CountRow(
+            counts = (1..DaysPerWeek).toList(),
+            chosen = weekly?.times ?: 0,
+            testTag = { "checklist_editor_rhythm_times_$it" },
+            spoken = { pluralStringResource(R.plurals.checklist_editor_week_times, it, it) },
+            onChoose = { times -> onChoose(ChecklistTarget.PerWeek(times)).let { true } },
+            shown = { weekly != null },
+        )
+        val daily = stringResource(R.string.checklist_editor_rhythm_daily_note)
+        val weeklyNotes = (1..DaysPerWeek).map { pluralStringResource(R.plurals.checklist_editor_rhythm_weekly_note, it, it) }
+        ReservedMessage(
+            text = when {
+                weekly != null -> weeklyNotes[weekly.times - 1]
+                target == ChecklistTarget.PerDay -> daily
+                else -> null
+            },
+            testTag = "checklist_editor_rhythm_note",
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            reserving = weeklyNotes + daily,
+            announced = false,
+        )
     }
 }
 

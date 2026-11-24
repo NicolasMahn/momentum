@@ -84,10 +84,6 @@
         <item quantity="one">%d Neustart</item>
         <item quantity="other">%d Neustarts</item>
     </plurals>
-    <plurals name="statistics_streak_rest_days">
-        <item quantity="one">%d geplanter Ruhetag</item>
-        <item quantity="other">%d geplante Ruhetage</item>
-    </plurals>
     <!-- The key under the streak calendar. %d: how many days. -->
     <!-- Beside one task's token: how many days it covered, each counted once per task. -->
     <plurals name="statistics_key_covered">
@@ -107,10 +103,6 @@
     <plurals name="statistics_key_missed">
         <item quantity="one">%d verpasst</item>
         <item quantity="other">%d verpasst</item>
-    </plurals>
-    <plurals name="statistics_key_rest">
-        <item quantity="one">%d frei</item>
-        <item quantity="other">%d frei</item>
     </plurals>
 
     <string name="statistics_export">Statistik exportieren</string>

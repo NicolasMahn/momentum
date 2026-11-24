@@ -11,6 +11,8 @@ import com.example.workouttracker.domain.mo.trackerDueMinutes
 import com.example.workouttracker.domain.substance.SubstanceEdit
 import com.example.workouttracker.domain.substance.SubstanceGoal
 import com.example.workouttracker.domain.substance.applyEdit
+import com.example.workouttracker.domain.time.TimeEdit
+import com.example.workouttracker.domain.time.applyingTimeEdits
 import com.example.workouttracker.feature.tracker.TrackerHomeStatus
 import java.time.LocalDate
 import java.time.LocalTime
@@ -145,6 +147,27 @@ class HomeOrderTest {
         assertEquals(listOf(care, weight, eating, supplements, ActivityTrackerRef, reading), below.take(6))
         val reached = state("timeLogs" to """{"time":"reading","dateKey":"2026-11-11","timestampMillis":1,"minutes":60}""")
         assertEquals(reading, order(reached, LocalTime.of(17, 30)).last())
+    }
+
+    // 2026-11-22: on a Sunday, minutes that left the week short wore the check, though the close
+    // still took a token for the week.
+    @Test fun onItsSundayAWeeklyTimerIsDoneOnlyOnceTheWeeksGoalIsReached() {
+        val sunday = LocalDate.parse("2026-11-22")
+        fun readingOn(vararg minutes: Pair<String, Int>, edits: List<Pair<String, TimeEdit>> = emptyList()) = statuses(
+            EverydayViews.state(*minutes.map { (day, logged) -> "timeLogs" to """{"time":"reading","dateKey":"$day","timestampMillis":2,"minutes":$logged}""" }.toTypedArray(), today = sunday)
+                .let { state -> edits.fold(state) { edited, (day, edit) -> edited.applyingTimeEdits("reading", listOf(edit), LocalDate.parse(day)) } },
+            sunday,
+        ).second[reading]
+        // The kept history gave the week 5 of its 60 minutes before today.
+        assertEquals(open, readingOn("2026-11-22" to 15))
+        assertEquals(TrackerHomeStatus.Done, readingOn("2026-11-22" to 55))
+        // Out of the streak, or back in it since Friday, the week is not judged, so today's minutes settle the day.
+        assertEquals(TrackerHomeStatus.Done, readingOn("2026-11-22" to 15, edits = listOf("2026-11-18" to TimeEdit.LeaveRewards)))
+        val rejoined = listOf("2026-11-12" to TimeEdit.LeaveRewards, "2026-11-20" to TimeEdit.JoinRewards)
+        assertEquals(TrackerHomeStatus.Done, readingOn("2026-11-22" to 15, edits = rejoined))
+        // A weekday's minutes still settle that day: the week is not judged on it.
+        val thursdayMinutes = statuses(state("timeLogs" to """{"time":"reading","dateKey":"$thursday","timestampMillis":2,"minutes":5}"""), thursday).second[reading]
+        assertEquals(TrackerHomeStatus.Done, thursdayMinutes)
     }
 
     /** Substances counting toward the streak from Monday, with its check-in reminding at 18:00. */

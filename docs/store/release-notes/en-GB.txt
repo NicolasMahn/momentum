@@ -1,4 +1,6 @@
 Activity: switch on “Record the route with GPS” for running or cycling, and today’s log records distance, time, pace and your route on a map.
-Back asks before unsaved changes are lost. Small fixes throughout.
-Mo is redrawn in many scenes: his mouth, his hands and what he acts out after you log something. Nothing of him is cut off in the widget.
-Backups no longer pile up: only the newest ones stay.
+Checklists can be weekly: choose it under Items.
+Back asks before unsaved changes are lost.
+Mo is redrawn in many scenes. Nothing of him is cut off in the widget.
+Reading: before Sunday, “Zz” keeps Mo quiet for the day. On Sunday it is ticked only at the week’s goal; a token covers a short week.
+Calendars no longer mark rest days.
