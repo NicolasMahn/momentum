@@ -37,6 +37,8 @@ There are three builds, and they install side by side:
 | `personal` | `com.example.workouttracker` | A real installation built from source. Tests never touch it. |
 | `release` | `de.nicolasmahn.momentum` | The Google Play build, shrunk with R8. |
 
+The code lives in `de.nicolasmahn.momentum`. The first two packages keep the name the project began with, because Android takes another package name for another app, with none of the data.
+
 Connected tests run only on an emulator, or on a phone you list in `~/.config/momentum/test_phones.txt` (one adb serial per line, then a name). They can erase the app's data, so never list a phone you use.
 
 ## Find your way

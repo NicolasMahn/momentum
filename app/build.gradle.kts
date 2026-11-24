@@ -32,7 +32,7 @@ val uploadKey: Properties? = uploadKeyFile.takeIf { it.isFile }?.let { file ->
 }
 
 android {
-    namespace = "com.example.workouttracker"
+    namespace = "de.nicolasmahn.momentum"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -40,6 +40,8 @@ android {
     }
 
     defaultConfig {
+        // The ID the project began with. Android takes another ID for another app, so the owner's
+        // `personal` installation keeps it with its data; the store build has its own, set below.
         applicationId = "com.example.workouttracker"
         minSdk = 24
         targetSdk = 36
