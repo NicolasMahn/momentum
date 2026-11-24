@@ -13,7 +13,7 @@ from pathlib import Path
 
 OUTPUT = (
     Path(__file__).resolve().parent.parent
-    / "app/src/main/java/com/example/workouttracker/core/ui/theme/GeneratedPalette.kt"
+    / "app/src/main/java/de/nicolasmahn/momentum/core/ui/theme/GeneratedPalette.kt"
 )
 
 # name, OKLCH hue, face lightness. Red is reserved for errors and destruction.
