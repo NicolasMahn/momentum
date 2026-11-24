@@ -1,0 +1,21 @@
+# The website's own Caddy, behind the server's: static files, and the app's feedback passed on to
+# its service (deploy/feedback). The outer Caddy is on the same private network and sets the
+# client's address, which the feedback service's limits count by.
+{
+	servers {
+		trusted_proxies static private_ranges
+	}
+}
+
+:80 {
+	handle /api/feedback {
+		request_body {
+			max_size 16KB
+		}
+		reverse_proxy momentum-feedback:8080
+	}
+	handle {
+		root * /srv
+		file_server
+	}
+}

@@ -1,13 +1,13 @@
 # Datenschutzerklärung für Momentum
 
-Stand: 2026-11-21.
+Stand: 2026-11-22.
 
 Momentum ist eine Android-App von Nicolas Mahn, einem privaten Entwickler in Deutschland.
 Kontakt für Fragen zum Datenschutz: momentum@nicolas-mahn.de
 
 ## Kurz gesagt
 
-Momentum hat kein Konto, keinen Server, keine Werbung, keine Analyse-Werkzeuge und keine Absturzberichte. Die App hat keine Berechtigung, das Internet zu nutzen. Sie kann also nichts an irgendwen senden. Was du einträgst, liegt auf deinem Handy. Ich als Entwickler bekomme es nie zu sehen.
+Momentum hat kein Konto, keine Werbung, keine Analyse-Werkzeuge und keine Absturzberichte. Die App nutzt das Internet nur für eines: Feedback, das du selbst schreibst und sendest. Was du einträgst, liegt auf deinem Handy. Ich als Entwickler bekomme es nie zu sehen.
 
 Eine Kopie verlässt die App nur in den drei Fällen, die unter „Wann eine Kopie die App verlässt“ stehen. Jeden davon schaltest du selbst ein oder stößt ihn selbst an, in der App oder in den Einstellungen deines Handys.
 
@@ -32,7 +32,15 @@ Die Daten liegen im privaten Speicher der App. Andere Apps können ihn nicht les
 
 **3. Was du selbst teilst.** „Statistik exportieren“ schreibt deinen Plan und jeden erfassten Tag in eine Textdatei und öffnet das Teilen-Menü von Android. „Streak teilen“ macht dasselbe mit einem Bild deines Streaks. Du wählst die App, die es bekommt. Ab da gelten die Regeln dieser App. Die zuletzt exportierte Datei und das zuletzt geteilte Bild bleiben im Zwischenspeicher der App, bis die nächsten sie ersetzen.
 
-Sonst verlässt nichts die App. Beim Wiederherstellen einer Sicherung wird nur die Datei gelesen, die du auswählst.
+Abgesehen von Feedback, das du sendest (siehe unten), verlässt sonst nichts die App. Beim Wiederherstellen einer Sicherung wird nur die Datei gelesen, die du auswählst.
+
+## Feedback
+
+Unter Einstellungen, Feedback, kannst du mir eine Nachricht schreiben. Erst wenn du auf Senden tippst, schickt Momentum sie über eine verschlüsselte Verbindung an meinen Server unter momentum.nicolas-mahn.de. Mit deinem Text gehen die Art, die du gewählt hast (Problem, Idee oder etwas anderes), die Sprache der App und, wenn du den Haken nicht entfernst, die App-Version, die Android-Version und das Handymodell mit. Nichts, was du eingetragen hast, wird gesendet, und kein Name.
+
+Mein Server, gemietet bei der Hetzner Online GmbH, veröffentlicht die Nachricht als öffentliches Issue im Repository von Momentum auf GitHub (github.com/NicolasMahn/momentum). GitHub wird von GitHub, Inc. in den USA betrieben. Dort kann jeder die Nachricht lesen, bis ich sie lösche. Schreib deshalb nichts, was nicht öffentlich sein soll; dafür öffnet „Lieber eine E-Mail schreiben“ eine Nachricht an mich in deiner Mail-App.
+
+Der Server speichert keine Nachrichten. Damit niemand ihn mit Nachrichten überflutet, hält er die Internet-Adresse deines Handys höchstens eine Stunde im Arbeitsspeicher, und er schreibt weder Nachrichten noch Adressen in ein Protokoll. Rechtsgrundlage ist deine Einwilligung, die du mit dem Tippen auf Senden gibst (Art. 6 Abs. 1 lit. a DSGVO). Wenn eine Nachricht entfernt werden soll, schreib mir.
 
 ## Erinnerungen
 
@@ -45,11 +53,13 @@ Erinnerungen entstehen auf deinem Handy. Eine Erinnerung kann den Namen dessen z
 - Start nach dem Neustart des Handys: um deine Erinnerungen wieder einzurichten.
 - Zugriff auf „Bitte nicht stören“: nur, wenn du ihn erlaubst. Momentum kann dann „Bitte nicht stören“ einschalten, solange ein Timer läuft, und es danach zurückstellen.
 
-Momentum hat keine Internet-Berechtigung. Den Ordner für Sicherungen wählst du über die Dateiauswahl von Android, deshalb braucht die App keine Speicher-Berechtigung.
+- Internet: nur, um Feedback zu senden, das du selbst schreibst und sendest.
+
+Den Ordner für Sicherungen wählst du über die Dateiauswahl von Android, deshalb braucht die App keine Speicher-Berechtigung.
 
 ## Was ich bekomme
 
-Von der App: nichts.
+Von der App: nur Feedback, das du sendest, wie unter „Feedback“ beschrieben. Nie deine Einträge.
 
 Von Google Play: Google zeigt Entwicklern zusammengefasste Zahlen, etwa die Anzahl der Installationen, und Absturzberichte von Menschen, die dem Teilen von Diagnosedaten mit Google zugestimmt haben. Das verarbeitet Google; mehr dazu steht in der Datenschutzerklärung von Google. Deine Einträge sind darin nicht enthalten.
 

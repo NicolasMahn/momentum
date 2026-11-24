@@ -111,6 +111,11 @@ internal sealed interface SettingsPage {
         override val key = "about"
     }
 
+    /** The two ways to send feedback: an issue on GitHub or an email. It holds nothing to lose. */
+    data object Feedback : SettingsPage {
+        override val key = "feedback"
+    }
+
     /** The privacy policy in full, opened from [About]. */
     data object Privacy : SettingsPage {
         override val key = "privacy"
@@ -150,6 +155,7 @@ internal sealed interface SettingsPage {
             key == NewTime.key -> NewTracker(TrackerTypeId("time"))
             key == Substances.key -> Substances
             key == About.key -> About
+            key == Feedback.key -> Feedback
             key == Privacy.key -> Privacy
             key == LegalNotice.key -> LegalNotice
             key.startsWith(LicensePrefix) -> key.removePrefix(LicensePrefix).takeIf { it.isNotBlank() }?.let(::License)

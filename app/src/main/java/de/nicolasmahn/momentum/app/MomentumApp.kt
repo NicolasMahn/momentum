@@ -872,6 +872,7 @@ internal fun MomentumApp(
                         SettingsPage.Reminders -> R.string.settings_reminders_title
                         SettingsPage.NewView -> R.string.settings_new
                         SettingsPage.About -> R.string.about_title
+                        SettingsPage.Feedback -> R.string.feedback_title
                         SettingsPage.Privacy -> R.string.about_privacy_title
                         SettingsPage.LegalNotice -> R.string.about_legal_notice_title
                         is SettingsPage.License -> R.string.about_license_title

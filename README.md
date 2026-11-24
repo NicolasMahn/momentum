@@ -6,7 +6,7 @@ Track the habits you choose. Mo, a small flame, helps you keep at it.
 
 Momentum is a habit tracker for Android. It is for the things you decide to keep up: training, a daily measurement, a checklist, a few questions about your day, minutes of reading, or staying away from alcohol or nicotine. Mo burns brightly when you keep your routines and cools down when you let them slide. He never goes out for good.
 
-Momentum has no account, no ads and no permission to use the internet. The developer never receives what you record. The [privacy policy](https://momentum.nicolas-mahn.de/privacy/) says exactly when a copy leaves the app.
+Momentum has no account and no ads, and it uses the internet only to send feedback you write yourself. The developer never receives what you record. The [privacy policy](https://momentum.nicolas-mahn.de/privacy/) says exactly when a copy leaves the app.
 
 It is an early alpha, built by one person with a lot of help from AI agents. Stored data can still change shape between versions.
 

@@ -1,13 +1,13 @@
 # Privacy policy for Momentum
 
-Version of 2026-11-21.
+Version of 2026-11-22.
 
 Momentum is an Android app made by Nicolas Mahn, a private developer in Germany.
 Contact for privacy questions: momentum@nicolas-mahn.de
 
 ## In short
 
-Momentum has no account, no server, no ads, no analytics and no crash reporting. The app has no permission to use the internet, so it cannot send anything to anyone. What you record is stored on your phone. I, the developer, never receive it.
+Momentum has no account, no ads, no analytics and no crash reporting. The app uses the internet for one thing only: feedback you write and send yourself. What you record is stored on your phone. I, the developer, never receive it.
 
 A copy leaves the app only in the three cases described under "When a copy leaves the app". Each of them is switched on or started by you or by your phone's settings.
 
@@ -32,7 +32,15 @@ The data is kept in the app's private storage, which other apps cannot read. Mom
 
 **3. What you share yourself.** "Export statistics" writes your plan and every recorded day into one text file and opens Android's share menu. "Share streak" does the same with a picture of your streak. You choose the app that receives it. From then on, that app's rules apply. The latest exported file and picture stay in the app's temporary storage until the next one replaces them.
 
-Nothing else leaves the app. Restoring a backup only reads the file you pick.
+Apart from feedback you send (below), nothing else leaves the app. Restoring a backup only reads the file you pick.
+
+## Feedback
+
+Under Settings, Feedback, you can write me a message. Only when you press Send does Momentum send it, over an encrypted connection, to my server at momentum.nicolas-mahn.de. Along with your text go the kind you chose (problem, idea or something else), the app's language and, unless you untick it, the app version, Android version and phone model. Nothing you have recorded is sent, and no name.
+
+My server, rented from Hetzner Online GmbH, posts the message as a public issue in Momentum's repository on GitHub (github.com/NicolasMahn/momentum). GitHub is run by GitHub, Inc. in the USA. There anyone can read the message until I delete it. So write nothing you would not want to be public; for that, "Write an email instead" opens a message to me in your mail app.
+
+The server stores no messages. To stop floods of messages, it keeps your phone's internet address in memory for at most an hour, and it writes neither messages nor addresses into any log. The legal basis is your consent, given by pressing Send (Art. 6(1)(a) GDPR). To have a message removed, write to me.
 
 ## Reminders
 
@@ -45,11 +53,13 @@ Reminders are created on your phone. A reminder can show the name of what it is 
 - Start after the phone restarts: to set your reminders again.
 - Do Not Disturb access: only if you allow it. Momentum can then switch Do Not Disturb on while a timer runs and put it back when you finish.
 
-Momentum has no internet permission. The backup folder is chosen through Android's own file picker, so the app needs no storage permission.
+- Internet: only to send feedback you write and send yourself.
+
+The backup folder is chosen through Android's own file picker, so the app needs no storage permission.
 
 ## What I receive
 
-From the app: nothing.
+From the app: only feedback you send, as described under "Feedback". Never your records.
 
 From Google Play: Google shows developers summary figures such as the number of installs, and crash reports from people who agreed to share diagnostics with Google. That is Google's processing, described in Google's privacy policy. These figures do not contain your records.
 
