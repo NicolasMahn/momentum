@@ -86,7 +86,7 @@ class StatisticsRewardSeparationTest {
      * activity takes the Activity token and Wednesday's missing weigh-in the Weight token.
      */
     @Test
-    fun tokensAndRestDaysShowOnTheStreakCalendarButNeverAsActivityOrWeighIns() {
+    fun tokensShowOnTheStreakCalendarAndRestsStayInTheWalkButNeverAsActivityOrWeighIns() {
         val monday = LocalDate.parse("2026-09-07")
         val today = LocalDate.parse("2026-09-14")
         val state = AppState(
