@@ -1,7 +1,6 @@
 Settings has Feedback: write a problem or an idea and send it from the app.
 Checklists can be weekly: choose it under Items.
-Back asks before unsaved changes are lost.
-Mo is redrawn in many scenes. Nothing of him is cut off in the widget.
+Mo is redrawn in many scenes. Nothing of him is cut off in the widget. If the widget is gone after this update, add it again.
 Backups no longer pile up.
 Reading: before Sunday, “Zz” keeps Mo quiet for the day. On Sunday it is ticked only at the week’s goal; a token covers a short week.
 Calendars no longer mark rest days.

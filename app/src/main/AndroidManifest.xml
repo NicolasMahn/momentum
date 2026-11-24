@@ -32,17 +32,28 @@
             android:theme="@style/Theme.WorkoutTracker"
             android:configChanges="locale|layoutDirection|screenLayout"
             android:windowSoftInputMode="adjustResize"
-            tools:ignore="LockedOrientationActivity">
+            tools:ignore="LockedOrientationActivity" />
+
+        <!--
+        The launcher entry keeps the name the activity had while the code lived in
+        com.example.workouttracker. A home-screen icon names the launcher activity it was made for,
+        and a launcher may drop the icon once that name is no longer one. A shortcut and a
+        notification already on screen name it too, and still open the app through it.
+        -->
+        <activity-alias
+            android:name="com.example.workouttracker.app.MainActivity"
+            android:exported="true"
+            android:targetActivity=".app.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity-alias>
 
-        <!-- Keep explicit intents to the pre-refactor component working after app updates. -->
+        <!-- The activity's first name, from before it moved into `app`. -->
         <activity-alias
-            android:name=".MainActivity"
+            android:name="com.example.workouttracker.MainActivity"
             android:exported="true"
             android:targetActivity=".app.MainActivity" />
 
