@@ -989,7 +989,7 @@ private fun RecentDayCalendarSpecimen(todayKey: String) {
     val days = calendarWeekDateKeys(todayKey)
     // A few recorded days and one of each cover, so a seal is seen beside a filled day.
     val recorded = days.filterIndexed { index, _ -> index % 3 == 0 }.toSet()
-    val covers = listOf(DayCover.Token, DayCover.Rest, DayCover.Freeze, DayCover.Free)
+    val covers = listOf(DayCover.Token, DayCover.Freeze, DayCover.Free)
         .zip(days.filterIndexed { index, _ -> index % 3 == 1 })
         .associate { (cover, key) -> key to cover }
     RecentDayCalendar(

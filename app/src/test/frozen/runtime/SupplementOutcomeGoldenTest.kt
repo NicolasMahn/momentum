@@ -233,7 +233,7 @@ class SupplementOutcomeGoldenTest {
                                 consistency = summary.consistency.filter { it.ref == supplementsStatisticsRef },
                             )
                         }
-                        historicalStatistics(historicalRows)
+                        historicalStatistics(historicalRows, restedOn = legacy.history.filter { it.rested }.mapTo(HashSet()) { it.date.toString() })
                     }
                     "history $name $shown $today" to
                         "${mood.outcome()} ${outcomeText(legacy)} $ledger ${outcomeText(statisticsText)}"
@@ -243,7 +243,11 @@ class SupplementOutcomeGoldenTest {
     }
 
     /** The recorded digest predates tracker-keyed statistics and pins only Mo's inherited trackers. */
-    private fun historicalStatistics(summary: StatisticsSummary): String {
+    /**
+     * [restedOn] is the walk's rest days: the calendar no longer carries them, and the digest was
+     * made while it did.
+     */
+    private fun historicalStatistics(summary: StatisticsSummary, restedOn: Set<String>): String {
         val rowsByRef = summary.consistency.associateBy { it.ref }
         val consistency = historicalFeatureOrder.mapNotNull { need ->
             rowsByRef[need.view.trackerRef]?.let { "FeatureConsistency(feature=$need, weeks=${it.weeks})" }
@@ -259,7 +263,7 @@ class SupplementOutcomeGoldenTest {
         val streak = summary.streak?.let { calendar ->
             val days = calendar.days.map { day ->
                 val tokens = day.tokens.mapNotNull { ref -> MoNeed.entries.firstOrNull { it.view.trackerRef == ref } }
-                "StreakCalendarDay(dateKey=${day.dateKey}, mark=${day.mark}, tokens=$tokens, rested=${day.rested}, restart=${day.restart})"
+                "StreakCalendarDay(dateKey=${day.dateKey}, mark=${day.mark}, tokens=$tokens, rested=${day.dateKey in restedOn}, restart=${day.restart})"
             }
             "StreakCalendar(days=$days)"
         }

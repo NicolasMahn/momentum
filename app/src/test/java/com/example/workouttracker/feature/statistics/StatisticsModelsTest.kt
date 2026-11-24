@@ -298,7 +298,7 @@ class StatisticsModelsTest {
         val byDate = streak.days.associateBy { it.dateKey }
 
         assertEquals(MoDayMark.NothingDue, byDate.getValue("2026-09-09").mark)
-        assertTrue(byDate.getValue("2026-09-10").rested)
+        assertEquals(MoDayMark.Perfect, byDate.getValue("2026-09-10").mark)
         assertEquals(emptyList<com.example.workouttracker.domain.TrackerRef>(), byDate.getValue("2026-09-11").tokens)
         assertEquals(listOf(MoNeed.Weight, MoNeed.Reading).map { it.view.trackerRef }, byDate.getValue("2026-09-12").tokens)
         assertEquals(MoDayMark.Open, byDate.getValue(Today).mark)
@@ -310,7 +310,7 @@ class StatisticsModelsTest {
         assertEquals(1, streak.restarts)
         assertEquals(
             "Streak in the last 4 weeks: 2 days kept, 1 day saved by a freeze, 2 protected days, 1 day missed, " +
-                "1 restart, 1 planned rest day.",
+                "1 restart.",
             streak.spokenSummary(StatisticsRange.FourWeeks).text(),
         )
     }

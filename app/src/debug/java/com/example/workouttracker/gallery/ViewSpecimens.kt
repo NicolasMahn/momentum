@@ -1089,10 +1089,10 @@ private fun WeightHistorySpecimen(window: MeasurementHistoryWindow) {
 @Composable
 private fun ActivityHistorySpecimen() {
     var selectedDateKey by remember { mutableStateOf<String?>(FixtureTodayKey) }
-    // A token, a rest day and a freeze on the first empty days, so each seal is seen beside filled days.
+    // A token and a freeze on the first empty days, so each seal is seen beside filled days.
     val covers = fixtureActivityGrid.days
         .filter { it.activities.isEmpty() && it.dateKey < FixtureTodayKey }
-        .zip(listOf(DayCover.Token, DayCover.Rest, DayCover.Freeze))
+        .zip(listOf(DayCover.Token, DayCover.Freeze))
         .associate { (day, cover) -> day.dateKey to cover }
     CompositionLocalProvider(LocalDayCovers provides mapOf(ActivityTrackerRef to covers)) {
         ActivityHistory(

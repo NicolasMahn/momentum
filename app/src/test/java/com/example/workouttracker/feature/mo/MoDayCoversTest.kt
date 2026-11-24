@@ -12,13 +12,14 @@ import com.example.workouttracker.domain.ref
 import com.example.workouttracker.domain.trackerRef
 import java.time.LocalDate
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Test
 
 class MoDayCoversTest {
     private val tuesday = LocalDate.parse("2026-09-29")
 
     @Test
-    fun eachCalendarGetsItsOwnTokensFreezesAndRestDays() {
+    fun eachCalendarGetsItsOwnTokensAndFreezesButNoRestDays() {
         val weight = MoNeed.Weight.view.trackerRef
         val eating = testEatingQuestions().ref.trackerRef
         val care = MoNeed.Care.view.trackerRef
@@ -44,24 +45,23 @@ class MoDayCoversTest {
         // Eating reflects on the day before, so the token sits on the day the reflection is about.
         assertEquals(mapOf("2026-09-28" to DayCover.Token), covers[eating])
         assertEquals(mapOf("2026-09-30" to DayCover.Freeze), covers[care])
-        assertEquals(mapOf("2026-10-01" to DayCover.Rest), covers[activity])
-        assertEquals(mapOf("2026-10-01" to DayCover.Rest), covers[configuredRest])
+        // A planned rest day is most days of a plan, so a calendar leaves it plain.
+        assertNull(covers[activity])
+        assertNull(covers[configuredRest])
         assertEquals(mapOf("2026-09-28" to DayCover.Free), covers[reading])
     }
 
     @Test
     fun whatWasSaidForTodayIsCoveredOnTheDayItsRecordWouldHave() {
         val eating = testEatingQuestions().ref.trackerRef
-        val activity = MoNeed.Activity.view.trackerRef
         val covers = moDayCovers(
             streakOf(),
             freeDayKeys = emptyMap(),
             recordDateForJudgmentDay = { ref, day -> if (ref == eating) day.minusDays(1) else day },
             today = tuesday,
-            saidToday = mapOf(activity to DayCover.Rest, eating to DayCover.Token),
+            saidToday = mapOf(eating to DayCover.Token),
         )
 
-        assertEquals(mapOf("2026-09-29" to DayCover.Rest), covers[activity])
         assertEquals(mapOf("2026-09-28" to DayCover.Token), covers[eating])
     }
 
