@@ -1,6 +1,7 @@
-Checklisten können wöchentlich sein: Wähle es unter „Punkte“.
+Checklisten können wöchentlich sein (unter „Punkte“).
 Zurück fragt, bevor Ungespeichertes verloren geht.
-Mo ist in vielen Szenen neu gezeichnet. Im Widget ist er ganz zu sehen.
+Mo ist in vielen Szenen neu gezeichnet und im Widget ganz zu sehen.
 Sicherungen sammeln sich nicht mehr an.
-Nach einem Ruhetag an einem geplanten Tag wird ein freier Tag zum Trainingstag, wenn die Woche ihn braucht. Ruhen darfst du trotzdem.
-Reading: vor Sonntag lässt „Zz“ Mo für heute schweigen. Sonntags Haken erst beim Wochenziel, sonst deckt ein Token die Woche.
+Nach einem Ruhetag an einem geplanten Tag wird ein freier Tag zum Trainingstag, wenn die Woche ihn braucht. Ruhen geht trotzdem.
+Reading: vor Sonntag lässt „Zz“ Mo heute schweigen. Sonntags Haken erst beim Wochenziel, sonst deckt ein Token die Woche.
+Kalender zeigen keine Ruhetage mehr.

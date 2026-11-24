@@ -126,7 +126,7 @@ internal val fixtureStreak: MoStreak by lazy {
 
 /**
  * Four weeks that hold every kind of streak day the calendar draws, since a real history rarely
- * shows a double token, a restart, a rest day and a day only the demo waist's token protected at
+ * shows a double token, a restart and a day only the demo waist's token protected at
  * once. They run from the Monday three weeks
  * before [FixtureMidWeekTodayKey] to that Wednesday, which is still open.
  */

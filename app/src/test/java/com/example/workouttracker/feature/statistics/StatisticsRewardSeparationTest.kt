@@ -86,7 +86,7 @@ class StatisticsRewardSeparationTest {
      * activity takes the Activity token and Wednesday's missing weigh-in the Weight token.
      */
     @Test
-    fun tokensAndRestDaysShowOnTheStreakCalendarButNeverAsActivityOrWeighIns() {
+    fun tokensShowOnTheStreakCalendarAndRestsStayInTheWalkButNeverAsActivityOrWeighIns() {
         val monday = LocalDate.parse("2026-09-07")
         val today = LocalDate.parse("2026-09-14")
         val state = AppState(
@@ -120,8 +120,8 @@ class StatisticsRewardSeparationTest {
         val wednesday = streakDays.getValue("2026-09-09")
         assertEquals(MoDayMark.Protected, wednesday.mark)
         assertEquals(listOf(MoNeed.Weight.view.trackerRef), wednesday.tokens)
-        assertTrue(wednesday.rested)
-        assertTrue(streakDays.getValue("2026-09-12").rested)
+        val rested = streak.history.filter { MoNeed.Activity.view.trackerRef in it.restedTrackers }.map { it.date.toString() }
+        assertTrue("2026-09-09" in rested && "2026-09-12" in rested)
         assertEquals(listOf(MoNeed.Activity.view.trackerRef), streakDays.getValue("2026-09-13").tokens)
 
         // What was recorded: a token or a rest day is never an active day or a weigh-in.

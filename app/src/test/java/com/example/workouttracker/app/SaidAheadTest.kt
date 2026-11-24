@@ -102,8 +102,8 @@ class SaidAheadTest {
         assertTrue(ActivityTrackerRef in resting.restingTrackersToday)
         assertTrue(ActivityTrackerRef in resting.settledByChoice)
         assertEquals(TrackerHomeStatus.Rest, home(state, wednesday, tasks(ActivityTrackerRef))[ActivityTrackerRef])
-        // The calendar shows the rest day today, before the close deals it.
-        assertEquals(mapOf(ActivityTrackerRef to DayCover.Rest), resting.saidTodayCovers())
+        // A rest day leaves the calendar plain, today as on any day the close dealt one.
+        assertEquals(emptyMap<TrackerRef, DayCover>(), resting.saidTodayCovers())
         assertEquals(emptyMap<TrackerRef, DayCover>(), asked.saidTodayCovers())
         assertEquals(emptyList<Int>(), resting.trackerDueMinutes(ActivityTrackerRef, reminders))
         assertFalse(ActivityTrackerRef in moOverdueTrackers(resting, reminders, LocalTime.of(23, 0)))

@@ -110,9 +110,10 @@ internal fun MoMood.label(ref: TrackerRef): UiText =
 private fun sentences(vararg parts: UiText): UiText = parts.toList().joinedBy(" ")
 
 /**
- * What covered each task's days: its own tokens, freezes and, for activity, planned rest days, from
- * the streak's history, with the older rules' free days where nothing newer applies. A calendar
- * shows these as small marks; none of them is a record.
+ * What covered each task's days: its own tokens and freezes, from the streak's history, with the
+ * older rules' free days where nothing newer applies. A calendar shows these as small marks; none
+ * of them is a record. A planned rest day is not among them: resting is what most days of a plan
+ * are, so a calendar leaves it as plain as a day nothing was asked of.
  */
 internal fun moDayCovers(
     streak: MoStreak,
@@ -133,7 +134,10 @@ internal fun moDayCovers(
             MoDayMark.Frozen -> record.coveredTrackers.forEach { cover(it, record.date, DayCover.Freeze) }
             else -> Unit
         }
-        record.restedTrackers.forEach { cover(it, record.date, DayCover.Rest) }
+        // The ledger's free days include the planned rests the walk dealt; those stay plain too.
+        record.restedTrackers.forEach { ref ->
+            recordDateForJudgmentDay(ref, record.date)?.let { covers[ref]?.remove(it.toString()) }
+        }
     }
     // Today is not closed yet, so the walk has not dealt it; what was said for it shows at once,
     // as a record does.
@@ -142,13 +146,12 @@ internal fun moDayCovers(
 }
 
 /**
- * What a person said for today ahead of the close, as a calendar shows it: a rest day, or a token
- * set aside for the whole task, which for a week's amount is its Sunday. A token for one
- * checkpoint of several leaves the day open, and a quiet day covers nothing.
+ * What a person said for today ahead of the close, as a calendar shows it: a token set aside for
+ * the whole task, which for a week's amount is its Sunday. A token for one checkpoint of several
+ * leaves the day open, and a quiet day or a rest day covers nothing.
  */
 internal fun MoMood.saidTodayCovers(): Map<TrackerRef, DayCover> =
-    chosenTrackersToday.associateWith { DayCover.Token } +
-        restChosenTrackers.associateWith { DayCover.Rest }
+    chosenTrackersToday.associateWith { DayCover.Token }
 
 /**
  * The streak page wears Home's neutral chrome, because the streak is Home's score and no feature's.

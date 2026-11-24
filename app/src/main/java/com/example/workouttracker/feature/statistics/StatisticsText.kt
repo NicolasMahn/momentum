@@ -84,7 +84,6 @@ internal fun StreakCalendar.spokenSummary(range: StatisticsRange): UiText {
         if (protectedDays > 0) add(pluralText(R.plurals.statistics_streak_protected, protectedDays))
         if (missedDays > 0) add(pluralText(R.plurals.statistics_streak_missed, missedDays))
         if (restarts > 0) add(pluralText(R.plurals.statistics_streak_restarts, restarts))
-        if (restDays > 0) add(pluralText(R.plurals.statistics_streak_rest_days, restDays))
     }
     return uiText(R.string.statistics_streak_summary, uiText(range.spokenLabel), parts.joinedBy(", "))
 }
