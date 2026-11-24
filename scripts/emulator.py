@@ -52,8 +52,10 @@ PERSONAL_PACKAGE = "com.example.workouttracker"
 AVD = "momentum-recovery-test"
 PACKAGE = "com.example.workouttracker.test"
 STORE_PACKAGE = "de.nicolasmahn.momentum"
+# The app's oldest name for its activity, which every build answers to: the manifest keeps it as an
+# alias, so a build restored from an old save launches like today's.
 LAUNCHER = f"{PACKAGE}/com.example.workouttracker.MainActivity"
-GALLERY = f"{PACKAGE}/com.example.workouttracker.gallery.GalleryActivity"
+GALLERY = f"{PACKAGE}/de.nicolasmahn.momentum.gallery.GalleryActivity"
 NOTIFICATIONS = "android.permission.POST_NOTIFICATIONS"
 EXACT_ALARMS = "SCHEDULE_EXACT_ALARM"
 SDK = Path.home() / "Android/Sdk"
