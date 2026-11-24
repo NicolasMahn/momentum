@@ -10,7 +10,7 @@ Mo: non-commercial use only
 Mo is the flame character of this app: his design, every picture and animation
 of him, and the code that draws them. These paths are Mo:
 
-    app/src/main/java/com/example/workouttracker/feature/mo/
+    app/src/main/java/de/nicolasmahn/momentum/feature/mo/
     app/src/main/res/drawable/ic_launcher_*.xml
     docs/pet/
 

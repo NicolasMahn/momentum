@@ -10,7 +10,7 @@
             android:name=".gallery.GalleryActivity"
             android:exported="true"
             android:label="@string/gallery_label"
-            android:taskAffinity="com.example.workouttracker.gallery"
+            android:taskAffinity="de.nicolasmahn.momentum.gallery"
             android:theme="@style/Theme.WorkoutTracker">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
