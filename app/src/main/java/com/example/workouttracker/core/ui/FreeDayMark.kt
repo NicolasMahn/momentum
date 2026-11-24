@@ -66,8 +66,10 @@ internal val DayCover.spoken: Int
     }
 
 /**
- * The cover drawn at the foot of a calendar cell. A token is the feature's own hexagon in its own
- * colours, the same object the streak dialog shows, so a covered day reads as "a token went here".
+ * The cover drawn at the foot of a calendar cell. A token is the feature's hexagon, the same shape
+ * the streak dialog shows, so a covered day reads as "a token went here". It wears the cell's ink:
+ * the mark only appears on a recorded day, whose ground is often the feature's own accent, where an
+ * accent hexagon would vanish.
  */
 @Composable
 internal fun BoxScope.DayCoverMark(cover: DayCover, contentColor: Color) {
@@ -75,7 +77,6 @@ internal fun BoxScope.DayCoverMark(cover: DayCover, contentColor: Color) {
         FreeDayMark(contentColor)
         return
     }
-    val identity = LocalViewColors.current
     Canvas(
         Modifier
             .align(Alignment.BottomCenter)
@@ -83,10 +84,7 @@ internal fun BoxScope.DayCoverMark(cover: DayCover, contentColor: Color) {
             .size(12.dp),
     ) {
         when (cover) {
-            DayCover.Token -> {
-                drawPath(hexagon(Offset(size.width / 2f, size.height / 2f + 1.dp.toPx()), size.minDimension / 2f), identity.ledge)
-                drawPath(hexagon(Offset(size.width / 2f, size.height / 2f), size.minDimension / 2f), identity.accent)
-            }
+            DayCover.Token -> drawPath(hexagon(Offset(size.width / 2f, size.height / 2f), size.minDimension / 2f), contentColor)
             DayCover.Freeze -> {
                 drawRoundRect(MoIceLedge, Offset(0f, 1.dp.toPx()), size, CornerRadius(3.dp.toPx()))
                 drawRoundRect(MoIce, Offset.Zero, Size(size.width, size.height - 1.dp.toPx()), CornerRadius(3.dp.toPx()))

@@ -118,18 +118,27 @@ internal val genericSpecimens: List<GallerySpecimen> = homeRowSpecimens + listOf
             MomentumRewardBadge()
         }
     },
-    GallerySpecimen("DayCoverMark: free day, token, rest day, freeze") {
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            DayCover.entries.forEach { cover ->
-                Box(
-                    modifier = Modifier
-                        .size(52.dp)
-                        .background(MaterialTheme.colorScheme.surfaceVariant, MaterialTheme.shapes.small),
-                ) { DayCoverMark(cover, MaterialTheme.colorScheme.onSurfaceVariant) }
+    GallerySpecimen("DayCoverMark: free day, token, freeze, on a partial and on a recorded day") {
+        // A recorded day's ground is the view's accent, where a mark in the accent would vanish.
+        val grounds = listOf(
+            MaterialTheme.colorScheme.surfaceVariant to MaterialTheme.colorScheme.onSurfaceVariant,
+            LocalViewColors.current.accent to LocalViewColors.current.onAccent,
+        )
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            grounds.forEach { (ground, ink) ->
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    DayCover.entries.forEach { cover ->
+                        Box(
+                            modifier = Modifier
+                                .size(52.dp)
+                                .background(ground, MaterialTheme.shapes.small),
+                        ) { DayCoverMark(cover, ink) }
+                    }
+                }
             }
         }
     },
-    GallerySpecimen("DayCoverSeal: token, rest day, freeze, on a blank day") {
+    GallerySpecimen("DayCoverSeal: token, freeze, on a blank day") {
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             DayCover.entries.mapNotNull { cover -> cover.sealInk?.let { cover to it } }.forEach { (cover, ink) ->
                 Box(
