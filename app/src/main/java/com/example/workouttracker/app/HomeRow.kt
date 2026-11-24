@@ -82,8 +82,9 @@ internal fun HomeRow(
     // The row is the view, as its Home tile was: its whole face wears the view's tint, and one
     // darker shade is both its outline and its ledge. Kept, it turns over into the view's full
     // color, everything on it in the ink drawn on that color: the day is done, and it shows. A
-    // rest day and a day a token covers turn over too: they are settled.
-    val face = if (status is TrackerHomeStatus.Open || status == TrackerHomeStatus.None || status == TrackerHomeStatus.Quiet) colors else colors.keptFace()
+    // rest day, a day a token covers and a day Mo was asked not to ask turn over too: they are
+    // settled for today.
+    val face = if (status is TrackerHomeStatus.Open || status == TrackerHomeStatus.None) colors else colors.keptFace()
     MomentumCard(
         onClick = onClick,
         modifier = modifier.fillMaxWidth().height(HomeRowDefaults.Height),
