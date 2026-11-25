@@ -22,6 +22,7 @@ import de.nicolasmahn.momentum.domain.time.TimeConfiguration
 import de.nicolasmahn.momentum.domain.time.TimeEdit
 import de.nicolasmahn.momentum.domain.time.TimeLog
 import de.nicolasmahn.momentum.domain.time.TimeLogOrder
+import de.nicolasmahn.momentum.domain.time.TimeRewards
 import de.nicolasmahn.momentum.domain.time.applyEdit
 import de.nicolasmahn.momentum.domain.time.minutesToGo
 import de.nicolasmahn.momentum.domain.time.testReadingTime
@@ -41,8 +42,8 @@ import org.junit.Test
  * A time view a person made reminds through the machinery a made measurement reminds through, by
  * the same code: its slot is in a namespace of its own, with an alarm, a notification and the
  * bookkeeping of every slot. What it has of its own is what it asks for: it speaks while the week
- * is short of its goal and the day holds nothing of it, or on Sunday while the week is short, and
- * says the minutes still to go; minutes saved for the day it rang on take its notification down,
+ * is short of its goal and the day holds nothing of it, or on the Sunday the streak judges the
+ * week, and says the minutes still to go; minutes saved for the day it rang on take its notification down,
  * whatever the week still asks for.
  */
 class TimeRemindersTest {
@@ -118,18 +119,34 @@ class TimeRemindersTest {
 
     /**
      * A day that holds a record of it is done, as its Home row shows, so it is quiet though the week
-     * is still short. On Sunday, the day the week is judged, it still asks while the week is short.
+     * is still short. On the Sunday the streak judges the week, the row stays open, and it still asks
+     * while the week is short: removing that day's log leaves its notification, and minutes added
+     * take it down. Out of the streak a Sunday with a record is done like any other day.
      */
-    @Test fun itIsQuietOnADayWithARecordButOnSundayAsksWhileTheWeekIsShort() {
+    @Test fun itIsQuietOnADayWithARecordButAsksOnTheSundayTheStreakJudges() {
         val readToday = Fixture(state(piano, logs = listOf(minutes(piano, monday, 15), minutes(piano, wednesday, 5))))
         assertTrue(readToday.coordinator.onReminderDue(ReminderViewKind.Time, "tim_k2p9", "day"))
         assertEquals(emptyList<Said>(), readToday.said)
         assertEquals(wednesday.plusDays(1), readToday.gateway.earliest.last())
 
         val sunday = monday.plusDays(6)
-        val readSunday = Fixture(state(piano, logs = listOf(minutes(piano, monday, 15), minutes(piano, sunday, 5))), todayKey = sunday.toString())
-        readSunday.coordinator.onReminderDue(ReminderViewKind.Time, "tim_k2p9", "day")
-        assertEquals(listOf(Said("Piano", 40, key, ReminderDays(sunday, sunday), quietly = false)), readSunday.said)
+        val inStreak = testMadeTime(rewards = TimeRewards(maxPasses = 2)).reminding()
+        val read = state(inStreak, logs = listOf(minutes(inStreak, monday, 15), minutes(inStreak, sunday, 5)))
+        val judged = Fixture(read, todayKey = sunday.toString())
+        judged.coordinator.onReminderDue(ReminderViewKind.Time, "tim_k2p9", "day")
+        assertEquals(listOf(Said("Piano", 40, key, ReminderDays(sunday, sunday), quietly = false)), judged.said)
+        val removed = read.copy(timeLogs = read.timeLogs.filterNot { it.dateKey == sunday.toString() })
+        judged.state = removed
+        judged.coordinator.onDayLogged(read, removed, inStreak.ref, sunday.toString())
+        assertEquals(emptyList<String>(), judged.gateway.dismissed)
+        val added = removed.copy(timeLogs = (removed.timeLogs + minutes(inStreak, sunday, 10)).sortedWith(TimeLogOrder))
+        judged.state = added
+        judged.coordinator.onDayLogged(removed, added, inStreak.ref, sunday.toString())
+        assertEquals(listOf(key), judged.gateway.dismissed)
+
+        val outOfStreak = Fixture(state(piano, logs = listOf(minutes(piano, monday, 15), minutes(piano, sunday, 5))), todayKey = sunday.toString())
+        outOfStreak.coordinator.onReminderDue(ReminderViewKind.Time, "tim_k2p9", "day")
+        assertEquals(emptyList<Said>(), outOfStreak.said)
     }
 
     /** Tokens set aside for the week stop its asking, though the week is still short; the alarm is still set for tomorrow. */

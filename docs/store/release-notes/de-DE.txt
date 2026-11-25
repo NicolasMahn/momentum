@@ -2,5 +2,5 @@ Checklisten können wöchentlich sein (unter „Punkte“).
 Mo ist vielfach neu gezeichnet und im Widget ganz zu sehen. Fehlt es, füge es neu hinzu.
 Sicherungen sammeln sich nicht mehr an.
 Nach einem Ruhetag an einem geplanten Tag wird ein freier Tag zum Trainingstag, wenn die Woche ihn braucht. Ruhen geht trotzdem.
-Reading: an Lesetagen keine Erinnerung. Vor Sonntag lässt „Zz“ Mo heute schweigen. Sonntags Haken erst beim Wochenziel, sonst deckt ein Token sie.
+Reading: vor Sonntag keine Erinnerung an Lesetagen, und „Zz“ lässt Mo heute schweigen. Sonntags Haken erst beim Wochenziel, sonst deckt ein Token sie.
 Kalender zeigen keine Ruhetage mehr.

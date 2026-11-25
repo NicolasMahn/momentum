@@ -64,7 +64,7 @@ private fun TimeConfiguration.trackerReward(
     firstRecordedDay: LocalDate?,
 ): TrackerReward? {
     val bank = rewards ?: return null
-    val isWhole = { monday: LocalDate -> (0L until 7L).all { bank.takesPartOn(monday.plusDays(it)) } }
+    val isWhole = bank::takesPartAllWeek
     return weeklyTrackerReward(
         ref.trackerRef, today, ::rulesOn,
         target = weekTarget(holidays, { records.minutesInWeek(id, it) }, isWhole),
