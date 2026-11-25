@@ -89,6 +89,14 @@ data class TimeConfiguration(
 
     /** Whether the week ending on [sunday] is judged at all: not on a sick Sunday, nor on an away one the view is not due on. */
     fun judgesWeekOn(sunday: LocalDate, daysOff: HolidaySchedule): Boolean = !daysOff.isSick(sunday) && !isNotDueAwayOn(sunday, daysOff)
+
+    /**
+     * Whether the streak judges this view's week on [day] by its amount: only on a Sunday it
+     * judges ([judgesWeekOn]), and only in a week the view takes part in the streak every day of.
+     * That day a record alone does not settle it, as it does every other day.
+     */
+    fun streakJudgesWeekOn(day: LocalDate, daysOff: HolidaySchedule): Boolean =
+        day.dayOfWeek == DayOfWeek.SUNDAY && rewards?.takesPartAllWeek(day.minusDays(DaysToSunday)) == true && judgesWeekOn(day, daysOff)
 }
 
 /**
@@ -127,6 +135,9 @@ data class TimeRewards(
     }
 
     fun takesPartOn(date: LocalDate): Boolean = periods.include(date)
+
+    /** Whether it takes part on every day of the week starting on [monday]: only such a week is judged by its amount. */
+    fun takesPartAllWeek(monday: LocalDate): Boolean = (0L until 7L).all { takesPartOn(monday.plusDays(it)) }
 
     /** What one token covers in the week starting on [monday]: what its Sunday has. */
     fun coverOfWeek(monday: LocalDate): TokenCover {
