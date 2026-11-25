@@ -143,7 +143,7 @@ class TheFiveRemindersTest {
         assertEquals(emptyList<Said>(), quiet.said)
     }
 
-    /** Reading's reminder asks while its week is short, naming the minutes still to go, and is quiet once the week is read. */
+    /** Reading's reminder asks while its week is short, naming the minutes still to go, and is quiet once the week is read or today is. */
     @Test fun readingAsksWhileTheWeekIsShort() {
         val monday = today.minusDays(2)
         val short = Fixture(AppState(timeLogs = listOf(TimeLog(ReadingTimeId, monday.toString(), 1L, 20))).withReading(reading))
@@ -153,6 +153,10 @@ class TheFiveRemindersTest {
         val read = Fixture(AppState(timeLogs = listOf(TimeLog(ReadingTimeId, monday.toString(), 1L, 60))).withReading(reading))
         read.ring(reading)
         assertEquals(emptyList<Said>(), read.said)
+
+        val readToday = Fixture(AppState(timeLogs = listOf(TimeLog(ReadingTimeId, monday.toString(), 1L, 20), TimeLog(ReadingTimeId, today.toString(), 1L, 4))).withReading(reading))
+        readToday.ring(reading)
+        assertEquals(emptyList<Said>(), readToday.said)
     }
 
     /** Supplements' reminder names what is still open; "Mark all done" ticks it, and then there is nothing to remind of. */

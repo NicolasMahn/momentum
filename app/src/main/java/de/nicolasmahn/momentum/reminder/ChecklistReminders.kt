@@ -43,6 +43,7 @@ import de.nicolasmahn.momentum.domain.time.TimeConfiguration
 import de.nicolasmahn.momentum.domain.time.minutesOn
 import de.nicolasmahn.momentum.domain.time.minutesToGo
 import de.nicolasmahn.momentum.persistence.TrackerRepository
+import java.time.DayOfWeek
 import java.time.LocalDate
 
 /**
@@ -320,11 +321,17 @@ private val markAllDoneFailed: UiText = uiText(R.string.reminder_mark_all_done_f
 /**
  * Whether a reminder of [view] about [day] has something to ask. A measurement and a questions
  * view ask while the day holds no record of them. A time view asks while the week of that day is
- * short of what it asks, whatever the day itself holds. None asks on an away day it is not due on
- * by the rule of that day; a sick day still asks, also one that is away too.
+ * short of what it asks and the day holds no record yet, as its Home row is done once it does;
+ * on Sunday, the day its week is judged, it asks while the week is short whatever the day holds.
+ * None asks on an away day it is not due on by the rule of that day; a sick day still asks, also
+ * one that is away too.
  */
-internal fun AppState.owes(view: LoggedView, day: LocalDate, daysOff: HolidaySchedule): Boolean =
-    !view.isExcusedOn(day, daysOff) && (minutesToName(view, day, daysOff)?.let { it > 0 } ?: !isLoggedOn(view.ref, day.toString()))
+internal fun AppState.owes(view: LoggedView, day: LocalDate, daysOff: HolidaySchedule): Boolean {
+    if (view.isExcusedOn(day, daysOff)) return false
+    val logged = isLoggedOn(view.ref, day.toString())
+    val minutesToGo = minutesToName(view, day, daysOff) ?: return !logged
+    return minutesToGo > 0 && (!logged || day.dayOfWeek == DayOfWeek.SUNDAY)
+}
 
 /**
  * The minutes the words of [view]'s reminder about [day] name: what a time view's week still asks
@@ -441,7 +448,8 @@ internal class ChecklistReminderCoordinator(
     /**
      * Notifies while the view still asks ([owes]): while the day today asks about holds no record
      * of a measurement or a questions view, today itself or yesterday for a questions view about
-     * yesterday, and while a time view's week is short of what it asks. It stays silent once that
+     * yesterday, and while a time view's week is short of what it asks and, but on its Sunday, the
+     * day holds nothing of it. It stays silent once that
      * is settled or tokens are set aside for it, while the view is hidden, gone or no longer
      * reminds, where today asks about no day, and where the day asked about is an away day it is
      * not due on. Answers whether the
