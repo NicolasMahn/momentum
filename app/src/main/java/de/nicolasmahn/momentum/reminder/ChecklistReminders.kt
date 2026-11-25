@@ -447,8 +447,8 @@ internal class ChecklistReminderCoordinator(
     /**
      * Notifies while the view still asks ([owes]): while the day today asks about holds no record
      * of a measurement or a questions view, today itself or yesterday for a questions view about
-     * yesterday, and while a time view's week is short of what it asks and, but on the Sunday the
-     * streak judges it, the day holds nothing of it. It stays silent once that
+     * yesterday, and while a time view's week is short of what it asks and the day holds nothing of
+     * it, or, on the Sunday the streak judges its week, while the week is short. It stays silent once that
      * is settled or tokens are set aside for it, while the view is hidden, gone or no longer
      * reminds, where today asks about no day, and where the day asked about is an away day it is
      * not due on. Answers whether the
