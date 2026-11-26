@@ -29,7 +29,10 @@ import java.time.LocalTime
 
 /** The reading preset uses the timer screen with its configured yellow identity and book motif. */
 internal val readingScreenSpecimens = listOf(
-    GallerySpecimen("TimeScreen, Reading") { TimeScreenSpecimen(DemoReadingTime, testTagPrefix = "gallery_reading_screen") },
+    GallerySpecimen("TimeScreen, Reading") {
+        // A week a token closed though it was read in: the mark sits under a logged day's date.
+        TimeScreenSpecimen(DemoReadingTime, testTagPrefix = "gallery_reading_screen", covers = mapOf(fixtureDateKey(2) to DayCover.Token))
+    },
     GallerySpecimen("TimeSessionScreen, Reading") { TimeSessionSpecimen(DemoReadingTime, minutes = 23) },
     GallerySpecimen("TimeSessionScreen, Reading, save failed") { TimeSessionSpecimen(DemoReadingTime, minutes = 41, saveFailed = true) },
     GallerySpecimen("TimeSessionScreen, Reading on the flavor Plain") { TimeSessionSpecimen(DemoReadingTime.copy(mo = DemoReadingTime.mo.copy(motif = null)), minutes = 23) },
@@ -70,7 +73,13 @@ private fun madeTime(id: String, label: String, icon: ViewIcon, hue: ViewHue, go
  * itself, so it needs a frame of fixed height.
  */
 @Composable
-private fun TimeScreenSpecimen(view: TimeConfiguration, days: Int = 24, note: TimeSessionNote? = null, testTagPrefix: String = "gallery_${view.id}") {
+private fun TimeScreenSpecimen(
+    view: TimeConfiguration,
+    days: Int = 24,
+    note: TimeSessionNote? = null,
+    testTagPrefix: String = "gallery_${view.id}",
+    covers: Map<String, DayCover> = emptyMap(),
+) {
     var state by remember {
         mutableStateOf(
             AppState(
@@ -94,8 +103,7 @@ private fun TimeScreenSpecimen(view: TimeConfiguration, days: Int = 24, note: Ti
             todayKey = FixtureTodayKey,
             sessionNote = note,
             testTagPrefix = testTagPrefix,
-            // A week a token closed though it was read in: the mark sits under a logged day's date.
-            covers = mapOf(fixtureDateKey(2) to DayCover.Token),
+            covers = covers,
         )
     }
 }
