@@ -1,6 +1,6 @@
-Checklists can be weekly: choose it under Items.
+Checklists can be weekly (under Items).
 Mo is redrawn in many scenes. Nothing of him is cut off in the widget. If the widget is gone, add it again.
 Backups no longer pile up.
 After a rest on a planned day, a free day becomes a workout day when the week needs it. You can still rest on it.
-Reading: before Sunday, a day you read gets no reminder, and “Zz” keeps Mo quiet for the day. On Sunday it is ticked only at the goal; a token covers a short week.
+Reading: before Sunday, no reminder on a day you read, and “Zz” quiets Mo for the day, on Home too. On Sunday it is ticked only at the goal; a token covers a short week.
 Calendars no longer mark rest days.
