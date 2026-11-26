@@ -37,7 +37,8 @@ class MoDayCoversTest {
 
         val covers = moDayCovers(
             streak,
-            freeDayKeys = mapOf(reading to setOf("2026-09-28")),
+            // The ledger counts Activity's rest as a free day as well; the rest keeps it plain.
+            freeDayKeys = mapOf(reading to setOf("2026-09-28"), activity to setOf("2026-10-01")),
             recordDateForJudgmentDay = recordDateForJudgmentDay,
         )
 
@@ -46,7 +47,7 @@ class MoDayCoversTest {
         assertEquals(mapOf("2026-09-28" to DayCover.Token), covers[eating])
         assertEquals(mapOf("2026-09-30" to DayCover.Freeze), covers[care])
         // A planned rest day is most days of a plan, so a calendar leaves it plain.
-        assertNull(covers[activity])
+        assertEquals(emptyMap<String, DayCover>(), covers[activity].orEmpty())
         assertNull(covers[configuredRest])
         assertEquals(mapOf("2026-09-28" to DayCover.Free), covers[reading])
     }

@@ -134,6 +134,10 @@ internal fun moDayCovers(
             MoDayMark.Frozen -> record.coveredTrackers.forEach { cover(it, record.date, DayCover.Freeze) }
             else -> Unit
         }
+        // The ledger's free days include the planned rests the walk dealt; those stay plain too.
+        record.restedTrackers.forEach { ref ->
+            recordDateForJudgmentDay(ref, record.date)?.let { covers[ref]?.remove(it.toString()) }
+        }
     }
     // Today is not closed yet, so the walk has not dealt it; what was said for it shows at once,
     // as a record does.
