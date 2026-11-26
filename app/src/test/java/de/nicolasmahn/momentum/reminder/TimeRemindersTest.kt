@@ -22,6 +22,7 @@ import de.nicolasmahn.momentum.domain.time.TimeConfiguration
 import de.nicolasmahn.momentum.domain.time.TimeEdit
 import de.nicolasmahn.momentum.domain.time.TimeLog
 import de.nicolasmahn.momentum.domain.time.TimeLogOrder
+import de.nicolasmahn.momentum.domain.time.TimeRewards
 import de.nicolasmahn.momentum.domain.time.applyEdit
 import de.nicolasmahn.momentum.domain.time.minutesToGo
 import de.nicolasmahn.momentum.domain.time.testReadingTime
@@ -41,8 +42,9 @@ import org.junit.Test
  * A time view a person made reminds through the machinery a made measurement reminds through, by
  * the same code: its slot is in a namespace of its own, with an alarm, a notification and the
  * bookkeeping of every slot. What it has of its own is what it asks for: it speaks while the week
- * is short of its goal and says the minutes still to go, and minutes saved for the day it rang on
- * take its notification down, whatever the week still asks for.
+ * is short of its goal and the day holds nothing of it, or on the Sunday the streak judges the
+ * week, and says the minutes still to go; minutes saved for the day it rang on take its notification down,
+ * whatever the week still asks for.
  */
 class TimeRemindersTest {
     private val wednesday = LocalDate.parse("2026-10-14")
@@ -96,11 +98,11 @@ class TimeRemindersTest {
         assertEquals("time/same", slotKey(ReminderViewKind.Checklist, "time", "same"))
     }
 
-    /** It speaks while the week is short of its goal, saying the minutes still to go, whatever today itself holds, and always sets tomorrow. */
+    /** It speaks while the week is short of its goal, saying the minutes still to go, and always sets tomorrow. */
     @Test fun itSpeaksWhileTheWeekIsShortOfItsGoalAndSaysTheMinutesToGo() {
-        val fixture = Fixture(state(piano, logs = listOf(minutes(piano, monday, 15), minutes(piano, wednesday, 5), minutes(piano, monday.minusDays(1), 300))))
+        val fixture = Fixture(state(piano, logs = listOf(minutes(piano, monday, 15), minutes(piano, monday.minusDays(1), 300))))
         assertTrue(fixture.coordinator.onReminderDue(ReminderViewKind.Time, "tim_k2p9", "day"))
-        assertEquals(listOf(Said("Piano", 40, key, ReminderDays(wednesday, wednesday), quietly = false)), fixture.said)
+        assertEquals(listOf(Said("Piano", 45, key, ReminderDays(wednesday, wednesday), quietly = false)), fixture.said)
         assertEquals(mapOf(key to ReminderDays(wednesday, wednesday)), fixture.runtime.posted())
         assertEquals(wednesday.plusDays(1), fixture.gateway.earliest.last())
 
@@ -113,6 +115,38 @@ class TimeRemindersTest {
         fixture.state = state(piano, logs = listOf(TimeLog("reading", monday.toString(), 1L, 60), TimeLog("tim_m7xd", monday.toString(), 1L, 60)))
         fixture.coordinator.onReminderDue(ReminderViewKind.Time, "tim_k2p9", "day")
         assertEquals(Said("Piano", 60, key, ReminderDays(wednesday, wednesday), quietly = false), fixture.said.last())
+    }
+
+    /**
+     * A day that holds a record of it is done, as its Home row shows, so it is quiet though the week
+     * is still short. On the Sunday the streak judges the week, the row stays open, and it still asks
+     * while the week is short: removing that day's log leaves its notification, and minutes added
+     * take it down. Out of the streak a Sunday with a record is done like any other day.
+     */
+    @Test fun itIsQuietOnADayWithARecordButAsksOnTheSundayTheStreakJudges() {
+        val readToday = Fixture(state(piano, logs = listOf(minutes(piano, monday, 15), minutes(piano, wednesday, 5))))
+        assertTrue(readToday.coordinator.onReminderDue(ReminderViewKind.Time, "tim_k2p9", "day"))
+        assertEquals(emptyList<Said>(), readToday.said)
+        assertEquals(wednesday.plusDays(1), readToday.gateway.earliest.last())
+
+        val sunday = monday.plusDays(6)
+        val inStreak = testMadeTime(rewards = TimeRewards(maxPasses = 2)).reminding()
+        val read = state(inStreak, logs = listOf(minutes(inStreak, monday, 15), minutes(inStreak, sunday, 5)))
+        val judged = Fixture(read, todayKey = sunday.toString())
+        judged.coordinator.onReminderDue(ReminderViewKind.Time, "tim_k2p9", "day")
+        assertEquals(listOf(Said("Piano", 40, key, ReminderDays(sunday, sunday), quietly = false)), judged.said)
+        val removed = read.copy(timeLogs = read.timeLogs.filterNot { it.dateKey == sunday.toString() })
+        judged.state = removed
+        judged.coordinator.onDayLogged(read, removed, inStreak.ref, sunday.toString())
+        assertEquals(emptyList<String>(), judged.gateway.dismissed)
+        val added = removed.copy(timeLogs = (removed.timeLogs + minutes(inStreak, sunday, 10)).sortedWith(TimeLogOrder))
+        judged.state = added
+        judged.coordinator.onDayLogged(removed, added, inStreak.ref, sunday.toString())
+        assertEquals(listOf(key), judged.gateway.dismissed)
+
+        val outOfStreak = Fixture(state(piano, logs = listOf(minutes(piano, monday, 15), minutes(piano, sunday, 5))), todayKey = sunday.toString())
+        outOfStreak.coordinator.onReminderDue(ReminderViewKind.Time, "tim_k2p9", "day")
+        assertEquals(emptyList<Said>(), outOfStreak.said)
     }
 
     /** Tokens set aside for the week stop its asking, though the week is still short; the alarm is still set for tomorrow. */
@@ -177,13 +211,13 @@ class TimeRemindersTest {
 
     /**
      * Minutes saved for the day it rang on take its notification down, although the week is still
-     * short, as any minutes read today take Reading's down. Minutes for another day, a removal,
-     * another view's and a measurement's of the same ID leave it.
+     * short, as any minutes read today take Reading's down. Minutes for another day, another view's
+     * and a measurement's of the same ID leave it.
      */
     @Test fun minutesSavedForTheDayItRangOnTakeItsNotificationDown() {
         val guitar = testMadeTime(id = "tim_m7xd", label = "Guitar").reminding()
         val twin = testMadeMeasurement(id = piano.id, label = "Twin").let { it.copy(checkpoint = it.checkpoint.copy(remind = true)) }
-        val state = state(piano, guitar, logs = listOf(minutes(piano, wednesday, 5))).let { it.copy(measurements = it.measurements + twin) }
+        val state = state(piano, guitar).let { it.copy(measurements = it.measurements + twin) }
         fun AppState.adding(view: TimeConfiguration, day: LocalDate, logged: Int) =
             copy(timeLogs = (timeLogs.filterNot { it.viewId == view.id && it.dateKey == day.toString() } + minutes(view, day, logged)).sortedWith(TimeLogOrder))
         val fixture = Fixture(state)
@@ -202,17 +236,12 @@ class TimeRemindersTest {
         fixture.state = mondays
         fixture.coordinator.onDayLogged(state, mondays, piano.ref, monday.toString())
         assertEquals(onShow, fixture.runtime.posted())
-        // Nor is today's log removed.
-        val removed = mondays.copy(timeLogs = mondays.timeLogs.filterNot { it.viewId == piano.id && it.dateKey == wednesday.toString() })
-        fixture.state = removed
-        fixture.coordinator.onDayLogged(mondays, removed, piano.ref, wednesday.toString())
-        assertEquals(onShow, fixture.runtime.posted())
         assertEquals(emptyList<String>(), fixture.gateway.dismissed)
 
-        // Ten minutes today, fifty still to go this week: it goes, and no other does.
-        val saved = removed.adding(piano, wednesday, 10)
+        // Ten minutes today, forty still to go this week: it goes, and no other does.
+        val saved = mondays.adding(piano, wednesday, 10)
         fixture.state = saved
-        fixture.coordinator.onDayLogged(removed, saved, piano.ref, wednesday.toString())
+        fixture.coordinator.onDayLogged(mondays, saved, piano.ref, wednesday.toString())
         assertEquals(listOf(key), fixture.gateway.dismissed)
         assertEquals(onShow - key, fixture.runtime.posted())
         assertEquals(40, saved.minutesToGo(piano, wednesday, HolidaySchedule()))
