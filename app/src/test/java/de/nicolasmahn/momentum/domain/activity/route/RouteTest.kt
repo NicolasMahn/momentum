@@ -26,6 +26,17 @@ class RouteTest {
     }
 
     @Test
+    fun fixesThatShareASecondKeepTheirDistance() {
+        // A steady ride at 8 m/s, its fixes 980 ms and 1020 ms apart, so some fall in the same second.
+        val fixes = (0..20).map { index ->
+            val millis = index / 2 * 2000L + if (index % 2 == 1) 980L else 0L
+            LocationFix(Origin.latitude + millis * 0.008 / MetersPerDegreeLatitude, Origin.longitude, 5f, start + 999 + millis)
+        }
+        val route = fixes.fold(RouteRecording("act_run", start)) { recording, fix -> recording.taking(fix) }.route
+        assertEquals(160.0, route.distanceMeters, 3.0)
+    }
+
+    @Test
     fun standingStillAddsNeitherDistanceNorMovingTime() {
         // 500 m at 10 m every 3 s, two minutes at a crossing while GPS wanders by a few metres, 500 m more.
         val out = (0..50).map { north(it * 10.0, it * 3L) }

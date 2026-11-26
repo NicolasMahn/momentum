@@ -271,7 +271,7 @@ internal fun ActivityTimeline(
     dayLabel: String,
     expandedItemId: String?,
     onExpandedItemChange: (String?) -> Unit,
-    onEdit: (ActivityTimelineItem) -> Unit,
+    onEdit: ((ActivityTimelineItem) -> Unit)?,
     onRemove: (ActivityTimelineItem) -> Boolean,
 ) {
     if (items.isEmpty()) return
@@ -297,7 +297,7 @@ internal fun ActivityTimeline(
                 onExpandedChange = { expanded ->
                     onExpandedItemChange(if (expanded) item.id else null)
                 },
-                onEdit = { onEdit(item) },
+                onEdit = onEdit?.let { { it(item) } },
                 onRemove = { onRemove(item) },
             )
         }
@@ -315,7 +315,7 @@ private fun ActivityTimelineRow(
     configuration: ActivityConfiguration,
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
-    onEdit: () -> Unit,
+    onEdit: (() -> Unit)?,
     onRemove: () -> Boolean,
 ) {
     var removeError by remember(item.id) { mutableStateOf<Int?>(null) }
@@ -352,12 +352,16 @@ private fun ActivityTimelineRow(
                 // The empty slot is kept, so the two buttons every row has share one column.
                 Spacer(modifier = Modifier.width(MomentumButtonDefaults.QuietMinHeight))
             }
-            QuietIconButton(
-                icon = Icons.Rounded.Edit,
-                description = stringResource(R.string.activity_entry_edit, title),
-                onClick = onEdit,
-                testTag = "activity_entry_edit_${item.id}",
-            )
+            if (onEdit != null) {
+                QuietIconButton(
+                    icon = Icons.Rounded.Edit,
+                    description = stringResource(R.string.activity_entry_edit, title),
+                    onClick = onEdit,
+                    testTag = "activity_entry_edit_${item.id}",
+                )
+            } else {
+                Spacer(modifier = Modifier.width(MomentumButtonDefaults.QuietMinHeight))
+            }
             MomentumRemoveButton(
                 description = stringResource(R.string.activity_entry_remove, title),
                 onRemove = {

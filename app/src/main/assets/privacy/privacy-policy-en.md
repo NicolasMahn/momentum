@@ -35,9 +35,9 @@ The data is kept in the app's private storage, which other apps cannot read. Mom
 
 **3. What you share yourself.** "Export statistics" writes your plan and every recorded day into one text file and opens Android's share menu. "Share streak" does the same with a picture of your streak. You choose the app that receives it. From then on, that app's rules apply. The latest exported file and picture stay in the app's temporary storage until the next one replaces them.
 
-Nothing else leaves the app. Restoring a backup only reads the file you pick.
+Nothing else leaves the app, apart from the map requests described under "The route map". Restoring a backup only reads the file you pick.
 
-A route is part of your records, so it is in these copies too.
+A route is part of your records, so it is in the first two copies too. The statistics export and the streak picture leave it out.
 
 ## The route map
 

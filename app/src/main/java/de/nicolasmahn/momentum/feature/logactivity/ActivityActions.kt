@@ -67,7 +67,7 @@ fun recordActivity(
     return state.recording(configuration, activity, dateKey, durationMinutes, notes, newEntryId, timestampMillis)
 }
 
-/** Records the activity [activityId], one the configuration lists and still offers, on [dateKey], with the [route] it went if it was recorded with GPS. */
+/** Records the activity [activityId], one the configuration lists and still offers, on [dateKey]. */
 fun recordActivityOf(
     state: AppState,
     activityId: String,
@@ -76,12 +76,11 @@ fun recordActivityOf(
     notes: String?,
     newEntryId: String = UUID.randomUUID().toString(),
     timestampMillis: Long = nowMillis(),
-    route: Route? = null,
 ): RecordActivityResult {
     val activity = state.activityRules.offered(activityId) ?: return RecordActivityResult.Invalid(ActivityProblem.NotFound)
     problemWith(dateKey, durationMinutes)?.let { return RecordActivityResult.Invalid(it) }
     if (newEntryId.isBlank()) return RecordActivityResult.Invalid(ActivityProblem.BlankEntryId)
-    return state.recording(state.activityRules, activity, dateKey, durationMinutes, notes, newEntryId, timestampMillis, route)
+    return state.recording(state.activityRules, activity, dateKey, durationMinutes, notes, newEntryId, timestampMillis)
 }
 
 /**

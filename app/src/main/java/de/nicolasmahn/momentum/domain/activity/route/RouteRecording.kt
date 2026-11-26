@@ -61,6 +61,9 @@ data class RouteRecording(
             if (metersBetween(last, point) < maxOf(MinStepMeters, fix.accuracyMeters.toDouble())) {
                 return copy(jumpsInARow = 0, lastSeen = point, lastFixSecondsIn = point.secondsIn)
             }
+            // A step within one second measures no time, so its metres would count for nothing: the
+            // next point, a second on, measures them instead.
+            if (point.secondsIn == last.secondsIn) return copy(jumpsInARow = 0, lastSeen = point, lastFixSecondsIn = point.secondsIn)
         }
         return copy(route = route.adding(point, newStretch = stretchEnded), stretchEnded = false, jumpsInARow = 0, lastSeen = point, lastFixSecondsIn = point.secondsIn)
     }

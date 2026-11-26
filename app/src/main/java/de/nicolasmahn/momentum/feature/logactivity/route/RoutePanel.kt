@@ -68,7 +68,7 @@ internal fun RoutePanel(
     // from the next point, seconds later. It holds what it showed rather than run backwards; paused,
     // it shows the measured time that Finish saves.
     val shownMoving = remember(recording.startedAtMillis) { mutableLongStateOf(0L) }
-    val measured = route.movingSecondsAt(recording.secondsIn(now), recording = !recording.paused)
+    val measured = route.movingSecondsAt(recording.secondsIn(now), recording = !recording.paused && !recording.stretchEnded)
     val moving = if (recording.paused) measured else maxOf(shownMoving.longValue, measured)
     SideEffect { shownMoving.longValue = moving }
     val searching = !recording.paused && (lastFixMillis == null || now - lastFixMillis > SearchingAfterMillis)

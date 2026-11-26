@@ -35,9 +35,9 @@ Die Daten liegen im privaten Speicher der App. Andere Apps können ihn nicht les
 
 **3. Was du selbst teilst.** „Statistik exportieren“ schreibt deinen Plan und jeden erfassten Tag in eine Textdatei und öffnet das Teilen-Menü von Android. „Streak teilen“ macht dasselbe mit einem Bild deines Streaks. Du wählst die App, die es bekommt. Ab da gelten die Regeln dieser App. Die zuletzt exportierte Datei und das zuletzt geteilte Bild bleiben im Zwischenspeicher der App, bis die nächsten sie ersetzen.
 
-Sonst verlässt nichts die App. Beim Wiederherstellen einer Sicherung wird nur die Datei gelesen, die du auswählst.
+Sonst verlässt nichts die App, außer den Kartenanfragen, die unter „Die Karte einer Strecke“ beschrieben sind. Beim Wiederherstellen einer Sicherung wird nur die Datei gelesen, die du auswählst.
 
-Eine Strecke gehört zu deinen Einträgen, sie ist also auch in diesen Kopien.
+Eine Strecke gehört zu deinen Einträgen, sie ist also auch in den ersten beiden Kopien. Der Statistik-Export und das Streak-Bild enthalten sie nicht.
 
 ## Die Karte einer Strecke
 

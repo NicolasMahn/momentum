@@ -129,9 +129,12 @@ internal fun ActivityLogScreen(
         ?.let { dayId -> rules.activityOfDay(dayId)?.let { activity -> OpenRoutineDay(activity, requireNotNull(activity.day(dayId))) } }
         ?.takeIf { (activity, day) -> (hasRoutine && activity.id == selectedActivityId && !day.removed) || state.sessionFor(activity, day, selectedDateKey) != null }
     val logsDuration = rules.logsDuration
+    val editedEntry = editingEntryId?.let { id -> state.activityEntries.firstOrNull { it.id == id } }
+    // A recorded route's minutes are its moving time, which the route measures: no one types them.
+    val showsDuration = logsDuration && editedEntry?.route == null
     // Without the field nothing typed is read: text the form still holds from before the setting
     // was switched off, or from the record it opened, neither blocks a save nor reaches one.
-    val typedDuration = if (logsDuration) durationText else ""
+    val typedDuration = if (showsDuration) durationText else ""
     val parsedDuration = typedDuration
         .trim()
         .takeIf { it.isNotEmpty() }
@@ -143,7 +146,7 @@ internal fun ActivityLogScreen(
      * saved over has [recorded]. A recorded duration is a fact, so switching the field off never
      * takes one away; a new record then gets none.
      */
-    fun durationToStore(recorded: Int?): Int? = if (logsDuration) parsedDuration else recorded
+    fun durationToStore(recorded: Int?): Int? = if (showsDuration) parsedDuration else recorded
 
     /** The tile an entry opens on: its activity's own, or Other, which then holds its name. */
     fun openingMark(entry: ActivityEntry): ActivityMark = tiles.firstOrNull { it == entry.mark } ?: ActivityMark.Other
@@ -153,14 +156,13 @@ internal fun ActivityLogScreen(
     // What the form holds and has not saved: something typed for a new entry, anything changed on
     // one opened in Edit, or an open routine day's minutes, which only Finish stores; its sets store
     // themselves as they go. An activity picked from Other's list is a choice, not typing.
-    val editedEntry = editingEntryId?.let { id -> state.activityEntries.firstOrNull { it.id == id } }
     val unsaved = when {
         openDay != null -> logsDuration &&
             durationText.trim() != state.sessionFor(openDay.activity, openDay.day, selectedDateKey)?.durationMinutes?.toString().orEmpty()
         editedEntry == null -> typedDuration.isNotBlank() || (selectedMark == ActivityMark.Other && chosenOtherId == null && nameText.isNotBlank())
         else -> selectedMark != openingMark(editedEntry) ||
             nameText != openingName(editedEntry) ||
-            (logsDuration && durationText.trim() != editedEntry.durationMinutes?.toString().orEmpty())
+            (showsDuration && durationText.trim() != editedEntry.durationMinutes?.toString().orEmpty())
     }
     val focusManager = LocalFocusManager.current
     val screenScrollState = rememberScrollState()
@@ -374,7 +376,6 @@ internal fun ActivityLogScreen(
             // The run's day is shown, unless a record opened for editing before the run still waits
             // under the panel: its day is the one it is saved on.
             if (editingEntryId == null && openDay == null) selectedDateKey = dateKey
-            saveCelebrationSignal += 1
         } else {
             // Kept, paused, so nothing of the run is lost: Finish can be tried again, or the recording discarded.
             routeMessage = R.string.activity_save_failed
@@ -521,7 +522,7 @@ internal fun ActivityLogScreen(
 
                 // Only where Settings asks for it. The duration belongs to the entry the button
                 // below saves, so it stands above it.
-                if (logsDuration) MomentumTextField(
+                if (showsDuration) MomentumTextField(
                     value = durationText,
                     onValueChange = {
                         durationText = it
@@ -679,7 +680,8 @@ internal fun ActivityLogScreen(
                     .orEmpty(),
                 expandedItemId = expandedTimelineItemId,
                 onExpandedItemChange = { expandedTimelineItemId = it },
-                onEdit = ::editTimelineItem,
+                // Under a recording the form is not shown, so nothing can be opened into it.
+                onEdit = if (recording == null) ::editTimelineItem else null,
                 onRemove = ::removeTimelineItem,
             )
         }

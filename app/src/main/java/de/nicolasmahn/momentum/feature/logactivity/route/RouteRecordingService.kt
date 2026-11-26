@@ -11,7 +11,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.pm.ServiceInfo
 import android.location.Location
-import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
 import android.os.IBinder
@@ -20,6 +19,7 @@ import android.os.SystemClock
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
 import androidx.core.content.ContextCompat
+import androidx.core.location.LocationListenerCompat
 import de.nicolasmahn.momentum.R
 import de.nicolasmahn.momentum.app.activityDestinationPendingIntent
 import de.nicolasmahn.momentum.core.locale.locale
@@ -48,7 +48,9 @@ internal class RouteRecordingService : Service() {
     private var listening = false
     private var shownText: String? = null
 
-    private val listener = LocationListener { location ->
+    // Not the platform's LocationListener: before Android 11 it has no default for the provider
+    // callbacks, and switching location off mid-run would end the app.
+    private val listener = LocationListenerCompat { location ->
         // A fix the system kept from before, such as where the phone last had one, says nothing about now.
         if (location.ageMillis() <= MaxFixAgeMillis) recorder.take(location.toFix())
     }
@@ -60,7 +62,8 @@ internal class RouteRecordingService : Service() {
         createChannel(this)
         // Android ends the app unless a service started this way goes to the foreground, even one
         // that has nothing to do: a pause tapped right after Start can get here first. Where it
-        // cannot go there, because location was taken away meanwhile, the recording waits paused.
+        // cannot go there, because location was taken away meanwhile, Android may still end the
+        // app; the recording is paused first, so it comes back with every point.
         val promoted = runCatching {
             ServiceCompat.startForeground(this, NotificationId, notification(recording ?: RouteRecording("", 0L)), foregroundType())
         }.isSuccess
