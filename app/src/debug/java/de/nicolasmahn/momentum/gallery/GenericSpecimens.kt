@@ -121,7 +121,7 @@ internal val genericSpecimens: List<GallerySpecimen> = homeRowSpecimens + listOf
     GallerySpecimen("DayCoverMark: free day, token, freeze, on a partial and on a recorded day") {
         // A recorded day's ground is the view's accent, where a mark in the accent would vanish.
         val grounds = listOf(
-            MaterialTheme.colorScheme.surfaceVariant to MaterialTheme.colorScheme.onSurfaceVariant,
+            LocalViewColors.current.container to LocalViewColors.current.onContainer,
             LocalViewColors.current.accent to LocalViewColors.current.onAccent,
         )
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {

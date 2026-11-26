@@ -30,7 +30,7 @@ internal val homeRowSpecimens: List<GallerySpecimen> = listOf(
     GallerySpecimen("HomeRow, dots") { HomeRowsSpecimen(HomeDayPictureStyle.Dots) },
     GallerySpecimen("HomeRow, a day in progress and a day done") { HomeRowStatesSpecimen() },
     GallerySpecimen("HomeRow, a rest day, a quiet day and days a token covers") {
-        val statuses = mapOf(1 to TrackerHomeStatus.Quiet, 3 to TrackerHomeStatus.Rest)
+        val statuses = mapOf(2 to TrackerHomeStatus.Quiet, 3 to TrackerHomeStatus.Rest)
         HomeRowsSpecimen(HomeDayPictureStyle.Bars, sampleRows.mapIndexed { index, row -> SampleRow(row.title, row.icon, row.hue, row.picture, statuses[index] ?: TrackerHomeStatus.Covered) })
     },
 )

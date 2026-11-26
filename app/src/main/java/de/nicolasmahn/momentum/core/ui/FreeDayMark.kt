@@ -3,6 +3,7 @@ package de.nicolasmahn.momentum.core.ui
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -77,17 +78,18 @@ internal fun BoxScope.DayCoverMark(cover: DayCover, contentColor: Color) {
         FreeDayMark(contentColor)
         return
     }
+    // Small and set into the cell's padding, so it clears the date in a cell of a narrow phone.
     Canvas(
         Modifier
             .align(Alignment.BottomCenter)
-            .padding(bottom = 3.dp)
-            .size(12.dp),
+            .offset(y = 2.dp)
+            .size(8.dp),
     ) {
         when (cover) {
             DayCover.Token -> drawPath(hexagon(Offset(size.width / 2f, size.height / 2f), size.minDimension / 2f), contentColor)
             DayCover.Freeze -> {
-                drawRoundRect(MoIceLedge, Offset(0f, 1.dp.toPx()), size, CornerRadius(3.dp.toPx()))
-                drawRoundRect(MoIce, Offset.Zero, Size(size.width, size.height - 1.dp.toPx()), CornerRadius(3.dp.toPx()))
+                drawRoundRect(MoIceLedge, Offset(0f, 1.dp.toPx()), size, CornerRadius(2.dp.toPx()))
+                drawRoundRect(MoIce, Offset.Zero, Size(size.width, size.height - 1.dp.toPx()), CornerRadius(2.dp.toPx()))
             }
             DayCover.Free -> Unit
         }

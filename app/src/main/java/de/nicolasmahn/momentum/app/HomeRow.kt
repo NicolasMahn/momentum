@@ -140,8 +140,8 @@ private val TitleMinSize = 12.sp
 
 /**
  * What the row's end says: a check once the day is kept, the token that settled it on a rest day
- * or a day a token covers, and the empty ring it fills until then. [identity] is the row's icon in
- * the colors of its face.
+ * or a day a token covers, Mo's Zz on a day he was asked not to ask, and the empty ring it fills
+ * until then. [identity] is the row's icon in the colors of its face.
  */
 @Composable
 private fun HomeStatusMark(status: TrackerHomeStatus, identity: ViewIdentity) {

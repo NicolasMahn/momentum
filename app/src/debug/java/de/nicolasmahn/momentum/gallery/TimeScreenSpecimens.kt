@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
+import de.nicolasmahn.momentum.core.ui.DayCover
 import de.nicolasmahn.momentum.domain.AppState
 import de.nicolasmahn.momentum.domain.changingDay
 import de.nicolasmahn.momentum.domain.checklist.Checkpoint
@@ -93,6 +94,8 @@ private fun TimeScreenSpecimen(view: TimeConfiguration, days: Int = 24, note: Ti
             todayKey = FixtureTodayKey,
             sessionNote = note,
             testTagPrefix = testTagPrefix,
+            // A week a token closed though it was read in: the mark sits under a logged day's date.
+            covers = mapOf(fixtureDateKey(2) to DayCover.Token),
         )
     }
 }
