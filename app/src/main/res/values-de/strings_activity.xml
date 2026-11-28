@@ -173,4 +173,32 @@
         <item quantity="one">%d Tag pro Woche im Urlaub</item>
         <item quantity="other">%d Tage pro Woche im Urlaub</item>
     </plurals>
+
+    <!-- Recording an activity with GPS (an activity whose settings switch it on). -->
+    <string name="activity_route_start">Aufzeichnung starten</string>
+    <string name="activity_route_pause">Pausieren</string>
+    <string name="activity_route_resume">Weiter</string>
+    <string name="activity_route_finish">Beenden</string>
+    <string name="activity_route_discard">Aufzeichnung verwerfen</string>
+    <string name="activity_route_recording">%s wird aufgezeichnet</string>
+    <string name="activity_route_paused">%s pausiert</string>
+    <string name="activity_route_searching">%s · GPS wird gesucht …</string>
+    <string name="activity_route_kilometers">%s km</string>
+    <string name="activity_route_pace_and_speed">%1$s /km · %2$s km/h</string>
+    <string name="activity_route_location_needed">Erlaube Momentum den genauen Standort, um die Strecke aufzuzeichnen. Fragt Android nicht mehr, erlaube ihn in den Einstellungen des Handys.</string>
+    <string name="activity_route_location_off">Schalte den Standort ein, um die Strecke aufzuzeichnen.</string>
+    <string name="activity_route_unsaved">Diese Aufzeichnung lässt sich gerade nicht auf dem Handy festhalten. Beende sie, um sie zu speichern.</string>
+    <string name="activity_route_map_attribution">© OpenStreetMap-Mitwirkende</string>
+    <string name="activity_entry_show_route">Strecke von %s einblenden</string>
+    <string name="activity_entry_hide_route">Strecke von %s ausblenden</string>
+    <string name="activity_route_channel_name">Streckenaufzeichnung</string>
+    <string name="activity_route_channel_description">Erscheint, während Momentum eine Strecke per GPS aufzeichnet.</string>
+    <string name="activity_route_notification_title">Deine Strecke wird aufgezeichnet</string>
+    <string name="activity_route_notification_text">%1$s km · %2$s</string>
+    <plurals name="activity_route_minutes">
+        <item quantity="one">%d Min.</item>
+        <item quantity="other">%d Min.</item>
+    </plurals>
+    <string name="activity_settings_records_route">Strecke per GPS aufzeichnen</string>
+    <string name="activity_settings_records_route_note">Der heutige Eintrag bietet dann „Aufzeichnung starten“: Strecke, Zeit, Pace und der Weg auf einer Karte. Die Strecke bleibt bei deinen Einträgen und geht nie an den Kartenserver. Die Karte kommt von Momentums Server, der den gezeigten Ausschnitt sieht.</string>
 </resources>

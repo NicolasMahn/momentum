@@ -43,6 +43,8 @@ internal object AddedAfterBaseline {
         AddedField(StoredPayload.TrackerState, SubstancesOwner, SubstancesIconField, WhenAbsent.Fallback(SubstancesIconWhenAbsent)),
         AddedField(StoredPayload.TrackerState, SubstancesOwner, SubstancesHueField, WhenAbsent.Fallback(SubstancesHueWhenAbsent)),
         AddedField(StoredPayload.TrackerState, ActivityOwner, LogsDurationField, WhenAbsent.Fallback(LogsDurationWhenAbsent)),
+        AddedField(StoredPayload.TrackerState, ListedActivitiesOwner, RecordsRouteField, WhenAbsent.Fallback(RecordsRouteWhenAbsent)),
+        AddedField(StoredPayload.TrackerState, ActivityEntriesOwner, RouteField, WhenAbsent.NotRecorded),
         AddedField(StoredPayload.PassChoices, "", CheckpointChoicesField, WhenAbsent.NoRecords),
         AddedField(StoredPayload.PassChoices, "", WeekChoicesField, WhenAbsent.NoRecords),
     )
@@ -128,6 +130,21 @@ internal const val LogsDurationField = "logsDuration"
  * it. A duration recorded before stays with its entry or session. Never changes.
  */
 internal const val LogsDurationWhenAbsent = false
+
+/** Where the activities a person lists stand in the tracker state. */
+internal const val ListedActivitiesOwner = "activity.activities[]"
+
+/** Whether an activity is recorded with GPS. */
+internal const val RecordsRouteField = "recordsRoute"
+
+/** An activity stored without [RecordsRouteField] was never recorded with GPS, which no build before it could. Never changes. */
+internal const val RecordsRouteWhenAbsent = false
+
+/** Where Activity's entries stand in the tracker state. */
+internal const val ActivityEntriesOwner = "activityEntries[]"
+
+/** The route an entry recorded with GPS went. Where it is missing, none was recorded. */
+internal const val RouteField = "route"
 
 /** The checkpoints a token is set aside for on the choices' day, each with its checklist. No choice was made where it is missing. */
 internal const val CheckpointChoicesField = "checkpointChoices"

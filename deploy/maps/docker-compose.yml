@@ -1,0 +1,21 @@
+# The route map's tiles on the web server: one OpenStreetMap extract in Protomaps' format
+# (./data/basemap.pmtiles, written by `scripts/maps.py publish`), served as plain z/x/y tiles the
+# app caches. The website's own Caddy (deploy/website/Caddyfile) sends /maps/tiles/ here, so the
+# tiles live under momentum.nicolas-mahn.de and no one else learns where a person ran.
+services:
+  tiles:
+    image: protomaps/go-pmtiles:v1.31.2
+    container_name: momentum-maps
+    command: ["serve", "/data", "--quiet", "--port", "8080", "--public-url", "https://momentum.nicolas-mahn.de/maps/tiles/"]
+    volumes:
+      - ./data:/data:ro
+    restart: unless-stopped
+    # Not even an error may keep which tiles were asked for: they say where someone was.
+    logging:
+      driver: none
+    networks: [edge]
+
+networks:
+  edge:
+    name: av-stuttgart_default
+    external: true

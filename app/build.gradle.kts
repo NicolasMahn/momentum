@@ -49,6 +49,12 @@ android {
         versionName = "2.3.1-alpha"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Where the route map's tiles come from: Momentum's own map server, so no one else learns
+        // where a person ran. `-Pmomentum.mapTiles=…` points a build at another, such as a local
+        // `pmtiles serve` for trying a map change on a test device (scripts/maps.py serve).
+        val mapTiles = providers.gradleProperty("momentum.mapTiles").getOrElse("https://momentum.nicolas-mahn.de/maps/tiles/basemap")
+        buildConfigField("String", "MAP_TILES_URL", "\"$mapTiles\"")
     }
 
     signingConfigs {
@@ -88,6 +94,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     androidResources {
         // Lists every translated locale for Android's per-app language settings (API 33+).
@@ -210,6 +217,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.process)
+    implementation(libs.maplibre.android)
     testImplementation(libs.junit)
     testImplementation(libs.json)
     testImplementation(libs.robolectric)

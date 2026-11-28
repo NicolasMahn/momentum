@@ -2,6 +2,7 @@ package de.nicolasmahn.momentum.domain.activity
 
 import de.nicolasmahn.momentum.core.time.parseDateKey
 import de.nicolasmahn.momentum.domain.AppState
+import de.nicolasmahn.momentum.domain.activity.route.Route
 import de.nicolasmahn.momentum.domain.activity.routine.WorkoutSession
 import java.time.DayOfWeek
 import java.time.LocalDate
@@ -19,6 +20,8 @@ data class ActivityEntry(
     val timestampMillis: Long,
     val durationMinutes: Int? = null,
     val notes: String? = null,
+    /** Where the person went, for an entry that was recorded with GPS; null for every other. */
+    val route: Route? = null,
 )
 
 /** A session of a routine is an activity too, so either kind of record makes the day logged. */
@@ -65,6 +68,7 @@ fun requireStorableActivity(activity: ActivityConfiguration?, entries: List<Acti
     entries.forEach { entry ->
         require(entry.id.isNotBlank() && entry.activityId.isNotBlank() && entry.name.isNotBlank() && entry.dateKey.isNotBlank()) { "An entry names its ID, its activity, its name and its day." }
         require(entry.durationMinutes == null || entry.durationMinutes >= 1) { "An entry's minutes are above zero." }
+        require(entry.route == null || !entry.route.isEmpty) { "A recorded route went somewhere." }
     }
     sessions.forEach { session ->
         require(session.id.isNotBlank() && session.activityId.isNotBlank() && session.day.isNotBlank() && session.dateKey.isNotBlank()) { "A session names its ID, its activity, its day and its date." }

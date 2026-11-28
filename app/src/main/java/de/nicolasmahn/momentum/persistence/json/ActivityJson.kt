@@ -66,6 +66,7 @@ private fun ListedActivity.encode(): JSONObject = JSONObject()
     .put("icon", icon.storageId)
     .putOptional(RemovedField, removed.takeIf { it })
     .putOptional(RoutineField, routine?.encode())
+    .put(RecordsRouteField, recordsRoute)
 
 private fun Routine.encode(): JSONObject = JSONObject()
     .put("days", JSONArray().apply { days.forEach { put(it.encode()) } })
@@ -114,13 +115,14 @@ internal fun JSONObject.decodeActivityConfiguration(): ActivityConfiguration {
 }
 
 private fun JSONObject.decodeListedActivity(): ListedActivity {
-    requireFields(required = setOf("id", "label", "icon"), optional = setOf(RemovedField, RoutineField))
+    requireFields(required = setOf("id", "label", "icon"), optional = setOf(RemovedField, RoutineField, RecordsRouteField))
     return ListedActivity(
         id = text("id"),
         label = text("label"),
         icon = decodeIcon(),
         removed = removed(),
         routine = if (has(RoutineField)) (get(RoutineField) as? JSONObject ?: error("A routine must be an object")).decodeRoutine() else null,
+        recordsRoute = setting(RecordsRouteField, RecordsRouteWhenAbsent) { it as? Boolean ?: error("$RecordsRouteField must be a Boolean") },
     )
 }
 
@@ -169,6 +171,7 @@ internal fun ActivityEntry.encode(): JSONObject = JSONObject()
     .put("timestampMillis", timestampMillis)
     .putOptional("durationMinutes", durationMinutes)
     .putOptional("notes", notes)
+    .putOptional(RouteField, route?.encode())
 
 /**
  * The `activityEntries` list from version 30, every entry taken exactly as written: nothing is
@@ -180,7 +183,7 @@ internal fun JSONObject.decodeActivityEntries(): List<ActivityEntry> =
     array("activityEntries").objects().map { it.decodeActivityEntry() }
 
 internal fun JSONObject.decodeActivityEntry(): ActivityEntry {
-    requireFields(required = setOf("id", "activity", "name", "dateKey", "timestampMillis"), optional = setOf("durationMinutes", "notes"))
+    requireFields(required = setOf("id", "activity", "name", "dateKey", "timestampMillis"), optional = setOf("durationMinutes", "notes", RouteField))
     return ActivityEntry(
         id = text("id"),
         activityId = text("activity"),
@@ -189,5 +192,6 @@ internal fun JSONObject.decodeActivityEntry(): ActivityEntry {
         timestampMillis = recordTimestamp(),
         durationMinutes = if (has("durationMinutes")) wholeNumber(get("durationMinutes")) else null,
         notes = if (has("notes")) text("notes") else null,
+        route = optionalFact(RouteField) { (it as? JSONObject ?: error("A route must be an object")).decodeRoute() },
     )
 }

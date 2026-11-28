@@ -304,6 +304,8 @@ data class ListedActivity(
     val removed: Boolean = false,
     /** Null for an activity that never had a routine; one whose routine was removed keeps it with every day marked removed. */
     val routine: Routine? = null,
+    /** Whether the activity is recorded with GPS: today's log of it starts a recording of the route, as running or cycling does. */
+    val recordsRoute: Boolean = false,
 ) {
     init {
         requireId(id)
@@ -312,6 +314,9 @@ data class ListedActivity(
 
     /** Whether the activity offers a routine on the screen: it has one with a day still retained. */
     val hasRoutine: Boolean get() = routine?.isOffered == true
+
+    /** Whether the activity offers a recording: a routine, where it has one, is what its log is. */
+    val offersRecording: Boolean get() = recordsRoute && !hasRoutine
 
     fun day(dayId: String): RoutineDay? = routine?.day(dayId)
 

@@ -68,6 +68,8 @@ import de.nicolasmahn.momentum.domain.activity.ActivityConfiguration
 import de.nicolasmahn.momentum.domain.activity.ListedActivity
 import de.nicolasmahn.momentum.domain.activity.activityNameKey
 import de.nicolasmahn.momentum.feature.logactivity.gym.formatExerciseSets
+import de.nicolasmahn.momentum.feature.logactivity.route.RouteMap
+import de.nicolasmahn.momentum.feature.logactivity.route.RouteNumbers
 
 internal enum class ActivityFormField {
     Name,
@@ -269,7 +271,7 @@ internal fun ActivityTimeline(
     dayLabel: String,
     expandedItemId: String?,
     onExpandedItemChange: (String?) -> Unit,
-    onEdit: (ActivityTimelineItem) -> Unit,
+    onEdit: ((ActivityTimelineItem) -> Unit)?,
     onRemove: (ActivityTimelineItem) -> Boolean,
 ) {
     if (items.isEmpty()) return
@@ -295,7 +297,7 @@ internal fun ActivityTimeline(
                 onExpandedChange = { expanded ->
                     onExpandedItemChange(if (expanded) item.id else null)
                 },
-                onEdit = { onEdit(item) },
+                onEdit = onEdit?.let { { it(item) } },
                 onRemove = { onRemove(item) },
             )
         }
@@ -313,11 +315,12 @@ private fun ActivityTimelineRow(
     configuration: ActivityConfiguration,
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
-    onEdit: () -> Unit,
+    onEdit: (() -> Unit)?,
     onRemove: () -> Boolean,
 ) {
     var removeError by remember(item.id) { mutableStateOf<Int?>(null) }
     val workout = item.source as? ActivityTimelineSource.Workout
+    val route = (item.source as? ActivityTimelineSource.Logged)?.entry?.route
     val title = item.title.resolve()
     val motionEnabled = platformAnimationsEnabled()
 
@@ -327,14 +330,18 @@ private fun ActivityTimelineRow(
             .testTag("activity_timeline_item_${item.id}"),
     ) {
         TimelineRowHeader(item = item, configuration = configuration) {
-            if (workout != null) {
+            if (workout != null || route != null) {
                 QuietIconButton(
                     icon = if (expanded) Icons.Rounded.ExpandLess else Icons.Rounded.ExpandMore,
-                    description = if (expanded) {
-                        stringResource(R.string.activity_entry_hide_sets, title)
-                    } else {
-                        stringResource(R.string.activity_entry_show_sets, title)
-                    },
+                    description = stringResource(
+                        when {
+                            route != null && expanded -> R.string.activity_entry_hide_route
+                            route != null -> R.string.activity_entry_show_route
+                            expanded -> R.string.activity_entry_hide_sets
+                            else -> R.string.activity_entry_show_sets
+                        },
+                        title,
+                    ),
                     onClick = {
                         removeError = null
                         onExpandedChange(!expanded)
@@ -345,12 +352,16 @@ private fun ActivityTimelineRow(
                 // The empty slot is kept, so the two buttons every row has share one column.
                 Spacer(modifier = Modifier.width(MomentumButtonDefaults.QuietMinHeight))
             }
-            QuietIconButton(
-                icon = Icons.Rounded.Edit,
-                description = stringResource(R.string.activity_entry_edit, title),
-                onClick = onEdit,
-                testTag = "activity_entry_edit_${item.id}",
-            )
+            if (onEdit != null) {
+                QuietIconButton(
+                    icon = Icons.Rounded.Edit,
+                    description = stringResource(R.string.activity_entry_edit, title),
+                    onClick = onEdit,
+                    testTag = "activity_entry_edit_${item.id}",
+                )
+            } else {
+                Spacer(modifier = Modifier.width(MomentumButtonDefaults.QuietMinHeight))
+            }
             MomentumRemoveButton(
                 description = stringResource(R.string.activity_entry_remove, title),
                 onRemove = {
@@ -365,7 +376,7 @@ private fun ActivityTimelineRow(
             text = removeError?.let { stringResource(it) },
             testTag = "activity_entry_message_${item.id}",
         )
-        if (workout != null) {
+        if (workout != null || route != null) {
             AnimatedVisibility(
                 visible = expanded,
                 enter = if (motionEnabled) expandVertically() + fadeIn() else EnterTransition.None,
@@ -379,7 +390,11 @@ private fun ActivityTimelineRow(
                         .padding(start = RowTextInset, bottom = 4.dp)
                         .testTag("activity_timeline_detail_${item.id}"),
                 ) {
-                    WorkoutSetReview(workout)
+                    if (workout != null) WorkoutSetReview(workout)
+                    if (route != null) {
+                        RouteNumbers(route = route, movingSeconds = route.movingSeconds, large = false)
+                        RouteMap(route = route, modifier = Modifier.padding(top = 8.dp), testTag = "activity_route_map_${item.id}")
+                    }
                 }
             }
         }

@@ -8,6 +8,8 @@ import de.nicolasmahn.momentum.domain.AppState
 import de.nicolasmahn.momentum.domain.TrackerRef
 import de.nicolasmahn.momentum.domain.TrackerTypeId
 import de.nicolasmahn.momentum.domain.activity.*
+import de.nicolasmahn.momentum.domain.activity.route.Route
+import de.nicolasmahn.momentum.domain.activity.route.RoutePoint
 import de.nicolasmahn.momentum.domain.activity.routine.*
 import de.nicolasmahn.momentum.domain.checklist.*
 import de.nicolasmahn.momentum.domain.holiday.*
@@ -43,13 +45,20 @@ internal object CurrentBackupFixture {
             activities = listOf(ListedActivity("act_climb", "Climbing", ViewIcon.Bolt, removed = true,
                 routine = Routine(listOf(RoutineDay("route_a", "Technique", listOf(
                     RoutineExercise("pull", "Pull ups", 2, 4..10, null, 6),
-                )))))),
+                ))))),
+                ListedActivity("act_run", "Running", ViewIcon.Running, recordsRoute = true)),
             mo = TrackerMoPolicy(true, MoMotif.Running),
             logsDuration = true,
         ),
         sessions = listOf(WorkoutSession("session", "act_climb", "route_a", "2026-10-14", 102,
             listOf(ExerciseLog("pull", "Original exercise name", listOf(LoggedSet(-15.0, 8.0), LoggedSet(null, 6.0)))), 75)),
-        activityEntries = listOf(ActivityEntry("activity", "act_climb", "Original activity name", "2026-10-14", 103, 30, "private note 🧗")),
+        activityEntries = listOf(
+            ActivityEntry("run", "act_run", "Running", "2026-10-14", 104, 1, route = Route(listOf(
+                listOf(RoutePoint.of(48.77586, 9.18293, 0), RoutePoint.of(48.77612, 9.18355, 9)),
+                listOf(RoutePoint.of(48.77650, 9.18421, 70), RoutePoint.of(-0.00001, -179.99999, 81)),
+            ))),
+            ActivityEntry("activity", "act_climb", "Original activity name", "2026-10-14", 103, 30, "private note 🧗"),
+        ),
         checklists = listOf(ChecklistConfiguration(
             id = "chk_custom", label = "Evening", icon = ViewIcon.Sleep, hue = ViewHue.Plum,
             checkpoints = listOf(checkpoint), rewards = bank,

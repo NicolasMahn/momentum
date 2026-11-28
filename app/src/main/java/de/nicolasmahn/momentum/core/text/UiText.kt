@@ -8,6 +8,7 @@ import androidx.compose.ui.platform.LocalResources
 import de.nicolasmahn.momentum.R
 import de.nicolasmahn.momentum.core.format.DateStyle
 import de.nicolasmahn.momentum.core.format.formatDate
+import de.nicolasmahn.momentum.core.format.formatFixedDecimals
 import de.nicolasmahn.momentum.core.format.formatMetricNumber
 import de.nicolasmahn.momentum.core.format.formatSignedMetric
 import de.nicolasmahn.momentum.core.locale.locale
@@ -39,8 +40,8 @@ sealed interface UiText {
 
     data class Date(val date: LocalDate, val style: DateStyle) : UiText
 
-    /** A measurement such as kilograms, in the locale's decimal style. */
-    data class Number(val value: Double, val signed: Boolean = false) : UiText
+    /** A measurement such as kilograms, in the locale's decimal style; [decimals] fixes how many it shows, as a distance's two do. */
+    data class Number(val value: Double, val signed: Boolean = false, val decimals: Int? = null) : UiText
 }
 
 fun uiText(@StringRes id: Int, vararg args: Any): UiText = UiText.Resource(id, args.toList())
@@ -78,8 +79,11 @@ fun UiText.resolve(resources: Resources): String = when (this) {
     is UiText.Plural -> resources.getQuantityString(id, count, *args.resolved(resources))
     is UiText.Joined -> parts.joinToString(separator) { it.resolve(resources) }
     is UiText.Date -> formatDate(date, style, resources.locale)
-    is UiText.Number ->
-        if (signed) formatSignedMetric(value, resources.locale) else formatMetricNumber(value, resources.locale)
+    is UiText.Number -> when {
+        decimals != null -> formatFixedDecimals(value, decimals, resources.locale)
+        signed -> formatSignedMetric(value, resources.locale)
+        else -> formatMetricNumber(value, resources.locale)
+    }
 }
 
 /** Resolves in the screen's language and follows it when the language changes. */

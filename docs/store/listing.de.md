@@ -32,10 +32,10 @@ Variante A, 74 von 80 Zeichen. Sie sagt, wofür die App da ist und wer Mo ist:
 Erfasse, was dir wichtig ist. Mo, eine kleine Flamme, hilft dranzubleiben.
 ```
 
-Variante B, 72 von 80 Zeichen. Sie stellt den Datenschutz nach vorn:
+Variante B, 64 von 80 Zeichen. Sie stellt den Datenschutz nach vorn:
 
 ```text
-Ein Habit-Tracker ohne Konto und ohne Internetzugriff. Mo ist mit dabei.
+Ein Habit-Tracker ohne Konto und ohne Werbung. Mo ist mit dabei.
 ```
 
 Ich empfehle A, aus demselben Grund wie im Englischen.
@@ -81,7 +81,7 @@ Was Momentum noch kann
 Deine Daten
 
 - Kein Konto, keine Werbung, keine Analyse-Werkzeuge, keine In-App-Käufe.
-- Die App hat keine Internet-Berechtigung. Sie kann deine Einträge an niemanden senden, auch nicht an ihren Entwickler.
+- Online geht die App nur für die Karte unter einer per GPS aufgezeichneten Strecke, vom eigenen Server des Entwicklers. Deine Einträge sendet sie an niemanden, auch nicht an ihren Entwickler.
 - Deine Einträge liegen auf deinem Handy. Auf Wunsch schreibt Momentum lesbare Sicherungen in einen Ordner deiner Wahl und stellt sie von dort wieder her.
 - Ist die Sicherung von Android eingeschaltet, nimmt Android die Daten von Momentum in die Sicherung in deinem Google-Konto auf, wie bei anderen Apps auch.
 

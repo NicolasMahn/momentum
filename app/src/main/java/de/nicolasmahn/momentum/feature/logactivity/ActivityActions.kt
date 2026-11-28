@@ -12,6 +12,8 @@ import de.nicolasmahn.momentum.domain.activity.OtherActivityIcon
 import de.nicolasmahn.momentum.domain.activity.activityNameKey
 import de.nicolasmahn.momentum.domain.activity.activityRules
 import de.nicolasmahn.momentum.domain.activity.freshActivityId
+import de.nicolasmahn.momentum.domain.activity.route.Route
+import de.nicolasmahn.momentum.domain.activity.route.RouteRecording
 import java.util.UUID
 
 sealed interface RecordActivityResult {
@@ -81,6 +83,31 @@ fun recordActivityOf(
     return state.recording(state.activityRules, activity, dateKey, durationMinutes, notes, newEntryId, timestampMillis)
 }
 
+/**
+ * A finished [recording] as an entry of its activity on [dateKey], the habit day it started on,
+ * at the moment it started: with its route and its moving time as the entry's minutes. A
+ * recording that never kept a point, because the phone found no GPS, is still the activity done,
+ * and is saved as a plain entry without a route or minutes. An activity removed while it was
+ * recorded keeps the run, as it keeps every entry it had, without coming back to the list.
+ *
+ * The entry's ID is the recording's own ([routeEntryId]), so finishing the same recording twice,
+ * as after the app was stopped between saving it and letting it go, replaces the first save.
+ */
+fun recordRoute(
+    state: AppState,
+    recording: RouteRecording,
+    dateKey: String,
+): RecordActivityResult {
+    val activity = state.activityRules.activity(recording.activityId) ?: return RecordActivityResult.Invalid(ActivityProblem.NotFound)
+    val route = recording.route.takeUnless { it.isEmpty }
+    val minutes = route?.let { ((it.movingSeconds + 30) / 60).toInt() }?.takeIf { it >= 1 }
+    problemWith(dateKey, minutes)?.let { return RecordActivityResult.Invalid(it) }
+    return state.recording(state.activityRules, activity, dateKey, minutes, notes = null, recording.routeEntryId, recording.startedAtMillis, route)
+}
+
+/** The ID a recording's entry is saved under: one per recording, as each starts at its own moment. */
+val RouteRecording.routeEntryId: String get() = "route-$activityId-$startedAtMillis"
+
 /** What makes a day or a duration unfit for any entry, or null when both can be stored. */
 private fun problemWith(dateKey: String, durationMinutes: Int?): ActivityProblem? = when {
     !isValidDateKey(dateKey) -> ActivityProblem.InvalidDate
@@ -115,6 +142,7 @@ private fun AppState.recording(
     notes: String?,
     newEntryId: String,
     timestampMillis: Long,
+    route: Route? = null,
 ): RecordActivityResult {
     val entry = ActivityEntry(
         id = newEntryId.trim(),
@@ -124,6 +152,7 @@ private fun AppState.recording(
         timestampMillis = timestampMillis,
         durationMinutes = durationMinutes,
         notes = notes?.trim()?.takeIf { it.isNotEmpty() },
+        route = route,
     )
     return RecordActivityResult.Success(replacing(entry, configuration), entry)
 }

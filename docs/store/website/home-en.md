@@ -10,7 +10,7 @@ Mo is a small flame who lives in the app and in a widget for your home screen. H
 
 ## Yours alone
 
-Momentum has no account, no ads and no permission to use the internet. I, the developer, never receive what you record. The privacy policy says exactly when a copy leaves the app.
+Momentum has no account and no ads. I, the developer, never receive what you record. The app goes online for one thing: the map under a route you recorded, which comes from my own server. The privacy policy says exactly when a copy leaves the app.
 
 ## Where to get it
 

@@ -2,6 +2,7 @@ package de.nicolasmahn.momentum.feature.settings
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import de.nicolasmahn.momentum.core.ui.MomentumTextField
@@ -56,6 +57,7 @@ import de.nicolasmahn.momentum.domain.activity.routine.RoutineDay
 import de.nicolasmahn.momentum.domain.activity.routine.RoutineDays
 import de.nicolasmahn.momentum.domain.activity.routine.RoutineExercise
 import de.nicolasmahn.momentum.domain.activity.routine.SetsAnExercise
+import de.nicolasmahn.momentum.feature.logactivity.route.RouteRecordingService
 import de.nicolasmahn.momentum.feature.settings.ActivitySettingsDraft.Companion.activityKey
 import de.nicolasmahn.momentum.feature.settings.ActivitySettingsDraft.Companion.dayKey
 import de.nicolasmahn.momentum.feature.settings.ActivitySettingsDraft.Companion.exerciseKey
@@ -307,11 +309,12 @@ private fun routineSummary(days: Int): String =
 
 /**
  * One activity's page: its name, refused in the field where another activity has it; its icon
- * behind a disclosure whose summary names the icon it wears; its routine ([RoutineRows]); and
- * last the two-step remove of the activity, which goes back to the list ([onRemoved]). A removal
- * belongs with the thing it removes, so it is here and not on the list's row. Tags follow from
- * the activity's, `<testTag>_activity_<id>`: its field `…_name`, the disclosure `…_icon`, an
- * icon `…_icon_<icon>` and the remove `…_remove`.
+ * behind a disclosure whose summary names the icon it wears; whether it is recorded with GPS,
+ * while it has no routine; its routine ([RoutineRows]); and last the two-step remove of the
+ * activity, which goes back to the list ([onRemoved]). A removal belongs with the thing it
+ * removes, so it is here and not on the list's row. Tags follow from the activity's,
+ * `<testTag>_activity_<id>`: its field `…_name`, the disclosure `…_icon`, an icon
+ * `…_icon_<icon>`, the GPS switch `…_records_route` and the remove `…_remove`.
  */
 @Composable
 private fun ActivityPage(
@@ -350,6 +353,17 @@ private fun ActivityPage(
                     IconGrid(selected = activity.icon, testTag = tag, icons = ActivityIcons) { draft.setActivityIcon(activity.id, it) }
                 }
             }
+        }
+        // A routine is what its log is, so an activity with one is not recorded with GPS; nor is
+        // anything on a phone without GPS.
+        if (!activity.hasRoutine && RouteRecordingService.phoneHasGps(LocalContext.current)) Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            EditorSwitch(
+                label = stringResource(R.string.activity_settings_records_route),
+                checked = activity.recordsRoute,
+                testTag = "${tag}_records_route",
+                onCheckedChange = { draft.recordRoute(activity.id, it) },
+            )
+            EditorNote(stringResource(R.string.activity_settings_records_route_note), testTag = "${tag}_records_route_note")
         }
         RoutineRows(view = view, activity = activity, draft = draft, named = named, rowTag = tag, testTag = testTag, onOpenDay = onOpenDay)
         RemoveRow(

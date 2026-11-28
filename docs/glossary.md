@@ -83,6 +83,10 @@ Mo's game has its own objects. They keep one name in every language, like a bran
 | weeks at goal (a time view's statistics) | Wochen am Ziel | What a timer's number in Statistics counts: the finished weeks whose recorded minutes reached what the week asked, "Lesen · Wochen am Ziel". Until its first week has finished it shows this week's progress, "Lesen · diese Woche". Never a share of days, which reads two long sittings a week as failing. |
 | recorded days (before a time view is deleted) | erfasste Tage | Days that hold minutes of the view, as a measurement's days: "Die Einstellungen und 2 erfasste Tage werden gelöscht." |
 | weigh-in | Wiegen, "du hast dich gewogen" | Mo's word for a day's weight record, whatever Weight is renamed to. |
+| route (an activity recorded with GPS) | Strecke | Where a person went, recorded with GPS as an entry of an activity whose settings say "Record the route with GPS", "Strecke per GPS aufzeichnen". "Strecke" is also the distance on screen ("Strecke, Zeit, Pace"); the line on the map is "der Weg". |
+| recording (of a route) | Aufzeichnung | Started with "Start recording", "Aufzeichnung starten"; "Pause", "Pausieren"; "Resume", "Weiter"; "Finish", "Beenden"; "Discard the recording", "Aufzeichnung verwerfen". Never "Tracking". |
+| pace | Pace | Minutes a kilometre took, "5:32 /km", as German runners say it. Never "Tempo", which is ambiguous with speed. Speed is "km/h" in both languages. |
+| moving time | Bewegungszeit | The time a route was moving, which the screen shows as a plain clock and the entry keeps as its minutes. A wait at a crossing is not in it. |
 | Home | Startseite | |
 | phone | Handy | |
 | workout | Training | |

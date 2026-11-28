@@ -1,6 +1,5 @@
+Aktivität: Mit „Strecke per GPS aufzeichnen“ zeichnet der heutige Eintrag beim Laufen oder Radfahren Strecke, Zeit, Pace und den Weg auf einer Karte auf.
 Checklisten können wöchentlich sein (unter „Punkte“).
 Mo ist vielfach neu gezeichnet und im Widget ganz zu sehen. Fehlt es, füge es neu hinzu.
-Sicherungen sammeln sich nicht mehr an.
-Nach Ruhe an einem geplanten Tag wird ein freier Tag zum Trainingstag, braucht die Woche ihn. Ruhen geht trotzdem.
 Reading: vor Sonntag keine Erinnerung an Lesetagen; „Zz“ lässt Mo heute schweigen, auch auf Home. Sonntags Haken erst beim Wochenziel, sonst deckt ein Token sie.
 Kalender zeigen keine Ruhetage mehr.

@@ -1,10 +1,14 @@
 {
   "licenses": {
     "apache-2.0": "Apache License 2.0",
+    "bsd-2-clause-maplibre": "BSD 2-Clause License",
+    "bsd-2-clause-maplibre-gestures": "BSD 2-Clause License",
+    "bsd-3-clause-protomaps": "BSD 3-Clause License",
     "bsd-3-clause-r8": "BSD 3-Clause License",
     "bsd-3-clause-threetenbp": "BSD 3-Clause License",
     "bsl-1.0": "Boost Software License 1.0",
     "gpl-2.0-classpath-exception": "GNU General Public License, version 2, with the Classpath Exception",
+    "ofl-1.1-noto-sans": "SIL Open Font License 1.1",
     "ofl-1.1-nunito": "SIL Open Font License 1.1"
   },
   "components": [
@@ -19,6 +23,12 @@
       "license": "bsl-1.0",
       "source": "https://github.com/JetBrains/kotlin/blob/v2.2.10/libraries/stdlib/jvm/src/kotlin/util/MathJVM.kt",
       "notice": "Inverse hyperbolic function implementations derived from boost special math functions, Copyright Eric Ford & Hubert Holin 2001."
+    },
+    {
+      "name": "Gson",
+      "license": "apache-2.0",
+      "source": "https://github.com/google/gson",
+      "maven": ["com.google.code.gson"]
     },
     {
       "name": "Guava ListenableFuture",
@@ -60,6 +70,18 @@
       "maven": ["org.jetbrains.kotlinx:kotlinx-serialization"]
     },
     {
+      "name": "MapLibre Android Gestures",
+      "license": "bsd-2-clause-maplibre-gestures",
+      "source": "https://github.com/maplibre/maplibre-gestures-android",
+      "maven": ["org.maplibre.gl:maplibre-android-gestures"]
+    },
+    {
+      "name": "MapLibre Native for Android",
+      "license": "bsd-2-clause-maplibre",
+      "source": "https://github.com/maplibre/maplibre-native",
+      "maven": ["org.maplibre.gl:android-sdk-opengl", "org.maplibre.gl:android-sdk-geojson", "org.maplibre.gl:android-sdk-turf"]
+    },
+    {
       "name": "Material Design Icons by Pictogrammers",
       "license": "apache-2.0",
       "source": "https://pictogrammers.com/library/mdi/icon/toothbrush/",
@@ -71,15 +93,31 @@
       "source": "https://github.com/google/material-design-icons"
     },
     {
+      "name": "Noto Sans",
+      "license": "ofl-1.1-noto-sans",
+      "source": "https://github.com/notofonts/latin-greek-cyrillic"
+    },
+    {
       "name": "Nunito",
       "license": "ofl-1.1-nunito",
       "source": "https://github.com/googlefonts/nunito"
+    },
+    {
+      "name": "OkHttp and Okio",
+      "license": "apache-2.0",
+      "source": "https://github.com/square/okhttp",
+      "maven": ["com.squareup.okhttp3", "com.squareup.okio"]
     },
     {
       "name": "OpenJDK libraries for Android (desugar_jdk_libs)",
       "license": "gpl-2.0-classpath-exception",
       "source": "https://github.com/google/desugar_jdk_libs",
       "maven": ["com.android.tools:desugar_jdk_libs"]
+    },
+    {
+      "name": "Protomaps basemap style",
+      "license": "bsd-3-clause-protomaps",
+      "source": "https://github.com/protomaps/basemaps"
     },
     {
       "name": "R8 desugared library support",
@@ -91,6 +129,12 @@
       "name": "ThreeTen backport in the Kotlin standard library",
       "license": "bsd-3-clause-threetenbp",
       "source": "https://github.com/JetBrains/kotlin/tree/v2.2.10/libraries/stdlib/src/kotlin/time"
+    },
+    {
+      "name": "Timber",
+      "license": "apache-2.0",
+      "source": "https://github.com/JakeWharton/timber",
+      "maven": ["com.jakewharton.timber"]
     }
   ]
 }

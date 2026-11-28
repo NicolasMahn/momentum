@@ -88,6 +88,8 @@ class StoredGrowthTest {
             AddedField(StoredPayload.TrackerState, "substances", "icon", WhenAbsent.Fallback("science")),
             AddedField(StoredPayload.TrackerState, "substances", "hue", WhenAbsent.Fallback("pink")),
             AddedField(StoredPayload.TrackerState, "activity", "logsDuration", WhenAbsent.Fallback(false)),
+            AddedField(StoredPayload.TrackerState, "activity.activities[]", "recordsRoute", WhenAbsent.Fallback(false)),
+            AddedField(StoredPayload.TrackerState, "activityEntries[]", "route", WhenAbsent.NotRecorded),
             AddedField(StoredPayload.PassChoices, "", "checkpointChoices", WhenAbsent.NoRecords),
             AddedField(StoredPayload.PassChoices, "", "weekChoices", WhenAbsent.NoRecords),
         )
