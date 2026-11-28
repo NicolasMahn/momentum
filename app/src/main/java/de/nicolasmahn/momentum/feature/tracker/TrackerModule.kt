@@ -153,6 +153,8 @@ internal sealed interface TrackerHomeStatus {
     data object Kept : TrackerHomeStatus
     /** A free day covers today and nothing is asked of the task, as Activity on a rest day its week names. */
     data object Rest : TrackerHomeStatus
+    /** A week's amount Mo was asked not to ask for today: settled for the day, though the week is still short. */
+    data object Quiet : TrackerHomeStatus
     /** A token is set aside for today, so the task is settled without a record. */
     data object Covered : TrackerHomeStatus
     data class Open(val done: Int, val parts: Int, val optional: Boolean = false) : TrackerHomeStatus

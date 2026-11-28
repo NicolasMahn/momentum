@@ -16,7 +16,7 @@ internal enum class HomeRowGroup {
     /** Nothing asked of it today. */
     NothingAsked,
 
-    /** Kept today, resting, or covered by a token. */
+    /** Kept today, resting, covered by a token, or not asked today by choice. */
     Kept,
 }
 
@@ -33,7 +33,7 @@ internal const val HomeDueSoonMinutes = 60
  * its reminder comes then, so Home must not say nothing is asked. Saying it rests is what settles it.
  */
 internal fun homeRowRank(status: TrackerHomeStatus, dueMinutes: List<Int>, nowMinute: Int): Pair<HomeRowGroup, Int> = when (status) {
-    TrackerHomeStatus.Done, TrackerHomeStatus.Kept, TrackerHomeStatus.Rest, TrackerHomeStatus.Covered -> HomeRowGroup.Kept to 0
+    TrackerHomeStatus.Done, TrackerHomeStatus.Kept, TrackerHomeStatus.Rest, TrackerHomeStatus.Covered, TrackerHomeStatus.Quiet -> HomeRowGroup.Kept to 0
     TrackerHomeStatus.None -> HomeRowGroup.NothingAsked to 0
     is TrackerHomeStatus.Open -> {
         val soon = dueMinutes.filter { it <= nowMinute + HomeDueSoonMinutes }

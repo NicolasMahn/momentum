@@ -245,7 +245,7 @@ class SaidAheadTest {
         // It holds no token, covers nothing, and the calendar shows nothing for it.
         assertTrue(quiet.chosenTrackersToday.isEmpty())
         assertEquals(open.tokensLeft(reading), quiet.tokensLeft(reading))
-        assertEquals(TrackerHomeStatus.Open(0, 1), home(short, thursday, tasks(reading))[reading])
+        assertEquals(TrackerHomeStatus.Quiet, home(short, thursday, tasks(reading))[reading])
         assertEquals(emptyMap<TrackerRef, DayCover>(), quiet.saidTodayCovers())
         assertTrue(quiet.canQuiet(reading))
         assertOnlyTheAskingChanged(open, quiet)

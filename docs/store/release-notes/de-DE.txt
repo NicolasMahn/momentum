@@ -1,5 +1,5 @@
-Aktivität: Schalte „Strecke per GPS aufzeichnen“ für Laufen oder Radfahren ein, dann zeichnet der heutige Eintrag Strecke, Zeit, Pace und deinen Weg auf einer Karte auf.
+Aktivität: Mit „Strecke per GPS aufzeichnen“ zeichnet der heutige Eintrag beim Laufen oder Radfahren Strecke, Zeit, Pace und den Weg auf einer Karte auf.
 Checklisten können wöchentlich sein (unter „Punkte“).
-Mo ist in vielen Szenen neu gezeichnet und im Widget ganz zu sehen. Fehlt es nach dem Update, füge es neu hinzu.
-Reading: vor Sonntag lässt „Zz“ Mo heute schweigen. Sonntags Haken erst beim Wochenziel, sonst deckt ein Token die Woche.
+Mo ist vielfach neu gezeichnet und im Widget ganz zu sehen. Fehlt es, füge es neu hinzu.
+Reading: vor Sonntag keine Erinnerung an Lesetagen; „Zz“ lässt Mo heute schweigen, auch auf Home. Sonntags Haken erst beim Wochenziel, sonst deckt ein Token sie.
 Kalender zeigen keine Ruhetage mehr.
