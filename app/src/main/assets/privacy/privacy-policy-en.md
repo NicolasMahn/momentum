@@ -1,6 +1,6 @@
 # Privacy policy for Momentum
 
-Version of 2026-11-22.
+Version of 2026-11-28.
 
 Momentum is an Android app made by Nicolas Mahn, a private developer in Germany.
 Contact for privacy questions: momentum@nicolas-mahn.de

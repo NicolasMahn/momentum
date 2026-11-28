@@ -1,6 +1,6 @@
 # Datenschutzerklärung für Momentum
 
-Stand: 2026-11-22.
+Stand: 2026-11-28.
 
 Momentum ist eine Android-App von Nicolas Mahn, einem privaten Entwickler in Deutschland.
 Kontakt für Fragen zum Datenschutz: momentum@nicolas-mahn.de
